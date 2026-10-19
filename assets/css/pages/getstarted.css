@@ -1,0 +1,9 @@
+.getstarted-card { width: min(100%, 27rem); }
+
+.getstarted-card .login-card__heading { margin-bottom: 1.15rem; }
+.getstarted-card .login-form { gap: 0.75rem; }
+.getstarted-card .login-signup { margin-top: 0.85rem; }
+
+@media (max-width: 480px) {
+  .getstarted-card { padding-top: 1.8rem; }
+}

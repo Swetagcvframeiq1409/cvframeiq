@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="data:," /><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PPE Safety ROI Calculator | FrameIQ</title><meta name="description" content="Explore an illustrative PPE video-review time and value estimate using your own assumptions." /><link rel="canonical" href="https://example.invalid/pages/roi-ppe-safety.html" />
+    <link rel="stylesheet" href="../assets/css/tokens.css" /><link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" /><link rel="stylesheet" href="../assets/css/base.css" /><link rel="stylesheet" href="../assets/css/components.css" /><link rel="stylesheet" href="../assets/css/search.css" /><link rel="stylesheet" href="../assets/css/pages/content.css" /><link rel="stylesheet" href="../assets/css/pages/site-pages.css" />
+    <script src="../assets/data/site-data.js" defer></script>
+    <script src="../assets/data/live-carryover.js" defer></script>
+    <script src="../assets/js/live-carryover-render.js" defer></script><script src="../assets/data/images.js" defer></script><script src="../assets/data/search-index.js" defer></script><script src="../assets/js/photos.js" defer></script><script src="../assets/js/icons.js" defer></script><script src="../assets/js/components.js" defer></script><script src="../assets/js/search.js" defer></script><script src="../assets/js/main.js" defer></script><script src="../assets/js/roi-calculators.js" defer></script><script src="../assets/js/seo.js" defer></script>
+  </head>
+  <body data-root="../"><script>try{const saved=localStorage.getItem('frameiq-theme');document.body.dataset.theme=saved==='light'||saved==='dark'?saved:(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark')}catch(error){document.body.dataset.theme=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}</script>
+    <a class="skip-link" href="#main-content">Skip to content</a><div id="site-header"></div>
+    <main id="main-content" class="content-page">
+      <nav id="breadcrumb" class="breadcrumb" aria-label="Breadcrumb" data-breadcrumb='[{"label":"Home","href":"index.html"},{"label":"Demos","href":"pages/playground.html"},{"label":"PPE Safety calculator"}]'></nav>
+      <header class="content-page__heading"><p class="eyebrow">Illustrative calculator</p><h1>PPE review estimate</h1><p>Enter your own assumptions to explore video-review time and an illustrative value of that time. This is not a product result, quote, forecast, or promised saving.</p></header>
+      <section class="calculator-card" data-roi-calculator="ppe" aria-labelledby="ppe-calculator-title">
+        <h2 id="ppe-calculator-title">Your assumptions</h2>
+        <div class="calculator-fields">
+          <label>Camera views<input name="cameras" type="number" min="0" step="1" inputmode="numeric"></label>
+          <label>Recorded hours per camera per day<input name="hours" type="number" min="0" step="0.1" inputmode="decimal"></label>
+          <label>Operating days per month<input name="days" type="number" min="0" step="1" inputmode="numeric"></label>
+          <label>Manual review minutes per recorded camera-hour<input name="minutes" type="number" min="0" step="0.1" inputmode="decimal"></label>
+          <label>Labour cost per hour (INR)<input name="hourlyCost" type="number" min="0" step="1" inputmode="decimal"></label>
+          <label>Share of review time explored (%)<input name="coverage" type="number" min="0" max="100" step="1" inputmode="numeric"></label>
+        </div>
+        <p class="calculator-formula"><strong>Formula:</strong> camera views × recorded hours/day × operating days/month × manual review minutes/camera-hour ÷ 60 × explored share = illustrative hours/month. Illustrative hours × your hourly-cost input = illustrative value of time. No automated review coverage or savings is assumed.</p>
+        <p class="calculator-disclaimer">Illustrative estimate based on your inputs</p>
+        <div class="calculator-results" aria-live="polite"><p>Enter all six assumptions to display an estimate.</p></div>
+        <div class="calculator-actions"><button class="btn btn--secondary" type="button" data-calculator-print>Print to PDF</button><button class="btn btn--primary" type="button" data-calculator-email disabled>Email me this result</button></div>
+        <p class="calculator-status" role="status" aria-live="polite"></p>
+      </section>
+      <p class="calculator-note">Use only figures you are comfortable entering in this browser. Values remain on this device unless you choose to open an email draft.</p>
+    </main><div id="site-footer"></div>
+  </body>
+</html>
