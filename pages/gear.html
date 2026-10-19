@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="data:," />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gear Store | FrameIQ</title>
+    <meta name="description" content="Explore cameras, processing units, sensor kits and development boards in the FrameIQ Gear Store." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Gear Store | FrameIQ" />
+    <meta property="og:description" content="Explore cameras, processing units, sensor kits and development boards in the FrameIQ Gear Store." />
+    <meta property="og:url" content="https://example.invalid/pages/gear.html" />
+    <link rel="canonical" href="https://example.invalid/pages/gear.html" />
+    <link rel="preload" href="../assets/fonts/space-grotesk-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="../assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="../assets/css/tokens.css" />
+    <link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" />
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/search.css" />
+    <link rel="stylesheet" href="../assets/css/pages/gear.css" />
+    <script src="../assets/data/site-data.js" defer></script>
+    <script src="../assets/data/live-carryover.js" defer></script>
+    <script src="../assets/js/live-carryover-render.js" defer></script>
+    <script src="../assets/js/forms.js" defer></script>
+    <script src="../assets/data/images.js" defer></script>
+    <script src="../assets/data/search-index.js" defer></script>
+    <script src="../assets/js/photos.js" defer></script>
+    <script src="../assets/js/icons.js" defer></script>
+    <script src="../assets/js/components.js" defer></script>
+    <script src="../assets/js/search.js" defer></script>
+    <script src="../assets/data/hardware.js" defer></script>
+    <script src="../assets/js/components/gear-ui.js" defer></script>
+    <script src="../assets/js/pages/gear.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Gear Store | FrameIQ" />
+      <meta name="twitter:description" content="Explore cameras, processing units, sensor kits and development boards in the FrameIQ Gear Store." />
+      <meta name="theme-color" content="#08090d" />
+      <link rel="manifest" href="../site.webmanifest" />
+      <script src="../assets/js/seo.js" defer></script>
+  </head>
+  <body data-root="../">
+    <script>try{const saved=localStorage.getItem('frameiq-theme');document.body.dataset.theme=saved==='light'||saved==='dark'?saved:(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark')}catch(error){document.body.dataset.theme=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}</script>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div id="site-header"></div>
+    <main id="main-content" class="gear-page">
+      <section class="gear-hero" aria-labelledby="gear-title">
+        <div class="gear-hero__inner">
+          <div class="gear-hero__copy">
+            <p class="gear-eyebrow"><span></span> FRAMEIQ HARDWARE</p>
+            <h1 id="gear-title"><span class="text-gradient">Gear Store</span></h1>
+            <p class="gear-hero__description">Browse the products in our current hardware catalog. Product details, availability, delivery, and indicative prices are confirmed on enquiry.</p>
+            <a class="gear-button gear-button--primary gear-hero__cta" href="#catalog">Explore the collection <span aria-hidden="true">→</span></a>
+            <div class="gear-stats" aria-label="Gear Store highlights">
+              <div id="gear-catalog-count"><strong></strong><span>Products in catalog</span></div>
+              <div><strong>Indicative</strong><span>PRICES</span></div>
+              <div><strong>Enquire</strong><span>FOR DETAILS</span></div>
+            </div>
+          </div>
+          <div class="gear-hero__visual photo-frame" data-photo="gear-camera" data-photo-loading="eager">
+            <img width="1600" height="900" hidden alt="">
+            
+            <div class="gear-hero__glow"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="gear-catalog section" id="catalog" aria-labelledby="catalog-title">
+        <div class="gear-container">
+          <div class="gear-section-heading">
+            <div><p class="gear-eyebrow"><span></span> HARDWARE COLLECTION</p><h2 id="catalog-title">Find the right gear</h2></div>
+            <p>Browse the products shown in our current catalog preview. Product availability and technical details can be confirmed with our team.</p>
+          </div>
+          <div class="gear-toolbar">
+            <label class="gear-search"><i class="bi bi-search" aria-hidden="true"></i><span class="visually-hidden">Search gear</span><input id="gear-search" type="search" placeholder="Search products..." autocomplete="off"></label>
+            <button class="gear-button gear-button--secondary gear-mobile-filter-trigger" type="button" data-open-filter><i class="bi bi-funnel" aria-hidden="true"></i> Filters <span data-filter-count></span></button>
+            <label class="gear-sort"><span>Sort by</span><select id="gear-sort" aria-label="Sort products"><option value="featured">Featured</option><option value="price-asc">Price: low to high</option><option value="price-desc">Price: high to low</option><option value="name-asc">Name</option></select></label>
+            <div class="gear-view-toggle" role="group" aria-label="Product layout">
+              <button type="button" data-gear-view="grid" aria-label="Grid view" aria-pressed="true"><i class="bi bi-grid" aria-hidden="true"></i></button>
+              <button type="button" data-gear-view="list" aria-label="List view" aria-pressed="false"><i class="bi bi-list-ul" aria-hidden="true"></i></button>
+            </div>
+          </div>
+
+          <div class="gear-active-filters" id="active-filters" aria-live="polite"></div>
+          <div class="gear-catalog-layout">
+            <aside class="gear-filter-sidebar" aria-label="Filter products">
+              <div class="gear-filter-sidebar__top"><h3>Filters</h3><button type="button" class="gear-text-button" data-clear-filters>Clear all</button></div>
+              <fieldset class="gear-filter-group"><legend>Category</legend><div id="category-filters"></div></fieldset>
+              <fieldset class="gear-filter-group"><legend>Price range</legend><label class="gear-range-label" for="price-range"><span>Up to</span><strong id="price-range-label"></strong></label><input id="price-range" type="range" aria-label="Maximum price" min="9000" max="24800" step="100" value="24800"><div class="gear-range-ends"><span>₹9,000</span><span>₹24,800</span></div></fieldset>
+              <fieldset class="gear-filter-group"><legend>Availability</legend><label class="gear-check"><input type="checkbox" id="in-stock-only"><span>Available to enquire</span></label><label class="gear-check"><input type="checkbox" id="include-out-of-stock" checked><span>Include out of stock</span></label></fieldset>
+              <div class="gear-filter-note gear-filter-count-note" id="gear-filter-count-note" aria-live="polite">Products matching current filters.</div>
+            </aside>
+
+            <div class="gear-results">
+              <div class="gear-results__header"><p id="result-summary" aria-live="polite"></p><div class="gear-collection-actions"><button class="gear-collection-action" type="button" data-open-wishlist><i class="bi bi-heart" aria-hidden="true"></i> Wishlist <span data-wishlist-count>0</span></button><button class="gear-collection-action" type="button" data-open-compare><i class="bi bi-arrow-left-right" aria-hidden="true"></i> Compare <span data-compare-count>0</span></button><button class="gear-collection-action" type="button" data-open-enquiry><i class="bi bi-clipboard" aria-hidden="true"></i> Enquiry list <span data-enquiry-count>0</span></button></div></div>
+              <div class="gear-product-grid" id="product-grid" aria-busy="true">
+                <div class="gear-skeleton" aria-hidden="true"></div>
+                <div class="gear-skeleton" aria-hidden="true"></div>
+                <div class="gear-skeleton" aria-hidden="true"></div>
+              </div>
+              <div class="gear-empty-state" id="empty-state" hidden><span><i class="bi bi-search" aria-hidden="true"></i></span><h3>No gear found</h3><p>Try another search or clear some filters to see the products in this catalog.</p><button class="gear-button gear-button--secondary" type="button" data-clear-filters>Clear all filters</button></div>
+              <nav class="gear-pagination" aria-label="Product pages" id="pagination"></nav>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="gear-bundles section" aria-labelledby="bundles-title" hidden><div class="gear-container"><p class="gear-eyebrow"><span></span> BUNDLES</p><h2 id="bundles-title">Bundles</h2><p>[Placeholder: bundles]</p></div></section>
+
+      <section class="gear-custom section" aria-labelledby="custom-title"><div class="gear-container gear-custom__inner"><div class="gear-custom__icon"><i class="bi bi-cpu" aria-hidden="true"></i></div><div><p class="gear-eyebrow"><span></span> CUSTOM HARDWARE</p><h2 id="custom-title">Looking for a specific setup?</h2><p>Tell us what hardware you're exploring and our team can help discuss the available options.</p></div><a class="gear-button gear-button--secondary" href="../pages/contact.html">Talk to our team <span aria-hidden="true">→</span></a></div></section>
+
+      <section class="gear-compatibility section" aria-labelledby="compatibility-title"><div class="gear-container gear-compatibility__inner"><div><p class="gear-eyebrow"><span></span> BEFORE YOU ENQUIRE</p><h2 id="compatibility-title">Need help checking compatibility?</h2><p>Compatibility and technical specifications are not included in the current product listing. Contact our team to confirm whether a product suits your setup.</p></div><a class="gear-button gear-button--secondary" href="../pages/contact.html">Ask FrameIQ</a></div></section>
+
+      <section class="gear-final-cta"><div class="gear-container"><p class="gear-eyebrow"><span></span> HAVE A PROJECT IN MIND?</p><h2>Let's find the right tools for your vision.</h2><p>Start a conversation with FrameIQ about the hardware you're considering.</p><a class="gear-button gear-button--primary" href="../pages/contact.html">Get in touch <span aria-hidden="true">→</span></a></div></section>
+    </main>
+
+    <dialog class="gear-dialog" id="gear-filter-dialog" aria-labelledby="mobile-filter-title"><div class="gear-dialog__header"><h2 id="mobile-filter-title">Filters</h2><button class="gear-icon-button" type="button" data-close-dialog aria-label="Close filters"><i class="bi bi-x-lg" aria-hidden="true"></i></button></div><div class="gear-dialog__body" id="mobile-filter-content"></div><div class="gear-dialog__footer"><button class="gear-button gear-button--secondary" type="button" data-clear-filters>Clear all</button><button class="gear-button gear-button--primary" type="button" data-close-dialog>Show results</button></div></dialog>
+    <dialog class="gear-dialog" id="gear-detail-dialog" aria-labelledby="gear-detail-title"><div class="gear-dialog__header"><h2 id="gear-detail-title">Product details</h2><button class="gear-icon-button" type="button" data-close-dialog aria-label="Close details"><i class="bi bi-x-lg" aria-hidden="true"></i></button></div><div class="gear-dialog__body" id="gear-detail-content"></div></dialog>
+    <dialog class="gear-dialog gear-dialog--wide" id="gear-compare-dialog" aria-labelledby="gear-compare-title"><div class="gear-dialog__header"><h2 id="gear-compare-title">Compare products</h2><button class="gear-icon-button" type="button" data-close-dialog aria-label="Close comparison"><i class="bi bi-x-lg" aria-hidden="true"></i></button></div><div class="gear-dialog__body" id="gear-compare-content"></div></dialog>
+    <dialog class="gear-dialog" id="gear-wishlist-dialog" aria-labelledby="gear-wishlist-title"><div class="gear-dialog__header"><h2 id="gear-wishlist-title">Your wishlist</h2><button class="gear-icon-button" type="button" data-close-dialog aria-label="Close wishlist"><i class="bi bi-x-lg" aria-hidden="true"></i></button></div><div class="gear-dialog__body" id="gear-wishlist-content"></div></dialog>
+    <dialog class="gear-dialog" id="gear-enquiry-dialog" aria-labelledby="gear-enquiry-title"><div class="gear-dialog__header"><h2 id="gear-enquiry-title">Enquiry list</h2><button class="gear-icon-button" type="button" data-close-dialog aria-label="Close enquiry list"><i class="bi bi-x-lg" aria-hidden="true"></i></button></div><div class="gear-dialog__body" id="gear-enquiry-content"></div></dialog>
+    <div id="site-footer"></div>
+  </body>
+</html>

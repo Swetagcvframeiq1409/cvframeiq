@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Reviewed for Phase 3A from SITE_PAGES in assets/data/site-data.js, including Events & Entertainment; replace the placeholder SITE_URL before launch. -->
+  <url><loc>https://example.invalid/</loc></url>
+  <url><loc>https://example.invalid/pages/about.html</loc></url>
+  <url><loc>https://example.invalid/pages/ai-store.html</loc></url>
+  <url><loc>https://example.invalid/pages/beejhealth.html</loc></url>
+  <url><loc>https://example.invalid/pages/blog.html</loc></url>
+  <url><loc>https://example.invalid/pages/blog-article.html</loc></url>
+  <url><loc>https://example.invalid/pages/careers.html</loc></url>
+  <url><loc>https://example.invalid/pages/pcb-guardian.html</loc></url>
+  <url><loc>https://example.invalid/pages/ppe-safety.html</loc></url>
+  <url><loc>https://example.invalid/pages/autolabel.html</loc></url>
+  <url><loc>https://example.invalid/pages/contact.html</loc></url>
+  <url><loc>https://example.invalid/pages/roi-pcb-guardian.html</loc></url>
+  <url><loc>https://example.invalid/pages/roi-ppe-safety.html</loc></url>
+  <url><loc>https://example.invalid/pages/responsible-ai.html</loc></url>
+  <url><loc>https://example.invalid/pages/glossary.html</loc></url>
+  <url><loc>https://example.invalid/pages/partners.html</loc></url>
+  <url><loc>https://example.invalid/pages/press-kit.html</loc></url>
+  <url><loc>https://example.invalid/pages/compare.html</loc></url>
+  <url><loc>https://example.invalid/pages/cookies.html</loc></url>
+  <url><loc>https://example.invalid/pages/docs.html</loc></url>
+  <url><loc>https://example.invalid/pages/features.html</loc></url>
+  <url><loc>https://example.invalid/pages/gear.html</loc></url>
+  <url><loc>https://example.invalid/pages/gear-product.html</loc></url>
+  <url><loc>https://example.invalid/pages/getstarted.html</loc></url>
+  <url><loc>https://example.invalid/pages/login.html</loc></url>
+  <url><loc>https://example.invalid/pages/playground.html</loc></url>
+  <url><loc>https://example.invalid/pages/privacy.html</loc></url>
+  <url><loc>https://example.invalid/pages/research.html</loc></url>
+  <url><loc>https://example.invalid/pages/sectors.html</loc></url>
+  <url><loc>https://example.invalid/pages/security.html</loc></url>
+  <url><loc>https://example.invalid/pages/terms.html</loc></url>
+  <url><loc>https://example.invalid/pages/sectors/agriculture.html</loc></url>
+  <url><loc>https://example.invalid/pages/sectors/aviation.html</loc></url>
+  <url><loc>https://example.invalid/pages/sectors/banking.html</loc></url>
+  <url><loc>https://example.invalid/pages/sectors/healthcare.html</loc></url>
+  <url><loc>https://example.invalid/pages/sectors/manufacturing.html</loc></url>
+  <url><loc>https://example.invalid/pages/sectors/retail.html</loc></url>
+  <url><loc>https://example.invalid/pages/sectors/security-surveillance.html</loc></url>
+  <url><loc>https://example.invalid/pages/sectors/smart-city.html</loc></url>
+  <url><loc>https://example.invalid/pages/sectors/events-entertainment.html</loc></url>
+</urlset>
