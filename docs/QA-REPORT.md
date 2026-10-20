@@ -84,4 +84,60 @@ All 40 routes in `SITE_PAGES` were opened in Chromium in dark and light themes a
 - Blog dates 2/1/2025, 1/28/2025 and 1/25/2025 precede the June 5, 2025 incorporation date shown on the live About page. They are copied verbatim and remain pending company verification.
 - Skipped Gear imagery: the AI Vision Pro camera photo was unrelated circuit artwork; Industrial CV Camera image was broken; Edge AI Processor X1 image depicted a phone; Multi-Sensor Array image was a generic processor-board close-up. These slots retain designed tiles.
 - JavaScript syntax checks passed. `assets/data/local-photos.js` was regenerated from the 12 remaining JPG files after temporary photo-mode checks. No temporary fixture photo remains.
-- Photo source/creator/license verification and copied claims/content still need company approval. The official logo remains a company-input TODO; the temporary CSS text logo is in use. No Lighthouse run was performed.
+- Photo source/creator/license verification and copied claims/content still need company approval. The header uses the CSS-only mark and wordmark; no live PNG logo is used. No Lighthouse run was performed.
+
+## Phase 3C verification · 20 Oct 2026
+
+Verification ran in Chromium against a temporary local `http.server` at `127.0.0.1:8769`. No Lighthouse run was performed.
+
+### Navigation, branding, and interactions
+
+- Dropdown matrix: Home, Sectors, and Contact at 1024, 1280, 1440, and 1920px; all five menu triggers on each page (60 checks). All panels stayed inside the viewport, below and clear of their trigger, and aligned within 2px to the trigger's left edge or the right edge for Company and Resources. Solutions rendered two columns with All sectors spanning the first row. No failures.
+- Keyboard: Tab focus opened Solutions; Escape closed and restored focus; ArrowDown/ArrowUp, Home/End, and outside click all passed.
+- Logo at 375px in dark and light themes: one header mark and one `FrameIQ` wordmark; mobile menu and footer each rendered one CSS mark and the contiguous wordmark. Frame/IQ text boundary measured 0px; IQ used the accent gradient. No logo image was used.
+- Research toggle: switching Agentic CV and Traditional CV changed the comparison copy and updated the pressed state.
+- Skeleton loaders: Gear initially showed 3 skeletons while busy, then 6 product cards and no skeletons; AI Store initially showed 4 skeletons while busy, then 8 product cards and no skeletons.
+- Page fade: `page-fade-in` ran with reduced motion off and was absent with `animation: none` when reduced motion was enabled.
+- Mobile sticky CTA at 375px: 10.4px clearance from the chat button, no overlap; CTA hid on footer approach (30 footer links remained visible) and while the Partners form was visible. Contact had no sticky CTA.
+- Small grey text contrast against the themed background: dark soft 5.83:1, dark muted 9.07:1; light soft 5.02:1, light muted 7.11:1. All meet WCAG AA's 4.5:1 minimum.
+
+### Local photo inventory and slot audit
+
+“Shown” means the local JPG loaded in the slot; “No” means no corresponding JPG is present and the designed tile is shown. The same result was verified in both themes. For sector aliases, the file column names the canonical JPG used by the alias.
+
+| Slot | JPG file | Dark | Light |
+|---|---|---|---|
+| home-hero | — (`home-hero.jpg` absent) | No | No |
+| about-hero | — (`about-hero.jpg` absent) | No | No |
+| beejhealth-hero | — (`beejhealth-hero.jpg` absent) | No | No |
+| research-hero | — (`research-hero.jpg` absent) | No | No |
+| ai-store-hero | — (`ai-store-hero.jpg` absent) | No | No |
+| careers-team | — (`careers-team.jpg` absent) | No | No |
+| login-bg | — (`login-bg.jpg` absent) | No | No |
+| sector-banking | `sector-banking.jpg` | Yes | Yes |
+| sector-aviation | `sector-aviation.jpg` | Yes | Yes |
+| sector-healthcare | `sector-healthcare.jpg` | Yes | Yes |
+| sector-manufacturing | `sector-manufacturing.jpg` | Yes | Yes |
+| sector-security | `sector-security.jpg` | Yes | Yes |
+| sector-security-surveillance (alias) | `sector-security.jpg` | Yes | Yes |
+| sector-smart-city | `sector-smart-city.jpg` | Yes | Yes |
+| sector-infrastructure (alias) | `sector-smart-city.jpg` | Yes | Yes |
+| sector-events | `sector-events.jpg` | Yes | Yes |
+| sector-events-entertainment (alias) | `sector-events.jpg` | Yes | Yes |
+| sector-retail | — (`sector-retail.jpg` absent) | No | No |
+| sector-agriculture | — (`sector-agriculture.jpg` absent) | No | No |
+| gear-camera | — (`gear-camera.jpg` absent) | No | No |
+| gear-camera-2 | — (`gear-camera-2.jpg` absent) | No | No |
+| gear-board | `gear-board.jpg` | Yes | Yes |
+| gear-processor | — (`gear-processor.jpg` absent) | No | No |
+| gear-devboard | `gear-devboard.jpg` | Yes | Yes |
+| gear-sensor | — (`gear-sensor.jpg` absent) | No | No |
+| blog-traffic | `blog-traffic.jpg` | Yes | Yes |
+| blog-edge-cloud | `blog-edge-cloud.jpg` | Yes | Yes |
+| blog-agriculture | `blog-agriculture.jpg` | Yes | Yes |
+
+The 12 JPG filenames in `assets/img/photos/` match the 12 canonical entries regenerated into `assets/data/local-photos.js`. The three aliases intentionally reuse the corresponding sector JPG, not a different product photo. Gear product slots are unique across all six products; the Multi-Sensor Array uses its own tile until a licensed `gear-sensor.jpg` is supplied.
+
+### Proposal source blocker
+
+`docs/PROPOSAL.md` was not present in the workspace or its parent frontend directory during this audit. Proposal bullets for sections 4.1–4.13, 6, and 7 therefore remain unmapped; no proposal content or bullet status was invented. Provide the file to complete that audit. Photo licensing and other factual approvals remain company inputs as already noted above.

@@ -207,7 +207,7 @@
   const openEnquiry = () => {
     const content = $('#gear-enquiry-content');
     const selected = [...enquiry].map((id) => byId.get(id)).filter(Boolean);
-    content.innerHTML = `${productRows(new Set(selected.map((product) => product.id)), 'Your enquiry list is empty. Add a product to get started.', 'enquiry')}${selected.length ? `<p class="gear-detail-note">Continue to the contact form with this product list, or use the email draft fallback.</p><a class="gear-button gear-button--primary gear-enquiry-mail" href="${makeContactFormHref(selected)}">Continue to contact form</a><a class="gear-button gear-button--secondary gear-enquiry-mail" href="${makeMailto(selected)}">Continue by email</a>` : ''}`;
+    content.innerHTML = `${productRows(new Set(selected.map((product) => product.id)), 'Your enquiry list is empty. Add a product to get started.', 'enquiry')}${selected.length ? `<p class="gear-detail-note">Continue to the contact form with this product list, or use the email draft fallback.</p><a class="gear-button gear-button--primary gear-enquiry-mail" href="${makeContactFormHref(selected)}">Send enquiry</a><a class="gear-button gear-button--secondary gear-enquiry-mail" href="${makeMailto(selected)}">Send enquiry by email</a>` : ''}`;
     $('#gear-enquiry-dialog').showModal();
   };
 
@@ -222,13 +222,12 @@
   };
 
   const makeMailto = (selected) => {
-    const names = selected.map((product) => `- ${product.name} (${ui.money(product.price)}) — Indicative price. Confirm on enquiry.`).join('\n');
+    const names = selected.map((product) => `- ${product.name}`).join('\n');
     return `mailto:${window.SITE_CONTACT.email}?subject=${encodeURIComponent('FrameIQ Gear Store enquiry')}&body=${encodeURIComponent(`Hello FrameIQ,\n\nI would like to enquire about:\n${names}\n\nPlease share more information about specifications, compatibility, and current availability.\n`)}`;
   };
   const makeContactFormHref = (selected) => {
-    const names = selected.map((product) => `- ${product.name} (${ui.money(product.price)}) — Indicative price. Confirm on enquiry.`).join('\n');
-    const enquiryText = `I would like to enquire about these Gear Store items:\n${names}\n\nPlease confirm current price, stock, delivery, specifications, and compatibility.`;
-    return `../pages/contact.html?gearEnquiry=${encodeURIComponent(enquiryText)}`;
+    const ids = selected.map((product) => product.id).join(',');
+    return `../pages/contact.html?interest=hardware&products=${encodeURIComponent(ids)}`;
   };
 
   document.addEventListener('input', (event) => {

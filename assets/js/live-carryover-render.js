@@ -16,10 +16,12 @@
     return element;
   };
 
-  const banner = make('aside', 'live-review-banner', carryover.reviewNotice);
-  banner.setAttribute('role', 'status');
-  banner.dataset.liveReviewBanner = '';
-  document.body.prepend(banner);
+  if (carryover.SHOW_REVIEW_BANNER === true) {
+    const banner = make('aside', 'live-review-banner', carryover.reviewNotice);
+    banner.setAttribute('role', 'status');
+    banner.dataset.liveReviewBanner = '';
+    document.body.prepend(banner);
+  }
 
   function renderHome() {
     const hero = document.querySelector('.hero');

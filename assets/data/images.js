@@ -221,6 +221,14 @@ window.SITE_IMAGES = {
   }
 };
 
+[
+  ['sector-infrastructure', 'sector-smart-city'],
+  ['sector-security-surveillance', 'sector-security'],
+  ['sector-events-entertainment', 'sector-events']
+].forEach(([alias, slot]) => {
+  window.SITE_IMAGES[alias] = { ...window.SITE_IMAGES[slot], localSlot: slot };
+});
+
 window.PHOTO_ICONS = {
   'home-hero': 'cameraStill',
   'research-hero': 'cpu',
@@ -231,6 +239,9 @@ window.PHOTO_ICONS = {
   'sector-security': 'shieldCheck',
   'sector-smart-city': 'city',
   'sector-events': 'ticket',
+  'sector-infrastructure': 'city',
+  'sector-security-surveillance': 'shieldCheck',
+  'sector-events-entertainment': 'ticket',
   'sector-retail': 'retail',
   'sector-agriculture': 'agriculture',
   'beejhealth-hero': 'leaf',

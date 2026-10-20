@@ -19,7 +19,7 @@
 
   const stockLabel = (product) => product.stockStatus || 'Check availability';
   const compatibilityBadges = (product) => Array.isArray(product.compatibility) && product.compatibility.length
-    ? `<ul class="gear-compatibility-badges" aria-label="Compatibility">${product.compatibility.map((tag) => `<li>${escapeHtml(tag)}</li>`).join('')}</ul>`
+    ? `<div class="gear-compatible"><span>Compatible with</span><ul class="gear-compatibility-badges" aria-label="Compatibility">${product.compatibility.map((tag) => `<li>${escapeHtml(tag)}</li>`).join('')}</ul></div>`
     : '';
 
   const isPlaceholder = (value, explicitlyPlaceholder) => explicitlyPlaceholder
@@ -57,7 +57,7 @@
           </div>
           <div class="gear-product-card__actions">
             <button class="gear-button gear-button--secondary" type="button" data-action="details" data-id="${escapeHtml(product.id)}">View details</button>
-            <button class="gear-button gear-button--primary" type="button" data-action="enquire" data-id="${escapeHtml(product.id)}">Enquire now</button>
+            <button class="gear-button gear-button--primary" type="button" data-action="enquire" data-id="${escapeHtml(product.id)}">Add to enquiry</button>
           </div>
         </div>
       </article>

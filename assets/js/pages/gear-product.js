@@ -33,9 +33,9 @@
           <strong class="gear-product-detail__price">${ui.money(product.price)}</strong>
           <p class="gear-price-note">Indicative price. Confirm on enquiry.</p>
           <p class="gear-product-detail__availability">Stock status: ${ui.escapeHtml(product.stockStatus)}${product.estimatedDelivery && !product.estimatedDeliveryPlaceholder && !/^\s*\[Placeholder:/i.test(product.estimatedDelivery) ? ` · Estimated delivery: ${ui.escapeHtml(product.estimatedDelivery)}` : ''}</p>
-          <div class="gear-product-detail__buttons"><button class="gear-button gear-button--primary" type="button" data-product-enquiry="${ui.escapeHtml(product.id)}">Add to enquiry list</button><button class="gear-button gear-button--secondary" type="button" data-product-wishlist="${ui.escapeHtml(product.id)}">Save to wishlist</button></div>
+          <div class="gear-product-detail__buttons"><button class="gear-button gear-button--secondary" type="button" data-product-enquiry="${ui.escapeHtml(product.id)}">Add to enquiry list</button><button class="gear-button gear-button--secondary" type="button" data-product-wishlist="${ui.escapeHtml(product.id)}">Save to wishlist</button><a class="gear-button gear-button--primary" href="../pages/contact.html?interest=hardware&amp;product=${encodeURIComponent(product.id)}">Book a Hardware Demo</a></div>
           <p class="gear-detail-note">Technical specifications, compatibility, delivery information, and current inventory are not provided in the product listing. Contact FrameIQ to confirm these details before selecting hardware.</p>
-          <a class="gear-text-link" href="../pages/contact.html">Questions about this product? Contact FrameIQ <span aria-hidden="true">→</span></a>
+          <a class="gear-text-link" href="../pages/contact.html?interest=hardware&amp;product=${encodeURIComponent(product.id)}">Questions about this product? Contact FrameIQ <span aria-hidden="true">→</span></a>
         </div>
       </section>
       <section class="gear-detail-related" aria-labelledby="gear-related-title"><div class="gear-section-heading"><div><p class="gear-eyebrow"><span></span> EXPLORE MORE</p><h2 id="gear-related-title">Related products</h2></div><a href="gear.html" class="gear-text-link">View all gear <span aria-hidden="true">→</span></a></div><div class="gear-product-grid">${related.map((item) => ui.card(item, { compact: true })).join('')}</div></section>
@@ -64,8 +64,8 @@
     const wishlistButton = event.target.closest('[data-product-wishlist]');
     if (enquiryButton) {
       addId('frameiq-gear-enquiry', enquiryButton.dataset.productEnquiry);
-      const names = `- ${product.name} (${ui.money(product.price)}) — Indicative price. Confirm on enquiry.`;
-      window.location.href = `mailto:${window.SITE_CONTACT.email}?subject=${encodeURIComponent('FrameIQ Gear Store enquiry')}&body=${encodeURIComponent(`Hello FrameIQ,\n\nI would like to enquire about:\n${names}\n\nPlease share more information about specifications, compatibility, and current availability.\n`)}`;
+      enquiryButton.textContent = 'Added to enquiry list';
+      enquiryButton.setAttribute('aria-pressed', 'true');
     }
     if (wishlistButton) {
       const saved = readIds('frameiq-gear-wishlist');

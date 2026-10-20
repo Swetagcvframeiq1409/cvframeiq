@@ -65,7 +65,7 @@ window.SECTORS = [
   },
   {
     slug: 'security-surveillance',
-    imageSlot: 'sector-security',
+    imageSlot: 'sector-security-surveillance',
     name: 'Security & Surveillance',
     icon: 'security',
     summary: 'Consider visual review use cases for configured sites and camera networks. Use cases, access requirements and human review workflows are discussed on enquiry.',
@@ -81,7 +81,7 @@ window.SECTORS = [
   },
   {
     slug: 'smart-city',
-    imageSlot: 'sector-smart-city',
+    imageSlot: 'sector-infrastructure',
     name: 'Smart City',
     icon: 'city',
     summary: 'Explore computer vision use cases for selected public and infrastructure camera views. Deployment scope and operating requirements are confirmed on enquiry.',
@@ -129,7 +129,7 @@ window.SECTORS = [
   },
   {
     slug: 'events-entertainment',
-    imageSlot: 'sector-events',
+    imageSlot: 'sector-events-entertainment',
     name: 'Events & Entertainment',
     icon: 'ticket',
     summary: 'Consider computer vision use cases for selected event and entertainment venues. Crowd-flow context, camera placement, privacy needs and staff review workflows are use cases to discuss; suitability and scope are confirmed on enquiry.',
