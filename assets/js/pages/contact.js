@@ -625,7 +625,8 @@
     goToStep(1, { focus: false });
     updateSummary();
 
-    const querySector = new URLSearchParams(window.location.search).get('sector');
+    const params = new URLSearchParams(window.location.search);
+    const querySector = params.get('sector');
     const selectedSector = Array.isArray(window.SECTORS)
       ? window.SECTORS.find((sector) => sector.slug === querySector)
       : null;
@@ -663,6 +664,26 @@
       projectDetails.value = selectedSector
         ? `I'm interested in: ${selectedProduct.name}\nSector: ${selectedSector.name}`
         : `I'm interested in: ${selectedProduct.name}`;
+      if (characterCount) characterCount.textContent = `${projectDetails.value.length} / 1000`;
+      updateSectorPrompt();
+      updateSummary();
+      goToStep(2, { focus: false });
+      projectDetails.focus();
+    }
+    if (params.get('interest') === 'hardware' && projectDetails) {
+      const generalSector = getSectorInput('general');
+      if (generalSector) generalSector.checked = true;
+      const hardwareProducts = new Map((window.HARDWARE || []).map((product) => [product.id, product]));
+      const requestedIds = [
+        ...(params.get('products') || '').split(','),
+        params.get('product') || ''
+      ].filter(Boolean);
+      const selectedHardware = [...new Set(requestedIds)]
+        .map((id) => hardwareProducts.get(id))
+        .filter(Boolean);
+      projectDetails.value = selectedHardware.length
+        ? `Hardware interest:\n${selectedHardware.map((product) => `- ${product.name}`).join('\n')}\n\nPlease confirm configuration, compatibility, availability, and pricing on enquiry.`
+        : 'Hardware interest: Please discuss hardware options and a demo.';
       if (characterCount) characterCount.textContent = `${projectDetails.value.length} / 1000`;
       updateSectorPrompt();
       updateSummary();

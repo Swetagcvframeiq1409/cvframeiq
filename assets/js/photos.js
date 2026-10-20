@@ -70,8 +70,9 @@
       if (!image.parentElement) frame.append(image);
 
       const localPhotos = Array.isArray(window.LOCAL_PHOTOS) ? window.LOCAL_PHOTOS : [];
-      const localAvailable = localPhotos.includes(slot)
-        && (!livePhotoSlots.has(slot) || window.LIVE_CARRYOVER?.SHOW_UNCONFIRMED === true);
+      const localSlot = photo.localSlot || slot;
+      const localAvailable = localPhotos.includes(localSlot)
+        && (!livePhotoSlots.has(localSlot) || window.LIVE_CARRYOVER?.SHOW_UNCONFIRMED === true);
       const remoteEnabled = window.IMAGE_CONFIG?.USE_TEMP_REMOTE === true;
 
       const trySource = (source) => new Promise((resolve) => {

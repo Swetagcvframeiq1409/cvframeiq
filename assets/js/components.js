@@ -3,8 +3,7 @@ function getRootPath() {
 }
 
 function renderBrand(root = getRootPath()) {
-  // TEMP text logo. Replace with the official logo when supplied.
-  return `<a class="brand" href="${getPageHref('index.html', root)}" aria-label="FrameIQ home"><span class="brand__frame">Frame</span><span class="brand__iq">IQ</span></a>`;
+  return `<a class="brand" href="${getPageHref('index.html', root)}" aria-label="FrameIQ home"><span class="brand__mark" aria-hidden="true"></span><span class="brand__frame">Frame</span><span class="brand__iq">IQ</span></a>`;
 }
 const LOGO_HTML = renderBrand;
 window.FrameIQLogo = LOGO_HTML;
@@ -25,11 +24,18 @@ function renderNavLink(item, root, className = 'nav__link') {
 }
 
 function renderNavGroup(label, id, links, root, active = false) {
+  const itemClasses = [
+    'nav__item',
+    'nav__item--mega',
+    ...(label === 'Solutions' ? ['nav__item--mega--solutions'] : []),
+    ...(['Resources', 'Company'].includes(label) ? ['nav__item--mega--right'] : []),
+    ...(active ? ['has-current'] : [])
+  ].join(' ');
   const linksMarkup = links.map((item) => {
     return `<li>${renderNavLink(item, root, 'nav-group-menu__link')}</li>`;
   }).join('');
   return `
-    <div class="nav__item nav__item--mega${active ? ' has-current' : ''}">
+    <div class="${itemClasses}">
       <button class="nav__button${active ? ' has-current' : ''}" type="button" aria-expanded="false" aria-controls="${id}">
         ${label}<i class="${window.iconClass('chevronDown')} chevron" aria-hidden="true"></i>
       </button>
@@ -344,16 +350,23 @@ function initContextualCta() {
   if (!footer) return;
 
   const pageHref = (path) => getPageHref(path);
+  const query = new URLSearchParams(window.location.search);
   const sector = (window.SECTORS || []).find((item) => currentPath.endsWith(`/sectors/${item.slug}.html`));
   const product = (window.NAV_DATA?.groups?.Products || []).find((item) => currentPath.endsWith(`/${item.href}`));
-  const title = sector?.name || product?.label || (currentPath.endsWith('/gear.html') ? 'hardware' : 'your use case');
-  const contactHref = sector
+  const hardwarePage = currentPath.endsWith('/gear.html')
+    || currentPath.endsWith('/gear-product.html')
+    || currentPath.endsWith('/edge-starter-kit.html')
+    || currentPath.endsWith('/smart-factory-kit.html');
+  const title = hardwarePage ? 'hardware' : sector?.name || product?.label || 'your use case';
+  const contactHref = query.get('interest') === 'hardware' && query.get('product')
+    ? pageHref(`pages/contact.html?interest=hardware&product=${encodeURIComponent(query.get('product'))}`)
+    : sector
     ? pageHref(`pages/contact.html?sector=${encodeURIComponent(sector.slug)}`)
-    : pageHref('pages/contact.html');
+    : pageHref(hardwarePage ? 'pages/contact.html?interest=hardware' : 'pages/contact.html');
   const bar = document.createElement('aside');
   bar.className = 'contextual-cta';
   bar.setAttribute('aria-label', 'Contact FrameIQ');
-  bar.innerHTML = `<span>Discuss ${title}</span><a class="btn btn--primary" href="${contactHref}">Book a Demo</a>`;
+  bar.innerHTML = `<span>${hardwarePage ? 'Book a Hardware Demo' : `Discuss ${title}`}</span><a class="btn btn--primary" href="${contactHref}">${hardwarePage ? 'Book a Hardware Demo' : 'Book a Demo'}</a>`;
   document.body.appendChild(bar);
 
   if ('IntersectionObserver' in window) {
@@ -361,6 +374,20 @@ function initContextualCta() {
       bar.classList.toggle('is-near-footer', entry.isIntersecting);
     }, { threshold: 0.01 });
     footerObserver.observe(footer);
+
+    const visibleForms = new Set();
+    const syncFormVisibility = () => {
+      bar.classList.toggle('is-near-form', window.matchMedia('(max-width: 640px)').matches && visibleForms.size > 0);
+    };
+    const formObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) visibleForms.add(entry.target);
+        else visibleForms.delete(entry.target);
+      });
+      syncFormVisibility();
+    });
+    document.querySelectorAll('form:not(.newsletter-form)').forEach((form) => formObserver.observe(form));
+    window.addEventListener('resize', syncFormVisibility);
   }
 }
 

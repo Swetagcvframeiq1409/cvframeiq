@@ -72,7 +72,7 @@ window.HARDWARE = [
   },
   {
     id: 'multi-sensor-array',
-    imageSlot: 'gear-board',
+    imageSlot: 'gear-sensor',
     icon: 'sensor',
     name: 'Multi-Sensor Array',
     category: 'Sensor Kits',
@@ -95,7 +95,6 @@ if (window.LIVE_CARRYOVER?.SHOW_UNCONFIRMED) {
     product.category = carryover.category;
     product.price = carryover.price;
     product.rating = carryover.rating;
-    if (product.id === 'multi-sensor-array') product.imageSlot = 'gear-sensor';
     if (carryover.stockStatus) product.stockStatus = carryover.stockStatus;
   });
 }

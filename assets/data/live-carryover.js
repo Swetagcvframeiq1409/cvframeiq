@@ -1,4 +1,5 @@
 window.LIVE_CARRYOVER = {
+  SHOW_REVIEW_BANNER: false,
   SHOW_UNCONFIRMED: true,
   reviewNotice: 'Review build: some figures, quotes and images are carried over from the current live site and are pending verification.',
   home: {

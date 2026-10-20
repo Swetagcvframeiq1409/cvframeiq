@@ -4,6 +4,53 @@
   background: var(--bg);
 }
 
+.gear-kit-options {
+  padding-block: 4rem;
+}
+
+.gear-kit-note,
+.gear-kit-actions > p {
+  color: var(--text-muted);
+}
+
+.gear-kit-card .gear-product-card__media {
+  border-radius: var(--radius-lg, 1rem);
+}
+
+.gear-kit-card .gear-product-card__body {
+  padding: 1.25rem;
+}
+
+.gear-kit-card h3 {
+  margin: .75rem 0;
+}
+
+.gear-kit-card .gear-price-note {
+  margin-block: 1rem;
+}
+
+.gear-kit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem;
+  margin-top: 2rem;
+}
+
+.gear-kit-actions > p {
+  flex: 1 1 100%;
+  margin: 0;
+}
+
+.gear-kit-card .gear-compatible {
+  margin-block: 1rem;
+}
+
+.gear-kit-page .gear-hero__visual {
+  overflow: hidden;
+  border-radius: var(--radius-lg, 1rem);
+}
+
 .gear-container {
   width: min(1200px, calc(100% - 2.5rem));
   margin-inline: auto;

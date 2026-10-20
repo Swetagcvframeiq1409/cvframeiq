@@ -28,6 +28,8 @@ window.SITE_PAGES = [
   'pages/features.html',
   'pages/gear.html',
   'pages/gear-product.html',
+  'pages/edge-starter-kit.html',
+  'pages/smart-factory-kit.html',
   'pages/getstarted.html',
   'pages/login.html',
   'pages/playground.html',
@@ -87,7 +89,11 @@ window.NAV_DATA = {
       { label: 'PPE Safety', href: 'pages/ppe-safety.html' }
     ],
     Hardware: [
-      { label: 'Gear', href: 'pages/gear.html' }
+      { label: 'Gear (all hardware)', href: 'pages/gear.html' },
+      { label: 'Edge Starter Kit', href: 'pages/edge-starter-kit.html' },
+      { label: 'Smart Factory Kit', href: 'pages/smart-factory-kit.html' },
+      { label: 'Request a Hardware Quote', href: 'pages/contact.html?interest=hardware' },
+      { label: 'Book a Hardware Demo', href: 'pages/contact.html?interest=hardware' }
     ],
     Demos: [
       { label: 'Playground', href: 'pages/playground.html' },
@@ -122,7 +128,13 @@ window.NAV_DATA = {
       { label: 'AutoLabel', href: 'pages/autolabel.html' },
       { label: 'PPE Safety', href: 'pages/ppe-safety.html' }
     ],
-    hardware: [{ label: 'Gear', href: 'pages/gear.html' }],
+    hardware: [
+      { label: 'Gear (all hardware)', href: 'pages/gear.html' },
+      { label: 'Edge Starter Kit', href: 'pages/edge-starter-kit.html' },
+      { label: 'Smart Factory Kit', href: 'pages/smart-factory-kit.html' },
+      { label: 'Request a Hardware Quote', href: 'pages/contact.html?interest=hardware' },
+      { label: 'Book a Hardware Demo', href: 'pages/contact.html?interest=hardware' }
+    ],
     demos: [
       { label: 'Playground', href: 'pages/playground.html' },
       { label: 'PCB Guardian ROI calculator', href: 'pages/roi-pcb-guardian.html' },

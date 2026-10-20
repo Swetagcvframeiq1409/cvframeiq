@@ -37,19 +37,26 @@ function initMegaMenus() {
   const nav = document.querySelector('.nav');
   if (!nav) return;
   const items = Array.from(nav.querySelectorAll('.nav__item--mega'));
-  const triggers = items.map((item) => item.querySelector('.nav__button')).filter(Boolean);
   const linksFor = (item) => Array.from(item.querySelectorAll('.nav-group-menu a'));
-  const placePanel = (item) => {
+  let keyboardNavigation = false;
+  const alignPanel = (item) => {
     const panel = item.querySelector('.nav-group-menu');
     item.classList.remove('is-flipped');
-    if (!panel) return;
+    if (!panel || item.classList.contains('nav__item--mega--right')) return;
     if (panel.getBoundingClientRect().right > window.innerWidth - 16) item.classList.add('is-flipped');
+  };
+  const alignOpenPanels = () => {
+    items.filter((item) => item.classList.contains('is-open')).forEach(alignPanel);
   };
   const closeItem = (item, returnFocus = false) => {
     item.classList.remove('is-open');
     const trigger = item.querySelector('.nav__button');
     trigger?.setAttribute('aria-expanded', 'false');
-    if (returnFocus) trigger?.focus();
+    if (returnFocus && trigger) {
+      item.dataset.suppressFocusOpen = 'true';
+      trigger.focus();
+      delete item.dataset.suppressFocusOpen;
+    }
   };
   const openItem = (item) => {
     if (item.classList.contains('is-open')) return;
@@ -59,8 +66,13 @@ function initMegaMenus() {
     item.classList.add('is-open');
     const trigger = item.querySelector('.nav__button');
     trigger?.setAttribute('aria-expanded', 'true');
-    placePanel(item);
+    alignPanel(item);
   };
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Tab') keyboardNavigation = true;
+  }, true);
+  document.addEventListener('pointerdown', () => { keyboardNavigation = false; }, true);
 
   items.forEach((item) => {
     const trigger = item.querySelector('.nav__button');
@@ -69,6 +81,9 @@ function initMegaMenus() {
       window.setTimeout(() => {
         if (!item.contains(document.activeElement)) closeItem(item);
       }, 0);
+    });
+    item.addEventListener('focusin', () => {
+      if (keyboardNavigation && !item.dataset.suppressFocusOpen) openItem(item);
     });
     trigger.addEventListener('click', () => {
       if (item.classList.contains('is-open')) closeItem(item);
@@ -110,9 +125,9 @@ function initMegaMenus() {
       closeItem(openItemEl, true);
     }
   });
-  window.addEventListener('resize', () => {
-    items.filter((item) => item.classList.contains('is-open')).forEach(placePanel);
-  });
+  window.addEventListener('resize', alignOpenPanels);
+  document.fonts?.ready.then(alignOpenPanels);
+  document.fonts?.addEventListener('loadingdone', alignOpenPanels);
 }
 
 function initMobileMenu() {

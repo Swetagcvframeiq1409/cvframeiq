@@ -13,7 +13,7 @@ This checklist records the requested static-site surfaces and evidence in the cu
 | Home technology marquee, FAQ, blog teaser, and final CTA using shared contact values | Done | `index.html`: `.marquee`, FAQ, `#blog`, `.final-cta`; `assets/data/site-data.js`: `SITE_CONTACT` |
 | Fixed glass header, shared mega menus, mobile drawer, and keyboard focus trap | Done | `assets/js/components.js`, `assets/js/main.js`, `assets/css/components.css`: `.site-header`, `.mega-menu`, `.mobile-menu`; drawer controls have at least 44px targets |
 | Temporary CSS text logo, shared container alignment, disclosure dropdowns, direct Hardware link, and responsive drawer | Done | `renderBrand()` in `assets/js/components.js`; `assets/css/components.css`; dropdown keyboard and viewport placement in `assets/js/main.js`. Official logo is pending company supply. |
-| Organization structured-data logo property removed | Done; company input pending | `index.html`; supply and approve the official FrameIQ logo before adding the Organization `logo` property back. |
+| Organization structured-data logo property absent; no favicon asset is used | Done | `index.html`; the CSS-only mark and wordmark are rendered by `assets/js/components.js`. |
 | Command-palette search shortcuts, keyboard navigation, and Escape handling | Done | `assets/js/search.js`: `/`, Ctrl/⌘+K, arrow keys, Escape; `assets/data/search-index.js` |
 | Scroll progress, breadcrumbs, back-to-top, skip link, and no cookie banner | Done | `assets/js/main.js`, `assets/js/components.js`, shared page markup; no cookie-banner component |
 | About sticky sub-navigation; Features and Docs content/navigation | Done | `assets/js/main.js`: `initStickySubnav`; `assets/js/pages/content.js`: generated TOC; `pages/about.html`, `pages/features.html`, `pages/docs.html` |
@@ -91,4 +91,4 @@ This checklist records the requested static-site surfaces and evidence in the cu
 - Token text colors and gradient stops retain at least 4.9:1 contrast in both themes, including the subtle hover opacity; forced-colors mode uses `CanvasText`.
 - Static scan found no SVG files, inline SVG markup, logo image references, or `<img alt="FrameIQ">` references in HTML, CSS, or JavaScript.
 - Dropdown and drawer captures: [Solutions](./screens/nav/solutions.png), [Products](./screens/nav/products.png), [Demos](./screens/nav/demos.png), [Resources](./screens/nav/resources.png), [Company](./screens/nav/company.png), and [mobile drawer](./screens/nav/drawer.png).
-- Official approved logo remains pending company input.
+- The header uses one CSS mark and one `FrameIQ` wordmark; no live PNG logo or image logo is used.
