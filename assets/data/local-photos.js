@@ -1,5 +1,4 @@
 window.LOCAL_PHOTOS = [
-  "gear-board",
   "gear-devboard",
   "sector-aviation",
   "sector-banking",
