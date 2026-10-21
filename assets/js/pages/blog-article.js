@@ -43,14 +43,6 @@
   }
 
   page.hidden = false;
-  const crumbs = document.querySelector('[data-ba-breadcrumb]');
-  const home = make('a', '', 'Home');
-  home.href = window.getPageHref('index.html');
-  const blog = make('a', '', 'Blog');
-  blog.href = window.getPageHref('pages/blog.html');
-  const current = make('span', '', title);
-  current.setAttribute('aria-current', 'page');
-  crumbs.append(home, make('span', 'ba-crumb-separator', '/'), blog, make('span', 'ba-crumb-separator', '/'), current);
 
   const heading = document.querySelector('[data-ba-title]');
   heading.textContent = title;
@@ -132,20 +124,6 @@
     meta.textContent = pieces.join(' · ');
     meta.hidden = false;
   }
-  if (title && date && author) {
-    const schema = {
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: title,
-      datePublished: date,
-      author: { '@type': 'Person', name: author }
-    };
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify(schema);
-    document.head.append(script);
-  }
-
   const relatedHost = document.querySelector('[data-ba-related]');
   const related = posts.filter((item) => item.slug !== post.slug).slice(0, 2);
   related.forEach((item) => {

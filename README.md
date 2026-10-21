@@ -1,152 +1,98 @@
-# FrameIQ Static Site
+# FrameIQ website
 
-FrameIQ is a pure-static website for the FrameIQ computer-vision products, sector use cases, company information, and enquiry flows. It uses HTML, CSS, and browser JavaScript; no build step or package installation is required.
+This is the static rebuild of cvframeiq.com. It's plain HTML, CSS and JavaScript. There's no build step, no framework and no backend, so you can open it, edit it and host it anywhere.
 
-## Run locally
+It's currently a review build. A few things on it are placeholders or carried over from the old site and still need the company's confirmation. They're listed at the bottom.
 
-- **VS Code Live Server:** open this folder in VS Code, right-click `index.html`, and choose **Open with Live Server**.
-- **Without an extension:** serve this folder with `python -m http.server 8000` and open `http://localhost:8000/`. Direct `file://` opening still works with fallback tiles, but browsers block loading the local-photo allowlist there.
+## Running it
 
-## Folder map
+The easiest way is VS Code with the Live Server extension: right-click `index.html` and choose "Open with Live Server".
 
-- `index.html` — home page.
-- `pages/` — standalone site pages, including contact, product, company, and legal pages.
-- `pages/sectors/` — sector-specific pages.
-- `docs/PROPOSAL-AUDIT.md` — implementation status for the supplied Phase 3 requirements; the referenced source proposal is still needed to audit sections 4.1–4.13, 6, and 7 bullet-by-bullet.
-- Product concept pages: `pages/pcb-guardian.html`, `pages/ppe-safety.html`, and `pages/autolabel.html`; unspecified functionality is marked to be confirmed.
-- Illustrative input-based calculators: `pages/roi-pcb-guardian.html` and `pages/roi-ppe-safety.html`; results are not product claims, quotes, or promised savings.
-- `assets/css/` — shared styles and page-specific stylesheets.
-- `assets/fonts/` — locally hosted Bootstrap Icons CSS, WOFF2 font, and license.
-- `assets/js/` — shared site behavior and page-specific scripts.
-- `assets/data/` — content and configuration consumed by the pages.
-- `assets/img/` — local images; current live-site carryover photos are pending source/license verification. The favicon has intentionally been removed.
+If you don't use VS Code, run `python -m http.server 8000` in this folder and open http://localhost:8000.
 
-## Data and configuration files
+Opening `index.html` straight from the file system mostly works, but the browser blocks the photo list, so every photo shows as an icon tile.
 
-- `assets/data/ai-products.js` — AI Store product listings and product-use-case information.
-- `assets/data/beejhealth.js` — BeejHealth page content and its confirmation display flag.
-- `assets/data/blog-posts.js` — blog post metadata and content.
-- `assets/data/careers.js` — careers roles and company values.
-- `assets/data/company-data.js` — About page process, projects, technology, and `SHOW_DRAFT`.
-- `assets/data/coverage.js` — geographic coverage and map-region information.
-- `assets/data/docs.js` — documentation sections and their statuses.
-- `assets/data/features.js` — feature pillars and use cases.
-- `assets/data/hardware.js` — Gear Store hardware listings, pricing, and product details.
-- `assets/data/sectors.js` — nine sector use-case entries, including Events & Entertainment; all are discussion topics whose suitability and scope are confirmed on enquiry.
-- `assets/data/images.js` — image slots, local JPEG paths, alt text, dimensions, fallback icons, and the disabled remote-image switch.
-- `assets/data/local-photos.js` — generated allowlist of local JPEG slots, so missing files are not requested.
-- `assets/data/live-carryover.js` — source-page-tagged copy from the current live site; one `SHOW_UNCONFIRMED` flag controls the review-only content and banner.
-- `assets/data/legal.js` — legal-page draft visibility; keep `SHOW_DRAFT: true` for review and set it to `false` at launch.
-- `assets/data/research.js` — research content and confirmation flag.
-- `assets/data/search-index.js` — pages, products, and resources available in site search.
-- `assets/data/sectors.js` — sector-page content and related use cases.
-- `assets/data/site-data.js` — `SITE_URL`, shared `FORM_ENDPOINT`, `SITE_PAGES`, `SITE_CONTACT`, navigation/footer links, social links, and FAQs.
-- `assets/js/roi-calculators.js` — browser-only, user-input time/value scenarios with formulas, print-to-PDF, and an optional mailto draft.
-- `assets/js/partners.js` — partner enquiry email-draft flow; the static page does not submit to a server.
-- `assets/js/forms.js` — shared message-copy fallback for disconnected forms.
-- `assets/js/seo.js` — canonical, Open Graph, Twitter, and structured-data metadata from the shared site configuration.
-- `assets/js/photos.js` — shared photo loader, local-file allowlist, fixed aspect ratios, and designed CSS fallback tiles.
-- `assets/js/pages/home-selector.js` — homepage sector chips, data-driven use cases and catalog matches, and safely persisted selection.
-- `assets/js/pages/pcb-guardian.js` — fixed sample-value PCB demo interaction; it is labelled demo data and does not analyze images.
-- `scripts/update-photos.ps1` — scans `assets/img/photos/*.jpg` and regenerates the local photo allowlist.
-- `pages/style-guide.html` — unlinked, development-only icon reference; delete it before launch.
+## What's where
 
-## Visual system and interactions
+- `index.html` is the home page.
+- `pages/` has every other page. `pages/sectors/` has one page per sector.
+- `404.html` is the not-found page.
+- `assets/css/` holds the styles. `tokens.css` has the colours, fonts and spacing, and `pages/` has the page-specific files.
+- `assets/js/` holds the scripts. `components.js` draws the shared header, footer and chat button. `main.js` handles the theme, menus and small effects. Page scripts are in `pages/`.
+- `assets/data/` holds the content the pages read from, such as sectors, products, hardware, blog posts and the site settings in `site-data.js`.
+- `assets/fonts/` has the self-hosted fonts and icon font.
+- `assets/img/` has the social preview image (`og-image.jpg`) and the photos.
+- `scripts/update-photos.ps1` refreshes the photo list (see below).
+- `sitemap.xml`, `robots.txt` and `site.webmanifest` are the usual SEO files.
 
-- `assets/css/tokens.css` defines shared color, type, spacing, radius, shadow, blur, motion, and stacking tokens.
-- `assets/fonts/` contains the self-hosted Inter and Space Grotesk variable fonts and Bootstrap Icons.
-- `assets/css/base.css` and `assets/css/components.css` provide shared typography, surfaces, navigation, and components; page-specific styles remain under `assets/css/pages/`.
-- `assets/js/main.js` initializes the theme, keyboard-accessible navigation, command palette, reduced-motion-aware polish, and long-page section navigation.
-- The home vision overlay is drawn on canvas and pauses when off-screen or when reduced motion is preferred.
-- AI Store and Gear catalogs support filtering, search, sorting, grid/list layouts, product details, comparison, and enquiry links using the existing catalog data.
-- AI Store search text and category filters are represented in the URL; its Quick view and comparison use the existing AI product data.
-- The homepage industry selector and four-stage Camera to Decision story use existing sector/product data and reduced-motion-aware behavior. The site-wide contextual CTA hides at the Contact page and as the footer enters view.
-- Research contains a conceptual approach toggle, an HTML/CSS-only architecture diagram, and a model-card template with unconfirmed fields clearly marked.
-- The Contact form collects optional budget and timeline choices. It has no upload control; users can attach files when replying to the enquiry email.
-- Gear shows the Multi-Sensor Array as its sixth catalog item (Sensor Kits, INR 16,500, out of stock). All Gear prices are indicative and confirmed on enquiry.
+## Design rules we're following
 
-## Check before launch
+- No SVG files or inline SVG anywhere. Icons come from the bundled Bootstrap Icons font.
+- No text written over photos.
+- The logo is a temporary text wordmark made in CSS. There's no favicon on purpose.
+- No cookie banner.
+- Both a dark and a light theme, from 320px up to wide desktop screens.
 
-- Replace the `SITE_URL` placeholder in `assets/data/site-data.js`, `robots.txt`, and `sitemap.xml` after the final public domain is approved.
-- Set each `SHOW_DRAFT` flag in the relevant data file to `false` at launch; the flags are currently `true` for manager review. The legal pages remain visibly marked pending approval until approved legal text is supplied.
-- Set `SHOW_UNCONFIRMED` in `assets/data/beejhealth.js` as appropriate; keep unconfirmed content hidden until approved.
-- Configure the shared `FORM_ENDPOINT` in `assets/data/site-data.js` with the production Formspree endpoint. Leave it empty during review to use the honest mailto and copy-message fallbacks.
-- Verify `SITE_CONTACT` in `assets/data/site-data.js`, including its phone, email, location, hours, and registration details.
-- Current contact hours are Mon–Fri, 9am–6pm IST. The existing CIN/LLP registration wording has not been changed and still needs company confirmation.
-- `assets/img/og-image.jpg` is a branded, non-photographic social preview. Replace it only if an approved launch image is supplied.
+## Motion
 
-## Pending from the company
+- `assets/css/motion.css` contains motion styles; `assets/js/motion.js` adds reveal behavior and page transitions.
+- Motion timing and easing tokens are in `assets/css/tokens.css`: `--ease-*`, `--dur-*`, `--duration-*`, `--transition-*` and `--stagger`.
+- Add `data-reveal` to an element to reveal it as it enters the viewport. Remove the `js-motion` class from the `<html>` element to disable the motion styles and keep content visible.
 
-- [ ] Confirm team names and roles.
-- [ ] Provide and approve final legal text.
-- [ ] Provide the production form endpoint.
-- [ ] Confirm the WhatsApp destination.
-- [ ] Confirm the calendar link.
-- [ ] Confirm product prices.
-- [ ] Provide approved product photos.
-- [ ] Confirm PCB Guardian, PPE Safety, and AutoLabel scope, availability, supported specifications, deployment options, and pricing.
-- [ ] Confirm responsible-AI, privacy, data-handling, partner-program, and reseller terms before making commitments.
-- [ ] Approve product output examples and any performance claims before publication.
-- [ ] Approve press boilerplate, spokesperson details, and brand assets/usage permissions.
-- [ ] Confirm whether the registration identifier should be CIN or LLPIN.
-- [ ] Confirm the exact proposal text for sections 4.1–4.13, 6, and 7 so the audit can list and assess every original bullet.
-- [ ] Confirm the final public domain.
-- [ ] Approve final client wording and any client references.
+## Photos
 
-## Navigation, product concepts, and calculators
+Photos live in `assets/img/photos/`. Each file is named after a slot in `assets/data/images.js`, for example `sector-banking.jpg`. Use JPGs around 1600 x 900 and keep them under 300 KB.
 
-The shared navigation and footer use the Solutions, Products, Hardware, Demos, Resources, and Company groups. Solutions includes Events & Entertainment. The primary action is **Book a Demo** (Contact); Playground is labelled **Try Live Demo** and is explicitly illustrative. The legacy `pages/getstarted.html` route remains available as an enquiry page.
+After adding or removing a photo, run this from the project folder:
 
-PCB Guardian, PPE Safety, and AutoLabel pages distinguish existing site information from details that are still to be confirmed. The ROI-labelled tools accept blank-by-default user inputs and display only an illustrative time/value scenario using their visible formulas. They do not claim verified savings, product performance, payback, or ROI. Printing invokes the browser print dialog; email opens a draft addressed to `SITE_CONTACT.email` and does not send it.
+`powershell -ExecutionPolicy Bypass -File scripts\update-photos.ps1`
 
-The Responsible AI page is a discussion guide, not a policy or legal claim. The Partners form prepares a mail draft and does not submit data to a backend. The Press Kit contains text and brand-colour references only, not licensed media assets.
+Then hard-refresh the browser with Ctrl+F5. The script writes `assets/data/local-photos.js`, which lists the photos that exist. A slot with no photo shows a plain icon tile, so nothing breaks.
 
-## LOCAL PHOTO WORKFLOW
+### Photo credits
 
-LoremFlickr returned intermittent HTTP 500 errors, so remote photos are disabled (`USE_TEMP_REMOTE: false`). Empty image slots show a themed, text-free icon tile and do not probe missing files.
+Fill this in before launch. Every photo needs its source and licence on record.
 
-Add licensed JPEGs to `assets/img/photos/`, using the exact slot names from `assets/data/images.js` (for example, `sector-banking.jpg`). Use 1600×900 images where practical and keep each file under 300 KB. Record the source, creator, and license for every photo in `assets/img/photos/CREDITS.md`.
+| File | Source link | Photographer | Licence |
+|---|---|---|---|
+| sector-banking.jpg | to add | to add | to add |
+| sector-aviation.jpg | to add | to add | to add |
+| sector-smart-city.jpg | to add | to add | to add |
+| sector-security.jpg | to add | to add | to add |
+| sector-healthcare.jpg | to add | to add | to add |
+| sector-events.jpg | to add | to add | to add |
+| sector-manufacturing.jpg | to add | to add | to add |
+| gear-board.jpg | to add | to add | to add |
+| gear-devboard.jpg | to add | to add | to add |
+| blog-traffic.jpg | to add | to add | to add |
+| blog-edge-cloud.jpg | to add | to add | to add |
+| blog-agriculture.jpg | to add | to add | to add |
 
-After adding photos, run: `powershell -ExecutionPolicy Bypass -File scripts\update-photos.ps1`, then hard-refresh (Ctrl+F5).
+Update this table whenever the photo folder changes. Slots without a photo yet: home, about, BeejHealth, research, AI Store, careers and login heroes, retail, agriculture, and the camera, processor and sensor products on Gear.
 
-The generated `assets/data/local-photos.js` lists only slots with a matching `.jpg`; the loader requests local images only for slots in that list. Missing or empty lists leave all affected slots as designed fallback tiles. The remote LoremFlickr/Picsum code path remains available for a future explicitly approved switch, but is currently off.
+## Settings you can flip
 
-The favicon has intentionally been removed. Pages use an empty data-URL icon to prevent browser requests for a missing `/favicon.ico`; do not restore favicon assets or manifest icon entries.
+- `SITE_URL`, `SITE_CONTACT` (phone, email, address, hours, registration) and `FORM_ENDPOINT` are in `assets/data/site-data.js`.
+- `FORM_ENDPOINT` is empty for now, so forms open an email draft and offer a "copy my message" button instead of sending anything. Put the real form endpoint there when the company has one.
+- `SHOW_UNCONFIRMED` in `assets/data/live-carryover.js` shows or hides the content carried over from the old site (figures, testimonials, ratings, blog posts, hours). `SHOW_REVIEW_BANNER` in the same file shows a note about that content. It's off.
+- `SHOW_DRAFT` in `assets/data/company-data.js` and `assets/data/legal.js` shows the draft sections and the "pending approval" legal pages.
+- `USE_TEMP_REMOTE` in `assets/data/images.js` stays `false`. All photos are local.
 
-## SEO and QA
+## Before launch
 
-- `SITE_PAGES` in `assets/data/site-data.js` is the canonical page list used by the metadata helper; keep `sitemap.xml` and `robots.txt` aligned with it.
-- The latest Playwright matrix in `docs/QA-REPORT.md` covers all 40 registered routes in dark and light themes at 320, 360, 375, 390, 420, 768, 1024, and 1280px. No Lighthouse run was performed.
-- `docs/QA-REPORT.md` records launch-readiness checks and company-input blockers.
+- Replace the placeholder domain (`example.invalid`) in `site-data.js`, `robots.txt` and `sitemap.xml` once the final address is agreed.
+- Check every item carried over from the old site with the company. This covers the accuracy and speed figures, testimonials, star ratings, the "within 24 hours" reply promise, opening hours, registration details and the three blog posts. The blog dates (January and February 2025) are earlier than the incorporation date on the old About page (5 June 2025), so someone needs to confirm them.
+- Turn off `SHOW_UNCONFIRMED` and `SHOW_DRAFT` unless the company has approved the content they control.
+- Fill in the photo credit table above and replace any photo we can't clear.
+- Replace the temporary logo and the social preview image if the company supplies final versions.
 
-## Content carried over from the live site
+## Still needed from the company
 
-The review build reads copied content from `assets/data/live-carryover.js`. `SHOW_REVIEW_BANNER` controls only the review banner and defaults to `false`. `SHOW_UNCONFIRMED` remains enabled and controls carried-over content, ratings, and local live-site photos.
-
-- [x] Home statistics, impact metrics, both displayed testimonials, and FAQ, each tagged with source page `/`.
-- [x] Sector names and Impact boxes, tagged with source page `/sectors`.
-- [x] Gear hero/product ratings, product details, AI Store category chips and product bullets, tagged with their source pages.
-- [x] About registration details, incorporation date, milestones and values; Contact business hours and response card; each item is tagged with its source page.
-- [x] Three Blog article records, including visible body copy, authors, dates, categories, excerpts and reading times, tagged with their article source paths.
-- [x] Live sector, Gear and Blog photos saved locally using the corresponding `assets/data/images.js` slots.
-- [x] Broken/mismatched Gear images are recorded in `LIVE_CARRYOVER.skippedImages` and `assets/img/photos/CREDITS.md`; their slots remain designed fallback tiles.
-- [ ] Verify all carried-over claims, figures, testimonials, ratings, blog metadata and body copy with the company before launch.
-- [ ] Confirm creators, source rights and licenses for the 12 downloaded photos; credits and source URLs are in `assets/img/photos/CREDITS.md`.
-
-The three copied Blog dates (2/1/2025, 1/28/2025 and 1/25/2025) predate the live About incorporation date of June 5, 2025. Dates are preserved as observed and need company verification.
-
-## Verify before launch
-
-Confirm each carried-over item in `assets/data/live-carryover.js` with the company before launch:
-
-- [ ] Statistics and impact figures (source page `/`).
-- [ ] Testimonials and quoted customer statements (source page `/`).
-- [ ] Gear and AI Store ratings (source pages `/gear` and the AI Store pages).
-- [ ] Contact hours and response-time wording (source page `/contact`).
-- [ ] Company registration details and incorporation date (source page `/about`).
-- [ ] Blog publication dates (source pages `/blog` and individual article paths).
-- [ ] Blog author names and biographies (source pages `/blog` and individual article paths).
-
-## CSS wordmark
-
-The shared header, mobile drawer, and footer use a CSS-only camera-frame mark and the `FrameIQ` wordmark generated by `renderBrand()` in `assets/js/components.js`. No logo image, favicon, or SVG is used.
+- Team names and roles
+- Final legal text (privacy, terms, security, cookies)
+- The form endpoint, WhatsApp number and calendar booking link
+- Product prices and approved product photos
+- Whether the registration number should read CIN or LLPIN
+- Scope, availability and pricing for PCB Guardian, PPE Safety and AutoLabel
+- Approved wording for clients, press boilerplate and brand assets
+- Approval for the Responsible AI, partner and reseller wording

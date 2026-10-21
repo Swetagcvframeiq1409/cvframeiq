@@ -36,7 +36,6 @@
     return grid;
   }
 
-  // Hero
   var hero = el('section', 'rs-hero');
   var hw = el('div', 'container rs-hero__inner');
   var left = el('div', 'rs-hero__copy');
@@ -146,7 +145,6 @@
     root.appendChild(s.s);
   });
 
-  // CTA
   var cta = el('section', 'rs-section rs-cta reveal');
   var cw = el('div', 'container rs-cta__box');
   cw.appendChild(el('p', 'rs-eyebrow', 'Talk to us'));

@@ -137,8 +137,7 @@ body {
   #site-footer,
   .skip-link,
   .calculator-actions,
-  .chatbot-button,
-  .breadcrumb { display: none !important; }
+  .chatbot-button { display: none !important; }
   body,
   .calculator-card { color: #000; background: #fff; box-shadow: none; }
   .calculator-card { break-inside: avoid; }

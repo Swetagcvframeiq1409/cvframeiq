@@ -97,6 +97,7 @@
     const image = document.createElement('img');
     image.width = 800;
     image.height = 450;
+    image.decoding = 'async';
     image.alt = '';
     image.hidden = true;
     media.append(image);

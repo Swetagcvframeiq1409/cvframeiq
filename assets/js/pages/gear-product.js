@@ -23,9 +23,8 @@
   document.title = `${product.name} | FrameIQ Gear Store`;
   host.innerHTML = `
     <div class="gear-container">
-      <nav class="gear-breadcrumb" aria-label="Breadcrumb"><a href="gear.html">Gear Store</a><span aria-hidden="true">/</span><span>${ui.escapeHtml(product.name)}</span></nav>
       <section class="gear-product-detail">
-        <div class="gear-product-detail__visual photo-frame" data-photo="${ui.escapeHtml(product.imageSlot || 'gear-camera')}" data-photo-loading="eager"><img width="1600" height="900" hidden alt=""></div>
+        <div class="gear-product-detail__visual photo-frame" data-photo="${ui.escapeHtml(product.imageSlot || 'gear-camera')}" data-photo-loading="eager"><img width="1600" height="900" decoding="async" hidden alt=""></div>
         <div class="gear-product-detail__info">
           <p class="gear-eyebrow"><span></span> ${ui.escapeHtml(product.category)}</p>
           <h1>${ui.escapeHtml(product.name)}</h1>

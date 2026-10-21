@@ -1,5 +1,4 @@
-/* BeejHealth content. Only items with confirmed:true are shown publicly.
-   Change a flag to true once Deepak confirms the item. */
+// only confirmed items appear publicly
 window.BEEJHEALTH = {
   SHOW_UNCONFIRMED: false, // dev only: true shows every item with an "Unconfirmed" tag
   intro: {
@@ -32,6 +31,6 @@ window.BEEJHEALTH = {
     { title: 'Technology', text: '[Placeholder: confirmed technology details]', confirmed: false }
   ],
   roadmap: [
-    { title: 'Phase 1', text: '[Placeholder: confirmed roadmap item]', confirmed: false }
+    { title: 'Roadmap', text: '[Placeholder: confirmed roadmap item]', confirmed: false }
   ]
 };

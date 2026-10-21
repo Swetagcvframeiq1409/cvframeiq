@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Reviewed for Phase 3A from SITE_PAGES in assets/data/site-data.js, including Events & Entertainment; replace the placeholder SITE_URL before launch. -->
   <url><loc>https://example.invalid/</loc></url>
   <url><loc>https://example.invalid/pages/about.html</loc></url>
   <url><loc>https://example.invalid/pages/ai-store.html</loc></url>

@@ -1,5 +1,5 @@
 window.CAREERS = {
-  // Keep true for manager review; set false at launch to hide draft roles.
+  // false hides draft roles
   SHOW_DRAFT: true,
   roles: [],
   values: [

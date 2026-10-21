@@ -36,25 +36,10 @@
   text-align: center;
 }
 
-.ba-breadcrumb {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: .55rem;
-  margin-bottom: 2rem;
-  color: var(--text-muted);
-  font-size: .9rem;
-}
-
-.ba-breadcrumb a,
 .ba-back {
   color: var(--text-muted);
   text-decoration: underline;
   text-underline-offset: .18em;
-}
-
-.ba-breadcrumb [aria-current="page"] {
-  color: var(--text);
 }
 
 .ba-header {

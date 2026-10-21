@@ -10,15 +10,16 @@
     }
 
     const path = window.location.pathname.replace(/\\/g, '/');
-    const route = path.endsWith('/pages/404.html')
-      ? 'pages/404.html'
-      : path.endsWith('/pages/style-guide.html')
-        ? 'pages/style-guide.html'
+    const route = path.endsWith('/404.html')
+      ? '404.html'
       : pages.find((item) => path.endsWith(`/${item}`)) || 'index.html';
     const currentUrl = new URL(route === 'index.html' ? `${rootUrl}/` : `${rootUrl}/${route}`);
     const params = new URLSearchParams(window.location.search);
     if (route === 'pages/blog-article.html' && params.has('slug')) {
       currentUrl.searchParams.set('slug', params.get('slug'));
+    }
+    if (route === 'pages/gear-product.html' && params.has('product')) {
+      currentUrl.searchParams.set('product', params.get('product'));
     }
 
     const title = document.title.trim();
@@ -65,7 +66,6 @@
       url: `${rootUrl}/`,
       telephone: window.SITE_CONTACT?.phone,
       email: window.SITE_CONTACT?.email,
-      openingHours: 'Mo-Fr 09:00-18:00',
       identifier: window.SITE_CONTACT?.registration ? {
         '@type': 'PropertyValue',
         propertyID: window.SITE_CONTACT.registration.label,
@@ -78,31 +78,6 @@
         addressCountry: 'IN'
       }
     };
-    const labels = new Map([
-      ['index.html', 'Home'],
-      ...pages.filter((item) => item !== 'index.html').map((item) => [item, item.split('/').pop().replace(/\.html$/, '').replace(/-/g, ' ').replace(/\b\w/g, (letter) => letter.toUpperCase())])
-    ]);
-    const crumbs = [{ name: 'Home', url: `${rootUrl}/` }];
-    if (route.startsWith('pages/sectors/')) {
-      crumbs.push({ name: 'Sectors', url: `${rootUrl}/pages/sectors.html` });
-    }
-    if (route !== 'index.html') {
-      const label = route === 'pages/blog-article.html'
-        ? title.replace(/\s*\|\s*FrameIQ.*$/i, '')
-        : labels.get(route) || title.replace(/\s*\|\s*FrameIQ.*$/i, '');
-      crumbs.push({ name: label, url: currentUrl.href });
-    }
-    document.querySelector('#breadcrumb-jsonld')?.remove();
-    const breadcrumb = {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: crumbs.map((item, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        name: item.name,
-        item: item.url
-      }))
-    };
     const pageSchema = document.querySelector('#organization-jsonld');
     if (pageSchema) {
       const schema = JSON.parse(pageSchema.textContent);
@@ -113,17 +88,56 @@
         pageSchema.textContent = JSON.stringify(schema);
       }
     }
-    const organizationScript = document.querySelector('#organization-site-jsonld') || document.createElement('script');
-    organizationScript.id = 'organization-site-jsonld';
-    organizationScript.type = 'application/ld+json';
-    organizationScript.textContent = JSON.stringify(organization);
-    document.head.append(organizationScript);
-    const breadcrumbScript = document.querySelector('#site-breadcrumb-jsonld') || document.createElement('script');
-    breadcrumbScript.id = 'site-breadcrumb-jsonld';
-    breadcrumbScript.type = 'application/ld+json';
-    breadcrumbScript.textContent = JSON.stringify(breadcrumb);
-    document.head.append(breadcrumbScript);
-    if (route === 'pages/404.html' || route === 'pages/style-guide.html') {
+    const setJsonLd = (id, schema) => {
+      let script = document.getElementById(id);
+      if (!schema) {
+        script?.remove();
+        return;
+      }
+      if (!script) {
+        script = document.createElement('script');
+        script.id = id;
+        script.type = 'application/ld+json';
+        document.head.append(script);
+      }
+      script.textContent = JSON.stringify(schema);
+    };
+    setJsonLd('organization-site-jsonld', route === 'index.html' ? organization : null);
+
+    const blogPost = route === 'pages/blog-article.html'
+      ? window.FRAMEIQ_BLOG_POSTS?.find((post) => post.slug === params.get('slug'))
+      : null;
+    const imageForSlot = (slot) => {
+      const image = window.SITE_IMAGES?.[slot];
+      const localSlot = image?.localSlot || slot;
+      const localPhotos = window.LOCAL_PHOTOS;
+      return image?.local && Array.isArray(localPhotos) && localPhotos.includes(localSlot)
+        ? `${rootUrl}/${image.local.replace(/^\/+/, '')}`
+        : undefined;
+    };
+    setJsonLd('article-jsonld', blogPost ? {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: blogPost.title,
+      description: blogPost.summary || description,
+      image: imageForSlot(blogPost.imageSlot),
+      mainEntityOfPage: currentUrl.href
+    } : null);
+
+    const product = route === 'pages/gear-product.html'
+      ? window.HARDWARE?.find((item) => item.id === params.get('product'))
+      : null;
+    setJsonLd('product-jsonld', product ? {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: product.name,
+      description: product.descriptionPlaceholder || /^\s*\[Placeholder:/i.test(product.description || '')
+        ? undefined
+        : product.description,
+      image: imageForSlot(product.imageSlot)
+    } : null);
+
+    if (route === '404.html') {
       ensureMeta('meta[name="robots"]', { name: 'robots' }, 'noindex,nofollow');
     }
   }

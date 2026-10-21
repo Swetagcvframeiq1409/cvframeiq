@@ -1,7 +1,6 @@
-// Replace SITE_URL after the public domain is approved.
 window.SITE_URL = 'https://example.invalid';
 
-// Set the Formspree endpoint here; leave empty to use the email fallbacks.
+// leave empty to use email fallbacks
 window.FORM_ENDPOINT = '';
 
 window.SITE_PAGES = [
@@ -49,7 +48,6 @@ window.SITE_PAGES = [
   'pages/sectors/events-entertainment.html'
 ];
 
-// Same details as the live cvframeiq.com site (confirmed by Deepak on 15 Oct 2026).
 window.SITE_CONTACT = {
   phone: '+91 94231 49303',
   phoneHref: 'tel:+919423149303',
@@ -61,6 +59,7 @@ window.SITE_CONTACT = {
 
 window.NAV_DATA = {
   main: [
+    { label: 'Home', href: 'index.html' },
     { label: 'Solutions', href: 'pages/sectors.html' },
     { label: 'Products', href: 'pages/ai-store.html' },
     { label: 'Hardware', href: 'pages/gear.html' },

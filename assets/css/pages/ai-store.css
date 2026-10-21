@@ -21,11 +21,6 @@ body[data-theme="light"] .as-page {
   margin-inline: auto;
 }
 
-.as-page .breadcrumb {
-  padding-top: 1.15rem;
-  padding-bottom: 0.2rem;
-}
-
 .as-page :focus-visible,
 .as-dialog :focus-visible {
   outline-color: #c4b5fd;
@@ -1225,6 +1220,11 @@ body[data-theme="light"] .as-dialog__category {
   .as-visual-frame__scan,
   .as-skeleton {
     animation: none;
+  }
+
+  .as-card {
+    opacity: 1;
+    transform: none;
   }
 
   .as-card,

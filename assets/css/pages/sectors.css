@@ -21,10 +21,6 @@ body[data-theme="light"] .sc-page {
   margin-inline: auto;
 }
 
-.sc-page .breadcrumb {
-  padding-top: 1.1rem;
-}
-
 .sc-page :focus-visible {
   outline: 2px solid #c4b5fd;
   outline-offset: 3px;

@@ -3,7 +3,7 @@ function getRootPath() {
 }
 
 function renderBrand(root = getRootPath()) {
-  return `<a class="brand" href="${getPageHref('index.html', root)}" aria-label="FrameIQ home"><span class="brand__mark" aria-hidden="true"></span><span class="brand__frame">Frame</span><span class="brand__iq">IQ</span></a>`;
+  return `<a class="brand" href="${getPageHref('index.html', root)}" aria-label="FrameIQ home">Frame<span class="brand__iq">IQ</span></a>`;
 }
 const LOGO_HTML = renderBrand;
 window.FrameIQLogo = LOGO_HTML;
@@ -15,6 +15,7 @@ function getPageHref(path, root = getRootPath()) {
 
 function isCurrentPath(href) {
   const currentPath = window.location.pathname.replace(/\\/g, '/');
+  if (href === 'index.html') return currentPath === '/' || currentPath.endsWith('/index.html');
   return currentPath.endsWith(`/${href}`);
 }
 
@@ -50,16 +51,17 @@ function renderHeader(root = getRootPath()) {
   const currentPath = window.location.pathname.replace(/\\/g, '/');
   const currentPage = currentPath.split('/').pop() || 'index.html';
   const pageHref = (path) => getPageHref(path, root);
-  const homeHref = pageHref('index.html');
   const isLoginPage = currentPage === 'login.html';
   const navGroups = window.NAV_DATA?.groups || {};
   const navMarkup = (window.NAV_DATA?.main || []).map((group) => {
+    if (group.label === 'Home') return renderNavLink(group, root);
     if (group.label === 'Hardware') return renderNavLink(group, root);
     const entries = navGroups[group.label] || [];
     const active = entries.some((entry) => isCurrentPath(entry.href));
     return renderNavGroup(group.label, `nav-${group.label.toLowerCase()}`, entries, root, active);
   }).join('');
   const mobileGroups = (window.NAV_DATA?.main || []).map((group) => {
+    if (group.label === 'Home') return renderNavLink(group, root, 'mobile-menu__link');
     if (group.label === 'Hardware') return renderNavLink(group, root, 'mobile-menu__link');
     const entries = navGroups[group.label] || [];
     const expanded = entries.some((entry) => isCurrentPath(entry.href));
@@ -104,7 +106,6 @@ function renderHeader(root = getRootPath()) {
       </div>
       <a class="btn btn--primary mobile-menu__cta" href="${pageHref('pages/contact.html')}">Book a Demo</a>
       <nav class="mobile-menu__nav" aria-label="Mobile primary navigation">
-        <a href="${homeHref}"${currentPage === 'index.html' ? ' aria-current="page"' : ''}>Home</a>
         ${mobileGroups}
       </nav>
       <div class="mobile-menu__footer">
@@ -150,31 +151,6 @@ function renderHeader(root = getRootPath()) {
     }
   }
 }
-
-function renderBreadcrumb(items) {
-  const host = document.querySelector('#breadcrumb');
-  if (!host || !Array.isArray(items) || !items.length) return;
-  const list = document.createElement('ol');
-  list.className = 'breadcrumb__list';
-  items.forEach((item, index) => {
-    const element = document.createElement('li');
-    const isCurrent = index === items.length - 1;
-    if (isCurrent) {
-      const current = document.createElement('span');
-      current.setAttribute('aria-current', 'page');
-      current.textContent = item.label;
-      element.appendChild(current);
-    } else {
-      const link = document.createElement('a');
-      link.href = getPageHref(item.href || '#');
-      link.textContent = item.label;
-      element.appendChild(link);
-    }
-    list.appendChild(element);
-  });
-  host.replaceChildren(list);
-}
-window.renderBreadcrumb = renderBreadcrumb;
 
 function renderFooter(root = getRootPath()) {
   const footerHost = document.querySelector('#site-footer');
@@ -343,62 +319,8 @@ function initChatbot() {
   });
 }
 
-function initContextualCta() {
-  const currentPath = window.location.pathname.replace(/\\/g, '/');
-  if (currentPath.endsWith('/contact.html')) return;
-  const footer = document.querySelector('#site-footer .site-footer');
-  if (!footer) return;
-
-  const pageHref = (path) => getPageHref(path);
-  const query = new URLSearchParams(window.location.search);
-  const sector = (window.SECTORS || []).find((item) => currentPath.endsWith(`/sectors/${item.slug}.html`));
-  const product = (window.NAV_DATA?.groups?.Products || []).find((item) => currentPath.endsWith(`/${item.href}`));
-  const hardwarePage = currentPath.endsWith('/gear.html')
-    || currentPath.endsWith('/gear-product.html')
-    || currentPath.endsWith('/edge-starter-kit.html')
-    || currentPath.endsWith('/smart-factory-kit.html');
-  const title = hardwarePage ? 'hardware' : sector?.name || product?.label || 'your use case';
-  const contactHref = query.get('interest') === 'hardware' && query.get('product')
-    ? pageHref(`pages/contact.html?interest=hardware&product=${encodeURIComponent(query.get('product'))}`)
-    : sector
-    ? pageHref(`pages/contact.html?sector=${encodeURIComponent(sector.slug)}`)
-    : pageHref(hardwarePage ? 'pages/contact.html?interest=hardware' : 'pages/contact.html');
-  const bar = document.createElement('aside');
-  bar.className = 'contextual-cta';
-  bar.setAttribute('aria-label', 'Contact FrameIQ');
-  bar.innerHTML = `<span>${hardwarePage ? 'Book a Hardware Demo' : `Discuss ${title}`}</span><a class="btn btn--primary" href="${contactHref}">${hardwarePage ? 'Book a Hardware Demo' : 'Book a Demo'}</a>`;
-  document.body.appendChild(bar);
-
-  if ('IntersectionObserver' in window) {
-    const footerObserver = new IntersectionObserver(([entry]) => {
-      bar.classList.toggle('is-near-footer', entry.isIntersecting);
-    }, { threshold: 0.01 });
-    footerObserver.observe(footer);
-
-    const visibleForms = new Set();
-    const syncFormVisibility = () => {
-      bar.classList.toggle('is-near-form', window.matchMedia('(max-width: 640px)').matches && visibleForms.size > 0);
-    };
-    const formObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) visibleForms.add(entry.target);
-        else visibleForms.delete(entry.target);
-      });
-      syncFormVisibility();
-    });
-    document.querySelectorAll('form:not(.newsletter-form)').forEach((form) => formObserver.observe(form));
-    window.addEventListener('resize', syncFormVisibility);
-  }
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   renderHeader();
   renderFooter();
-  const breadcrumb = document.querySelector('#breadcrumb[data-breadcrumb]');
-  if (breadcrumb) {
-    const items = JSON.parse(breadcrumb.dataset.breadcrumb);
-    renderBreadcrumb(items);
-  }
   initChatbot();
-  initContextualCta();
 });

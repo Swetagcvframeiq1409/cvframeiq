@@ -1,5 +1,5 @@
 window.COMPANY_PAGE_DATA = {
-  // Set SHOW_DRAFT to false at launch to hide draft-only content.
+  // set false to hide draft content
   SHOW_DRAFT: true,
   process: [
     { title: 'Understand', description: 'Start with the operating context, visual inputs, and the need to address.' },
@@ -11,14 +11,14 @@ window.COMPANY_PAGE_DATA = {
   projects: [
     { category: 'Computer Vision', title: 'Computer Vision for Industry', description: 'Inspection, defect detection, and production-line monitoring for manufacturing.', href: 'features.html', link: 'View capabilities' },
     { category: 'Agriculture', title: 'BeejHealth', description: 'An AI crop-health advisory focused on disease, pest, and nutrient insights.', href: 'beejhealth.html', link: 'Explore BeejHealth' },
-    { category: 'Product ecosystem', title: 'FrameIQ AI Store', description: 'A growing library of plug-and-deploy computer-vision models and workflow components.', href: 'ai-store.html', link: 'Explore AI Store' }
+    { category: 'Product library', title: 'FrameIQ AI Store', description: 'A growing library of plug-and-deploy computer-vision models and workflow components.', href: 'ai-store.html', link: 'Explore AI Store' }
   ],
   technologies: [
     { name: 'PyTorch', category: 'AI framework', icon: 'nodes' },
     { name: 'TensorFlow', category: 'AI framework', icon: 'nodes' },
     { name: 'OpenCV', category: 'Computer vision', icon: 'vision' },
     { name: 'YOLOv8', category: 'Object detection', icon: 'target' },
-    { name: 'Hugging Face', category: 'AI ecosystem', icon: 'nodes' },
+    { name: 'Hugging Face', category: 'AI platform', icon: 'nodes' },
     { name: 'Python', category: 'Programming language', icon: 'code' },
     { name: 'ONNX', category: 'Model interoperability', icon: 'layers' },
     { name: 'FastAPI', category: 'API framework', icon: 'code' },
