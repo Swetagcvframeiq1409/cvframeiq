@@ -21,7 +21,7 @@ Opening `index.html` straight from the file system mostly works, but the browser
 - `assets/js/` holds the scripts. `components.js` draws the shared header, footer and chat button. `main.js` handles the theme, menus and small effects. Page scripts are in `pages/`.
 - `assets/data/` holds the content the pages read from, such as sectors, products, hardware, blog posts and the site settings in `site-data.js`.
 - `assets/fonts/` has the self-hosted fonts and icon font.
-- `assets/img/` has the social preview image (`og-image.jpg`) and the photos.
+- `assets/img/photos/` has the local photos.
 - `scripts/update-photos.ps1` refreshes the photo list (see below).
 - `sitemap.xml`, `robots.txt` and `site.webmanifest` are the usual SEO files.
 
@@ -55,18 +55,14 @@ Fill this in before launch. Every photo needs its source and licence on record.
 
 | File | Source link | Photographer | Licence |
 |---|---|---|---|
-| sector-banking.jpg | to add | to add | to add |
-| sector-aviation.jpg | to add | to add | to add |
-| sector-smart-city.jpg | to add | to add | to add |
-| sector-security.jpg | to add | to add | to add |
-| sector-healthcare.jpg | to add | to add | to add |
-| sector-events.jpg | to add | to add | to add |
-| sector-manufacturing.jpg | to add | to add | to add |
-| gear-board.jpg | to add | to add | to add |
 | gear-devboard.jpg | to add | to add | to add |
-| blog-traffic.jpg | to add | to add | to add |
-| blog-edge-cloud.jpg | to add | to add | to add |
-| blog-agriculture.jpg | to add | to add | to add |
+| sector-aviation.jpg | to add | to add | to add |
+| sector-banking.jpg | to add | to add | to add |
+| sector-events.jpg | to add | to add | to add |
+| sector-healthcare.jpg | to add | to add | to add |
+| sector-manufacturing.jpg | to add | to add | to add |
+| sector-security.jpg | to add | to add | to add |
+| sector-smart-city.jpg | to add | to add | to add |
 
 Update this table whenever the photo folder changes. Slots without a photo yet: home, about, BeejHealth, research, AI Store, careers and login heroes, retail, agriculture, and the camera, processor and sensor products on Gear.
 
@@ -84,7 +80,7 @@ Update this table whenever the photo folder changes. Slots without a photo yet: 
 - Check every item carried over from the old site with the company. This covers the accuracy and speed figures, testimonials, star ratings, the "within 24 hours" reply promise, opening hours, registration details and the three blog posts. The blog dates (January and February 2025) are earlier than the incorporation date on the old About page (5 June 2025), so someone needs to confirm them.
 - Turn off `SHOW_UNCONFIRMED` and `SHOW_DRAFT` unless the company has approved the content they control.
 - Fill in the photo credit table above and replace any photo we can't clear.
-- Replace the temporary logo and the social preview image if the company supplies final versions.
+- Replace the temporary logo if the company supplies final brand assets. Add a social preview image if one is provided.
 
 ## Still needed from the company
 
