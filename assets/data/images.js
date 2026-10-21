@@ -1,5 +1,4 @@
-// LoremFlickr was unreliable (HTTP 500) so it is OFF. Add licensed photos to assets/img/photos/ instead.
-window.IMAGE_CONFIG = { USE_TEMP_REMOTE: false };
+// missing photos use icon tiles
 window.LOCAL_PHOTOS = [];
 window.LOCAL_PHOTOS_READY = fetch(new URL('./local-photos.js', document.currentScript.src), { cache: 'no-store' })
   .then((response) => response.ok ? response.text() : '')
@@ -266,10 +265,6 @@ window.getImage = function getImage(slot, source = 'local', root = document.body
     console.error(`Image data is unavailable for slot "${slot}".`);
     return '';
   }
-  if (source === 'temp') {
-    return `https://loremflickr.com/${image.width}/${image.height}/${encodeURIComponent(image.keywords)}?lock=${image.lock}`;
-  }
-  if (source === 'picsum') return `https://picsum.photos/seed/${encodeURIComponent(slot)}/${image.width}/${image.height}`;
   if (source === 'local') return `${root || './'}${image.local}`;
   console.error(`Unknown image source "${source}" for slot "${slot}".`);
   return '';

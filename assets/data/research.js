@@ -1,6 +1,6 @@
-/* Research page content. Only items with confirmed:true are shown publicly. */
+// only confirmed items appear publicly
 window.RESEARCH = {
-  SHOW_UNCONFIRMED: false, // dev only
+  SHOW_UNCONFIRMED: false,
   intro: {
     summary: 'FrameIQ explores computer vision that works with unstructured visual data and supports decision-making. These are our focus areas; scope and details are confirmed on enquiry.',
     confirmed: true

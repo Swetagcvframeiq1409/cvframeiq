@@ -1,2 +1,2 @@
-// Keep true for manager review; set false at launch until legal text is approved.
+// false hides draft legal text
 window.LEGAL_PAGE_DATA = { SHOW_DRAFT: true };

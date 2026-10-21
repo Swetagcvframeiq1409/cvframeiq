@@ -14,12 +14,6 @@
   margin-inline: auto;
 }
 
-.about-page .breadcrumb {
-  position: relative;
-  z-index: 1;
-  margin-top: 1.2rem;
-}
-
 .about-section {
   position: relative;
   padding-block: clamp(4rem, 6.5vw, 6rem);
@@ -1147,7 +1141,6 @@ body[data-theme="light"] .about-timeline__card time {
 
 @media (max-width: 680px) {
   .about-container { width: min(100% - 2rem, 36rem); }
-  .about-page .breadcrumb { margin-top: 0.75rem; }
   .about-hero { padding-top: 2.5rem; }
   .about-hero__layout,
   .about-story__layout,

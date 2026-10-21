@@ -1,0 +1,237 @@
+html.js-motion { overflow-x: clip; }
+
+.js-motion [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition: opacity var(--dur-reveal) var(--ease-out), transform var(--dur-reveal) var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.js-motion [data-reveal="left"] { transform: translate3d(-32px, 0, 0); }
+.js-motion [data-reveal="right"] { transform: translate3d(32px, 0, 0); }
+.js-motion [data-reveal="scale"] { transform: scale(.92); }
+.js-motion [data-reveal="fade"] { transform: none; }
+.js-motion [data-reveal].is-visible { opacity: 1; transform: none; }
+.js-motion [data-reveal].is-entering { will-change: transform, opacity; }
+
+.js-motion .hero__title-line {
+  animation: hero-line-enter 680ms var(--ease-out) both;
+  animation-delay: calc(var(--hero-line, 0) * var(--stagger));
+}
+.hero__title-line:nth-child(2) { --hero-line: 1; }
+.hero__title-line:nth-child(3) { --hero-line: 2; }
+.js-motion .hero__title-line--gradient .text-gradient {
+  background-size: 220% 100%;
+  animation: hero-accent-shift 8s ease-in-out infinite;
+}
+.js-motion .camera-corner {
+  animation: camera-corner-in 650ms var(--ease-out) both, camera-corner-pulse 3s 650ms ease-in-out infinite;
+}
+.js-motion .camera-detection {
+  animation: camera-detection-in 650ms var(--ease-out) both, detection-pulse 3.6s ease-in-out 650ms infinite;
+}
+.js-motion .camera-scan {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--primary) 48%, transparent);
+  animation: camera-scan 5s ease-in-out infinite;
+}
+.js-motion :is(.card, .sector-card, .gear-product-card, .blog-card, .as-card, .as-product-card, .feature-card, .pricing-card, .team-card, .faq-card, .role-card, .site-bento__card, .glossary-card, [class*="product-card"], [class*="__card"]) {
+  position: relative;
+  transition: transform 650ms var(--ease-out), border-color 650ms var(--ease-out), box-shadow 650ms var(--ease-out);
+}
+.js-motion :is(.card, .sector-card, .gear-product-card, .blog-card, .as-card, .as-product-card, .feature-card, .pricing-card, .team-card, .faq-card, .role-card, .site-bento__card, .glossary-card, [class*="product-card"], [class*="__card"]):is(:hover, :focus-visible, :focus-within) {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--primary) 65%, var(--border));
+  box-shadow: 0 20px 48px color-mix(in srgb, var(--primary) 18%, transparent), var(--shadow-md);
+}
+.js-motion :is(.card, .sector-card, .gear-product-card, .blog-card, .as-card, .as-product-card, .feature-card, .pricing-card, .team-card, .faq-card, .role-card, .site-bento__card, .glossary-card, [class*="product-card"], [class*="__card"]) :is(.photo-frame, [class*="__media"], picture) { overflow: hidden; }
+.js-motion :is(.card, .sector-card, .gear-product-card, .blog-card, .as-card, .as-product-card, .feature-card, .pricing-card, .team-card, .faq-card, .role-card, .site-bento__card, .glossary-card, [class*="product-card"], [class*="__card"]) img { transition: transform 650ms var(--ease-out); }
+.js-motion :is(.card, .sector-card, .gear-product-card, .blog-card, .as-card, .as-product-card, .feature-card, .pricing-card, .team-card, .faq-card, .role-card, .site-bento__card, .glossary-card, [class*="product-card"], [class*="__card"]):is(:hover, :focus-visible, :focus-within) img { transform: scale(1.05); }
+.js-motion :is(.card, .sector-card, .gear-product-card, .blog-card, .as-card, .as-product-card, .feature-card, .pricing-card, .team-card, .faq-card, .role-card, .site-bento__card, .glossary-card, [class*="product-card"], [class*="__card"])::after {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  transform: translateX(-130%) skewX(-18deg);
+  background: linear-gradient(100deg, transparent 35%, rgba(255,255,255,.16) 50%, transparent 65%);
+  content: "";
+  pointer-events: none;
+}
+.js-motion :is(.card, .sector-card, .gear-product-card, .blog-card, .as-card, .as-product-card, .feature-card, .pricing-card, .team-card, .faq-card, .role-card, .site-bento__card, .glossary-card, [class*="product-card"], [class*="__card"]):is(:hover, :focus-visible, :focus-within)::after {
+  animation: card-sheen 700ms var(--ease-out) 1;
+}
+
+.js-motion .btn--primary { isolation: isolate; }
+.js-motion .btn--primary::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0 auto 0 -70%;
+  width: 45%;
+  transform: skewX(-20deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent);
+  content: "";
+  pointer-events: none;
+}
+.js-motion .btn--primary:is(:hover, :focus-visible)::after { animation: card-sheen 650ms var(--ease-out) 1; }
+.js-motion .btn:active { transform: scale(.98); }
+
+.js-motion .nav-group-menu {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 180ms ease, transform 180ms var(--ease-out), visibility 180ms;
+}
+.js-motion .nav__item.is-open > .nav-group-menu { opacity: 1; transform: none; }
+
+.js-motion main a:not(.btn):not([class*="__"]),
+.js-motion .footer-grid a:not(.brand) { position: relative; text-decoration: none; }
+.js-motion main a:not(.btn):not([class*="__"])::after,
+.js-motion .footer-grid a:not(.brand)::after {
+  position: absolute;
+  right: 0;
+  bottom: -.08em;
+  left: 0;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: currentColor;
+  transition: transform 180ms var(--ease-out);
+  content: "";
+}
+.js-motion main a:not(.btn):not([class*="__"]):is(:hover, :focus-visible)::after,
+.js-motion .footer-grid a:not(.brand):is(:hover, :focus-visible)::after { transform: scaleX(1); }
+
+.js-motion .section-head h2 { position: relative; }
+.js-motion .section-head h2::after {
+  position: absolute;
+  right: auto;
+  bottom: -.28em;
+  left: 0;
+  width: 2.8rem;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: var(--grad-main);
+  transition: transform 650ms var(--ease-out) 220ms;
+  content: "";
+}
+.js-motion .section-head h2.is-visible::after { transform: scaleX(1); }
+.js-motion .footer-grid > .footer-col[data-reveal] { transition-delay: var(--reveal-delay, 0ms); }
+.js-motion .section-divider { transform: scaleX(0); transform-origin: left; transition: transform 700ms var(--ease-out); }
+.js-motion .section-divider.is-visible { transform: scaleX(1); }
+.js-motion .motion-divider { position: relative; }
+.js-motion .motion-divider__line {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: var(--grad-main);
+  transition: transform 700ms var(--ease-out);
+  pointer-events: none;
+}
+.js-motion .motion-divider.is-visible .motion-divider__line { transform: scaleX(1); }
+
+.js-motion .process-story::after { transform: scaleY(var(--story-progress, 0)); transform-origin: top; }
+.js-motion .process-step .number { transition: transform 650ms var(--ease-out), box-shadow 650ms var(--ease-out); }
+.js-motion .process-step.is-active .number {
+  transform: scale(1);
+  box-shadow: 0 0 0 5px var(--bg), 0 0 26px color-mix(in srgb, var(--primary) 75%, transparent);
+}
+.js-motion .process-step:not(.is-active) .number { transform: scale(.8); }
+
+.js-motion .back-to-top { transition: opacity 650ms var(--ease-out), transform 650ms var(--ease-out), visibility 650ms; }
+.js-motion .chatbot-panel,
+.js-motion .gear-dialog,
+.js-motion [role="dialog"] { transition: opacity 240ms var(--ease-out), transform 240ms var(--ease-out), visibility 240ms; }
+.js-motion .chatbot-panel {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(8px) scale(.98);
+  pointer-events: none;
+}
+.js-motion .chatbot-panel.is-open { visibility: visible; opacity: 1; transform: none; pointer-events: auto; }
+.js-motion dialog[open] { animation: dialog-enter 240ms var(--ease-out) both; }
+.js-motion :is(.nav__link, .nav__button, .mobile-menu__link, .mobile-menu__group) { position: relative; }
+.js-motion :is(.nav__link, .nav__button, .mobile-menu__link, .mobile-menu__group)::after {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms var(--ease-out);
+}
+.js-motion :is(.nav__link, .nav__button, .mobile-menu__link, .mobile-menu__group):is(:hover, :focus-visible)::after,
+.js-motion :is(.nav__link[aria-current="page"], .nav__button.has-current, .mobile-menu__link[aria-current="page"], .mobile-menu__group.is-active)::after { transform: scaleX(1); }
+.js-motion .accordion-panel,
+.js-motion .ct-accordion-panel {
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: max-height 280ms var(--ease-out), opacity 220ms var(--ease-out), transform 220ms var(--ease-out);
+}
+.js-motion .accordion-item.is-open .accordion-panel,
+.js-motion .ct-accordion-item.is-open .ct-accordion-panel { opacity: 1; transform: none; }
+.js-motion [role="tabpanel"] { transition: opacity 240ms var(--ease-out), transform 240ms var(--ease-out); }
+.js-motion .filter-grid > *,
+.js-motion [data-filter-grid] > * { transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out); }
+.js-motion .filter-item-enter {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out);
+  transition-delay: var(--filter-delay, 0ms);
+}
+.js-motion .filter-item-enter.is-filtered-in { opacity: 1; transform: none; }
+.js-motion .page-fade-in { animation: page-fade-in 200ms ease-out both; }
+.js-motion body.page-exit { opacity: 0; transition: opacity 150ms ease; }
+
+.js-motion .not-found__graphic { position: relative; animation: diagram-pulse 4s ease-in-out infinite; }
+.js-motion .not-found__graphic::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: translateY(-8px);
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  content: "";
+  animation: diagram-scan 3.8s ease-in-out infinite;
+}
+
+@keyframes hero-line-enter { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+@keyframes hero-accent-shift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+@keyframes camera-corner-in { from { opacity: 0; transform: scale(.72); } to { opacity: 1; transform: none; } }
+@keyframes camera-corner-pulse { 0%, 100% { opacity: .8; } 50% { opacity: 1; } }
+@keyframes camera-scan { 0%, 8% { opacity: 0; transform: translateY(0); } 18%, 82% { opacity: .8; } 92%, 100% { opacity: 0; transform: translateY(100%); } }
+@keyframes card-sheen { from { transform: translateX(-130%) skewX(-18deg); } to { transform: translateX(220%) skewX(-18deg); } }
+@keyframes dialog-enter { from { opacity: 0; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes page-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes camera-detection-in { from { opacity: 0; transform: scale(.82); } to { opacity: 1; transform: none; } }
+@keyframes diagram-pulse { 0%, 100% { opacity: .78; } 50% { opacity: 1; } }
+@keyframes diagram-scan { 0%, 100% { opacity: 0; transform: translateY(0); } 20%, 80% { opacity: .8; } 90% { transform: translateY(14rem); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html.js-motion [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .js-motion [data-reveal].is-entering { will-change: auto; }
+  .js-motion .hero__title-line,
+  .js-motion .hero__title-line--gradient .text-gradient,
+  .js-motion .camera-corner,
+  .js-motion .camera-detection,
+  .js-motion .camera-scan,
+  .js-motion .hero__glow,
+  .js-motion .gear-skeleton,
+  .js-motion .as-skeleton,
+  .js-motion .page-fade-in,
+  .js-motion .not-found__graphic,
+  .js-motion .not-found__graphic::after { animation: none !important; }
+  .js-motion .hero__glow { transform: none !important; }
+  .js-motion .page-exit { opacity: 1 !important; transition: none !important; }
+  .js-motion .process-story::after { transform: none !important; opacity: 0 !important; }
+  .js-motion .process-step .number,
+  .js-motion .process-step:not(.is-active) .number { transform: none !important; }
+  .js-motion .section-head h2::after { transition: none !important; transform: scaleX(1); }
+  .js-motion :is(.card, .sector-card, .gear-product-card, .blog-card, .as-card, .as-product-card, .feature-card, .pricing-card, .team-card, .faq-card, .role-card, .site-bento__card, .glossary-card, [class*="product-card"], [class*="__card"])::after { display: none; }
+}
+
+@media print {
+  html.js-motion [data-reveal] { opacity: 1 !important; transform: none !important; }
+}

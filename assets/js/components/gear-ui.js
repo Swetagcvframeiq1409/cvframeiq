@@ -31,7 +31,7 @@
       return `
         <article class="gear-product-card gear-product-card--compact">
           <a class="gear-product-card__compact-media photo-frame" data-photo="${escapeHtml(product.imageSlot || 'gear-camera')}" data-photo-loading="lazy" href="gear-product.html?product=${encodeURIComponent(product.id)}" aria-label="View ${escapeHtml(product.name)}">
-            <img width="800" height="450" alt="" hidden>
+            <img width="800" height="450" decoding="async" alt="" hidden>
           </a>
           <div class="gear-product-card__compact-body"><p>${escapeHtml(product.category)}</p><h3><a href="gear-product.html?product=${encodeURIComponent(product.id)}">${escapeHtml(product.name)}</a></h3><strong>${money(product.price)}</strong><small>Indicative price. Confirm on enquiry.</small><a class="gear-text-link" href="gear-product.html?product=${encodeURIComponent(product.id)}">View product <span aria-hidden="true">→</span></a></div>
         </article>
@@ -42,7 +42,7 @@
     return `
       <article class="gear-product-card" data-product-card="${escapeHtml(product.id)}">
         <div class="gear-product-card__media photo-frame" data-photo="${escapeHtml(product.imageSlot || 'gear-camera')}" data-photo-loading="lazy">
-          <img width="800" height="450" alt="" hidden>
+          <img width="800" height="450" decoding="async" alt="" hidden>
           <button class="gear-icon-button gear-product-card__wish${wished ? ' is-active' : ''}" type="button" data-action="wishlist" data-id="${escapeHtml(product.id)}" aria-label="${wished ? 'Remove from' : 'Add to'} wishlist: ${escapeHtml(product.name)}" aria-pressed="${wished}">${icon('heart')}</button>
         </div>
         <div class="gear-product-card__body">

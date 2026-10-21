@@ -159,7 +159,7 @@
         return card;
       }));
     }
-    const timeline = document.querySelector('#company-journey .about-timeline');
+    const timeline = document.querySelector('#company-history .about-timeline');
     if (timeline) {
       timeline.setAttribute('aria-label', 'Milestones carried over from the current live site');
       timeline.replaceChildren(...carryover.about.milestones.map((milestone) => {
@@ -171,7 +171,7 @@
         item.append(card);
         return item;
       }));
-      const intro = document.querySelector('#company-journey .about-section__intro p:last-child');
+      const intro = document.querySelector('#company-history .about-section__intro p:last-child');
       if (intro) intro.textContent = 'Milestones carried over from the current live site.';
     }
   }

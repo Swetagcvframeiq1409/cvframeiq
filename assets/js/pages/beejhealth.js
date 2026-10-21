@@ -39,7 +39,6 @@
     return grid;
   }
 
-  // 1. Hero
   var hero = el('section', 'bh-hero');
   var hw = el('div', 'container bh-hero__inner');
   var left = el('div', 'bh-hero__copy');
@@ -71,7 +70,6 @@
   root.appendChild(hero);
   window.initPhotos?.();
 
-  // 2. Workflow
   var wf = visible(D.workflow);
   if (wf.length) {
     var s1 = section('workflow', 'Intended workflow', 'How it is intended to work');
@@ -79,7 +77,6 @@
     root.appendChild(s1.s);
   }
 
-  // 3. Optional sections (hidden when nothing is confirmed)
   [
     ['focus', 'Focus areas', 'Where it can apply', D.focusAreas],
     ['crops', 'Crops', 'Supported crops', D.crops],
@@ -94,7 +91,6 @@
     root.appendChild(s.s);
   });
 
-  // 4. Related
   var rel = section('related', 'Related', 'Related pages');
   var rg = el('div', 'bh-grid');
   var products = (window.AI_PRODUCTS || []).filter(function (p) { return /crop/i.test(p.name); });
@@ -117,7 +113,6 @@
   rel.wrap.appendChild(rg);
   root.appendChild(rel.s);
 
-  // 5. CTA
   var cta = el('section', 'bh-section bh-cta reveal');
   var cw = el('div', 'container bh-cta__box');
   cw.appendChild(el('p', 'bh-eyebrow', 'Talk to us'));
@@ -132,7 +127,7 @@
   cta.appendChild(cw);
   root.appendChild(cta);
 
-  // Make sure reveal elements are visible even though they were added after load
+  // reveal items added after load
   var all = root.querySelectorAll('.reveal');
   Array.prototype.forEach.call(all, function (n) { n.classList.add('is-visible', 'visible', 'in-view'); });
 })();

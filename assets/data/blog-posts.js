@@ -1,10 +1,10 @@
-// Keep SHOW_DRAFT true for manager review; set false at launch.
+// false hides draft posts
 window.FRAMEIQ_BLOG_POSTS = [
   {
     id: 'traffic-management-ai',
     slug: 'revolutionizing-traffic-management-with-ai',
     imageSlot: 'blog-traffic',
-    title: 'Revolutionizing Traffic Management with AI',
+    title: 'AI for Traffic Management',
     category: 'Smart Cities',
     tags: ['traffic management', 'AI'],
     readTime: '6 min read',
@@ -55,5 +55,5 @@ if (window.LIVE_CARRYOVER?.SHOW_UNCONFIRMED) {
   });
 }
 
-// Keep true for manager review; set false at launch to hide articles pending content.
+// false hides unfinished articles
 window.FRAMEIQ_BLOG_POSTS.SHOW_DRAFT = true;

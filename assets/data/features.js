@@ -1,5 +1,5 @@
 window.FEATURES = {
-  // Keep true for manager review; set false at launch to hide draft-only notices.
+  // false hides draft notices
   SHOW_DRAFT: true,
   pillars: [
     {

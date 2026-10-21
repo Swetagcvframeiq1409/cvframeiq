@@ -1,4 +1,4 @@
-// TODO: These generic product names need confirming before launch.
+// product names need confirmation
 window.HARDWARE = [
   {
     id: 'ai-vision-pro-camera',

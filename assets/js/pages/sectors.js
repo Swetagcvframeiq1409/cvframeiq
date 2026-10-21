@@ -46,6 +46,7 @@
     image.alt = '';
     image.width = 800;
     image.height = 450;
+    image.decoding = 'async';
     tile.append(image);
     return tile;
   }

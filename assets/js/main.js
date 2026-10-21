@@ -201,65 +201,6 @@ function initMobileMenu() {
   });
 }
 
-function initReveal() {
-  const items = document.querySelectorAll('.reveal, [data-reveal]');
-  if (!items.length) return;
-  if (!('IntersectionObserver' in window)) {
-    items.forEach((item) => item.classList.add('is-visible'));
-    return;
-  }
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
-    });
-  }, { threshold: 0.12 });
-  items.forEach((item) => observer.observe(item));
-  window.setTimeout(() => {
-    document.querySelectorAll('.reveal, [data-reveal]').forEach((item) => item.classList.add('is-visible'));
-    observer.disconnect();
-  }, 1800);
-}
-
-function initCounters() {
-  const counters = document.querySelectorAll('[data-count]');
-  if (!counters.length) return;
-  const animate = (element) => {
-    const target = Number(element.dataset.count || 0);
-    if (!Number.isFinite(target)) {
-      console.error('Invalid counter value:', element.dataset.count);
-      return;
-    }
-    const decimals = Number(element.dataset.decimals || 0);
-    const formatter = new Intl.NumberFormat('en-IN', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      element.textContent = formatter.format(target);
-      return;
-    }
-    const start = performance.now();
-    const tick = (now) => {
-      const progress = Math.min((now - start) / 650, 1);
-      element.textContent = formatter.format(target * progress);
-      if (progress < 1) requestAnimationFrame(tick);
-      else element.textContent = formatter.format(target);
-    };
-    requestAnimationFrame(tick);
-  };
-  if (!('IntersectionObserver' in window)) {
-    counters.forEach(animate);
-    return;
-  }
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      animate(entry.target);
-      observer.unobserve(entry.target);
-    });
-  }, { threshold: 0.5 });
-  counters.forEach((counter) => observer.observe(counter));
-}
-
 function initAccordion() {
   const items = Array.from(document.querySelectorAll('.accordion-item'));
   items.forEach((item) => {
@@ -449,8 +390,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initMegaMenus();
   initMobileMenu();
-  initReveal();
-  initCounters();
   initAccordion();
   initSmoothScroll();
   initPagePolish();

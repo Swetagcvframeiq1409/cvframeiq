@@ -256,29 +256,8 @@ window.LIVE_CARRYOVER = {
       }
     ]
   },
-  imageAssets: [
-    { slot: 'sector-banking', url: 'https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&q=80&w=1000', alt: 'BANKING & FINANCE', sourcePage: '/sectors' },
-    { slot: 'sector-aviation', url: 'https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&q=80&w=1000', alt: 'AVIATION', sourcePage: '/sectors' },
-    { slot: 'sector-smart-city', url: 'https://images.unsplash.com/photo-1494522855154-9297ac14b55f?auto=format&fit=crop&q=80&w=1000', alt: 'INFRASTRUCTURE', sourcePage: '/sectors' },
-    { slot: 'sector-security', url: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=1000', alt: 'SECURITY & SURVEILLANCE', sourcePage: '/sectors' },
-    { slot: 'sector-healthcare', url: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=1000', alt: 'HEALTHCARE & MEDICAL', sourcePage: '/sectors' },
-    { slot: 'sector-events', url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=1000', alt: 'EVENTS & ENTERTAINMENT', sourcePage: '/sectors' },
-    { slot: 'sector-manufacturing', url: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000', alt: 'MANUFACTURING', sourcePage: '/sectors' },
-    { slot: 'gear-board', url: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800', alt: 'Electronic development board', sourcePage: '/gear' },
-    { slot: 'gear-devboard', url: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800', alt: 'Electronic development board', sourcePage: '/gear' },
-    { slot: 'blog-traffic', url: 'https://cvframeiq.com/blog/Revolutionizing%20Traffic%20Management%20with%20AI.jpg', alt: 'Revolutionizing Traffic Management with AI', sourcePage: '/blog' },
-    { slot: 'blog-edge-cloud', url: 'https://cvframeiq.com/blog/Edge%20vs%20Cloud%20Video%20Analytic%20What%23U0393%23U00c7%23U00d6s%20Right%20for%20You.jpg', alt: 'Edge vs Cloud Video Analytic: What\'s Right for You?', sourcePage: '/blog' },
-    { slot: 'blog-agriculture', url: 'https://cvframeiq.com/blog/drone-spraying-fertilizer-vegetable-green-plants-agriculture-technology-farm-automation.jpg', alt: 'AI in Agriculture: Monitoring Crops from Above', sourcePage: '/blog' }
-  ],
-  skippedImages: [
-    { slot: 'gear-camera', sourcePage: '/gear', reason: 'The live image was electronic circuit artwork rather than the listed camera; skipped as mismatched.' },
-    { slot: 'gear-camera-2', sourcePage: '/gear', reason: 'The live Industrial CV Camera image failed to load in Playwright; skipped as broken.' },
-    { slot: 'gear-processor', sourcePage: '/gear', reason: 'The live Edge AI Processor X1 image depicts a phone; skipped as mismatched.' },
-    { slot: 'gear-sensor', sourcePage: '/gear', reason: 'The live Multi-Sensor Array image was a generic processor-board close-up, not a sensor array; kept as a designed tile.' }
-  ]
 };
 
-// Live blog dates precede the June 5, 2025 incorporation date shown on the live About page.
 function tagLiveSources(value, sourcePage) {
   if (Array.isArray(value)) {
     value.forEach((item) => tagLiveSources(item, sourcePage));

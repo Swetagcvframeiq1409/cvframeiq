@@ -1,15 +1,6 @@
 (() => {
   'use strict';
 
-  const carryoverImages = Array.isArray(window.LIVE_CARRYOVER?.imageAssets) ? window.LIVE_CARRYOVER.imageAssets : [];
-  if (window.LIVE_CARRYOVER?.SHOW_UNCONFIRMED === true) {
-    carryoverImages.forEach((asset) => {
-      const image = window.SITE_IMAGES?.[asset.slot];
-      if (image) image.alt = asset.alt;
-    });
-  }
-  const livePhotoSlots = new Set(carryoverImages.map((asset) => asset.slot));
-
   const FALLBACK_SELECTORS = [
     '.photo-frame__fallback',
     '.gear-product-card__fallback',
@@ -62,24 +53,24 @@
       image.alt = photo.alt;
       image.width = photo.width;
       image.height = photo.height;
-      image.loading = frame.dataset.photoLoading === 'eager' ? 'eager' : 'lazy';
+      const requestedLoading = frame.dataset.photoLoading === 'eager' ? 'eager' : 'lazy';
+      image.loading = requestedLoading;
       image.decoding = 'async';
       image.referrerPolicy = 'no-referrer';
       image.style.objectFit = 'cover';
-      image.hidden = true;
+      image.hidden = false;
+      image.style.opacity = '0';
       if (!image.parentElement) frame.append(image);
 
       const localPhotos = Array.isArray(window.LOCAL_PHOTOS) ? window.LOCAL_PHOTOS : [];
       const localSlot = photo.localSlot || slot;
-      const localAvailable = localPhotos.includes(localSlot)
-        && (!livePhotoSlots.has(localSlot) || window.LIVE_CARRYOVER?.SHOW_UNCONFIRMED === true);
-      const remoteEnabled = window.IMAGE_CONFIG?.USE_TEMP_REMOTE === true;
+      const localAvailable = localPhotos.includes(localSlot);
 
       const trySource = (source) => new Promise((resolve) => {
         const handleLoad = () => {
           image.removeEventListener('load', handleLoad);
           image.removeEventListener('error', handleError);
-          image.hidden = false;
+          image.style.opacity = '1';
           tile.hidden = true;
           frame.dataset.photoSource = source;
           frame.dataset.photoSettled = 'true';
@@ -99,12 +90,8 @@
 
       (async () => {
         if (localAvailable && await trySource('local')) return;
-        if (remoteEnabled) {
-          if (await trySource('temp')) return;
-          if (await trySource('picsum')) return;
-        }
         image.removeAttribute('src');
-        image.hidden = true;
+        image.style.opacity = '0';
         tile.hidden = false;
         frame.classList.remove('has-photo');
         frame.dataset.photoSource = 'tile';

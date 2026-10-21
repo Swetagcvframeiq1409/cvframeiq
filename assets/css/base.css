@@ -1,9 +1,4 @@
-/* ============================================================
-   FRAMEIQ BASE — reset, typography, global utilities
-   ============================================================ */
-
-/* Inline script in <head> adds class "js" to <html> so
-   [data-reveal] is only hidden when JS is available. */
+/* reveal styles only run when JavaScript is available */
 
 html {
   scroll-behavior: smooth;
@@ -21,18 +16,15 @@ html {
 
 body {
   font-family: var(--font-sans);
-  /* Pure near-black — no blue/navy tint */
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.65;
-  /* Offset for fixed header */
   padding-top: var(--header-h);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Subtle grid overlay — very faint, no colour cast */
 body::before {
   content: "";
   position: fixed;
@@ -55,7 +47,6 @@ body::after {
   background: radial-gradient(34rem circle at var(--pointer-x, 50%) var(--pointer-y, 50%), var(--glow), transparent 70%);
 }
 
-/* Skip link */
 .skip-link {
   position: absolute;
   top: -100%;
@@ -71,7 +62,6 @@ body::after {
 }
 .skip-link:focus { top: 0.75rem; }
 
-/* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   line-height: 1.06;
@@ -85,7 +75,6 @@ p {
   line-height: 1.7;
 }
 
-/* Links — buttons and navigation provide their own state colours. */
 :where(a:not(.btn):not(.nav__link):not(.gear-button):not(.sc-button)) {
   color: var(--accent);
   text-decoration: none;
@@ -93,7 +82,7 @@ p {
 }
 :where(a:not(.btn):not(.nav__link):not(.gear-button):not(.sc-button)):hover,
 :where(a:not(.btn):not(.nav__link):not(.gear-button):not(.sc-button)):focus-visible {
-  /* Lighter cyan in dark, deeper blue in light — both pass AA */
+  /* keeps link contrast in both themes */
   color: #67e8f9;
 }
 :where(body[data-theme="light"] a:not(.btn):not(.nav__link):not(.gear-button):not(.sc-button)) { color: #0369a1; }
@@ -171,24 +160,22 @@ button, input, select, textarea { font: inherit; }
 button { cursor: pointer; }
 ul, ol { list-style: none; padding: 0; margin: 0; }
 
-/* Focus ring */
+
 :focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
 
-/* Container */
 .container {
   width: var(--container);
   margin-inline: auto;
 }
 
-/* Section spacing */
+
 .section         { padding: var(--space-24) 0; position: relative; }
 .section--compact { padding: var(--space-16) 0; }
 
-/* Eyebrow label */
 .eyebrow {
   display: inline-block;
   color: var(--accent);
@@ -199,7 +186,6 @@ ul, ol { list-style: none; padding: 0; margin: 0; }
   margin-bottom: 0.9rem;
 }
 
-/* Section heading block */
 .section-head { margin-bottom: 2.5rem; }
 .section-head h2 {
   font-size: clamp(2rem, 1.6rem + 1.3vw, 3.2rem);
@@ -207,32 +193,6 @@ ul, ol { list-style: none; padding: 0; margin: 0; }
 }
 .section-head p { max-width: 60ch; }
 
-/* Scroll reveal — only hidden when JS loaded */
-.js [data-reveal] {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out);
-}
-.js [data-reveal].is-visible {
-  opacity: 1;
-  transform: none;
-}
-/* Stagger helpers */
-.js [data-reveal][data-delay="1"] { transition-delay: 80ms; }
-.js [data-reveal][data-delay="2"] { transition-delay: 160ms; }
-.js [data-reveal][data-delay="3"] { transition-delay: 240ms; }
-.js [data-reveal][data-delay="4"] { transition-delay: 320ms; }
-.js [data-reveal][data-delay="5"] { transition-delay: 400ms; }
-
-/* Legacy .reveal class (used in existing markup) */
-.js .reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.js .reveal.is-visible { opacity: 1; transform: none; }
-
-/* Screen-reader only */
 .sr-only {
   position: absolute;
   width: 1px; height: 1px;
@@ -243,10 +203,8 @@ ul, ol { list-style: none; padding: 0; margin: 0; }
   border: 0;
 }
 
-/* Selection */
 ::selection { background: rgba(147,51,234,0.35); color: var(--text); }
 
-/* Scrollbar */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb {
@@ -254,11 +212,11 @@ ul, ol { list-style: none; padding: 0; margin: 0; }
   border-radius: var(--radius-pill);
 }
 
-/* Responsive helpers */
+
 @media (max-width: 767px)  { .hide-mobile  { display: none !important; } }
 @media (min-width: 768px)  { .hide-desktop { display: none !important; } }
 
-/* Shared editorial rhythm and typography. */
+
 main :is(h1, h2, h3, h4, h5, h6) {
   text-wrap: balance;
 }
@@ -274,13 +232,6 @@ main :is(.content-page__body, .editorial-copy, .article-content) {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .js [data-reveal],
-  .js .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
   @media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
     body::after { display: none; }
   }
