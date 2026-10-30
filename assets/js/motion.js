@@ -35,8 +35,7 @@
       }
     });
     root.querySelectorAll('main section, main > h1, main > .not-found__graphic, main > .eyebrow, main > .not-found__message, main > form, main > nav, main section .eyebrow, main section h1, main section h2, main section h3, main section p, main section blockquote, main section .section-head, main section .section-divider, main section article, main section table, main section [role="listitem"], footer .footer-col, #site-footer .footer-col').forEach((item) => {
-      const variant = item.matches('.eyebrow') ? 'fade'
-        : item.matches('main.not-found > h1, article, [role="listitem"]') ? 'scale' : 'up';
+      const variant = item.matches('.eyebrow') ? 'fade' : 'up';
       add(item, variant);
     });
     root.querySelectorAll(cards).forEach((item) => add(item, 'scale'));
@@ -53,15 +52,15 @@
       const items = [...grid.children].filter((item) => item.matches(cards));
       items.slice(0, 10).forEach((item, index) => {
         add(item, 'scale');
-        item.style.setProperty('--reveal-delay', `${index * 80}ms`);
+        item.style.setProperty('--reveal-delay', `${index * 70}ms`);
       });
       if (grid.children.length === 2 && !items.length && getComputedStyle(grid).gridTemplateColumns.split(' ').length === 2) {
-        [...grid.children].forEach((item, index) => add(item, index ? 'right' : 'left'));
+        [...grid.children].forEach((item) => add(item, 'up'));
       }
     });
     root.querySelectorAll('.footer-grid > .footer-col').forEach((item, index) => {
       add(item, 'up');
-      item.style.setProperty('--reveal-delay', `${index * 80}ms`);
+      item.style.setProperty('--reveal-delay', `${index * 70}ms`);
     });
   };
 

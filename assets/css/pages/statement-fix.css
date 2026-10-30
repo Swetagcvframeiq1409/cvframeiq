@@ -1,0 +1,6 @@
+@media (min-width: 900px) {
+  html.scroll-story-enabled .home-statement { height: 260vh; }
+}
+html.scroll-story-enabled .home-statement__word {
+  opacity: clamp(.22, calc(.22 + max(0, (var(--p, 0) / .7 - var(--word-start)) * var(--word-count))), 1);
+}

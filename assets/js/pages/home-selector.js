@@ -38,6 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function selectSector(sector) {
+    const panel = host.querySelector('.home-industry-selector__details');
+    panel?.classList.remove('is-switching');
+    requestAnimationFrame(() => {
+      panel?.classList.add('is-switching');
+      window.setTimeout(() => panel?.classList.remove('is-switching'), 450);
+    });
     selectedSlug = sector.slug;
     chips.querySelectorAll('[data-sector]').forEach((button) => {
       button.setAttribute('aria-pressed', String(button.dataset.sector === selectedSlug));

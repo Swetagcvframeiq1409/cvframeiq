@@ -1,0 +1,172 @@
+/* bento-stack.css
+   Explore the platform: one pinned card at a time, like GeekyAnts.
+   The card tilts back and blurs out, the next one rises in.
+   Works only when bento-stack.js adds the class "bento-stack-on"
+   (screen 900px or wider, no reduced motion). Otherwise the old layout stays.
+   To undo: delete the link to this file in index.html. */
+
+@media (min-width: 900px) {
+
+  /* ---------- the runway the page scrolls through ---------- */
+  #home-practices.bento-stack-on .site-bento {
+    --pin: calc(var(--header-h, 74px) + 24px);              /* where the card sticks */
+    --card-h: min(540px, calc(100vh - var(--pin) - 90px));   /* card height */
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 1100px;
+    height: calc(var(--card-h) + 70px + 4 * 95vh);          /* 95vh of scrolling per card */
+    padding: 0;
+    --bq: 0;                                                /* 0 to 4, set by bento-stack.js */
+  }
+
+  /* ---------- every card sits in the same grid cell, pinned ---------- */
+  #home-practices.bento-stack-on .site-bento__item {
+    --d: calc(var(--bq) - var(--stack-index));              /* distance from this card */
+    --e: clamp(0, calc((var(--d) + .55) / .25), 1);          /* 0 to 1 while coming in */
+    --x: clamp(0, calc((var(--d) - .3) / .25), 1);           /* 0 to 1 while going out */
+    grid-area: 1 / 1;
+    align-self: start;
+    position: sticky;
+    top: var(--pin);
+    height: var(--card-h);
+    margin: 0;
+    z-index: calc(var(--stack-index) + 2);
+    opacity: min(var(--e), calc(1 - var(--x))) !important;
+    transform:
+      perspective(1400px)
+      translate3d(0, calc((1 - var(--e)) * 80px - var(--x) * 28px), 0)
+      rotateX(calc((1 - var(--e)) * -12deg + var(--x) * 8deg))
+      scale(calc(.93 + .07 * var(--e) - .05 * var(--x))) !important;
+    transform-origin: 50% 100%;
+    filter: blur(calc((1 - var(--e) + var(--x)) * 6px));
+    transition: none !important;
+    will-change: transform, opacity;
+    pointer-events: none;
+  }
+  #home-practices.bento-stack-on .site-bento__item.is-current { pointer-events: auto; }
+
+  /* two soft layers under the card (the stacked look in GeekyAnts) */
+  #home-practices.bento-stack-on .site-bento::before,
+  #home-practices.bento-stack-on .site-bento::after {
+    content: "";
+    grid-area: 1 / 1;
+    align-self: start;
+    justify-self: center;
+    position: sticky;
+    height: var(--card-h);
+    border: 1px solid var(--tone-border);
+    border-radius: 22px;
+    background: color-mix(in srgb, var(--tone-text) 6%, var(--tone-surface));
+    pointer-events: none;
+    z-index: 0;
+  }
+  /* ::before is the far layer, ::after the near one (it paints on top) */
+  #home-practices.bento-stack-on .site-bento::before { top: calc(var(--pin) + 30px); width: 86%; opacity: .55; }
+  #home-practices.bento-stack-on .site-bento::after  { top: calc(var(--pin) + 15px); width: 93%; opacity: .85; }
+
+  /* ---------- the card itself ---------- */
+  #home-practices.bento-stack-on .site-bento__card,
+  html.js-motion #home-practices.bento-stack-on .site-bento__card[data-reveal] {
+    position: relative;
+    top: auto;
+    height: 100%;
+    min-height: 0;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    gap: 0;
+    align-items: stretch;
+    padding: 14px;
+    border-radius: 22px;
+    opacity: 1 !important;
+    transform: none !important;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .28);
+  }
+  #home-practices.bento-stack-on .site-bento__content {
+    justify-content: flex-start;
+    padding: clamp(1.5rem, 3vw, 2.75rem);
+  }
+  #home-practices.bento-stack-on .site-bento__content strong {
+    margin-top: auto;
+    font-size: clamp(30px, 3.2vw, 44px);
+    line-height: 1.08;
+  }
+  #home-practices.bento-stack-on .site-bento__link {
+    margin-top: auto;
+    font-weight: 500;
+  }
+  #home-practices.bento-stack-on .site-bento__arrow { display: none; }
+
+  /* ---------- the coloured panel with the white mock card ---------- */
+  #home-practices.bento-stack-on .site-bento__panel {
+    position: relative;
+    min-height: 0;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #12062b, #4a2fb0 55%, #8f7bff);
+  }
+  #home-practices.bento-stack-on .site-bento__panel::before {
+    content: "";
+    position: absolute;
+    width: 70%;
+    aspect-ratio: 1;
+    right: -15%;
+    top: -20%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, .35), transparent 65%);
+    filter: blur(12px);
+    pointer-events: none;
+  }
+  #home-practices.bento-stack-on .site-bento__card--sectors .site-bento__panel   { background: linear-gradient(135deg, #1a0603, #b8240f 55%, #f4793b); }
+  #home-practices.bento-stack-on .site-bento__card--store .site-bento__panel     { background: linear-gradient(135deg, #12062b, #8e1c6b 55%, #f0457c); }
+  #home-practices.bento-stack-on .site-bento__card--gear .site-bento__panel      { background: linear-gradient(135deg, #051a2e, #0a7f8f 55%, #2ee6a6); }
+  #home-practices.bento-stack-on .site-bento__card--beejhealth .site-bento__panel{ background: linear-gradient(135deg, #04200f, #0f7a3c 55%, #8fe388); }
+  #home-practices.bento-stack-on .site-bento__card--research .site-bento__panel  { background: linear-gradient(135deg, #0d0a2e, #4a2fb0 55%, #8f7bff); }
+
+  #home-practices.bento-stack-on .site-bento__mock {
+    position: relative;
+    width: min(78%, 340px);
+    gap: .9rem;
+    padding: 1.6rem 1.75rem;
+    border: 0;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 34px 70px rgba(0, 0, 0, .38);
+    /* the white card floats up a little as its slide comes in */
+    transform: translateY(calc((1 - var(--e, 1)) * 40px));
+  }
+  #home-practices.bento-stack-on .site-bento__mock > strong { font-size: 1.3rem; }
+  #home-practices.bento-stack-on .site-bento__mock > span {
+    padding-top: .65rem;
+    border-top: 1px solid #ececea;
+    font-size: .9rem;
+  }
+  #home-practices.bento-stack-on .site-bento__mock .bi { color: #6542c8; }
+
+  /* ---------- dots under the stack, the active one stretches ---------- */
+  #home-practices.bento-stack-on .site-bento__dots {
+    grid-area: 1 / 1;
+    align-self: start;
+    justify-self: center;
+    position: sticky;
+    top: calc(var(--header-h, 74px) + 24px + min(540px, calc(100vh - var(--header-h, 74px) - 24px - 90px)) + 48px);
+    z-index: 30;
+    display: flex;
+    gap: 8px;
+    margin: 0;
+  }
+  #home-practices.bento-stack-on .site-bento__dots i {
+    --a: clamp(0, calc(1 - max(var(--bq) - var(--k), var(--k) - var(--bq))), 1);
+    width: calc(8px + 20px * var(--a));
+    height: 8px;
+    border-radius: 999px;
+    background: var(--accent);
+    opacity: calc(.3 + .7 * var(--a));
+  }
+  #home-practices.bento-stack-on .site-bento__dots i:nth-child(1) { --k: 0; }
+  #home-practices.bento-stack-on .site-bento__dots i:nth-child(2) { --k: 1; }
+  #home-practices.bento-stack-on .site-bento__dots i:nth-child(3) { --k: 2; }
+  #home-practices.bento-stack-on .site-bento__dots i:nth-child(4) { --k: 3; }
+  #home-practices.bento-stack-on .site-bento__dots i:nth-child(5) { --k: 4; }
+}

@@ -93,7 +93,7 @@ function renderHeader(root = getRootPath()) {
               <i class="${window.iconClass('moon')}" aria-hidden="true"></i>
             </button>
             <a class="nav-login header-login${isLoginPage ? ' is-active' : ''}" href="${pageHref('pages/login.html')}"${isLoginPage ? ' aria-current="page"' : ''}>Login</a>
-            <a class="btn btn--primary header-start" href="${pageHref('pages/contact.html')}">Book a Demo</a>
+            <a class="btn btn--secondary header-start" href="${pageHref('pages/contact.html')}">Contact Us</a>
           </div>
         </nav>
       </div>
@@ -179,6 +179,21 @@ function renderFooter(root = getRootPath()) {
     { title: 'Legal', items: window.NAV_DATA?.footer?.legal || [] }
   ];
   const socials = Array.isArray(window.FOOTER_SOCIALS) ? window.FOOTER_SOCIALS : [];
+  const siteContact = window.SITE_CONTACT;
+  const closingCta = currentPage === 'index.html' || document.querySelector('main.not-found') ? '' : `
+    <section class="footer-cta" data-tone="dark" aria-labelledby="footer-cta-title">
+      <div class="footer-cta__inner">
+        <div>
+          <p class="eyebrow">Have a project in mind?</p>
+          <h2 id="footer-cta-title">Discuss Your AI Use Case</h2>
+          <p>Share what you are building and the challenge you want to address. Contact FrameIQ to discuss your requirements.</p>
+        </div>
+        <div class="footer-cta__actions">
+          <a class="btn btn--primary" href="${getPageHref('pages/contact.html', root)}">Book a Demo</a>
+          <a class="btn btn--secondary" href="${getPageHref('pages/playground.html', root)}">Try Live Demo</a>
+        </div>
+      </div>
+    </section>`;
   const socialMarkup = socials.map((item) => {
     if (!item || typeof item.href !== 'string' || !/^https?:\/\//i.test(item.href) || !window.ICONS[item.icon]) return '';
     const label = String(item.label || item.icon);
@@ -200,11 +215,17 @@ function renderFooter(root = getRootPath()) {
     </ul></div>
   `).join('');
   footerHost.innerHTML = `
-    <footer class="site-footer">
+    ${closingCta}
+    <footer class="site-footer" data-tone="dark">
       <div class="footer-grid">
         <div class="footer-col">
           ${LOGO_HTML(root)}
           <p>Computer Vision and Agentic AI for Indian industry.</p>
+          <address class="footer-contact">
+            <a href="${siteContact.phoneHref}" data-site="phone">${siteContact.phone}</a>
+            <a href="mailto:${siteContact.email}" data-site="email">${siteContact.email}</a>
+            <span data-site="location">${siteContact.location}</span>
+          </address>
           <form class="newsletter-form" novalidate>
             <div class="form-field"><label class="sr-only" for="newsletter-email">Email</label><input id="newsletter-email" name="email" type="email" placeholder="Your email" aria-label="Email address" autocomplete="email" required /></div>
             <div class="newsletter-honeypot" aria-hidden="true"><label for="newsletter-website">Leave this field empty</label><input id="newsletter-website" name="_gotcha" type="text" tabindex="-1" autocomplete="off" /></div>
@@ -217,6 +238,9 @@ function renderFooter(root = getRootPath()) {
       </div>
       <div class="footer-bottom">
         <span class="footer-bottom__copyright">© 2026 FrameIQ. All rights reserved.</span>
+        <nav class="footer-bottom__legal" aria-label="Legal links">
+          ${(window.NAV_DATA?.footer?.legal || []).map((item) => `<a href="${footerHref(footerPageOverrides[item.label] || item.href)}">${item.label}</a>`).join('')}
+        </nav>
       </div>
     </footer>
   `;

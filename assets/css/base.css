@@ -18,9 +18,10 @@ body {
   font-family: var(--font-sans);
   background-color: var(--bg);
   color: var(--text);
-  line-height: 1.65;
+  font-size: 16px;
+  line-height: 1.5;
   padding-top: var(--header-h);
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -64,15 +65,17 @@ body::after {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  line-height: 1.06;
-  letter-spacing: -0.04em;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
   color: var(--text);
 }
 .heading-compound { white-space: nowrap; }
 
 p {
   color: var(--text-muted);
-  line-height: 1.7;
+  font-size: 1.125rem;
+  line-height: 1.667;
 }
 
 :where(a:not(.btn):not(.nav__link):not(.gear-button):not(.sc-button)) {
@@ -82,12 +85,8 @@ p {
 }
 :where(a:not(.btn):not(.nav__link):not(.gear-button):not(.sc-button)):hover,
 :where(a:not(.btn):not(.nav__link):not(.gear-button):not(.sc-button)):focus-visible {
-  /* keeps link contrast in both themes */
-  color: #67e8f9;
+  color: var(--accent);
 }
-:where(body[data-theme="light"] a:not(.btn):not(.nav__link):not(.gear-button):not(.sc-button)) { color: #0369a1; }
-:where(body[data-theme="light"] a:not(.btn):not(.nav__link):not(.gear-button):not(.sc-button)):hover,
-:where(body[data-theme="light"] a:not(.btn):not(.nav__link):not(.gear-button):not(.sc-button)):focus-visible { color: #075985; }
 
 img { display: block; max-width: 100%; }
 .bi { display: inline-block; max-width: 100%; line-height: 1; pointer-events: none; }
@@ -228,6 +227,97 @@ main > section.section {
 
 main :is(.content-page__body, .editorial-copy, .article-content) {
   max-width: var(--content-measure);
+}
+
+[data-tone="dark"] {
+  --tone-bg: #121212;
+  --tone-bg-deep: #060606;
+  --tone-surface: #1b1b1b;
+  --tone-text: #f8f8f8;
+  --tone-muted: rgba(248, 248, 248, .64);
+  --tone-soft: rgba(248, 248, 248, .72);
+  --tone-border: #2a2928;
+  --bg: var(--tone-bg);
+  --bg-elevated: var(--tone-bg-deep);
+  --surface: var(--tone-surface);
+  --surface-strong: #242424;
+  --surface-soft: rgba(248, 248, 248, .06);
+  --text: var(--tone-text);
+  --clr-text-primary: var(--tone-text);
+  --text-muted: var(--tone-muted);
+  --text-soft: var(--tone-soft);
+  --border: var(--tone-border);
+  --border-strong: rgba(248, 248, 248, .2);
+  color: var(--tone-text);
+  background-color: var(--tone-bg);
+}
+
+[data-tone="light"] {
+  --tone-bg: #ffffff;
+  --tone-bg-deep: #f5f5f4;
+  --tone-surface: #ffffff;
+  --tone-text: #121212;
+  --tone-muted: #595959;
+  --tone-soft: #666666;
+  --tone-border: rgba(18, 18, 18, .12);
+  --bg: var(--tone-bg);
+  --bg-elevated: var(--tone-bg-deep);
+  --surface: var(--tone-surface);
+  --surface-strong: #f5f5f4;
+  --surface-soft: rgba(18, 18, 18, .04);
+  --text: var(--tone-text);
+  --clr-text-primary: var(--tone-text);
+  --text-muted: var(--tone-muted);
+  --text-soft: var(--tone-soft);
+  --border: var(--tone-border);
+  --border-strong: rgba(18, 18, 18, .2);
+  color: var(--tone-text);
+  background-color: var(--tone-bg);
+}
+
+body[data-theme="dark"] [data-tone="light"] {
+  --tone-bg: #121212;
+  --tone-bg-deep: #060606;
+  --tone-surface: #1b1b1b;
+  --tone-text: #f8f8f8;
+  --tone-muted: rgba(248, 248, 248, .64);
+  --tone-soft: rgba(248, 248, 248, .72);
+  --tone-border: #2a2928;
+  --bg: var(--tone-bg);
+  --bg-elevated: var(--tone-bg-deep);
+  --surface: var(--tone-surface);
+  --surface-strong: #242424;
+  --surface-soft: rgba(248, 248, 248, .06);
+  --text: var(--tone-text);
+  --clr-text-primary: var(--tone-text);
+  --text-muted: var(--tone-muted);
+  --text-soft: var(--tone-soft);
+  --border: var(--tone-border);
+  --border-strong: rgba(248, 248, 248, .2);
+  color: var(--tone-text);
+  background-color: var(--tone-bg);
+}
+
+[data-tone="light"]:nth-of-type(even) {
+  --tone-bg: #f5f5f4;
+  background-color: var(--tone-bg);
+}
+
+body[data-theme="dark"] [data-tone="light"]:nth-of-type(even) {
+  --tone-bg: #060606;
+  background-color: var(--tone-bg);
+}
+
+[data-tone] :is(p, li, small) { color: var(--text-muted); }
+[data-tone] :is(h1, h2, h3, h4, h5, h6, strong) { color: var(--text); }
+
+@media (min-width: 1200px) {
+  :root { --container: min(1312px, calc(100% - 128px)); }
+}
+
+@media (max-width: 767px) {
+  :root { --container: calc(100% - 32px); }
+  p { font-size: 1rem; line-height: 1.5; }
 }
 
 @media (prefers-reduced-motion: reduce) {

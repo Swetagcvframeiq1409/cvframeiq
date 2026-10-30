@@ -1,4 +1,6 @@
 // missing photos use icon tiles
+window.HERO_PHOTOS = false; // photos behind text need my approval.
+window.HERO_SCENE_PHOTOS = ['hero-1', 'hero-2', 'hero-3', 'hero-4'];
 window.LOCAL_PHOTOS = [];
 window.LOCAL_PHOTOS_READY = fetch(new URL('./local-photos.js', document.currentScript.src), { cache: 'no-store' })
   .then((response) => response.ok ? response.text() : '')

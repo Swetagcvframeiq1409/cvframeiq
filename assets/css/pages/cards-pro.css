@@ -1,0 +1,199 @@
+/* cards-pro.css
+   Premium finish for: Four Pillars, Explore by industry, Who are you, Blog.
+   Load AFTER bento-pro.css. Decoration only, no text is changed.
+   To undo: delete the link to this file in index.html. */
+
+/* ===== shared: smooth hover on all four sections ===== */
+#main-content #pillars .pillar-card,
+#main-content #who-are-you .role-card,
+#main-content #blog .blog-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 450ms var(--ease-out, ease), box-shadow 450ms var(--ease-out, ease), border-color 450ms var(--ease-out, ease);
+}
+/* a thin coloured line grows across the top on hover */
+#main-content #pillars .pillar-card::before,
+#main-content #who-are-you .role-card::before,
+#main-content #blog .blog-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--c1, #6542c8), var(--c2, #8f7bff));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 600ms var(--ease-out, ease);
+}
+#main-content #pillars .pillar-card:hover::before,
+#main-content #who-are-you .role-card:hover::before,
+#main-content #blog .blog-card:hover::before { transform: scaleX(1); }
+
+#main-content #pillars .pillar-card:hover,
+#main-content #who-are-you .role-card:hover,
+#main-content #blog .blog-card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--c1, #6542c8) 55%, var(--tone-border));
+  box-shadow: 0 24px 60px color-mix(in srgb, var(--c1, #6542c8) 28%, transparent);
+}
+
+/* ===== Four Pillars ===== */
+#main-content #pillars .pillar-card--purple { --c1: #6542c8; --c2: #8f7bff; }
+#main-content #pillars .pillar-card--green  { --c1: #0f7a3c; --c2: #5fd38a; }
+#main-content #pillars .pillar-card--orange { --c1: #c2410c; --c2: #f4793b; }
+#main-content #pillars .pillar-card--blue   { --c1: #0a5fb0; --c2: #37b6ff; }
+
+/* soft colour glow in the corner of each card */
+#main-content #pillars .pillar-card {
+  background:
+    radial-gradient(60% 70% at 0% 0%, color-mix(in srgb, var(--c1) 22%, transparent), transparent 70%),
+    var(--tone-surface);
+}
+#main-content #pillars .pillar-card__icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--c1), var(--c2));
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--c1) 45%, transparent);
+  transition: transform 450ms var(--ease-out, ease);
+}
+#main-content #pillars .pillar-card__icon .bi { color: #fff; font-size: 1.5rem; }
+#main-content #pillars .pillar-card:hover .pillar-card__icon { transform: rotate(-6deg) scale(1.08); }
+
+/* list items get a small gradient bullet */
+#main-content #pillars .pillar-card li {
+  position: relative;
+  padding-left: 1.4rem;
+}
+#main-content #pillars .pillar-card li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .55em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--c1), var(--c2));
+}
+
+/* ===== Explore by industry ===== */
+#main-content .industry-explorer .home-industry-chip {
+  transition: transform 300ms var(--ease-out, ease), background-color 300ms var(--ease-out, ease), border-color 300ms var(--ease-out, ease), box-shadow 300ms var(--ease-out, ease);
+}
+#main-content .industry-explorer .home-industry-chip:hover { transform: translateY(-2px); border-color: var(--accent); }
+#main-content .industry-explorer .home-industry-chip[aria-pressed="true"] {
+  border-color: transparent;
+  background: linear-gradient(135deg, #6542c8, #8f7bff);
+  color: #fff;
+  box-shadow: 0 10px 26px rgba(101, 66, 200, .45);
+}
+#main-content .industry-explorer .home-industry-selector__details {
+  position: relative;
+  border: 1px solid var(--tone-border);
+  border-radius: 20px;
+  background:
+    radial-gradient(50% 60% at 100% 0%, rgba(101, 66, 200, .14), transparent 70%),
+    var(--tone-surface);
+}
+#main-content .industry-explorer [data-industry-usecases] li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+#main-content .industry-explorer [data-industry-usecases] li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .6em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6542c8, #8f7bff);
+}
+#main-content .industry-explorer [data-industry-matches] a {
+  transition: transform 300ms var(--ease-out, ease), border-color 300ms var(--ease-out, ease), background-color 300ms var(--ease-out, ease);
+}
+#main-content .industry-explorer [data-industry-matches] a:hover { transform: translateX(4px); border-color: var(--accent); }
+
+/* ===== Who are you ===== */
+#main-content #who-are-you .role-card:nth-child(1) { --c1: #c2410c; --c2: #f4793b; }
+#main-content #who-are-you .role-card:nth-child(2) { --c1: #0f7a3c; --c2: #5fd38a; }
+#main-content #who-are-you .role-card:nth-child(3) { --c1: #6542c8; --c2: #8f7bff; }
+#main-content #who-are-you .role-card:nth-child(4) { --c1: #0a5fb0; --c2: #37b6ff; }
+
+#main-content #who-are-you .role-card__icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 0;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--c1), var(--c2));
+  box-shadow: 0 12px 26px color-mix(in srgb, var(--c1) 40%, transparent);
+  transition: transform 450ms var(--ease-out, ease);
+}
+#main-content #who-are-you .role-card__icon .bi { color: #fff; font-size: 1.35rem; }
+#main-content #who-are-you .role-card:hover .role-card__icon { transform: rotate(-6deg) scale(1.08); }
+
+/* the link arrow turns into a round button that slides on hover */
+#main-content #who-are-you .role-card__link .bi {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--c1) 14%, transparent);
+  color: var(--c1);
+  transition: transform 350ms var(--ease-out, ease), background-color 350ms var(--ease-out, ease), color 350ms var(--ease-out, ease);
+}
+#main-content #who-are-you .role-card:hover .role-card__link .bi { transform: translateX(4px); background: var(--c1); color: #fff; }
+/* the first card's link shows the building icon by mistake, show the arrow like the others */
+#main-content #who-are-you .role-card:first-child .role-card__link .bi::before { content: "\f138"; }
+
+/* ===== Blog ===== */
+#main-content #blog .blog-card:nth-child(1) { --c1: #0a5fb0; --c2: #37b6ff; }
+#main-content #blog .blog-card:nth-child(2) { --c1: #6542c8; --c2: #8f7bff; }
+#main-content #blog .blog-card:nth-child(3) { --c1: #0f7a3c; --c2: #5fd38a; }
+
+#main-content #blog .blog-card__art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--c1), var(--c2));
+}
+#main-content #blog .blog-card__art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, .5) 1px, transparent 1.4px);
+  background-size: 22px 22px;
+  opacity: .2;
+}
+#main-content #blog .blog-card__art .bi {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-size: 2.2rem;
+  transition: transform 600ms var(--ease-out, ease);
+}
+#main-content #blog .blog-card:hover .blog-card__art .bi { transform: scale(1.18) rotate(-6deg); }
+#main-content #blog .blog-card .badge {
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--c1) 18%, transparent);
+  color: var(--c2);
+}
+/* "Read article" gets an underline that draws in on hover */
+#main-content #blog .blog-card > a {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size 400ms var(--ease-out, ease);
+}
+#main-content #blog .blog-card:hover > a { background-size: 100% 1px; }
+
+@media (prefers-reduced-motion: reduce) {
+  #main-content #pillars .pillar-card, #who-are-you .role-card, #blog .blog-card,
+  #main-content #pillars .pillar-card::before, #who-are-you .role-card::before, #blog .blog-card::before { transition: none; }
+  #main-content #pillars .pillar-card:hover, #who-are-you .role-card:hover, #blog .blog-card:hover { transform: none; }
+}

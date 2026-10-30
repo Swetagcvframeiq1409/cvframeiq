@@ -27,6 +27,7 @@
     const hero = document.querySelector('.hero');
     if (hero) {
       const stats = make('section', 'live-stats-strip');
+      stats.dataset.tone = 'light';
       stats.setAttribute('aria-label', 'Home statistics carried over from the current live site');
       const container = make('div', 'container live-stats-strip__grid');
       carryover.home.stats.forEach((stat) => {
@@ -35,7 +36,9 @@
         container.append(item);
       });
       stats.append(container);
-      hero.after(stats);
+      const techStrip = document.querySelector('.tech-strip');
+      if (techStrip) techStrip.after(stats);
+      else hero.after(stats);
     }
 
     const proof = document.querySelector('#proof .container');
@@ -49,11 +52,36 @@
         item.append(make('strong', '', stat.value), make('span', '', stat.label));
         metrics.append(item);
       });
+      const testimonialControls = make('div', 'live-testimonial-controls');
+      testimonialControls.setAttribute('role', 'group');
+      testimonialControls.setAttribute('aria-label', 'Testimonials');
+      const previousTestimonial = make('button', '');
+      previousTestimonial.type = 'button';
+      previousTestimonial.setAttribute('aria-label', 'Previous testimonials');
+      previousTestimonial.disabled = true;
+      previousTestimonial.append(make('i', 'bi bi-arrow-left'));
+      previousTestimonial.firstElementChild.setAttribute('aria-hidden', 'true');
+      const nextTestimonial = make('button', '');
+      nextTestimonial.type = 'button';
+      nextTestimonial.setAttribute('aria-label', 'Next testimonials');
+      nextTestimonial.append(make('i', 'bi bi-arrow-right'));
+      nextTestimonial.firstElementChild.setAttribute('aria-hidden', 'true');
+      testimonialControls.append(previousTestimonial, nextTestimonial);
+      heading.append(testimonialControls);
       const testimonials = make('div', 'live-testimonials');
+      testimonials.tabIndex = 0;
+      testimonials.setAttribute('role', 'region');
+      testimonials.setAttribute('aria-label', 'Client testimonials');
       carryover.home.testimonials.forEach((review) => {
         const card = source(make('article', 'live-testimonial card'), review.sourcePage);
-        const stars = make('div', 'live-testimonial__rating', '★'.repeat(review.rating));
+        const stars = make('div', 'live-testimonial__rating');
+        stars.setAttribute('role', 'img');
         stars.setAttribute('aria-label', `${review.rating} out of 5 stars`);
+        Array.from({ length: review.rating }, () => {
+          const star = make('i', 'bi bi-star-fill');
+          star.setAttribute('aria-hidden', 'true');
+          stars.append(star);
+        });
         const quote = make('blockquote', '', review.quote);
         const author = make('p', 'live-testimonial__author', review.name);
         const role = make('p', 'live-testimonial__role', review.role);
@@ -61,6 +89,32 @@
         testimonials.append(card);
       });
       proof.append(heading, metrics, testimonials);
+      const updateTestimonialControls = () => {
+        previousTestimonial.disabled = testimonials.scrollLeft <= 1;
+        nextTestimonial.disabled = testimonials.scrollLeft + testimonials.clientWidth >= testimonials.scrollWidth - 1;
+      };
+      const scrollTestimonials = (direction) => {
+        const card = testimonials.querySelector('.live-testimonial');
+        const gap = Number.parseFloat(getComputedStyle(testimonials).columnGap) || 0;
+        testimonials.scrollBy({
+          left: direction * ((card?.getBoundingClientRect().width || testimonials.clientWidth) + gap),
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+        });
+      };
+      previousTestimonial.addEventListener('click', () => scrollTestimonials(-1));
+      nextTestimonial.addEventListener('click', () => scrollTestimonials(1));
+      testimonials.addEventListener('scrollend', updateTestimonialControls);
+      testimonials.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          scrollTestimonials(-1);
+        }
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          scrollTestimonials(1);
+        }
+      });
+      updateTestimonialControls();
     }
 
     const accordion = document.querySelector('#faq .accordion');
@@ -70,10 +124,9 @@
         const trigger = make('button', 'accordion-trigger');
         trigger.type = 'button';
         trigger.setAttribute('aria-expanded', String(index === 0));
-        trigger.append(make('span', '', faq.question), make('i', 'bi bi-chevron-down'));
+        trigger.append(make('span', '', faq.question), make('i', 'bi bi-plus'));
         trigger.lastElementChild.setAttribute('aria-hidden', 'true');
         const panel = make('div', 'accordion-panel');
-        if (index === 0) panel.style.maxHeight = '300px';
         panel.append(make('div', 'accordion-panel__inner', faq.answer));
         item.append(trigger, panel);
         return item;

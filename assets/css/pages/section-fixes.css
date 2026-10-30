@@ -1,0 +1,44 @@
+/* ===== Home section fixes (load AFTER home.css and story-fix.css) ===== */
+
+/* Four Pillars: one big card at a time, next card peeking, nothing clipped on the left */
+#pillars .pillars-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: none;
+  grid-auto-columns: min(1000px, calc(100% - 72px));
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 0;
+  padding-bottom: 4px;
+}
+#pillars .pillar-card {
+  scroll-snap-align: start;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: auto auto 1fr;
+  column-gap: 48px;
+  row-gap: 12px;
+  align-content: start;
+  min-height: 0;
+  padding: 40px;
+}
+#pillars .pillar-card__icon { grid-column: 1; grid-row: 1; margin: 0; }
+#pillars .pillar-card h3 { grid-column: 1; grid-row: 2; margin: 0; font-size: clamp(24px, 2.4vw, 30px); }
+#pillars .pillar-card > p { grid-column: 1; grid-row: 3; margin: 0; font-size: 16px; line-height: 1.6; }
+#pillars .pillar-card ul { grid-column: 2; grid-row: 1 / span 3; align-self: center; gap: 14px; }
+#pillars .pillar-card li { font-size: 16px; }
+@media (max-width: 899px) {
+  #pillars .pillars-grid { grid-auto-columns: calc(100% - 32px); }
+  #pillars .pillar-card { grid-template-columns: 1fr; padding: 24px; }
+  #pillars .pillar-card ul { grid-column: 1; grid-row: auto; }
+}
+
+/* Explore by industry: normal-sized headings and readable lists */
+#main-content .industry-explorer .home-industry-selector__columns h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 500;
+}
+#main-content .industry-explorer .home-industry-selector__columns :is(ul, p, a) { font-size: 15px; line-height: 1.5; }
+#main-content .industry-explorer .home-industry-selector__details > p { font-size: 15px; }

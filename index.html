@@ -55,15 +55,32 @@
       <link rel="manifest" href="site.webmanifest" />
       <script src="assets/js/seo.js" defer></script>
       <link rel="stylesheet" href="assets/css/motion.css" />
+      <link rel="stylesheet" href="assets/css/pages/story-fix.css" />
+      <link rel="stylesheet" href="assets/css/pages/section-fixes.css" />
+      <link rel="stylesheet" href="assets/css/pages/statement-fix.css" />
+      <link rel="stylesheet" href="assets/css/pages/polish.css" />
+      <link rel="stylesheet" href="assets/css/pages/bento-stack.css" />
+      <link rel="stylesheet" href="assets/css/pages/bento-pro.css" />
+      <link rel="stylesheet" href="assets/css/pages/cards-pro.css" />
+      <link rel="stylesheet" href="assets/css/pages/finish-pro.css" />
+      <link rel="stylesheet" href="assets/css/pages/coverage-pro.css" />
     <script src="assets/js/motion.js" defer></script>
+      <script src="assets/js/scroll-story.js" defer></script>
+      <script src="assets/js/pages/bento-stack.js" defer></script>
 </head>
   <body data-root="">
-    <script>try{const saved=localStorage.getItem('frameiq-theme');document.body.dataset.theme=saved==='light'||saved==='dark'?saved:(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark')}catch(error){document.body.dataset.theme=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}</script>
+    <script>try{const saved=localStorage.getItem('frameiq-theme');document.body.dataset.theme=saved==='light'||saved==='dark'?saved:'light'}catch(error){document.body.dataset.theme='light'}</script>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <div id="site-header"></div>
     <main id="main-content">
-      <section class="hero" aria-labelledby="hero-title">
+      <section class="hero" aria-labelledby="hero-title" data-tone="dark" data-scroll-story>
         <div class="hero__glow" aria-hidden="true"></div>
+        <div class="hero__scenes" aria-hidden="true">
+          <div class="hero__scene hero__scene--1"></div>
+          <div class="hero__scene hero__scene--2"></div>
+          <div class="hero__scene hero__scene--3"></div>
+          <div class="hero__scene hero__scene--4"></div>
+        </div>
         <div class="container hero__container">
           <div class="hero__floaters" aria-hidden="true">
             <span class="hero-floater hero-floater--left-top"><i class="bi bi-eye"></i></span>
@@ -99,17 +116,6 @@
                 Try Live Demo
               </a>
             </div>
-            <div class="home-industry-selector hero-enter" data-industry-selector aria-label="Choose an industry" data-enter="7">
-              <p class="eyebrow">Explore by industry</p>
-              <div class="home-industry-selector__chips" role="group" aria-label="Industry choices" data-industry-chips></div>
-              <div class="home-industry-selector__details" aria-live="polite" aria-atomic="true">
-                <p data-industry-description>Choose a sector to explore use cases and related catalog items.</p>
-                <div class="home-industry-selector__columns">
-                  <div><h2>Use cases to discuss</h2><ul data-industry-usecases></ul></div>
-                  <div><h2>Catalog matches</h2><div data-industry-matches></div></div>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div class="camera-panel hero-enter" data-enter="7" aria-label="Illustrative factory camera feed showing AI detections">
@@ -118,7 +124,12 @@
               <span class="camera-panel__time">DEMO VISUALIZATION</span>
             </div>
             <div class="camera-screen">
-              <div class="factory-scene photo-frame" data-photo="home-hero" data-photo-loading="eager"><img width="1600" height="900" decoding="async" alt="" hidden></div>
+              <div class="factory-scene" aria-hidden="true">
+                <span class="factory-scene__beam"></span>
+                <span class="factory-scene__shape factory-scene__shape--one"></span>
+                <span class="factory-scene__shape factory-scene__shape--two"></span>
+                <span class="factory-scene__shape factory-scene__shape--three"></span>
+              </div>
               <div class="camera-overlay" aria-hidden="true">
                 <span class="camera-scan"></span>
                 <span class="camera-corner camera-corner--tl"></span><span class="camera-corner camera-corner--tr"></span>
@@ -132,66 +143,235 @@
           </div>
 
         </div>
+        <a class="hero-scroll" href="#tech-strip" aria-label="Scroll to technologies">
+          <span>Scroll</span>
+          <span class="hero-scroll__line" aria-hidden="true"><i></i></span>
+        </a>
       </section>
 
-      <div class="tech-strip section--compact">
+      <div class="tech-strip section--compact" id="tech-strip" data-tone="dark">
         <div class="container">
           <div class="section-head reveal">
             <p class="eyebrow">Technology names</p>
             <h2>Technologies in the FrameIQ stack</h2>
           </div>
           <div class="home-trust-chips" aria-label="Technology names from the company technology data">
-            <span>PyTorch</span>
-            <span>TensorFlow</span>
-            <span>OpenCV</span>
-            <span>YOLOv8</span>
-            <span>Hugging Face</span>
-            <span>Python</span>
-            <span>ONNX</span>
-            <span>FastAPI</span>
-            <span>Docker</span>
-            <span>AWS</span>
+            <div class="home-trust-track">
+              <div class="home-trust-group">
+                <span>PyTorch</span>
+                <span>TensorFlow</span>
+                <span>OpenCV</span>
+                <span>YOLOv8</span>
+                <span>Hugging Face</span>
+                <span>Python</span>
+                <span>ONNX</span>
+                <span>FastAPI</span>
+                <span>Docker</span>
+                <span>AWS</span>
+              </div>
+              <div class="home-trust-group" aria-hidden="true">
+                <span>PyTorch</span>
+                <span>TensorFlow</span>
+                <span>OpenCV</span>
+                <span>YOLOv8</span>
+                <span>Hugging Face</span>
+                <span>Python</span>
+                <span>ONNX</span>
+                <span>FastAPI</span>
+                <span>Docker</span>
+                <span>AWS</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <section class="section site-bento-section" aria-labelledby="site-bento-title">
+      <section class="home-partners" aria-label="FrameIQ technology stack" data-tone="dark">
         <div class="container">
           <div class="section-head reveal">
-            <p class="eyebrow">Explore FrameIQ</p>
-            <h2 id="site-bento-title">Explore the platform</h2>
+            <p class="eyebrow">Technology partners</p>
+            <h2>Built on the tools production demands</h2>
           </div>
-          <div class="site-bento">
-            <a class="site-bento__card site-bento__card--sectors" href="pages/sectors.html">
-              <span class="site-bento__photo photo-frame" data-photo="sector-manufacturing" data-photo-loading="lazy"><img width="800" height="450" decoding="async" alt="" hidden></span>
-              <span class="site-bento__content"><span class="eyebrow">Industry use cases</span><strong>Sectors</strong><span>Explore sector pages</span></span>
-              <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
-            </a>
-            <a class="site-bento__card site-bento__card--store" href="pages/ai-store.html">
-              <span class="site-bento__photo photo-frame" data-photo="ai-store-hero" data-photo-loading="lazy"><img width="800" height="450" decoding="async" alt="" hidden></span>
-              <span class="site-bento__content"><span class="eyebrow">Product portfolio</span><strong>AI Store</strong><span>Browse the portfolio</span></span>
-              <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
-            </a>
-            <a class="site-bento__card site-bento__card--gear" href="pages/gear.html">
-              <span class="site-bento__photo photo-frame" data-photo="gear-camera" data-photo-loading="lazy"><img width="800" height="450" decoding="async" alt="" hidden></span>
-              <span class="site-bento__content"><span class="eyebrow">Hardware collection</span><strong>Gear</strong><span>Explore hardware</span></span>
-              <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
-            </a>
-            <a class="site-bento__card site-bento__card--beejhealth" href="pages/beejhealth.html">
-              <span class="site-bento__photo photo-frame" data-photo="beejhealth-hero" data-photo-loading="lazy"><img width="800" height="450" decoding="async" alt="" hidden></span>
-              <span class="site-bento__content"><span class="eyebrow">Agriculture</span><strong>BeejHealth</strong><span>Explore BeejHealth</span></span>
-              <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
-            </a>
-            <a class="site-bento__card site-bento__card--research" href="pages/research.html">
-              <span class="site-bento__photo photo-frame" data-photo="research-hero" data-photo-loading="lazy"><img width="800" height="450" decoding="async" alt="" hidden></span>
-              <span class="site-bento__content"><span class="eyebrow">Computer vision</span><strong>Research</strong><span>Explore research</span></span>
-              <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
-            </a>
+          <div class="home-partners__marquee" aria-label="PyTorch, TensorFlow, OpenCV, YOLOv8, Hugging Face, ONNX, FastAPI and Docker">
+            <div class="home-partners__row">
+              <span>PyTorch</span><span>TensorFlow</span><span>OpenCV</span><span>YOLOv8</span><span>Hugging Face</span><span>Python</span>
+            </div>
+            <div class="home-partners__row home-partners__row--reverse">
+              <span>ONNX</span><span>FastAPI</span><span>Docker</span><span>AWS</span><span>Computer Vision</span><span>Agentic AI</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="who-are-you">
+      <section class="home-statement" id="home-statement" data-tone="dark" data-scroll-story aria-label="About FrameIQ">
+        <div class="home-statement__stage">
+          <div class="home-statement__scroll-cue" aria-hidden="true"><span>SCROLL</span><i></i></div>
+          <div class="home-statement__copy">
+            <p class="home-statement__paragraph">We build AI systems for <strong>visual inspection and automation</strong>.</p>
+            <p class="home-statement__paragraph">FrameIQ AI is working to make <strong>computer vision and AI</strong> useful for Indian industry.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section home-process-section" id="how-it-works" data-tone="light">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Camera to Decision</p>
+            <h2>Camera to Decision</h2>
+            <p>From field footage to autonomous action, the workflow stays practical and measurable.</p>
+          </div>
+          <div class="home-story" id="home-story" data-scroll-story aria-label="Camera to Decision four-step scroll story">
+            <div class="home-story__stage" data-product-frame>
+              <div class="section-head home-story__heading">
+                <p class="eyebrow">Camera to Decision</p>
+                <h2>Camera to Decision</h2>
+                <p>From field footage to autonomous action, the workflow stays practical and measurable.</p>
+              </div>
+              <div class="home-story__slides">
+              <div class="home-story__steps">
+                <article class="home-story__slide" style="--story-start:-0.025;--story-end:0.16;--story-index:0">
+                  <div class="home-story__slide-content">
+                    <span class="home-story__label"><span class="home-story__number">1</span>Capture</span>
+                    <h3 class="home-story__title">Capture</h3>
+                    <p class="home-story__text">FrameIQ connects to your cameras, sensors, and mobile inputs to collect real operational footage.</p>
+                    <div class="home-story__secondary">
+                      <h4>Discovery Call</h4>
+                      <p class="home-story__detail">We map your camera network, operational KPIs, and pain points, then define exactly what AI needs to see and do.</p>
+                    </div>
+                  </div>
+                </article>
+                <article class="home-story__slide" style="--story-start:0.145;--story-end:0.31;--story-index:1">
+                  <div class="home-story__slide-content">
+                    <span class="home-story__label"><span class="home-story__number">2</span>Inference</span>
+                    <h3 class="home-story__title">Inference</h3>
+                    <p class="home-story__text">Computer vision models process video in real time to identify defects, behavior, risk, and anomalies.</p>
+                    <div class="home-story__secondary">
+                      <h4>Prototype &amp; Validate</h4>
+                      <p class="home-story__detail">Prototype scope and timing depend on your requirements and the footage available for validation.</p>
+                    </div>
+                  </div>
+                </article>
+                <article class="home-story__slide" style="--story-start:0.295;--story-end:0.46;--story-index:2">
+                  <div class="home-story__slide-content">
+                    <span class="home-story__label"><span class="home-story__number">3</span>Decision</span>
+                    <h3 class="home-story__title">Decision</h3>
+                    <p class="home-story__text">Rules, workflows, and agent logic decide what action should happen next without friction.</p>
+                    <div class="home-story__secondary">
+                      <h4>Deploy to Production</h4>
+                      <p class="home-story__detail">We can discuss your existing CCTV, ERP, and PLC environment and the integration requirements for your project.</p>
+                    </div>
+                  </div>
+                </article>
+                <article class="home-story__slide" style="--story-start:0.445;--story-end:0.61;--story-index:3">
+                  <div class="home-story__slide-content">
+                    <span class="home-story__label"><span class="home-story__number">4</span>Alert</span>
+                    <h3 class="home-story__title">Alert</h3>
+                    <p class="home-story__text">Teams get precise alerts, notifications, integration events, and live operational insight.</p>
+                    <div class="home-story__secondary">
+                      <h4>4 Monitor &amp; Evolve</h4>
+                      <p class="home-story__detail">Monitoring, model updates, dashboards, and support arrangements depend on the agreed project scope.</p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              </div>
+              <div class="home-story__diagram" aria-hidden="true">
+                <div class="home-story__tiles">
+                  <div class="home-story__tile" style="--tile-index:0"><i class="bi bi-camera-video"></i><span>Capture</span></div>
+                  <i class="bi bi-arrow-right home-story__connector"></i>
+                  <div class="home-story__tile" style="--tile-index:1"><i class="bi bi-search"></i><span>Inference</span></div>
+                  <i class="bi bi-arrow-right home-story__connector"></i>
+                  <div class="home-story__tile" style="--tile-index:2"><i class="bi bi-lightbulb"></i><span>Decision</span></div>
+                  <i class="bi bi-arrow-right home-story__connector"></i>
+                  <div class="home-story__tile" style="--tile-index:3"><i class="bi bi-bell"></i><span>Alert</span></div>
+                </div>
+              </div>
+              <div class="home-story__wordmark" aria-hidden="true">
+                <span class="home-story__letters">FrameIQ</span>
+                <span class="home-story__tagline">See Smarter. Decide Faster. Scale Bigger.</span>
+              </div>
+              <span class="home-story__line" aria-hidden="true"></span>
+              <span class="home-story__traveller" aria-hidden="true"></span>
+              <span class="home-story__orbit home-story__orbit--one" aria-hidden="true"></span>
+              <span class="home-story__orbit home-story__orbit--two" aria-hidden="true"></span>
+              <span class="home-story__spark home-story__spark--one" aria-hidden="true"></span>
+              <span class="home-story__spark home-story__spark--two" aria-hidden="true"></span>
+            </div>
+          </div>
+          <p class="process-story__chip">Deployment timing and engagement details depend on project scope.</p>
+          <div class="home-process-list" aria-label="Camera to Decision steps">
+            <article><span class="home-process-list__icon"><span class="home-process-list__number">1</span><i class="bi bi-camera-video" aria-hidden="true"></i></span><div><h3>Capture</h3><p>FrameIQ connects to your cameras, sensors, and mobile inputs to collect real operational footage.</p><h4>Discovery Call</h4><p>We map your camera network, operational KPIs, and pain points, then define exactly what AI needs to see and do.</p></div></article>
+            <article><span class="home-process-list__icon"><span class="home-process-list__number">2</span><i class="bi bi-search" aria-hidden="true"></i></span><div><h3>Inference</h3><p>Computer vision models process video in real time to identify defects, behavior, risk, and anomalies.</p><h4>Prototype &amp; Validate</h4><p>Prototype scope and timing depend on your requirements and the footage available for validation.</p></div></article>
+            <article><span class="home-process-list__icon"><span class="home-process-list__number">3</span><i class="bi bi-lightbulb" aria-hidden="true"></i></span><div><h3>Decision</h3><p>Rules, workflows, and agent logic decide what action should happen next without friction.</p><h4>Deploy to Production</h4><p>We can discuss your existing CCTV, ERP, and PLC environment and the integration requirements for your project.</p></div></article>
+            <article><span class="home-process-list__icon"><span class="home-process-list__number">4</span><i class="bi bi-bell" aria-hidden="true"></i></span><div><h3>Alert</h3><p>Teams get precise alerts, notifications, integration events, and live operational insight.</p><h4>4 Monitor &amp; Evolve</h4><p>Monitoring, model updates, dashboards, and support arrangements depend on the agreed project scope.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section site-bento-section" id="home-practices" aria-labelledby="site-bento-title" data-tone="light">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Explore FrameIQ</p>
+            <h2 id="site-bento-title">Explore the platform</h2>
+          </div>
+          <div class="site-bento">
+            <div class="site-bento__item" data-scroll-story style="--stack-index:0">
+              <a class="site-bento__card site-bento__card--sectors" href="pages/sectors.html">
+                <span class="site-bento__content"><span class="eyebrow">Industry use cases</span><strong>Sectors</strong><span class="site-bento__link">Explore sector pages <i class="bi bi-arrow-right" aria-hidden="true"></i></span></span>
+                <span class="site-bento__panel" aria-hidden="true"><span class="site-bento__mock"><strong>Sectors</strong><span><i class="bi bi-check"></i> manufacturing</span><span><i class="bi bi-check"></i> agriculture</span><span><i class="bi bi-check"></i> healthcare</span></span></span>
+                <i class="bi bi-arrow-up-right site-bento__arrow" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="site-bento__item" data-scroll-story style="--stack-index:1">
+              <a class="site-bento__card site-bento__card--store" href="pages/ai-store.html">
+                <span class="site-bento__content"><span class="eyebrow">Product portfolio</span><strong>AI Store</strong><span class="site-bento__link">Browse the portfolio <i class="bi bi-arrow-right" aria-hidden="true"></i></span></span>
+                <span class="site-bento__panel" aria-hidden="true"><span class="site-bento__mock"><strong>AI Store</strong><span><i class="bi bi-check"></i> Defect Detection</span><span><i class="bi bi-check"></i> Safety Monitor</span><span><i class="bi bi-check"></i> Crop Health</span><span><i class="bi bi-check"></i> Custom Models</span></span></span>
+                <i class="bi bi-arrow-up-right site-bento__arrow" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="site-bento__item" data-scroll-story style="--stack-index:2">
+              <a class="site-bento__card site-bento__card--gear" href="pages/gear.html">
+                <span class="site-bento__content"><span class="eyebrow">Hardware collection</span><strong>Gear</strong><span class="site-bento__link">Explore hardware <i class="bi bi-arrow-right" aria-hidden="true"></i></span></span>
+                <span class="site-bento__panel" aria-hidden="true"><span class="site-bento__mock"><strong>Gear</strong><span><i class="bi bi-check"></i> cameras</span><span><i class="bi bi-check"></i> sensors</span><span><i class="bi bi-check"></i> mobile inputs</span></span></span>
+                <i class="bi bi-arrow-up-right site-bento__arrow" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="site-bento__item" data-scroll-story style="--stack-index:3">
+              <a class="site-bento__card site-bento__card--beejhealth" href="pages/beejhealth.html">
+                <span class="site-bento__content"><span class="eyebrow">Agriculture</span><strong>BeejHealth</strong><span class="site-bento__link">Explore BeejHealth <i class="bi bi-arrow-right" aria-hidden="true"></i></span></span>
+                <span class="site-bento__panel" aria-hidden="true"><span class="site-bento__mock"><strong>BeejHealth</strong><span><i class="bi bi-check"></i> Disease Detection</span><span><i class="bi bi-check"></i> Indian Crops</span></span></span>
+                <i class="bi bi-arrow-up-right site-bento__arrow" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="site-bento__item" data-scroll-story style="--stack-index:4">
+              <a class="site-bento__card site-bento__card--research" href="pages/research.html">
+                <span class="site-bento__content"><span class="eyebrow">Computer vision</span><strong>Research</strong><span class="site-bento__link">Explore research <i class="bi bi-arrow-right" aria-hidden="true"></i></span></span>
+                <span class="site-bento__panel" aria-hidden="true"><span class="site-bento__mock"><strong>Research</strong><span><i class="bi bi-check"></i> Visual analytics</span><span><i class="bi bi-check"></i> Real-time insights</span><span><i class="bi bi-check"></i> Continuous learning</span></span></span>
+                <i class="bi bi-arrow-up-right site-bento__arrow" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <div class="site-bento__dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </section>
+
+      <section class="industry-explorer section--compact" data-tone="dark" aria-label="Explore by industry">
+        <div class="container">
+          <div class="home-industry-selector" data-industry-selector>
+            <p class="eyebrow">Explore by industry</p>
+            <div class="home-industry-selector__chips" role="group" aria-label="Industry choices" data-industry-chips></div>
+            <div class="home-industry-selector__details" aria-live="polite" aria-atomic="true">
+              <p data-industry-description>Choose a sector to explore use cases and related catalog items.</p>
+              <div class="home-industry-selector__columns">
+                <div><h2>Use cases to discuss</h2><ul data-industry-usecases></ul></div>
+                <div><h2>Catalog matches</h2><div data-industry-matches></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="who-are-you" data-tone="light">
         <div class="container">
           <div class="section-head reveal">
             <p class="eyebrow">Who are you?</p>
@@ -234,14 +414,23 @@
         </div>
       </section>
 
-      <section class="section" id="pillars">
+      <section class="home-stat-band" aria-label="FrameIQ operating metrics" data-tone="dark">
+        <div class="container home-stat-band__grid">
+          <article class="live-impact-metric"><strong data-count="7" data-suffix="+">7+</strong><span>INDUSTRIES</span></article>
+          <article class="live-impact-metric"><strong data-count="99.2" data-decimals="1" data-suffix="%">99.2%</strong><span>MODEL ACCURACY</span></article>
+          <article class="live-impact-metric"><strong data-count="200" data-prefix="&lt;" data-suffix="ms">&lt;200ms</strong><span>LATENCY</span></article>
+          <article class="live-impact-metric"><strong data-count="24" data-suffix="/7">24/7</strong><span>MONITORING</span></article>
+        </div>
+      </section>
+
+      <section class="section" id="pillars" data-tone="dark">
         <div class="container">
           <div class="section-head reveal">
             <p class="eyebrow">Our Expertise</p>
             <h2>Four Pillars of Innovation</h2>
             <p>Specialized computer vision solutions tailored for the realities of Indian businesses.</p>
           </div>
-          <div class="pillars-grid reveal">
+          <div class="pillars-grid reveal" data-practice-carousel tabindex="0">
             <article class="pillar-card pillar-card--purple card">
               <div class="pillar-card__icon" aria-hidden="true"><i class="bi bi-buildings" aria-hidden="true"></i></div>
               <h3>Computer Vision for Industry</h3>
@@ -288,150 +477,78 @@
               </ul>
             </article>
           </div>
+          <div class="practice-carousel-controls" aria-label="Practice carousel controls">
+            <button type="button" data-practice-prev aria-label="Previous practice"><i class="bi bi-arrow-left" aria-hidden="true"></i></button>
+            <div class="practice-carousel-dots" aria-hidden="true"><i class="is-active"></i><i></i><i></i><i></i></div>
+            <button type="button" data-practice-next aria-label="Next practice"><i class="bi bi-arrow-right" aria-hidden="true"></i></button>
+          </div>
         </div>
       </section>
 
-      <section class="section" id="how-it-works">
-        <div class="container">
-          <div class="section-head reveal">
-            <p class="eyebrow">Camera to Decision</p>
-            <h2>Camera to Decision</h2>
-            <p>From field footage to autonomous action, the workflow stays practical and measurable.</p>
-          </div>
-          <div class="process process-story-layout reveal" aria-label="Camera to Decision four-step scroll story">
-            <div class="process-story" data-process-story>
-              <article class="process-step is-active" data-step-index="0">
-                <span class="number">1</span>
-                <div class="process-step__icon" aria-hidden="true"><i class="bi bi-camera-video" aria-hidden="true"></i></div>
-                <strong>Capture</strong>
-                <p>FrameIQ connects to your cameras, sensors, and mobile inputs to collect real operational footage.</p>
-                <h3>Discovery Call</h3>
-                <p>We map your camera network, operational KPIs, and pain points, then define exactly what AI needs to see and do.</p>
-                <div class="process-step__mobile-visual" aria-hidden="true">
-                  <div class="css-diagram" aria-hidden="true"><span></span><span></span><span></span></div>
-                </div>
-              </article>
-              <article class="process-step" data-step-index="1">
-                <span class="number">2</span>
-                <div class="process-step__icon" aria-hidden="true"><i class="bi bi-search" aria-hidden="true"></i></div>
-                <strong>Inference</strong>
-                <p>Computer vision models process video in real time to identify defects, behavior, risk, and anomalies.</p>
-                <h3>Prototype &amp; Validate</h3>
-                <p>Prototype scope and timing depend on your requirements and the footage available for validation.</p>
-                <div class="process-step__mobile-visual" aria-hidden="true">
-                  <div class="css-diagram" aria-hidden="true"><span></span><span></span><span></span></div>
-                </div>
-              </article>
-              <article class="process-step" data-step-index="2">
-                <span class="number">3</span>
-                <div class="process-step__icon" aria-hidden="true"><i class="bi bi-lightbulb" aria-hidden="true"></i></div>
-                <strong>Decision</strong>
-                <p>Rules, workflows, and agent logic decide what action should happen next without friction.</p>
-                <h3>Deploy to Production</h3>
-                <p>We can discuss your existing CCTV, ERP, and PLC environment and the integration requirements for your project.</p>
-                <div class="process-step__mobile-visual" aria-hidden="true">
-                  <div class="css-diagram" aria-hidden="true"><span></span><span></span><span></span></div>
-                </div>
-              </article>
-              <article class="process-step" data-step-index="3">
-                <span class="number">4</span>
-                <div class="process-step__icon" aria-hidden="true"><i class="bi bi-bell" aria-hidden="true"></i></div>
-                <strong>Alert</strong>
-                <p>Teams get precise alerts, notifications, integration events, and live operational insight.</p>
-                <h3>4 Monitor &amp; Evolve</h3>
-                <p>Monitoring, model updates, dashboards, and support arrangements depend on the agreed project scope.</p>
-                <div class="process-step__mobile-visual" aria-hidden="true">
-                  <div class="css-diagram" aria-hidden="true"><span></span><span></span><span></span></div>
-                </div>
-              </article>
-            </div>
-            <aside class="process__visual" aria-label="Step illustration">
-              <div class="process-scene is-active" data-scene="0" role="img" aria-label="Capture: camera collecting a live video stream">
-                <div class="css-diagram" aria-hidden="true"><span></span><span></span><span></span></div>
-              </div>
-              <div class="process-scene" data-scene="1" role="img" aria-label="Inference: vision model marks people and defects in a frame" aria-hidden="true">
-                <div class="css-diagram" aria-hidden="true"><span></span><span></span><span></span></div>
-              </div>
-              <div class="process-scene" data-scene="2" role="img" aria-label="Decision: rules and an AI agent evaluate an event" aria-hidden="true">
-                <div class="css-diagram" aria-hidden="true"><span></span><span></span><span></span></div>
-              </div>
-              <div class="process-scene" data-scene="3" role="img" aria-label="Alert: notification triggers an action in SCADA" aria-hidden="true">
-                <div class="css-diagram" aria-hidden="true"><span></span><span></span><span></span></div>
-              </div>
-            </aside>
-          </div>
-          <p class="process-story__chip reveal">Deployment timing and engagement details depend on project scope.</p>
-        </div>
-      </section>
-
-      <section class="section" id="focus-areas">
+      <section class="section" id="focus-areas" data-tone="light">
         <div class="container">
           <div class="section-head reveal">
             <p class="eyebrow">What We Build</p>
             <h2>Our Focus Areas</h2>
           </div>
-          <div class="focus-grid reveal">
+          <div class="focus-grid reveal" data-product-frame>
             <article class="focus-card focus-card--industrial">
               <div class="focus-card__content">
                 <span class="focus-card__eyebrow">01 / INDUSTRIAL</span>
+                <i class="bi bi-buildings focus-card__icon" aria-hidden="true"></i>
                 <h3>Industrial AI</h3>
                 <p class="focus-card__subtitle">Computer Vision for Manufacturing</p>
                 <p>AI-powered defect detection, production line monitoring, and quality inspection systems trained specifically for Indian manufacturing environments.</p>
                 <ul>
-                  <li>Real-Time Visual Inspection</li>
-                  <li>Custom Model Training</li>
+                  <li><i class="bi bi-check" aria-hidden="true"></i>Real-Time Visual Inspection</li>
+                  <li><i class="bi bi-check" aria-hidden="true"></i>Custom Model Training</li>
                 </ul>
-              </div>
-              <div class="focus-graphic focus-graphic--industrial" role="img" aria-label="Animated visual inspection frame identifying a product defect">
-                <span class="focus-graphic__camera"><i class="bi bi-camera-video" aria-hidden="true"></i>EXAMPLE INSPECTION</span>
-                <div class="focus-graphic__conveyor"><i></i><i></i><i></i><i></i></div>
-                <div class="focus-graphic__object"><span></span><b>DEFECT DETECTED</b></div>
-                <span class="focus-graphic__scan"></span>
-                <span class="focus-graphic__status"><i></i> Vision inspection active</span>
+                <a href="pages/sectors.html" class="focus-card__link">Industrial AI <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
               </div>
             </article>
             <article class="focus-card focus-card--agriculture">
               <div class="focus-card__content">
                 <span class="focus-card__eyebrow">02 / AGRICULTURE</span>
+                <i class="bi bi-flower1 focus-card__icon" aria-hidden="true"></i>
                 <h3>Agriculture</h3>
                 <p class="focus-card__subtitle">BeejHealth Crop AI Advisory</p>
                 <p>BeejHealth is an AI crop health advisory for Indian agriculture. Farmers can photograph crops for disease, pest, and nutrient insights.</p>
                 <ul>
-                  <li>Disease Detection</li>
-                  <li>Indian Crops</li>
+                  <li><i class="bi bi-check" aria-hidden="true"></i>Disease Detection</li>
+                  <li><i class="bi bi-check" aria-hidden="true"></i>Indian Crops</li>
                 </ul>
-              </div>
-              <div class="focus-graphic focus-graphic--leaf" role="img" aria-label="Leaf scan visual with AI health analysis">
-                <div class="css-diagram" aria-hidden="true"><span></span><span></span><span></span></div>
-                <span class="focus-graphic__tag">CROP HEALTH</span>
+                <a href="pages/beejhealth.html" class="focus-card__link">Agriculture <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
               </div>
             </article>
             <article class="focus-card focus-card--agentic">
               <div class="focus-card__content">
                 <span class="focus-card__eyebrow">03 / AUTONOMOUS SYSTEMS</span>
+                <i class="bi bi-cpu focus-card__icon" aria-hidden="true"></i>
                 <h3>Agentic AI</h3>
                 <p class="focus-card__subtitle">Autonomous AI Vision Agents</p>
                 <p>Self-learning AI systems that don't just detect, they decide and act. Multi-modal agents combining vision, language, and automation for enterprise workflows.</p>
+                <ul>
+                  <li><i class="bi bi-check" aria-hidden="true"></i>vision</li>
+                  <li><i class="bi bi-check" aria-hidden="true"></i>language</li>
+                  <li><i class="bi bi-check" aria-hidden="true"></i>automation</li>
+                </ul>
                 <a href="pages/contact.html" class="focus-card__link">Build an Agent <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
-              </div>
-              <div class="focus-graphic focus-graphic--network" role="img" aria-label="Connected AI agent network coordinating vision, reasoning, and action">
-                <div class="css-diagram" aria-hidden="true"><span></span><span></span><span></span></div>
-                <span class="focus-graphic__tag">SENSE · REASON · ACT</span>
               </div>
             </article>
             <article class="focus-card focus-card--store">
               <div class="focus-card__content">
                 <span class="focus-card__eyebrow">04 / READY TO DEPLOY</span>
+                <i class="bi bi-grid-3x3-gap focus-card__icon" aria-hidden="true"></i>
                 <h3>AI Store</h3>
                 <p class="focus-card__subtitle">Plug &amp; Deploy</p>
                 <p>Ready-to-use CV models, no in-house AI team needed.</p>
+                <ul>
+                  <li><i class="bi bi-check" aria-hidden="true"></i>Defect Detection</li>
+                  <li><i class="bi bi-check" aria-hidden="true"></i>Safety Monitor</li>
+                  <li><i class="bi bi-check" aria-hidden="true"></i>Crop Health</li>
+                  <li><i class="bi bi-check" aria-hidden="true"></i>Custom Models</li>
+                </ul>
                 <a href="pages/ai-store.html" class="focus-card__link">Browse Store <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
-              </div>
-              <div class="focus-model-grid" aria-label="Available model categories">
-                <div class="focus-model-tile"><span>CV</span><strong>Defect<br>Detection</strong><i>READY</i></div>
-                <div class="focus-model-tile"><span>PPE</span><strong>Safety<br>Monitor</strong><i>READY</i></div>
-                <div class="focus-model-tile"><span>AG</span><strong>Crop<br>Health</strong><i>READY</i></div>
-                <div class="focus-model-tile"><span>AI</span><strong>Custom<br>Models</strong><i>BUILD</i></div>
               </div>
             </article>
           </div>
@@ -442,7 +559,7 @@
         </div>
       </section>
 
-      <section class="section" id="about">
+      <section class="section" id="about" data-tone="dark">
         <div class="container">
           <div class="section-head reveal">
             <p class="eyebrow">Why FrameIQ</p>
@@ -451,26 +568,32 @@
           </div>
           <div class="why-grid reveal">
             <article class="why-card card">
+              <i class="bi bi-cpu why-card__icon" aria-hidden="true"></i>
               <h3>Computer Vision Models</h3>
               <p>We select an architecture based on the use case.</p>
             </article>
             <article class="why-card card">
+              <i class="bi bi-globe-asia-australia why-card__icon" aria-hidden="true"></i>
               <h3>India-First Approach</h3>
               <p>Models trained on Indian data, optimised for local infrastructure, with Hindi support built for real-world Indian conditions.</p>
             </article>
             <article class="why-card card">
+              <i class="bi bi-boxes why-card__icon" aria-hidden="true"></i>
               <h3>End-to-End Ownership</h3>
               <p>From data annotation to edge deployment. You own your models, your data, your pipeline. No vendor lock-in, ever.</p>
             </article>
             <article class="why-card card">
+              <i class="bi bi-sliders why-card__icon" aria-hidden="true"></i>
               <h3>Project-Fit Deployment</h3>
               <p>Deployment timing depends on project scope, validation requirements, and deployment environment.</p>
             </article>
             <article class="why-card card">
+              <i class="bi bi-code-square why-card__icon" aria-hidden="true"></i>
               <h3>Open-Source Core</h3>
               <p>Built on PyTorch, OpenCV, FastAPI, and Hugging Face. No black boxes, you can inspect, audit, and extend everything.</p>
             </article>
             <article class="why-card card">
+              <i class="bi bi-people why-card__icon" aria-hidden="true"></i>
               <h3>Potential Collaboration</h3>
               <p>Contact FrameIQ to discuss potential collaboration and project requirements.</p>
             </article>
@@ -480,12 +603,12 @@
               <p class="eyebrow" style="margin-bottom:0.4rem;">Have a project in mind?</p>
               <h3>Discuss your requirements with FrameIQ.</h3>
             </div>
-            <a class="btn btn--primary" href="pages/contact.html">Contact Us</a>
+            <a class="btn btn--primary" href="pages/contact.html">Contact Us <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
       </section>
 
-      <section class="section" id="proof">
+      <section class="section" id="proof" data-tone="light">
         <div class="container">
           <div class="section-head reveal">
             <p class="eyebrow">Client Results</p>
@@ -495,7 +618,7 @@
         </div>
       </section>
 
-      <section class="section coverage-section" id="coverage" aria-labelledby="coverage-title">
+      <section class="section coverage-section" id="coverage" aria-labelledby="coverage-title" data-tone="dark">
         <div class="container">
           <div class="section-head reveal">
             <p class="eyebrow">Where We Work</p>
@@ -524,7 +647,7 @@
                   <p class="coverage-region-card__summary">Visual intelligence for diverse, fast-moving operations.</p>
                   <ul data-sector-list="maharashtra"><li>Manufacturing</li><li>Agriculture</li><li>Retail &amp; Smart Cities</li><li>Healthcare</li></ul>
                 </div>
-                <span class="coverage-region-card__arrow" aria-hidden="true">↗</span>
+                <i class="bi bi-arrow-up-right coverage-region-card__arrow" aria-hidden="true"></i>
               </article>
               <article class="coverage-region-card" id="coverage-card-gujarat" data-coverage-card="gujarat" tabindex="0">
                 <span class="coverage-region-card__index">02</span>
@@ -534,7 +657,7 @@
                   <p class="coverage-region-card__summary">AI vision for production, infrastructure, and movement.</p>
                   <ul data-sector-list="gujarat"><li>Manufacturing</li><li>Logistics</li><li>Agriculture</li><li>Energy</li></ul>
                 </div>
-                <span class="coverage-region-card__arrow" aria-hidden="true">↗</span>
+                <i class="bi bi-arrow-up-right coverage-region-card__arrow" aria-hidden="true"></i>
               </article>
               <article class="coverage-region-card" id="coverage-card-punjab" data-coverage-card="punjab" tabindex="0">
                 <span class="coverage-region-card__index">03</span>
@@ -544,12 +667,12 @@
                   <p class="coverage-region-card__summary">Computer vision for crops, food systems, and supply chains.</p>
                   <ul data-sector-list="punjab"><li>Agriculture</li><li>Food Processing</li><li>Logistics</li></ul>
                 </div>
-                <span class="coverage-region-card__arrow" aria-hidden="true">↗</span>
+                <i class="bi bi-arrow-up-right coverage-region-card__arrow" aria-hidden="true"></i>
               </article>
             </div>
           </div>
           <div class="coverage-coming-soon" data-coverage-coming-soon hidden>
-            <span class="coverage-coming-soon__icon" aria-hidden="true">◎</span>
+            <i class="bi bi-globe2 coverage-coming-soon__icon" aria-hidden="true"></i>
             <div><strong>Global coverage is coming soon</strong><p>Our current focus is building practical AI solutions for India.</p></div>
           </div>
           <details class="coverage-text-fallback">
@@ -563,7 +686,7 @@
         </div>
       </section>
 
-      <section class="section" id="faq">
+      <section class="section" id="faq" data-tone="light">
         <div class="container">
           <div class="section-head reveal">
             <p class="eyebrow">Got Questions?</p>
@@ -574,16 +697,16 @@
               <div class="accordion-item is-open">
                 <button class="accordion-trigger" type="button" aria-expanded="true">
                   <span>What industries does FrameIQ serve?</span>
-                  <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                  <i class="bi bi-plus" aria-hidden="true"></i>
                 </button>
-                <div class="accordion-panel" style="max-height:200px;">
+                <div class="accordion-panel">
                   <div class="accordion-panel__inner">FrameIQ serves manufacturing, agriculture, healthcare, security &amp; surveillance, retail, smart cities, banking, and aviation. Our computer vision solutions are adaptable to any industry that requires visual intelligence, quality inspection, or automation.</div>
                 </div>
               </div>
               <div class="accordion-item">
                 <button class="accordion-trigger" type="button" aria-expanded="false">
                   <span>How long does it take to go live?</span>
-                  <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                  <i class="bi bi-plus" aria-hidden="true"></i>
                 </button>
                 <div class="accordion-panel">
                   <div class="accordion-panel__inner">Deployment timing depends on project scope, validation requirements, and deployment environment. Contact FrameIQ to discuss your requirements.</div>
@@ -592,7 +715,7 @@
               <div class="accordion-item">
                 <button class="accordion-trigger" type="button" aria-expanded="false">
                   <span>Do I need existing AI/ML infrastructure?</span>
-                  <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                  <i class="bi bi-plus" aria-hidden="true"></i>
                 </button>
                 <div class="accordion-panel">
                   <div class="accordion-panel__inner">We can review your current cameras and systems and recommend the AI/ML infrastructure that fits your use case.</div>
@@ -601,7 +724,7 @@
               <div class="accordion-item">
                 <button class="accordion-trigger" type="button" aria-expanded="false">
                   <span>What is the FrameIQ AI Store?</span>
-                  <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                  <i class="bi bi-plus" aria-hidden="true"></i>
                 </button>
                 <div class="accordion-panel">
                   <div class="accordion-panel__inner">The FrameIQ AI Store is a library of plug-and-deploy computer vision models and AI workflow components for monitoring, inspection, and automation use cases.</div>
@@ -610,7 +733,7 @@
               <div class="accordion-item">
                 <button class="accordion-trigger" type="button" aria-expanded="false">
                   <span>What is BeejHealth?</span>
-                  <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                  <i class="bi bi-plus" aria-hidden="true"></i>
                 </button>
                 <div class="accordion-panel">
                   <div class="accordion-panel__inner">BeejHealth is FrameIQ’s AI crop health advisory focused on Indian agriculture. Farmers can photograph crops for disease, pest, and nutrient insights.</div>
@@ -619,7 +742,7 @@
               <div class="accordion-item">
                 <button class="accordion-trigger" type="button" aria-expanded="false">
                   <span>Is my data secure? Can I deploy on-premise?</span>
-                  <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                  <i class="bi bi-plus" aria-hidden="true"></i>
                 </button>
                 <div class="accordion-panel">
                   <div class="accordion-panel__inner">Data handling and deployment requirements depend on your project. Contact our team to discuss on-premise deployment and your security requirements.</div>
@@ -628,7 +751,7 @@
               <div class="accordion-item">
                 <button class="accordion-trigger" type="button" aria-expanded="false">
                   <span>What does a typical engagement cost?</span>
-                  <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                  <i class="bi bi-plus" aria-hidden="true"></i>
                 </button>
                 <div class="accordion-panel">
                   <div class="accordion-panel__inner">Costs depend on project scope, camera coverage, integrations, and deployment needs. We can scope your use case and provide an estimate before work begins.</div>
@@ -637,7 +760,7 @@
               <div class="accordion-item">
                 <button class="accordion-trigger" type="button" aria-expanded="false">
                   <span>Can FrameIQ work with our existing ERP or PLC systems?</span>
-                  <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                  <i class="bi bi-plus" aria-hidden="true"></i>
                 </button>
                 <div class="accordion-panel">
                   <div class="accordion-panel__inner">Integration needs vary by system. We can review the interfaces available in your ERP or PLC environment and discuss an integration approach.</div>
@@ -647,7 +770,7 @@
             <aside class="contact-panel card">
               <h3>Still have questions?</h3>
               <p>Tell us what you are working on and the FrameIQ team can review your enquiry.</p>
-              <a class="btn btn--primary" href="pages/contact.html">Ask Us Anything</a>
+              <a class="btn btn--primary" href="pages/contact.html">Ask Us Anything <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
               <div class="contact-list">
                 <div class="contact-item">
                   <strong>Phone:</strong>
@@ -667,27 +790,31 @@
         </div>
       </section>
 
-      <section class="section" id="blog">
+      <section class="section" id="blog" data-tone="dark">
         <div class="container">
-          <div class="section-head reveal">
+          <div class="section-head reveal blog-section-head">
             <p class="eyebrow">Latest Insights</p>
             <h2>Latest From Our Blog</h2>
+            <div class="blog-controls" role="group" aria-label="Blog articles">
+              <button type="button" data-blog-prev aria-label="Previous blog articles" disabled><i class="bi bi-arrow-left" aria-hidden="true"></i></button>
+              <button type="button" data-blog-next aria-label="Next blog articles"><i class="bi bi-arrow-right" aria-hidden="true"></i></button>
+            </div>
           </div>
-          <div class="blog-grid reveal">
+          <div class="blog-grid reveal" tabindex="0" role="region" aria-label="Latest blog articles">
             <article class="blog-card card">
-              <div class="blog-card__art photo-frame" data-photo="blog-traffic" data-photo-loading="lazy"><img width="800" height="450" decoding="async" alt="" hidden></div>
+              <div class="blog-card__art" aria-hidden="true"><i class="bi bi-camera-video"></i></div>
               <div class="blog-meta"><span class="badge">Smart Cities</span><span>6 min read</span></div>
               <h3>AI for Traffic Management</h3>
               <a href="pages/blog.html">Read article</a>
             </article>
             <article class="blog-card card">
-              <div class="blog-card__art photo-frame" data-photo="blog-edge-cloud" data-photo-loading="lazy"><img width="800" height="450" decoding="async" alt="" hidden></div>
+              <div class="blog-card__art" aria-hidden="true"><i class="bi bi-cloud-arrow-up"></i></div>
               <div class="blog-meta"><span class="badge">Edge AI</span><span>5 min read</span></div>
               <h3>Edge vs Cloud Video Analytics: What's Right for You?</h3>
               <a href="pages/blog.html">Read article</a>
             </article>
             <article class="blog-card card">
-              <div class="blog-card__art photo-frame" data-photo="blog-agriculture" data-photo-loading="lazy"><img width="800" height="450" decoding="async" alt="" hidden></div>
+              <div class="blog-card__art" aria-hidden="true"><i class="bi bi-flower1"></i></div>
               <div class="blog-meta"><span class="badge">Agriculture</span><span>5 min read</span></div>
               <h3>AI in Agriculture: Monitoring Crops from Above</h3>
               <a href="pages/blog.html">Read article</a>
@@ -696,7 +823,7 @@
         </div>
       </section>
 
-      <section class="section" id="contact-band">
+      <section class="section" id="contact-band" data-tone="light">
         <div class="container">
           <div class="contact-band reveal">
             <div class="contact-panel card">
@@ -761,7 +888,7 @@
                   <textarea id="message" name="message" required></textarea>
                   <div class="input-error" role="alert" aria-live="polite"></div>
                 </div>
-                <button type="submit" class="btn btn--primary">Send Message</button>
+                <button type="submit" class="btn btn--primary">Send Message <i class="bi bi-arrow-right" aria-hidden="true"></i></button>
                 <div class="form-status" role="status" aria-live="polite"></div>
                 <p class="small-note">We'll use your details only to reply to your enquiry.</p>
               </form>
@@ -770,14 +897,14 @@
         </div>
       </section>
 
-      <section class="section final-cta">
+      <section class="section final-cta" data-tone="dark">
         <div class="container">
           <div class="reveal">
             <p class="eyebrow">Have a project in mind?</p>
             <h2>Discuss Your AI Use Case</h2>
             <p>Share what you are building and the challenge you want to address. Contact FrameIQ to discuss your requirements.</p>
             <div class="final-cta__actions">
-              <a class="btn btn--primary" href="pages/contact.html">Book a Demo</a>
+              <a class="btn btn--primary" href="pages/contact.html">Book a Demo <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
               <a class="btn btn--secondary" href="pages/playground.html">Try Live Demo</a>
               <a class="btn btn--ghost" href="#pillars">Learn More</a>
             </div>
@@ -790,7 +917,19 @@
     </main>
     <div id="site-footer"></div>
     <script>
+      const normalizeLiveHomeCopy = () => {
+        document.querySelectorAll('#proof strong, .live-stat strong, .live-impact-metric strong').forEach((value) => {
+          if (/^\s*2\s+3\s+wk\s*$/i.test(value.textContent)) {
+            value.textContent = '2–3 wk';
+          }
+        });
+      };
+
       document.addEventListener('DOMContentLoaded', () => {
+        normalizeLiveHomeCopy();
+        const observer = new MutationObserver(normalizeLiveHomeCopy);
+        observer.observe(document.getElementById('proof') || document.body, { childList: true, subtree: true, characterData: true });
+
         const form = document.getElementById('contact-form');
         if (!form) return;
 

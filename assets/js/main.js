@@ -5,7 +5,7 @@ function getStoredTheme() {
   } catch (error) {
     console.warn('Saved theme could not be read.', error);
   }
-  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  return 'light';
 }
 
 function applyTheme(theme, persist = true) {
@@ -211,7 +211,6 @@ function initAccordion() {
     const setOpen = (open) => {
       item.classList.toggle('is-open', open);
       trigger.setAttribute('aria-expanded', String(open));
-      panel.style.maxHeight = open ? `${inner.scrollHeight + 20}px` : '0px';
     };
     setOpen(item.classList.contains('is-open'));
     trigger.addEventListener('click', () => {
@@ -219,8 +218,6 @@ function initAccordion() {
       items.forEach((candidate) => {
         candidate.classList.remove('is-open');
         candidate.querySelector('.accordion-trigger')?.setAttribute('aria-expanded', 'false');
-        const candidatePanel = candidate.querySelector('.accordion-panel');
-        if (candidatePanel) candidatePanel.style.maxHeight = '0px';
       });
       setOpen(shouldOpen);
     });
