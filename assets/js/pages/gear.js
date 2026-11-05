@@ -80,6 +80,7 @@
     const start = (state.page - 1) * pageSize;
     $('#product-grid').innerHTML = filtered.slice(start, start + pageSize)
       .map((product) => ui.card(product, { wishlist, compare })).join('');
+    $('#product-grid').querySelectorAll('.gk-r').forEach((card, index) => card.style.setProperty('--gk-d', `${index * 60}ms`));
     const firstPhoto = $('#product-grid').querySelector('[data-photo]');
     if (firstPhoto) firstPhoto.dataset.photoLoading = 'eager';
     window.initPhotos?.($('#product-grid'));
@@ -123,6 +124,8 @@
     $$('[data-wishlist-count]').forEach((element) => { element.textContent = String(wishlist.size); });
     $$('[data-compare-count]').forEach((element) => { element.textContent = String(compare.size); });
     $$('[data-enquiry-count]').forEach((element) => { element.textContent = String(enquiry.size); });
+    const trays = $('#gk-store-trays');
+    if (trays) trays.classList.toggle('is-visible', compare.size > 0 || enquiry.size > 0);
   };
 
   const setFilter = (name) => {

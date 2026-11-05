@@ -2,14 +2,14 @@ window.SECTORS = [
   {
     slug: 'banking',
     imageSlot: 'sector-banking',
-    name: 'Banking',
+    name: 'Banking & Finance',
     icon: 'bank',
     summary: 'Explore computer vision use cases for reviewing activity in selected banking environments. Data access, privacy considerations and scope are discussed on enquiry.',
     groups: [
       { title: 'Fraud detection', items: ['Review selected visual events for staff assessment', 'Flag configured activity for human review', 'Discuss camera placement and review workflows'] },
       { title: 'KYC & onboarding', items: ['Review document capture areas', 'Discuss image-quality review steps', 'Consider visual checks within an onboarding workflow'] },
       { title: 'Branch operations', items: ['Review movement in configured branch areas', 'Observe queue and counter activity', 'Discuss branch-specific reporting needs'] },
-      { title: 'Compliance records', items: ['Organize selected visual events for review', 'Discuss retention and access requirements', 'Consider record formats for an enquiry scope'] }
+      { title: 'Records review', items: ['Organize selected visual events for review', 'Discuss retention and access requirements', 'Consider record formats for an enquiry scope'] }
     ],
     relatedCategories: [],
     playgroundScene: '',
@@ -34,7 +34,7 @@ window.SECTORS = [
   {
     slug: 'healthcare',
     imageSlot: 'sector-healthcare',
-    name: 'Healthcare',
+    name: 'Healthcare & Medical',
     icon: 'hospital',
     summary: 'Explore visual use cases for selected care and facility environments. Any proposed use is scoped with attention to site needs, privacy and staff review.',
     groups: [
@@ -82,7 +82,7 @@ window.SECTORS = [
   {
     slug: 'smart-city',
     imageSlot: 'sector-infrastructure',
-    name: 'Smart City',
+    name: 'Infrastructure',
     icon: 'city',
     summary: 'Explore computer vision use cases for selected public and infrastructure camera views. Deployment scope and operating requirements are confirmed on enquiry.',
     groups: [

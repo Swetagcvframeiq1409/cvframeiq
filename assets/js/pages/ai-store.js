@@ -39,13 +39,14 @@
   const compareCount = document.querySelector('#as-compare-count');
   const compareStatus = document.querySelector('#as-compare-status');
   const compareSelection = new Set();
-  const imageByCategory = {
-    safety: 'sector-security',
-    retail: 'sector-retail',
-    traffic: 'sector-smart-city',
-    health: 'sector-healthcare',
-    industry: 'sector-manufacturing',
-    agriculture: 'sector-agriculture'
+  const iconMap = {
+    traffic: 'cone-striped',
+    shield: 'shield-check',
+    retail: 'shop',
+    inspection: 'tools',
+    health: 'heart-pulse',
+    agriculture: 'leaf',
+    circuit: 'cpu'
   };
 
   if (!grid || !chipsHost || !searchInput || !resultCount || !emptyState || !dialog
@@ -88,38 +89,27 @@
   function makeCard(product) {
     const article = document.createElement('article');
     article.className = 'as-card';
-    article.dataset.reveal = '';
-
-    const media = document.createElement('div');
-    media.className = 'as-card__media photo-frame';
-    media.dataset.photo = imageByCategory[product.category.toLowerCase()] || 'ai-store-hero';
-    media.dataset.photoLoading = 'lazy';
-    const image = document.createElement('img');
-    image.width = 800;
-    image.height = 450;
-    image.decoding = 'async';
-    image.alt = '';
-    image.hidden = true;
-    media.append(image);
+    article.style.setProperty('--gk-d', `${(grid.children.length % 12) * 55}ms`);
 
     const top = document.createElement('div');
-    top.className = 'as-card__top';
-    const icon = document.createElement('span');
-    icon.className = 'as-card__icon';
-    icon.appendChild(makeIcon(product.icon));
-    const category = document.createElement('span');
-    category.className = 'as-category';
-    category.textContent = product.category;
-    top.append(icon, category);
+    top.className = 'as-card-top';
+    const iconEl = document.createElement('span');
+    iconEl.className = 'as-card-icon';
+    const biName = iconMap[product.icon] || 'camera-video';
+    iconEl.appendChild(makeIcon(biName));
+    const catEl = document.createElement('span');
+    catEl.className = 'as-card-cat';
+    catEl.textContent = product.category;
+    top.append(iconEl, catEl);
 
     const title = document.createElement('h3');
     title.textContent = product.name;
     const summary = document.createElement('p');
-    summary.className = 'as-card__summary';
+    summary.className = 'as-card-summary';
     summary.textContent = product.summary;
 
     const list = document.createElement('ul');
-    list.className = 'as-card__capabilities';
+    list.className = 'as-card-caps';
     product.capabilities.slice(0, 4).forEach((capability) => {
       const item = document.createElement('li');
       item.textContent = capability;
@@ -127,9 +117,9 @@
     });
 
     const actions = document.createElement('div');
-    actions.className = 'as-card__actions';
-    const detailsButton = makeButton('Quick view', 'as-button as-button--secondary', () => openDetails(product, detailsButton));
-    const compareButton = makeButton(compareSelection.has(product.slug) ? 'Selected' : 'Compare', 'as-button as-button--secondary as-card__compare', () => {
+    actions.className = 'as-card-actions';
+    const detailsButton = makeButton('Quick view', 'as-btn as-btn--ghost', () => openDetails(product, detailsButton));
+    const compareButton = makeButton(compareSelection.has(product.slug) ? 'Selected' : 'Compare', 'as-btn as-btn--ghost', () => {
       if (compareSelection.has(product.slug)) {
         compareSelection.delete(product.slug);
         compareStatus.textContent = '';
@@ -144,30 +134,27 @@
     compareButton.setAttribute('aria-pressed', String(compareSelection.has(product.slug)));
     compareButton.setAttribute('aria-label', `${compareSelection.has(product.slug) ? 'Remove from' : 'Add to'} comparison: ${product.name}`);
     const enquireLink = document.createElement('a');
-    enquireLink.className = 'as-button as-button--primary';
+    enquireLink.className = 'as-btn as-btn--primary';
     enquireLink.href = `contact.html?product=${encodeURIComponent(product.slug)}`;
     enquireLink.textContent = 'Enquire';
     actions.append(detailsButton, compareButton, enquireLink);
-    article.append(media, top, title, summary, list, actions);
+    article.append(top, title, summary, list, actions);
     return article;
   }
 
   function makePlaygroundLink(product, scene) {
     const link = document.createElement('a');
-    link.className = 'as-playground__link';
+    link.className = 'as-demo-link';
     link.href = `playground.html#${scene.hash}`;
     link.setAttribute('aria-label', `Try the ${scene.label} demo scene for ${product.name}`);
-    const title = document.createElement('strong');
-    title.textContent = scene.label;
-    const action = document.createElement('span');
-    action.textContent = 'Try the demo scene';
     const copy = document.createElement('span');
-    copy.className = 'as-playground__link-copy';
-    copy.append(title, action);
-    const arrow = document.createElement('span');
-    arrow.className = 'as-playground__link-arrow';
-    arrow.setAttribute('aria-hidden', 'true');
-    arrow.textContent = '→';
+    copy.className = 'as-demo-link-copy';
+    const titleEl = document.createElement('strong');
+    titleEl.textContent = scene.label;
+    const actionEl = document.createElement('span');
+    actionEl.textContent = 'Try the demo scene';
+    copy.append(titleEl, actionEl);
+    const arrow = makeIcon('arrow-right');
     link.append(copy, arrow);
     return link;
   }
@@ -195,12 +182,16 @@
     if (sortSelect?.value === 'name-asc') matchingProducts.sort((first, second) => first.name.localeCompare(second.name));
     if (sortSelect?.value === 'name-desc') matchingProducts.sort((first, second) => second.name.localeCompare(first.name));
     grid.replaceChildren(...matchingProducts.map(makeCard));
-    grid.classList.toggle('is-list', document.querySelector('[data-as-view="list"]')?.getAttribute('aria-pressed') === 'true');
+    grid.classList.toggle('is-list', document.querySelector('[data-as-view="list"][aria-pressed="true"]') !== null);
     window.initPhotos?.(grid);
     grid.setAttribute('aria-busy', 'false');
     resultCount.textContent = `Showing ${matchingProducts.length} of ${products.length} products`;
     compareCount.textContent = String(compareSelection.size);
     compareOpen.disabled = compareSelection.size < 2;
+    const storeTrays = document.querySelector('#gk-store-trays');
+    const aiCompareCount = document.querySelector('#gk-ai-compare-count');
+    if (aiCompareCount) aiCompareCount.textContent = String(compareSelection.size);
+    if (storeTrays) storeTrays.classList.toggle('is-visible', compareSelection.size > 0);
     emptyState.hidden = matchingProducts.length > 0;
 
     window.requestAnimationFrame(() => {
@@ -360,6 +351,7 @@
     });
   });
   compareOpen?.addEventListener('click', openComparison);
+  document.querySelector('#gk-ai-compare')?.addEventListener('click', openComparison);
   document.querySelector('#as-compare-close')?.addEventListener('click', () => compareDialog.close());
   compareDialog?.querySelectorAll('[data-compare-close]').forEach((button) => button.addEventListener('click', () => compareDialog.close()));
   document.querySelector('#as-clear-empty')?.addEventListener('click', () => {
@@ -389,7 +381,7 @@
     applyHashFilter();
   });
 
-  productTotal.textContent = `${products.length} products`;
+  if (productTotal) productTotal.textContent = String(products.length);
   searchInput.value = new URLSearchParams(window.location.search).get('q') || '';
   buildChips();
   renderPlaygroundLinks();

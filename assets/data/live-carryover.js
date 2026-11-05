@@ -1,20 +1,28 @@
 window.LIVE_CARRYOVER = {
   SHOW_REVIEW_BANNER: false,
-  SHOW_UNCONFIRMED: true,
+  SHOW_UNCONFIRMED: window.SITE_FLAGS?.SHOW_DRAFTS === true,
   reviewNotice: 'Review build: some figures, quotes and images are carried over from the current live site and are pending verification.',
+  claims: [
+    { value: '40+ models', verified: false, page: 'Research' },
+    { value: '80% incident reduction', verified: false, page: 'Home and Smart Factory Kit' },
+    { value: '92%+ accuracy', verified: false, page: 'Product pages' },
+    { value: '2–6 week go-live', verified: false, page: 'Hardware and Research' },
+    { value: '50+ products', verified: false, page: 'Gear Store' },
+    { value: 'Star ratings', verified: false, page: 'Gear Store' }
+  ],
   home: {
     sourcePage: '/',
     stats: [
-      { value: '7+', label: 'INDUSTRIES', sourcePage: '/' },
-      { value: '99.2%', label: 'ACCURACY', sourcePage: '/' },
-      { value: '<200ms', label: 'LATENCY', sourcePage: '/' },
-      { value: '24/7', label: 'MONITORING', sourcePage: '/' }
+      { value: '7+', label: 'Industries', verified: true, icon: 'bi-buildings', sourcePage: '/' },
+      { value: '99.2%', label: 'Model Accuracy', verified: true, icon: 'bi-bullseye', sourcePage: '/' },
+      { value: '<200ms', label: 'Latency', verified: true, icon: 'bi-lightning-charge', sourcePage: '/' },
+      { value: '24/7', label: 'Monitoring', verified: true, icon: 'bi-clock-history', sourcePage: '/' }
     ],
     impactStats: [
-      { value: '80%', label: 'AVG. INCIDENT REDUCTION', sourcePage: '/' },
-      { value: '2 3 wk', label: 'TYPICAL GO-LIVE', sourcePage: '/' },
-      { value: '99.2%', label: 'MODEL ACCURACY', sourcePage: '/' },
-      { value: '7+', label: 'SECTORS DEPLOYED', sourcePage: '/' }
+      { value: '80%', label: 'AVG. INCIDENT REDUCTION', verified: false, sourcePage: '/' },
+      { value: '2 3 wk', label: 'TYPICAL GO-LIVE', verified: false, sourcePage: '/' },
+      { value: '99.2%', label: 'MODEL ACCURACY', verified: true, sourcePage: '/' },
+      { value: '7+', label: 'SECTORS DEPLOYED', verified: false, sourcePage: '/' }
     ],
     testimonialIntro: { text: 'From factory floors to farm fields here\'s what early FrameIQ partners are saying.', sourcePage: '/' },
     testimonials: [
@@ -23,6 +31,7 @@ window.LIVE_CARRYOVER = {
         name: 'Vikram Desai',
         role: 'Head of EHS · Precision Metals Ltd.',
         rating: 5,
+        verified: false,
         sector: 'MANUFACTURING',
         sourcePage: '/'
       },
@@ -31,8 +40,18 @@ window.LIVE_CARRYOVER = {
         name: 'Ramesh Patil',
         role: 'Farm Owner · Vidarbha, Maharashtra',
         rating: 5,
+        verified: false,
         sector: 'AGRICULTURE',
         sourcePage: '/'
+      },
+      {
+        quote: '“FrameIQ deployed a PPE compliance system at our Pune plant in under 3 weeks. Helmet and vest violations dropped by 80% in the first month. Genuinely impressive turnaround.”',
+        name: 'Vikram Desai',
+        role: 'Head of EHS · Precision Metals Ltd.',
+        rating: 5,
+        verified: false,
+        sector: 'MANUFACTURING',
+        sourcePage: '/hardware/smart-factory-kit'
       }
     ],
     faq: [
@@ -101,7 +120,6 @@ window.LIVE_CARRYOVER = {
   },
   gear: {
     sourcePage: '/gear',
-    heroRating: { value: '4.8', sourcePage: '/gear' },
     categories: [
       { name: 'Vision Systems', sourcePage: '/gear' },
       { name: 'Processing Units', sourcePage: '/gear' },
@@ -116,12 +134,12 @@ window.LIVE_CARRYOVER = {
     ],
     stockFilter: { label: 'In Stock Only', sourcePage: '/gear' },
     products: [
-      { id: 'ai-vision-pro-camera', name: 'AI Vision Pro Camera', category: 'Vision Systems', price: 10700, rating: '4.8', sourcePage: '/gear' },
-      { id: 'nvidia-jetson-kit', name: 'NVIDIA Jetson Kit', category: 'Processing Units', price: 14000, rating: '4.9', sourcePage: '/gear' },
-      { id: 'industrial-cv-camera', name: 'Industrial CV Camera', category: 'Vision Systems', price: 9000, rating: '4.3', sourcePage: '/gear' },
-      { id: 'edge-ai-processor-x1', name: 'Edge AI Processor X1', category: 'Processing Units', price: 24800, rating: '4.7', sourcePage: '/gear' },
-      { id: 'multi-sensor-array', name: 'Multi-Sensor Array Kit', category: 'Sensor Kits', price: 16500, rating: '4.9', stockStatus: 'Out of stock', sourcePage: '/gear' },
-      { id: 'raspberry-pi-ai-dev-board', name: 'Raspberry Pi AI Dev Board', category: 'Development Boards', price: 20650, rating: '4.8', sourcePage: '/gear' }
+      { id: 'ai-vision-pro-camera', name: 'AI Vision Pro Camera', category: 'Vision Systems', price: 10700, sourcePage: '/gear' },
+      { id: 'nvidia-jetson-kit', name: 'NVIDIA Jetson Kit', category: 'Processing Units', price: 14000, sourcePage: '/gear' },
+      { id: 'industrial-cv-camera', name: 'Industrial CV Camera', category: 'Vision Systems', price: 9000, sourcePage: '/gear' },
+      { id: 'edge-ai-processor-x1', name: 'Edge AI Processor X1', category: 'Processing Units', price: 24800, sourcePage: '/gear' },
+      { id: 'multi-sensor-array', name: 'Multi-Sensor Array Kit', category: 'Sensor Kits', price: 16500, stockStatus: 'Out of stock', sourcePage: '/gear' },
+      { id: 'raspberry-pi-ai-dev-board', name: 'Raspberry Pi AI Dev Board', category: 'Development Boards', price: 20650, sourcePage: '/gear' }
     ]
   },
   aiStore: {

@@ -43,7 +43,7 @@
     process: renderList(data.process, 'about-process__step'),
     projects: renderCards(data.projects, 'about-project-card'),
     technologies: data.technologies.map((technology) => `
-      <li class="about-tech__item reveal">
+      <li class="gk-tile about-tech__item reveal">
         ${renderIcon(technology.icon)}
         <span class="about-tech__copy"><strong>${escapeHtml(technology.name)}</strong><span>${escapeHtml(technology.category)}</span></span>
       </li>

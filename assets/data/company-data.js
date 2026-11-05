@@ -1,6 +1,6 @@
 window.COMPANY_PAGE_DATA = {
   // set false to hide draft content
-  SHOW_DRAFT: true,
+  SHOW_DRAFT: window.SITE_FLAGS?.SHOW_DRAFTS === true,
   process: [
     { title: 'Understand', description: 'Start with the operating context, visual inputs, and the need to address.' },
     { title: 'Build', description: 'Shape a computer-vision approach around the intended use case.' },

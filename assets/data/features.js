@@ -1,6 +1,6 @@
 window.FEATURES = {
   // false hides draft notices
-  SHOW_DRAFT: true,
+  SHOW_DRAFT: window.SITE_FLAGS?.SHOW_DRAFTS === true,
   pillars: [
     {
       title: 'Computer Vision for Industry',

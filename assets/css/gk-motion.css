@@ -1,0 +1,25 @@
+/* gk-motion.css - extra motion for the kit pages (GeekyAnts-style). Link LAST after gk-kit.css. Delete the link to undo. */
+.gk-progress{position:fixed;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#6542c8,#8b6ee0);transform-origin:0 50%;transform:scaleX(0);z-index:1001;pointer-events:none}
+.gk-hero .gk-wrap > *{opacity:0;transform:translateY(26px);animation:gkRise .9s var(--gk-ease,cubic-bezier(.23,1,.32,1)) forwards}
+.gk-hero .gk-wrap > *:nth-child(1){animation-delay:.05s}.gk-hero .gk-wrap > *:nth-child(2){animation-delay:.15s}.gk-hero .gk-wrap > *:nth-child(3){animation-delay:.28s}.gk-hero .gk-wrap > *:nth-child(4){animation-delay:.4s}.gk-hero .gk-wrap > *:nth-child(5){animation-delay:.5s}
+@keyframes gkRise{to{opacity:1;transform:none}}
+.gk-hero{position:relative;overflow:hidden;isolation:isolate}
+.gk-hero::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 70% 30%,#000 10%,transparent 70%);animation:gkGrid 22s linear infinite}
+@keyframes gkGrid{to{background-position:56px 56px,56px 56px}}
+.gk-hero::after{content:"";position:absolute;width:520px;height:520px;right:-120px;top:-160px;z-index:-1;border-radius:50%;background:radial-gradient(circle,rgba(139,110,224,.38),transparent 65%);animation:gkFloat 12s ease-in-out infinite alternate}
+@keyframes gkFloat{to{transform:translate(-60px,50px) scale(1.12)}}
+.gk-card,.gk-metric,.gk-step{position:relative;overflow:hidden}
+.gk-card::after,.gk-metric::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(139,110,224,.16),transparent 70%)}
+.gk-card:hover::after,.gk-metric:hover::after{opacity:1}
+.gk-marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.gk-marquee__track{display:flex;gap:12px;width:max-content;animation:gkMarq 38s linear infinite}
+.gk-marquee:hover .gk-marquee__track{animation-play-state:paused}
+.gk-marquee .gk-tile{flex:none;min-width:130px}
+@keyframes gkMarq{to{transform:translateX(-50%)}}
+.gk-band h2{position:relative;padding-bottom:.18em}
+.gk-band h2::after{content:"";position:absolute;left:0;bottom:0;width:56px;height:2px;background:var(--gk-acc2,#8b6ee0);transform:scaleX(0);transform-origin:0 50%;transition:transform .9s var(--gk-ease,cubic-bezier(.23,1,.32,1)) .2s}
+.gk-band h2.is-in::after,.gk-band h2.gk-seen::after{transform:scaleX(1)}
+.gk-cta h2::after{display:none}
+[data-gk-parallax]{will-change:transform;transition:transform .15s linear}
+body.gk-leave{opacity:0;transition:opacity .22s ease}
+@media(prefers-reduced-motion:reduce){.gk-hero .gk-wrap > *{opacity:1;transform:none;animation:none}.gk-hero::before,.gk-hero::after,.gk-marquee__track{animation:none}[data-gk-parallax]{transform:none!important}.gk-band h2::after{transform:scaleX(1);transition:none}body.gk-leave{opacity:1}}

@@ -148,6 +148,19 @@
   });
   postNavigation.hidden = neighboringPosts.length === 0;
 
+  var nextArticleLink = document.getElementById('bl-next-article');
+  if (nextArticleLink) {
+    var nextPost = (postIndex >= 0) ? posts[postIndex + 1] : null;
+    if (nextPost) {
+      nextArticleLink.href = window.getPageHref('pages/blog-article.html') + '?slug=' + encodeURIComponent(nextPost.slug);
+      var strong = nextArticleLink.querySelector('strong');
+      if (strong) strong.textContent = nextPost.title || '';
+      nextArticleLink.hidden = false;
+    } else {
+      nextArticleLink.hidden = true;
+    }
+  }
+
   const siteUrl = String(window.SITE_URL || '').replace(/\/+$/, '');
   const canonical = `${siteUrl}/pages/blog-article.html?slug=${encodeURIComponent(post.slug)}`;
   const titleSuffix = ' | FrameIQ';

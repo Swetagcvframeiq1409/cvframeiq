@@ -8,10 +8,11 @@ window.ICONS = {
   chevronRight: 'bi-chevron-right',
   arrowRight: 'bi-arrow-right',
   arrowUp: 'bi-arrow-up',
+  arrowUpRight: 'bi-arrow-up-right',
   search: 'bi-search',
   close: 'bi-x-lg',
   menu: 'bi-list',
-  moon: 'bi-moon-stars',
+  moon: 'bi-moon',
   sun: 'bi-sun',
   chat: 'bi-chat-dots',
   github: 'bi-github',
@@ -71,9 +72,14 @@ window.ICONS = {
 };
 
 window.iconClass = (name) => {
-  const iconClassName = window.ICONS[name];
-  if (!iconClassName) {
-    throw new Error(`No icon is mapped for "${name}".`);
+  try {
+    const icons = (window && window.ICONS) || {};
+    const iconClassName = (typeof name === 'string') ? icons[name] : '';
+    if (!iconClassName || typeof iconClassName !== 'string') {
+      return 'bi bi-circle';
+    }
+    return `bi ${iconClassName}`;
+  } catch (error) {
+    return 'bi bi-circle';
   }
-  return `bi ${iconClassName}`;
 };

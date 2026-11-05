@@ -23,11 +23,11 @@
     console.warn('Hardware kit page could not read the saved enquiry list.', error);
   }
 
-  host.innerHTML = options.map((product) => {
+  host.innerHTML = options.map((product, index) => {
     const tags = Array.isArray(product.compatibility) && product.compatibility.length
       ? `<div class="gear-compatible"><span>Compatible with</span><ul class="gear-compatibility-badges">${product.compatibility.map((tag) => `<li>${esc(tag)}</li>`).join('')}</ul></div>`
       : '';
-    return `<article class="gear-product-card gear-kit-card" data-kit-product="${esc(product.id)}">
+    return `<article class="gk-card gk-r gear-product-card gear-kit-card" data-kit-product="${esc(product.id)}" style="--gk-d:${index * 60}ms">
       <div class="gear-product-card__media photo-frame" data-photo="${esc(product.imageSlot || 'gear-camera')}" data-photo-loading="lazy"><img width="800" height="450" decoding="async" alt="" hidden></div>
       <div class="gear-product-card__body">
         <div class="gear-product-card__meta"><span class="gear-product-card__category">${esc(product.category)}</span><span class="gear-product-card__availability">${esc(product.stockStatus || 'Check availability')}</span></div>

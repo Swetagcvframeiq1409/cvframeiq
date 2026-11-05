@@ -204,6 +204,14 @@ window.SITE_IMAGES = {
     width: 1600,
     height: 900
   },
+  'about-careers': {
+    local: 'assets/img/photos/about-careers.jpg',
+    alt: '',
+    keywords: 'developer desk',
+    lock: 26,
+    width: 1200,
+    height: 900
+  },
   'login-bg': {
     local: 'assets/img/photos/login-bg.jpg',
     alt: 'Modern technology workspace with computer equipment',
@@ -257,6 +265,7 @@ window.PHOTO_ICONS = {
   'blog-agriculture': 'agriculture',
   'ai-store-hero': 'robot',
   'about-hero': 'users',
+  'about-careers': 'board',
   'careers-team': 'users',
   'login-bg': 'security'
 };

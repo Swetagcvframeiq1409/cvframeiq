@@ -26,20 +26,9 @@
   function renderHome() {
     const hero = document.querySelector('.hero');
     if (hero) {
-      const stats = make('section', 'live-stats-strip');
-      stats.dataset.tone = 'light';
-      stats.setAttribute('aria-label', 'Home statistics carried over from the current live site');
-      const container = make('div', 'container live-stats-strip__grid');
-      carryover.home.stats.forEach((stat) => {
-        const item = source(make('article', 'live-stat'), stat.sourcePage);
-        item.append(make('strong', '', stat.value), make('span', '', stat.label));
-        container.append(item);
-      });
-      stats.append(container);
-      const techStrip = document.querySelector('.tech-strip');
-      if (techStrip) techStrip.after(stats);
-      else hero.after(stats);
+      // duplicate stat strip removed: home-stat-band lower on page is the single source
     }
+
 
     const proof = document.querySelector('#proof .container');
     if (proof) {

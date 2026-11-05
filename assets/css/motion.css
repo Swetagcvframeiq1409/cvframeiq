@@ -1,6 +1,8 @@
 html.js-motion { overflow-x: clip; }
 
-body { opacity: 0; transition: opacity 300ms var(--ease-out); }
+@supports not (view-transition-name: x) {
+  body { opacity: 0; transition: opacity 300ms var(--ease-out); }
+}
 body.is-page-ready { opacity: 1; }
 body.is-page-leaving { opacity: 0; transition-duration: 200ms; }
 #site-header > *, .site-header { transition: background-color 300ms var(--ease-out), backdrop-filter 300ms var(--ease-out), box-shadow 300ms var(--ease-out); }

@@ -1,6 +1,6 @@
 // only confirmed items appear publicly
 window.BEEJHEALTH = {
-  SHOW_UNCONFIRMED: false, // dev only: true shows every item with an "Unconfirmed" tag
+  SHOW_UNCONFIRMED: window.SITE_FLAGS?.SHOW_DRAFTS === true,
   intro: {
     name: 'BeejHealth',
     summary: 'BeejHealth is an AI crop health advisory for Indian agriculture. Farmers can photograph crops for disease, pest, and nutrient insights.',

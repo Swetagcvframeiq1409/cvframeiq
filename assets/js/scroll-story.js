@@ -13,6 +13,9 @@
   const gearStatement = document.querySelector('.gear-statement[data-scroll-story]');
   const gearBundles = document.querySelector('.gear-bundles[data-scroll-story]');
   const gearChapters = document.querySelector('.gear-chapters[data-scroll-story]');
+  const aboutWordmark = document.querySelector('.gk-about-wordmark[data-scroll-story] .gk-about-wordmark__mark');
+  const aboutValues = document.querySelector('.gk-about-values[data-scroll-story]');
+  const aboutStory = document.querySelector('.gk-about-story[data-scroll-story]');
   const wordmark = story?.querySelector('.home-story__wordmark');
   const practiceItems = Array.from(document.querySelectorAll('.site-bento__item'));
   const practiceDots = Array.from(document.querySelectorAll('.site-bento__dots i'));
@@ -55,6 +58,16 @@
   };
 
   const prepareText = () => {
+    if (aboutWordmark) {
+      splitWords(aboutWordmark, 'home-story__word');
+      const words = aboutWordmark.querySelectorAll('.home-story__word');
+      const total = words.length;
+      words.forEach((word, index) => {
+        word.style.setProperty('--word-start', String(index / total));
+        word.style.setProperty('--word-count', String(total));
+      });
+    }
+
     const statementParagraphs = Array.from(document.querySelectorAll('.home-statement__paragraph'));
     statementParagraphs.forEach((paragraph) => {
       splitWords(paragraph, 'home-statement__word');
@@ -83,6 +96,7 @@
       slide.querySelectorAll('.home-story__text, .home-story__detail').forEach((paragraph) => {
         splitWords(paragraph, 'home-story__word');
       });
+
     });
 
     const letters = story?.querySelector('.home-story__letters');
@@ -127,6 +141,21 @@
       const travel = Math.max(bounds.height - window.innerHeight, 1);
       const progress = Math.min(1, Math.max(0, -bounds.top / travel));
       section.style.setProperty('--p', progress.toFixed(4));
+      if (section === aboutValues) {
+        const steps = Array.from(section.querySelectorAll('.gk-step'));
+        const nums = Array.from(section.querySelectorAll('.gk-journey__nums span'));
+        const index = Math.min(steps.length - 1, Math.floor(progress * steps.length));
+        steps.forEach((step, position) => step.classList.toggle('is-on', position === index));
+        nums.forEach((number, position) => number.classList.toggle('is-on', position === index));
+        section.querySelector('.gk-journey__line span')?.style.setProperty('transform', `scaleY(${progress})`);
+        const wrap = section.querySelector(':scope > .gk-wrap');
+        wrap?.classList.toggle('is-scroll-pinned', bounds.top <= 0 && bounds.bottom > window.innerHeight);
+      }
+      if (section === aboutStory) {
+        const stage = section.querySelector('.gk-about-story__stage');
+        const pinned = bounds.top <= 0 && bounds.bottom > window.innerHeight;
+        stage?.classList.toggle('is-scroll-pinned', pinned);
+      }
       section.querySelectorAll('[data-product-frame]').forEach((frameElement) => {
         frameElement.style.setProperty('--p', progress.toFixed(4));
       });

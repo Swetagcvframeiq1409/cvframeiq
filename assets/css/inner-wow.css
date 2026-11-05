@@ -1,0 +1,186 @@
+/* inner-wow.css - shared polish for inner pages. Linked last on inner pages. */
+
+.content-page__heading,
+.as-hero,
+.blog-hero,
+.ba-header,
+.cr-hero,
+.ct-hero,
+.dc-hero,
+.gear-hero,
+.ft-hero,
+.sc-hero,
+.sector-detail__hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(167, 139, 250, .18), transparent 34rem),
+    linear-gradient(180deg, rgba(167, 139, 250, .045), transparent);
+}
+
+.content-page__heading::before,
+.as-hero::before,
+.blog-hero::before,
+.ba-header::before,
+.cr-hero::before,
+.ct-hero::before,
+.dc-hero::before,
+.gear-hero::before,
+.ft-hero::before,
+.sc-hero::before,
+.sector-detail__hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .5;
+  background-image: radial-gradient(circle, rgba(167, 139, 250, .22) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: linear-gradient(90deg, transparent, black 60%);
+}
+
+.content-page__heading .eyebrow,
+.as-hero .eyebrow,
+.blog-hero .eyebrow,
+.ba-header .eyebrow,
+.cr-hero .eyebrow,
+.ct-hero .eyebrow,
+.dc-hero .eyebrow,
+.gear-hero .eyebrow,
+.ft-hero .eyebrow,
+.sc-hero .eyebrow,
+.sector-detail__hero .eyebrow {
+  color: #a78bfa;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.content-page__heading h1,
+.as-hero h1,
+.blog-hero h1,
+.ba-header h1,
+.cr-hero h1,
+.ct-hero h1,
+.dc-hero h1,
+.gear-hero h1,
+.ft-hero h1,
+.sc-hero h1,
+.sector-detail__hero h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 300;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+}
+
+.content-page__heading,
+.as-hero,
+.blog-hero,
+.ba-header,
+.cr-hero,
+.ct-hero,
+.dc-hero,
+.gear-hero,
+.ft-hero,
+.sc-hero,
+.sector-detail__hero {
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, rgba(167, 139, 250, .65), transparent 75%) 1;
+}
+
+.content-page :is([class*="card"], [class*="tile"], [class*="item"]),
+.as-page :is(.as-card, [class*="card"]),
+.blog-page :is(.blog-card, [class*="card"]),
+.ba-page :is([class*="card"], [class*="tile"]),
+.cr-page :is([class*="card"], [class*="tile"]),
+.ct-contact :is([class*="card"], [class*="tile"]),
+.dc-page :is([class*="card"], [class*="tile"]),
+.gear-page :is([class*="card"], [class*="tile"]),
+.ft-page :is([class*="card"], [class*="tile"]),
+.sc-page :is([class*="card"], [class*="tile"]),
+.login-main :is(.login-card, [class*="card"]) {
+  border-radius: 16px;
+  border-color: rgba(167, 139, 250, .2);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.content-page :is([class*="card"], [class*="tile"], [class*="item"]):hover,
+.as-page :is(.as-card, [class*="card"]):hover,
+.blog-page :is(.blog-card, [class*="card"]):hover,
+.ba-page :is([class*="card"], [class*="tile"]):hover,
+.cr-page :is([class*="card"], [class*="tile"]):hover,
+.ct-contact :is([class*="card"], [class*="tile"]):hover,
+.dc-page :is([class*="card"], [class*="tile"]):hover,
+.gear-page :is([class*="card"], [class*="tile"]):hover,
+.ft-page :is([class*="card"], [class*="tile"]):hover,
+.sc-page :is([class*="card"], [class*="tile"]):hover,
+.login-main :is(.login-card, [class*="card"]):hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 48px rgba(12, 8, 28, .22);
+  border-color: rgba(167, 139, 250, .38);
+}
+
+body[data-theme="light"] .content-page__heading,
+body[data-theme="light"] .as-hero,
+body[data-theme="light"] .blog-hero,
+body[data-theme="light"] .ba-header,
+body[data-theme="light"] .cr-hero,
+body[data-theme="light"] .ct-hero,
+body[data-theme="light"] .dc-hero,
+body[data-theme="light"] .gear-hero,
+body[data-theme="light"] .ft-hero,
+body[data-theme="light"] .sc-hero,
+body[data-theme="light"] .sector-detail__hero {
+  color: #1c1530;
+  background: radial-gradient(circle at 78% 18%, rgba(167, 139, 250, .16), transparent 34rem), #fff;
+}
+
+@media (max-width: 375px) {
+  .content-page__heading,
+  .as-hero,
+  .blog-hero,
+  .ba-header,
+  .cr-hero,
+  .ct-hero,
+  .dc-hero,
+  .gear-hero,
+  .ft-hero,
+  .sc-hero,
+  .sector-detail__hero { padding-inline: 1rem; }
+  .content-page :is([class*="card"], [class*="tile"], [class*="item"]),
+  .as-page :is(.as-card, [class*="card"]),
+  .blog-page :is(.blog-card, [class*="card"]),
+  .ba-page :is([class*="card"], [class*="tile"]),
+  .cr-page :is([class*="card"], [class*="tile"]),
+  .ct-contact :is([class*="card"], [class*="tile"]),
+  .dc-page :is([class*="card"], [class*="tile"]),
+  .gear-page :is([class*="card"], [class*="tile"]),
+  .ft-page :is([class*="card"], [class*="tile"]),
+  .sc-page :is([class*="card"], [class*="tile"]) {
+    max-width: 100%;
+  }
+  .content-page :is(button, .btn, a[class*="btn"]),
+  .as-page :is(button, .btn),
+  .blog-page :is(button, .btn),
+  .ba-page :is(button, .btn),
+  .cr-page :is(button, .btn),
+  .ct-contact :is(button, .btn),
+  .dc-page :is(button, .btn),
+  .gear-page :is(button, .btn),
+  .ft-page :is(button, .btn),
+  .sc-page :is(button, .btn),
+  .login-main :is(button, .btn) { min-height: 44px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content-page :is([class*="card"], [class*="tile"], [class*="item"]),
+  .as-page :is(.as-card, [class*="card"]),
+  .blog-page :is(.blog-card, [class*="card"]),
+  .ba-page :is([class*="card"], [class*="tile"]),
+  .cr-page :is([class*="card"], [class*="tile"]),
+  .ct-contact :is([class*="card"], [class*="tile"]),
+  .dc-page :is([class*="card"], [class*="tile"]),
+  .gear-page :is([class*="card"], [class*="tile"]),
+  .ft-page :is([class*="card"], [class*="tile"]),
+  .sc-page :is([class*="card"], [class*="tile"]) { transition: none; }
+}

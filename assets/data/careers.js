@@ -1,6 +1,6 @@
 window.CAREERS = {
   // false hides draft roles
-  SHOW_DRAFT: true,
+  SHOW_DRAFT: window.SITE_FLAGS?.SHOW_DRAFTS === true,
   roles: [],
   values: [
     { text: 'Build useful technology around real-world needs.', confirmed: false },

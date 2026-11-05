@@ -29,7 +29,7 @@
   const card = (product, options = {}) => {
     if (options.compact) {
       return `
-        <article class="gear-product-card gear-product-card--compact">
+        <article class="gk-card gear-product-card gear-product-card--compact">
           <a class="gear-product-card__compact-media photo-frame" data-photo="${escapeHtml(product.imageSlot || 'gear-camera')}" data-photo-loading="lazy" href="gear-product.html?product=${encodeURIComponent(product.id)}" aria-label="View ${escapeHtml(product.name)}">
             <img width="800" height="450" decoding="async" alt="" hidden>
           </a>
@@ -40,7 +40,7 @@
     const wished = options.wishlist?.has(product.id) || false;
     const compared = options.compare?.has(product.id) || false;
     return `
-      <article class="gear-product-card" data-product-card="${escapeHtml(product.id)}">
+      <article class="gk-card gk-r gear-product-card" data-product-card="${escapeHtml(product.id)}">
         <div class="gear-product-card__media photo-frame" data-photo="${escapeHtml(product.imageSlot || 'gear-camera')}" data-photo-loading="lazy">
           <img width="800" height="450" decoding="async" alt="" hidden>
           <button class="gear-icon-button gear-product-card__wish${wished ? ' is-active' : ''}" type="button" data-action="wishlist" data-id="${escapeHtml(product.id)}" aria-label="${wished ? 'Remove from' : 'Add to'} wishlist: ${escapeHtml(product.name)}" aria-pressed="${wished}">${icon('heart')}</button>

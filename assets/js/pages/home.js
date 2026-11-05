@@ -4,11 +4,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const header = document.querySelector('.site-header, #site-header > header, header');
-  const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 40);
+  const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 24);
   updateHeader();
   window.addEventListener('scroll', updateHeader, { passive: true });
 
   document.body.classList.add('is-page-ready');
+  const blogImages = {
+    'AI for Traffic Management': 'assets/img/photos/blog-traffic.jpg',
+    "Edge vs Cloud Video Analytics: What's Right for You?": 'assets/img/photos/blog-edge.jpg',
+    'AI in Agriculture: Monitoring Crops from Above': 'assets/img/photos/blog-agri.jpg'
+  };
+  document.querySelectorAll('#blog .blog-card').forEach((card) => {
+    const title = card.querySelector('h3')?.textContent.trim();
+    const art = card.querySelector('.blog-card__art');
+    const source = blogImages[title];
+    if (!art || !source) return;
+    const image = document.createElement('img');
+    image.className = 'blog-card__image';
+    image.src = source;
+    image.alt = '';
+    image.width = 1200;
+    image.height = 750;
+    image.loading = 'lazy';
+    image.addEventListener('load', () => art.classList.add('has-image'));
+    image.addEventListener('error', () => image.remove());
+    art.prepend(image);
+  });
   document.querySelectorAll('a[href]').forEach((link) => {
     link.addEventListener('click', (event) => {
       const href = link.getAttribute('href');

@@ -1,67 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" href="data:," />
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Careers | FrameIQ</title>
-    <meta name="description" content="Learn about careers at FrameIQ, a young computer vision company based in Panvel, Maharashtra." />
-    <link rel="canonical" href="https://example.invalid/pages/careers.html" />
+    <meta name="description" content="No open roles right now. Send FrameIQ your CV for future consideration." />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Careers | FrameIQ" />
-    <meta property="og:description" content="Learn about careers at FrameIQ, a young computer vision company based in Panvel, Maharashtra." />
+    <meta property="og:description" content="No open roles right now. Send FrameIQ your CV for future consideration." />
     <meta property="og:url" content="https://example.invalid/pages/careers.html" />
-    <link rel="preload" href="../assets/fonts/space-grotesk-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="../assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="icon" href="data:," />
     <link rel="stylesheet" href="../assets/css/tokens.css" />
     <link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" />
     <link rel="stylesheet" href="../assets/css/base.css" />
     <link rel="stylesheet" href="../assets/css/components.css" />
-    <link rel="stylesheet" href="../assets/css/search.css" />
-    <link rel="stylesheet" href="../assets/css/pages/careers.css" />
+    <link rel="stylesheet" href="../assets/css/nav-fix.css" />
+    <link rel="stylesheet" href="../assets/css/gk-kit.css" />
+    <link rel="stylesheet" href="../assets/css/careers-page.css" />
     <script src="../assets/data/site-data.js" defer></script>
-    <script src="../assets/data/live-carryover.js" defer></script>
-    <script src="../assets/js/live-carryover-render.js" defer></script>
-    <script src="../assets/js/forms.js" defer></script>
-    <script src="../assets/data/search-index.js" defer></script>
-    <script src="../assets/data/careers.js" defer></script>
-    <script src="../assets/data/images.js" defer></script>
-    <script src="../assets/js/photos.js" defer></script>
     <script src="../assets/js/icons.js" defer></script>
     <script src="../assets/js/components.js" defer></script>
-    <script src="../assets/js/search.js" defer></script>
     <script src="../assets/js/main.js" defer></script>
-    <script src="../assets/js/pages/careers.js" defer></script>
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Careers | FrameIQ" />
-      <meta name="twitter:description" content="Learn about careers at FrameIQ, a young computer vision company based in Panvel, Maharashtra." />
-      <meta name="theme-color" content="#08090d" />
-      <link rel="manifest" href="../site.webmanifest" />
-      <script src="../assets/js/seo.js" defer></script>
-      <link rel="stylesheet" href="../assets/css/motion.css" />
-    <script src="../assets/js/motion.js" defer></script>
-</head>
+    <script src="../assets/js/careers-page.js" defer></script>
+  </head>
   <body data-root="../">
-    <script>try{const saved=localStorage.getItem('frameiq-theme');document.body.dataset.theme=saved==='light'||saved==='dark'?saved:(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark')}catch(error){document.body.dataset.theme=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}</script>
+    <script>try{const saved=localStorage.getItem('frameiq-theme');document.body.dataset.theme=saved==='light'||saved==='dark'?saved:(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark')}catch(error){document.body.dataset.theme='dark'}</script>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <div id="site-header"></div>
-    <main id="main-content" class="cr-page">
-      <section class="cr-hero" aria-labelledby="cr-title">
-        <p class="cr-eyebrow">CAREERS</p>
-        <h1 id="cr-title">Build computer vision with <span class="text-gradient">FrameIQ</span></h1>
-        <p>We are a young company based in Panvel, Maharashtra.</p>
+    <main id="main-content" class="cu-page jn-page">
+      <section class="jn-hero">
+        <div class="cu-wrap">
+          <h1 class="jn-title">Careers</h1>
+          <p class="jn-lead">No open roles right now — send us your CV for future consideration.</p>
+        </div>
       </section>
-      <div class="cr-photo photo-frame" data-photo="careers-team" data-photo-loading="eager"><img width="1600" height="900" decoding="async" alt="" hidden></div>
-      <p class="cr-draft-notice" data-careers-draft>Draft: career information and openings are pending company confirmation.</p>
-      <section class="cr-section" aria-labelledby="cr-roles-title" data-careers-openings>
-        <h2 id="cr-roles-title">Open roles</h2>
-        <div class="cr-roles" data-cr-roles></div>
+      <section class="jn-open" id="openings">
+        <div class="cu-wrap">
+          <h2 class="jn-h2">Openings</h2>
+          <p class="jn-empty">No open roles right now — send us your CV.</p>
+        </div>
       </section>
-      <section class="cr-section" aria-labelledby="cr-values-title" data-cr-values-section hidden>
-        <h2 id="cr-values-title">How we work</h2>
-        <ul class="cr-values" data-cr-values></ul>
+      <section class="jn-contact" id="application">
+        <div class="cu-wrap">
+          <div class="jn-contact__box">
+            <form class="jn-form" id="jnForm" novalidate>
+              <h2 class="jn-form__h">Send your CV</h2>
+              <div class="jn-form__grid">
+                <label>Name *<input type="text" name="name" required autocomplete="name" aria-describedby="jn-name-error"><span class="jn-field-error" id="jn-name-error"></span></label>
+                <label>Email *<input type="email" name="email" required autocomplete="email" aria-describedby="jn-email-error"><span class="jn-field-error" id="jn-email-error"></span></label>
+                <label>Phone<input type="tel" name="phone" autocomplete="tel"></label>
+                <label>Role applied for *<input type="text" name="role" required aria-describedby="jn-role-error"><span class="jn-field-error" id="jn-role-error"></span></label>
+                <label class="jn-full">LinkedIn profile<input type="url" name="linkedin" autocomplete="url" aria-describedby="jn-linkedin-error"><span class="jn-field-error" id="jn-linkedin-error"></span></label>
+                <label class="jn-full">Resume upload *<input type="file" name="resume" accept=".pdf,.doc,.docx" required aria-describedby="jn-resume-error"><span class="jn-field-error" id="jn-resume-error"></span></label>
+                <label class="jn-full">Message<textarea name="message" rows="4"></textarea></label>
+              </div>
+              <label class="jn-check">
+                <input type="checkbox" name="privacy" required aria-describedby="jn-consent-error">
+                <span>I agree to be contacted about this application and acknowledge the <a href="privacy.html">Privacy Policy</a>.</span>
+              </label>
+              <span class="jn-field-error" id="jn-consent-error"></span>
+              <button class="jn-submit" type="submit">Continue to email <i class="bi bi-arrow-right" aria-hidden="true"></i></button>
+              <p class="jn-status" id="jnStatus" role="status" aria-live="polite">This form opens an email draft. Attach your CV to the draft before sending.</p>
+            </form>
+          </div>
+        </div>
       </section>
-      <p class="cr-note">Details are confirmed on enquiry.</p>
     </main>
     <div id="site-footer"></div>
   </body>

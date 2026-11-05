@@ -67,7 +67,7 @@
       if (!entries.length) return '';
       return `<section class="search-group" aria-label="${group}"><h2>${group}</h2>${entries.map((entry) => `
         <a class="search-result" href="${resolveUrl(entry.url)}" data-search-result>
-          <span>${highlight(entry.title, needle)}</span><span aria-hidden="true">↗</span>
+      <span class="search-result__icon" aria-hidden="true"><i class="${window.iconClass('search')}" aria-hidden="true"></i></span><span>${highlight(entry.title, needle)}</span><span aria-hidden="true">↗</span>
         </a>
       `).join('')}</section>`;
     }).join('');

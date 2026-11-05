@@ -1,0 +1,42 @@
+/* fix-home-final.css - linked LAST on index.html. Delete the link to undo. */
+
+/* Bug 1: wordmark in the story stage must never wrap */
+#main-content #how-it-works .home-story__letters {
+  white-space: nowrap;
+  font-size: clamp(2.6rem, 7vw, 6rem);
+  line-height: 1;
+  letter-spacing: -.02em;
+  max-width: 100%;
+}
+#main-content #how-it-works .home-story__letters span {
+  white-space: nowrap;
+}
+
+/* Bug 2: product portfolio checklist mock cards */
+#main-content #home-practices .site-bento__mock {
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .1);
+  color: var(--text, #f2f2f7);
+  border-radius: 14px;
+}
+#main-content #home-practices .site-bento__mock > strong,
+#main-content #home-practices .site-bento__mock > span {
+  color: var(--text, #f2f2f7);
+  border-top-color: rgba(255, 255, 255, .1);
+}
+#main-content #home-practices .site-bento__mock .bi {
+  color: #6542c8;
+}
+body[data-theme="light"] #main-content #home-practices .site-bento__mock {
+  background: #fff;
+  border: 1px solid #e6e7ee;
+  color: #171717;
+}
+body[data-theme="light"] #main-content #home-practices .site-bento__mock > strong,
+body[data-theme="light"] #main-content #home-practices .site-bento__mock > span {
+  color: #171717;
+  border-top-color: #e6e7ee;
+}
+body[data-theme="light"] #main-content #home-practices .site-bento__mock .bi {
+  color: #6542c8;
+}

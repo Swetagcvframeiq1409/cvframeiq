@@ -20,7 +20,7 @@
   if (draftNotice) draftNotice.hidden = !showDraft;
   const visible = data.sections.filter((item) => item.confirmed === true || showDraft);
   visible.forEach((item) => {
-    const card = make('article', 'dc-card');
+    const card = make('article', 'dc-card gk-card gk-r');
     card.append(make('span', 'dc-card__status', item.status));
     if (item.confirmed !== true) card.append(make('span', 'dc-card__unconfirmed', 'Unconfirmed'));
     card.append(make('h3', '', item.title), make('p', '', item.description));

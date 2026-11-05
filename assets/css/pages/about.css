@@ -810,7 +810,6 @@ body[data-theme="light"] .about-timeline__card time {
   align-items: center;
   width: 50%;
   min-width: 0;
-  min-height: 10rem;
   padding-right: clamp(2.5rem, 5vw, 4rem);
   grid-column: 1;
 }

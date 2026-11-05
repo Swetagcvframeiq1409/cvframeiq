@@ -37,6 +37,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  if (typeof IntersectionObserver !== 'undefined') {
+    const tocLinks = Array.from(document.querySelectorAll('.legal-toc a, .content-page__toc a'));
+    const observed = Array.from(document.querySelectorAll('.legal-content h2, [data-content-article] h2'));
+    if (tocLinks.length && observed.length) {
+      const activate = (heading) => {
+        tocLinks.forEach((link) => link.classList.toggle('is-active', link.getAttribute('href') === `#${heading.id}`));
+      };
+      const observer = new IntersectionObserver((entries) => {
+        entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top).forEach((entry) => activate(entry.target));
+      }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+      observed.forEach((heading) => observer.observe(heading));
+      activate(observed[0]);
+    }
+  }
+
   const form = document.querySelector('[data-notify-form]');
   if (form) {
     const email = form.querySelector('input[type="email"]');

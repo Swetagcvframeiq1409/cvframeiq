@@ -17,183 +17,286 @@
     <link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" />
     <link rel="stylesheet" href="../assets/css/base.css" />
     <link rel="stylesheet" href="../assets/css/components.css" />
-    <link rel="stylesheet" href="../assets/css/search.css" />
     <link rel="stylesheet" href="../assets/css/pages/ai-store.css" />
     <script src="../assets/data/site-data.js" defer></script>
     <script src="../assets/data/live-carryover.js" defer></script>
     <script src="../assets/js/live-carryover-render.js" defer></script>
     <script src="../assets/js/forms.js" defer></script>
-    <script src="../assets/data/search-index.js" defer></script>
     <script src="../assets/data/images.js" defer></script>
     <script src="../assets/js/photos.js" defer></script>
     <script src="../assets/js/icons.js" defer></script>
     <script src="../assets/js/components.js" defer></script>
-    <script src="../assets/js/search.js" defer></script>
     <script src="../assets/js/main.js" defer></script>
     <script src="../assets/data/ai-products.js" defer></script>
     <script src="../assets/js/pages/ai-store.js" defer></script>
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Computer Vision Products | FrameIQ AI Store" />
-      <meta name="twitter:description" content="Explore FrameIQ computer vision products for industry use cases. Scope, deployment and timelines are confirmed on enquiry." />
-      <meta name="theme-color" content="#08090d" />
-      <link rel="manifest" href="../site.webmanifest" />
-      <script src="../assets/js/seo.js" defer></script>
-      <link rel="stylesheet" href="../assets/css/motion.css" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Computer Vision Products | FrameIQ AI Store" />
+    <meta name="twitter:description" content="Explore FrameIQ computer vision products for industry use cases. Scope, deployment and timelines are confirmed on enquiry." />
+    <meta name="theme-color" content="#08090d" />
+    <link rel="manifest" href="../site.webmanifest" />
+    <script src="../assets/js/seo.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/motion.css" />
     <script src="../assets/js/motion.js" defer></script>
-</head>
+    <link rel="stylesheet" href="../assets/css/fx.css" />
+    <link rel="stylesheet" href="../assets/css/nav-fix.css" />
+    <link rel="stylesheet" href="../assets/css/gk.css" />
+    <link rel="stylesheet" href="../assets/css/fix-round3.css" />
+    <link rel="stylesheet" href="../assets/css/gk-kit.css" />
+    <link rel="stylesheet" href="../assets/css/gk-motion.css" />
+    <link rel="stylesheet" href="../assets/css/gk-store.css" />
+  </head>
   <body data-root="../">
     <script>try{const saved=localStorage.getItem('frameiq-theme');document.body.dataset.theme=saved==='light'||saved==='dark'?saved:(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark')}catch(error){document.body.dataset.theme=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}</script>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <div id="site-header"></div>
-    <main id="main-content" class="as-page">
-      
 
-      <section class="as-hero" aria-labelledby="as-title">
-        <div class="as-container as-hero__inner">
-          <div class="as-hero__copy">
-            <p class="as-eyebrow"><span aria-hidden="true"></span> AI STORE</p>
+    <main id="main-content" class="as-page">
+
+      <!-- Band 1: Hero (dark) -->
+      <section class="as-hero-band gk-band gk-band--dark" aria-labelledby="as-title">
+        <div class="gk-wrap as-hero-wrap">
+          <div class="as-hero-copy">
+            <span class="gk-eyebrow">AI Store</span>
             <h1 id="as-title">Computer Vision<br /><span class="text-gradient">Product Portfolio</span></h1>
-            <p class="as-hero__subtitle">Computer vision products for industry use cases. Scope, deployment and timelines are confirmed on enquiry.</p>
-            <div class="as-hero__actions">
-              <a class="as-button as-button--primary" href="#catalog">Explore products <span aria-hidden="true">↓</span></a>
-              <a class="as-button as-button--secondary" href="#demo">Try the demo scene <span aria-hidden="true">→</span></a>
+            <p class="as-hero-sub">Computer vision products for industry use cases. Scope, deployment and timelines are confirmed on enquiry.</p>
+            <div class="as-hero-actions">
+              <a class="as-btn as-btn--primary" href="#catalog">
+                Explore products
+                <i class="bi bi-arrow-down" aria-hidden="true"></i>
+              </a>
+              <a class="as-btn as-btn--ghost" href="#demo">
+                Try the demo scene
+                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              </a>
             </div>
-            <p class="as-product-total" id="as-product-total" aria-live="polite"></p>
           </div>
-          <div class="as-hero__visual photo-frame" data-photo="ai-store-hero" data-photo-loading="eager"><img width="1600" height="900" decoding="async" alt="" hidden></div>
-          <div class="as-hero__glow"></div>
+          <div class="as-hero-metrics" aria-label="Portfolio summary">
+            <div class="as-metric">
+              <strong id="as-product-total" aria-live="polite">8</strong>
+              <span>products</span>
+            </div>
+            <div class="as-metric">
+              <strong>Enquiry</strong>
+              <span>confirms scope</span>
+            </div>
+            <div class="as-metric">
+              <strong>Demo</strong>
+              <span>scene available</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="as-products as-section" id="catalog" aria-labelledby="as-products-title">
-        <div class="as-container">
-          <div class="as-section-heading">
+      <!-- Band 2: Filter + Catalog (dark) -->
+      <section class="as-catalog-band gk-band gk-band--dark" id="catalog" aria-labelledby="as-catalog-title">
+        <div class="gk-wrap">
+          <div class="as-catalog-head">
             <div>
-              <p class="as-eyebrow"><span aria-hidden="true"></span> PRODUCT CATALOG</p>
-              <h2 id="as-products-title">Explore the portfolio</h2>
+              <span class="gk-eyebrow">Product Catalog</span>
+              <h2 id="as-catalog-title">Explore the portfolio</h2>
             </div>
             <p>Browse computer vision use cases by category or search the catalog.</p>
           </div>
 
-          <div class="as-toolbar">
-            <div class="as-filter-wrap">
-              <h3 class="as-control-label" id="as-filter-label">Filter by category</h3>
+          <!-- Filter bar -->
+          <div class="as-filter-bar" role="group" aria-label="Filter and search products">
+            <div class="as-filter-chips-wrap">
+              <span class="as-filter-label" id="as-filter-label">
+                <i class="bi bi-funnel" aria-hidden="true"></i>
+                Filter
+              </span>
               <div class="as-filter-chips" id="as-filter-chips" role="group" aria-labelledby="as-filter-label"></div>
             </div>
-            <label class="as-search">
-              <span>Search products</span>
-              <span class="as-search__input-wrap">
-                <i class="bi bi-search" aria-hidden="true"></i>
-                <input id="as-search" type="search" aria-label="Search products by name, summary or capability" placeholder="Try “ppe”" autocomplete="off" />
-              </span>
-            </label>
-            <div class="as-catalog-controls">
-              <label class="as-sort"><span>Sort by</span><select id="as-sort" aria-label="Sort products"><option value="featured">Featured</option><option value="name-asc">Name: A to Z</option><option value="name-desc">Name: Z to A</option></select></label>
+            <div class="as-filter-right">
+              <label class="as-search-wrap">
+                <span class="sr-only">Search products</span>
+                <i class="bi bi-search as-search-icon" aria-hidden="true"></i>
+                <input id="as-search" class="as-search-input" type="search"
+                  aria-label="Search products by name, summary or capability"
+                  placeholder="Search products" autocomplete="off" />
+              </label>
               <div class="as-view-toggle" role="group" aria-label="Product layout">
-                <button type="button" class="as-view-toggle__button" data-as-view="grid" aria-label="Grid view" aria-pressed="true"><i class="bi bi-grid" aria-hidden="true"></i></button>
-                <button type="button" class="as-view-toggle__button" data-as-view="list" aria-label="List view" aria-pressed="false"><i class="bi bi-list-ul" aria-hidden="true"></i></button>
+                <button type="button" class="as-view-btn" data-as-view="grid" aria-label="Grid view" aria-pressed="true">
+                  <i class="bi bi-grid" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="as-view-btn" data-as-view="list" aria-label="List view" aria-pressed="false">
+                  <i class="bi bi-list-ul" aria-hidden="true"></i>
+                </button>
               </div>
+              <label class="as-sort-wrap">
+                <span class="sr-only">Sort by</span>
+                <select id="as-sort" class="as-sort-select" aria-label="Sort products">
+                  <option value="featured">Featured</option>
+                  <option value="name-asc">Name: A to Z</option>
+                  <option value="name-desc">Name: Z to A</option>
+                </select>
+              </label>
             </div>
           </div>
 
-          <div class="as-results-heading">
+          <!-- Results meta -->
+          <div class="as-results-meta">
             <p id="as-result-count" aria-live="polite" aria-atomic="true">Showing 0 of 8 products</p>
             <div class="as-compare-controls">
               <span id="as-compare-status" role="status" aria-live="polite"></span>
-              <button class="as-button as-button--secondary" type="button" id="as-compare-open" disabled><i class="bi bi-arrow-left-right" aria-hidden="true"></i> Compare <span id="as-compare-count">0</span></button>
+              <button class="as-btn as-btn--ghost as-compare-open" type="button" id="as-compare-open" disabled>
+                <i class="bi bi-arrow-left-right" aria-hidden="true"></i>
+                Compare <span id="as-compare-count">0</span>
+              </button>
             </div>
           </div>
+
+          <!-- Product grid -->
           <div class="as-product-grid" id="as-product-grid" aria-busy="true">
             <div class="as-skeleton" aria-hidden="true"></div>
             <div class="as-skeleton" aria-hidden="true"></div>
             <div class="as-skeleton" aria-hidden="true"></div>
             <div class="as-skeleton" aria-hidden="true"></div>
+            <div class="as-skeleton" aria-hidden="true"></div>
+            <div class="as-skeleton" aria-hidden="true"></div>
           </div>
+
+          <!-- Empty state -->
           <div class="as-empty" id="as-empty" hidden>
-            <span class="as-empty__icon" aria-hidden="true"><i class="bi bi-search"></i></span>
+            <i class="bi bi-search as-empty-icon" aria-hidden="true"></i>
             <h3>No products match your search</h3>
             <p>Try a different term or clear the active filters.</p>
-            <button class="as-button as-button--secondary" type="button" id="as-clear-empty">Clear filters</button>
+            <button class="as-btn as-btn--ghost" type="button" id="as-clear-empty">Clear filters</button>
           </div>
-          <p class="as-product-note">Product details, deployment scope and timelines are confirmed on enquiry.</p>
+
+          <p class="as-catalog-note">Product details, deployment scope and timelines are confirmed on enquiry.</p>
         </div>
       </section>
 
-      <section class="as-playground as-section" id="demo" aria-labelledby="as-playground-title">
-        <div class="as-container">
-          <div class="as-playground__panel">
-            <div class="as-playground__copy">
-              <p class="as-eyebrow"><span aria-hidden="true"></span> TRY IT</p>
-              <h2 id="as-playground-title">Explore an illustrative scene</h2>
-              <p>Playground uses demo data.</p>
+      <!-- Band 3: Demo playground (light) -->
+      <section class="as-demo-band gk-band" id="demo" aria-labelledby="as-demo-title">
+        <div class="gk-wrap">
+          <div class="as-demo-panel">
+            <div class="as-demo-copy">
+              <span class="gk-eyebrow">Try it</span>
+              <h2 id="as-demo-title">Explore an illustrative scene</h2>
+              <p>Playground uses demo data. Select a scene to explore the interface.</p>
             </div>
-            <div class="as-playground__links" id="as-playground-links"></div>
+            <div class="as-demo-links" id="as-playground-links"></div>
           </div>
         </div>
       </section>
 
-      <section class="as-why as-section" aria-labelledby="as-why-title">
-        <div class="as-container">
-          <div class="as-section-heading as-section-heading--center">
-            <div>
-              <p class="as-eyebrow"><span aria-hidden="true"></span> THE FRAMEIQ APPROACH</p>
-              <h2 id="as-why-title">Why FrameIQ AI Store</h2>
-            </div>
+      <!-- Band 4: Why FrameIQ (dark) -->
+      <section class="as-why-band gk-band gk-band--dark" aria-labelledby="as-why-title">
+        <div class="gk-wrap">
+          <div class="as-why-head">
+            <span class="gk-eyebrow">The FrameIQ Approach</span>
+            <h2 id="as-why-title">Why FrameIQ AI Store</h2>
           </div>
           <div class="as-why-grid">
-            <article class="as-why-card"><span class="as-why-card__number">01</span><h3>Ready-to-use approach</h3><p>Computer vision models for common industry use cases</p></article>
-            <article class="as-why-card"><span class="as-why-card__number">02</span><h3>Edge or cloud options</h3><p>Deployment options are discussed for your hardware and latency needs</p></article>
-            <article class="as-why-card"><span class="as-why-card__number">03</span><h3>Custom training</h3><p>Models can be discussed for fine-tuning on your own data</p></article>
-            <article class="as-why-card"><span class="as-why-card__number">04</span><h3>Built for India</h3><p>Designed with Indian industry use cases in mind</p></article>
+            <article class="as-why-card gk-r">
+              <span class="as-why-num">01</span>
+              <i class="bi bi-box-seam as-why-icon" aria-hidden="true"></i>
+              <h3>Ready-to-use approach</h3>
+              <p>Computer vision models for common industry use cases</p>
+            </article>
+            <article class="as-why-card gk-r" style="--gk-d:80ms">
+              <span class="as-why-num">02</span>
+              <i class="bi bi-hdd-network as-why-icon" aria-hidden="true"></i>
+              <h3>Edge or cloud options</h3>
+              <p>Deployment options are discussed for your hardware and latency needs</p>
+            </article>
+            <article class="as-why-card gk-r" style="--gk-d:160ms">
+              <span class="as-why-num">03</span>
+              <i class="bi bi-sliders as-why-icon" aria-hidden="true"></i>
+              <h3>Custom training</h3>
+              <p>Models can be discussed for fine-tuning on your own data</p>
+            </article>
+            <article class="as-why-card gk-r" style="--gk-d:240ms">
+              <span class="as-why-num">04</span>
+              <i class="bi bi-geo-alt as-why-icon" aria-hidden="true"></i>
+              <h3>Built for India</h3>
+              <p>Designed with Indian industry use cases in mind</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="as-cta-section" aria-labelledby="as-cta-title">
-        <div class="as-container">
-          <div class="as-cta">
-            <div>
-              <p class="as-eyebrow"><span aria-hidden="true"></span> TALK TO US</p>
-              <h2 id="as-cta-title">Have a use case in mind?</h2>
+      <!-- Band 5: Enquiry CTA (dark, high contrast) -->
+      <section class="as-enquiry-band gk-band gk-band--dark" aria-labelledby="as-enquiry-title">
+        <div class="gk-wrap">
+          <div class="as-enquiry-inner">
+            <div class="as-enquiry-copy">
+              <span class="gk-eyebrow">Talk to us</span>
+              <h2 id="as-enquiry-title">Have a use case in mind?</h2>
               <p>Tell us what you want to detect and the FrameIQ team can review your enquiry.</p>
             </div>
-            <div class="as-cta__actions">
-              <a class="as-button as-button--primary" href="contact.html">Start a project <span aria-hidden="true">→</span></a>
-              <a class="as-button as-button--secondary" href="sectors.html">Explore sectors</a>
+            <div class="as-enquiry-actions">
+              <a class="as-btn as-btn--cta" href="contact.html">
+                Start a project
+                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              </a>
+              <a class="as-btn as-btn--ghost" href="sectors.html">Explore sectors</a>
             </div>
           </div>
         </div>
       </section>
+
     </main>
 
+    <!-- Product detail dialog -->
     <dialog class="as-dialog" id="as-detail-dialog" aria-labelledby="as-dialog-title">
-      <div class="as-dialog__header">
-        <span class="as-dialog__category" id="as-dialog-category"></span>
-        <button class="as-icon-button" type="button" id="as-dialog-close" aria-label="Close product details">×</button>
+      <div class="as-dialog-header">
+        <span class="as-dialog-category" id="as-dialog-category"></span>
+        <button class="as-dialog-close" type="button" id="as-dialog-close" aria-label="Close product details">
+          <i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
       </div>
-      <div class="as-dialog__body">
+      <div class="as-dialog-body">
         <h2 id="as-dialog-title"></h2>
         <p id="as-dialog-summary"></p>
         <h3>Capabilities</h3>
         <ul id="as-dialog-capabilities"></ul>
-        <p class="as-dialog__note">Integration requirements are discussed on enquiry</p>
+        <p class="as-dialog-note">Integration requirements are discussed on enquiry</p>
       </div>
-      <div class="as-dialog__actions">
-        <a class="as-button as-button--primary" id="as-dialog-enquire" href="contact.html">Enquire <span aria-hidden="true">→</span></a>
-        <button class="as-button as-button--secondary" type="button" data-close-dialog>Close</button>
+      <div class="as-dialog-actions">
+        <a class="as-btn as-btn--primary" id="as-dialog-enquire" href="contact.html">
+          Enquire
+          <i class="bi bi-arrow-right" aria-hidden="true"></i>
+        </a>
+        <button class="as-btn as-btn--ghost" type="button" data-close-dialog>Close</button>
       </div>
     </dialog>
+
+    <!-- Compare tray (fixed bottom) -->
+    <div class="as-tray" id="gk-store-trays" aria-label="AI store selections">
+      <button class="as-tray-btn" type="button" id="gk-ai-compare">
+        <i class="bi bi-arrow-left-right" aria-hidden="true"></i>
+        Compare <span id="gk-ai-compare-count">0</span>
+      </button>
+      <a class="as-tray-btn as-tray-btn--primary" href="contact.html">
+        Enquiry
+        <i class="bi bi-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <!-- Compare dialog -->
     <dialog class="as-dialog as-compare-dialog" id="as-compare-dialog" aria-labelledby="as-compare-title">
-      <div class="as-dialog__header">
-        <span class="as-dialog__category">Product comparison</span>
-        <button class="as-icon-button" type="button" id="as-compare-close" aria-label="Close comparison"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+      <div class="as-dialog-header">
+        <span class="as-dialog-category">Product comparison</span>
+        <button class="as-dialog-close" type="button" id="as-compare-close" aria-label="Close comparison">
+          <i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
       </div>
-      <div class="as-dialog__body">
+      <div class="as-dialog-body">
         <h2 id="as-compare-title">Compare products</h2>
         <div id="as-compare-content"></div>
       </div>
-      <div class="as-dialog__actions"><button class="as-button as-button--secondary" type="button" data-compare-close>Close</button></div>
+      <div class="as-dialog-actions">
+        <button class="as-btn as-btn--ghost" type="button" data-compare-close>Close</button>
+      </div>
     </dialog>
+
     <div id="site-footer"></div>
+    <script src="../assets/js/fx.js" defer></script>
+    <script src="../assets/js/gk.js" defer></script>
+    <script src="../assets/js/gk-kit.js" defer></script>
+    <script src="../assets/js/gk-motion.js" defer></script>
   </body>
 </html>

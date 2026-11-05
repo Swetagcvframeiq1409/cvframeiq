@@ -21,7 +21,7 @@
   };
   const roles = data.roles.filter((item) => item.confirmed === true || showDraft);
   roles.forEach((role) => {
-    const card = make('article', 'cr-role');
+    const card = make('article', 'cr-role gk-card gk-r');
     if (role.confirmed !== true) card.append(make('span', 'cr-status', 'Unconfirmed'));
     card.append(make('h3', '', role.title));
     const details = [role.team, role.location, role.type].filter(Boolean);
@@ -48,7 +48,7 @@
 
   const values = data.values.filter((item) => item.confirmed === true || showDraft);
   values.forEach((item) => {
-    const value = make('li', 'cr-value');
+    const value = make('li', 'cr-value gk-card');
     if (item.confirmed !== true) value.append(make('span', 'cr-status', 'Unconfirmed'));
     value.append(make('span', '', item.text));
     valuesHost.append(value);

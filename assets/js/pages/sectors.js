@@ -11,10 +11,10 @@
 
   function buildGroups(sector) {
     const list = document.createElement('div');
-    list.className = 'sc-group-grid';
+    list.className = 'gk-cards';
     sector.groups.slice(0, 4).forEach((group) => {
       const article = document.createElement('article');
-      article.className = 'sc-group-card';
+      article.className = 'gk-card';
       const heading = document.createElement('h3');
       heading.textContent = group.title;
       const items = document.createElement('ul');
@@ -53,16 +53,14 @@
 
   function buildSectorRow(sector, index) {
     const article = document.createElement('article');
-    article.className = `sc-industry-row${index % 2 ? ' sc-industry-row--reverse' : ''}`;
+    article.className = `gk-band${index % 2 ? ' gk-band--dark' : ''}`;
     article.id = sector.slug;
     const visual = buildPlaceholder(sector, index === 0 ? 'eager' : 'lazy');
     const content = document.createElement('div');
-    content.className = 'sc-industry-row__content';
+    content.className = 'gk-wrap';
     const eyebrow = document.createElement('p');
     eyebrow.className = 'sc-eyebrow';
-    const dot = document.createElement('span');
-    dot.setAttribute('aria-hidden', 'true');
-    eyebrow.append(dot, document.createTextNode(' INDUSTRY'));
+    eyebrow.append(document.createTextNode('INDUSTRY'));
     const heading = document.createElement('h2');
     heading.textContent = sector.name;
     const summary = document.createElement('p');
@@ -72,7 +70,7 @@
     useCases.className = 'sc-usecases';
     useCases.appendChild(buildGroups(sector));
     const link = document.createElement('a');
-    link.className = 'sc-text-link';
+    link.className = 'gk-more';
     link.href = `sectors/${encodeURIComponent(sector.slug)}.html`;
     link.setAttribute('aria-label', `Explore ${sector.name} solutions`);
     link.append(document.createTextNode(`Explore ${sector.name} solutions `));
@@ -86,22 +84,36 @@
   }
 
   const strip = document.querySelector('#sc-icon-strip');
-  const list = document.querySelector('#sc-industry-list');
-  if (!strip || !list) return;
-
+  const host = document.querySelector('#sc-industry-list');
+  if (!strip || !host) return;
+  host.className = 'gk-cards';
   sectors.forEach((sector) => {
-    const link = document.createElement('a');
-    link.className = 'sc-icon-link';
-    link.href = `#${encodeURIComponent(sector.slug)}`;
-    link.setAttribute('aria-label', `Jump to ${sector.name}`);
-    const icon = document.createElement('span');
-    icon.className = 'sc-icon-link__icon';
+    const card = document.createElement('article');
+    card.className = 'gk-card';
+    const icon = document.createElement('div');
+    icon.className = 'gk-ic';
     icon.appendChild(makeIcon(sector.icon));
-    const label = document.createElement('span');
-    label.textContent = sector.name;
-    link.append(icon, label);
-    strip.appendChild(link);
-    list.appendChild(buildSectorRow(sector, list.children.length));
+    const heading = document.createElement('h3');
+    heading.textContent = sector.name;
+    const summary = document.createElement('p');
+    summary.textContent = sector.summary;
+    const link = document.createElement('a');
+    link.className = 'gk-more';
+    link.href = `sectors/${encodeURIComponent(sector.slug)}.html`;
+    link.textContent = 'Explore sector ↗';
+    card.append(icon, heading, summary, link);
+    host.appendChild(card);
+
+    const navLink = document.createElement('a');
+    navLink.className = 'sc-icon-link';
+    navLink.href = `sectors/${encodeURIComponent(sector.slug)}.html`;
+    const navIcon = document.createElement('span');
+    navIcon.className = 'sc-icon-link__icon';
+    navIcon.appendChild(makeIcon(sector.icon));
+    const navLabel = document.createElement('span');
+    navLabel.textContent = sector.name;
+    navLink.append(navIcon, navLabel);
+    strip.appendChild(navLink);
   });
   window.initPhotos?.();
 })();

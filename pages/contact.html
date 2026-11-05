@@ -74,6 +74,13 @@
       <script src="../assets/js/seo.js" defer></script>
       <link rel="stylesheet" href="../assets/css/motion.css" />
     <script src="../assets/js/motion.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/fx.css" />
+    <link rel="stylesheet" href="../assets/css/inner-wow.css" />
+  <link rel="stylesheet" href="../assets/css/nav-fix.css" />
+<link rel="stylesheet" href="../assets/css/gk.css" />
+  <link rel="stylesheet" href="../assets/css/fix-round3.css" />
+  <link rel="stylesheet" href="../assets/css/gk-kit.css" />
+  <link rel="stylesheet" href="../assets/css/gk-motion.css" />
 </head>
   <body data-root="../">
     <script>try{const saved=localStorage.getItem('frameiq-theme');document.body.dataset.theme=saved==='light'||saved==='dark'?saved:(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark')}catch(error){document.body.dataset.theme=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}</script>
@@ -81,19 +88,19 @@
     <div id="site-header"></div>
 
     <main id="main-content" class="ct-contact">
-      <section class="ct-hero" aria-labelledby="contact-title">
+      <section class="gk-hero" aria-labelledby="contact-title">
         <div class="ct-hero__mesh" aria-hidden="true"></div>
-        <div class="container ct-hero__inner">
+        <div class="gk-wrap">
           <div class="ct-hero__copy reveal" data-reveal>
             <div class="ct-pill">
               <span class="ct-pill__dot" aria-hidden="true"></span>
               CONTACT FRAMEIQ · NO LOGIN REQUIRED
             </div>
-            <h1 id="contact-title">Let's Build Something <span class="text-gradient">Intelligent Together</span></h1>
+            <h1 id="contact-title">How can we <b>help</b>?</h1>
             <p>Fill the form below. No account needed. Tell us about your project and we’ll review your enquiry.</p>
           </div>
 
-          <div class="ct-info-grid reveal" data-reveal>
+          <div class="ct-info-grid" data-reveal>
             <article class="ct-info-card">
               <div class="ct-info-card__icon" aria-hidden="true">
                 <i class="bi bi-envelope" aria-hidden="true"></i>
@@ -180,64 +187,55 @@
                   <fieldset class="ct-sector-fieldset">
                     <legend class="sr-only">Choose a sector</legend>
                     <div class="ct-sector-grid">
-                      <label class="ct-sector-option ct-sector-option--manufacturing" for="sector-manufacturing">
+                      <label class="ct-sector-option" for="sector-banking">
+                        <input id="sector-banking" type="radio" name="sector" value="banking-finance" />
+                        <span class="ct-sector-option__tile" aria-hidden="true"><i class="bi bi-bank" aria-hidden="true"></i></span>
+                        <span class="ct-sector-option__content"><span class="ct-sector-option__title">Banking &amp; Finance</span></span>
+                      </label>
+                      <label class="ct-sector-option" for="sector-aviation">
+                        <input id="sector-aviation" type="radio" name="sector" value="aviation" />
+                        <span class="ct-sector-option__tile" aria-hidden="true"><i class="bi bi-airplane" aria-hidden="true"></i></span>
+                        <span class="ct-sector-option__content"><span class="ct-sector-option__title">Aviation</span></span>
+                      </label>
+                      <label class="ct-sector-option" for="sector-infrastructure">
+                        <input id="sector-infrastructure" type="radio" name="sector" value="infrastructure" />
+                        <span class="ct-sector-option__tile" aria-hidden="true"><i class="bi bi-buildings" aria-hidden="true"></i></span>
+                        <span class="ct-sector-option__content"><span class="ct-sector-option__title">Infrastructure</span></span>
+                      </label>
+                      <label class="ct-sector-option" for="sector-security">
+                        <input id="sector-security" type="radio" name="sector" value="security-surveillance" />
+                        <span class="ct-sector-option__tile" aria-hidden="true"><i class="bi bi-shield-lock" aria-hidden="true"></i></span>
+                        <span class="ct-sector-option__content"><span class="ct-sector-option__title">Security &amp; Surveillance</span></span>
+                      </label>
+                      <label class="ct-sector-option" for="sector-healthcare">
+                        <input id="sector-healthcare" type="radio" name="sector" value="healthcare-medical" />
+                        <span class="ct-sector-option__tile" aria-hidden="true"><i class="bi bi-hospital" aria-hidden="true"></i></span>
+                        <span class="ct-sector-option__content"><span class="ct-sector-option__title">Healthcare &amp; Medical</span></span>
+                      </label>
+                      <label class="ct-sector-option" for="sector-events">
+                        <input id="sector-events" type="radio" name="sector" value="events-entertainment" />
+                        <span class="ct-sector-option__tile" aria-hidden="true"><i class="bi bi-ticket-perforated" aria-hidden="true"></i></span>
+                        <span class="ct-sector-option__content"><span class="ct-sector-option__title">Events &amp; Entertainment</span></span>
+                      </label>
+                      <label class="ct-sector-option" for="sector-manufacturing">
                         <input id="sector-manufacturing" type="radio" name="sector" value="manufacturing" />
-                        <span class="ct-sector-option__tile" aria-hidden="true">
-                          <i class="bi bi-buildings" aria-hidden="true"></i>
-                        </span>
-                        <span class="ct-sector-option__content">
-                          <span class="ct-sector-option__title">Industry / Manufacturing</span>
-                          <span class="ct-sector-option__desc">Quality inspection, defect detection, PPE compliance</span>
-                        </span>
-                        <span class="ct-sector-option__chevron" aria-hidden="true">›</span>
+                        <span class="ct-sector-option__tile" aria-hidden="true"><i class="bi bi-buildings" aria-hidden="true"></i></span>
+                        <span class="ct-sector-option__content"><span class="ct-sector-option__title">Manufacturing</span></span>
                       </label>
-
-                      <label class="ct-sector-option ct-sector-option--agriculture" for="sector-agriculture">
+                      <label class="ct-sector-option" for="sector-agriculture">
                         <input id="sector-agriculture" type="radio" name="sector" value="agriculture" />
-                        <span class="ct-sector-option__tile" aria-hidden="true">
-                          <i class="bi bi-flower1" aria-hidden="true"></i>
-                        </span>
-                        <span class="ct-sector-option__content">
-                          <span class="ct-sector-option__title">Smart Agriculture</span>
-                          <span class="ct-sector-option__desc">Crop monitoring, pest detection, harvest automation</span>
-                        </span>
-                        <span class="ct-sector-option__chevron" aria-hidden="true">›</span>
+                        <span class="ct-sector-option__tile" aria-hidden="true"><i class="bi bi-flower1" aria-hidden="true"></i></span>
+                        <span class="ct-sector-option__content"><span class="ct-sector-option__title">Agriculture</span></span>
                       </label>
-
-                      <label class="ct-sector-option ct-sector-option--security" for="sector-security-surveillance">
-                        <input id="sector-security-surveillance" type="radio" name="sector" value="security-surveillance" />
-                        <span class="ct-sector-option__tile" aria-hidden="true">
-                          <i class="bi bi-shield-lock" aria-hidden="true"></i>
-                        </span>
-                        <span class="ct-sector-option__content">
-                          <span class="ct-sector-option__title">Security &amp; Surveillance</span>
-                          <span class="ct-sector-option__desc">Smart cameras, access control, threat detection AI</span>
-                        </span>
-                        <span class="ct-sector-option__chevron" aria-hidden="true">›</span>
+                      <label class="ct-sector-option" for="sector-retail">
+                        <input id="sector-retail" type="radio" name="sector" value="retail" />
+                        <span class="ct-sector-option__tile" aria-hidden="true"><i class="bi bi-shop" aria-hidden="true"></i></span>
+                        <span class="ct-sector-option__content"><span class="ct-sector-option__title">Retail</span></span>
                       </label>
-
-                      <label class="ct-sector-option ct-sector-option--agents" for="sector-agents">
-                        <input id="sector-agents" type="radio" name="sector" value="agents" />
-                        <span class="ct-sector-option__tile" aria-hidden="true">
-                          <i class="bi bi-robot" aria-hidden="true"></i>
-                        </span>
-                        <span class="ct-sector-option__content">
-                          <span class="ct-sector-option__title">AI Vision Agents</span>
-                          <span class="ct-sector-option__desc">Custom automation, AI agents, intelligent workflows</span>
-                        </span>
-                        <span class="ct-sector-option__chevron" aria-hidden="true">›</span>
-                      </label>
-
-                      <label class="ct-sector-option ct-sector-option--general" for="sector-general">
-                        <input id="sector-general" type="radio" name="sector" value="general" />
-                        <span class="ct-sector-option__tile" aria-hidden="true">
-                          <i class="bi bi-chat-dots" aria-hidden="true"></i>
-                        </span>
-                        <span class="ct-sector-option__content">
-                          <span class="ct-sector-option__title">General Inquiry</span>
-                          <span class="ct-sector-option__desc">Questions, partnerships, pricing, or just say hello</span>
-                        </span>
-                        <span class="ct-sector-option__chevron" aria-hidden="true">›</span>
+                      <label class="ct-sector-option" for="sector-other">
+                        <input id="sector-other" type="radio" name="sector" value="other" />
+                        <span class="ct-sector-option__tile" aria-hidden="true"><i class="bi bi-chat-dots" aria-hidden="true"></i></span>
+                        <span class="ct-sector-option__content"><span class="ct-sector-option__title">Other</span></span>
                       </label>
                     </div>
                   </fieldset>
@@ -511,5 +509,9 @@
 
     <div id="site-footer"></div>
     <div class="ct-toast" role="status" aria-live="polite"></div>
-  </body>
+      <script src="../assets/js/fx.js" defer></script>
+<script src="../assets/js/gk.js" defer></script>
+      <script src="../assets/js/gk-kit.js" defer></script>
+      <script src="../assets/js/gk-motion.js" defer></script>
+</body>
 </html>

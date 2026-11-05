@@ -7,6 +7,9 @@
   <url><loc>https://example.invalid/pages/blog.html</loc></url>
   <url><loc>https://example.invalid/pages/blog-article.html</loc></url>
   <url><loc>https://example.invalid/pages/careers.html</loc></url>
+  <url><loc>https://example.invalid/pages/culture.html</loc></url>
+  <url><loc>https://example.invalid/pages/team.html</loc></url>
+  <url><loc>https://example.invalid/pages/security.html</loc></url>
   <url><loc>https://example.invalid/pages/pcb-guardian.html</loc></url>
   <url><loc>https://example.invalid/pages/ppe-safety.html</loc></url>
   <url><loc>https://example.invalid/pages/autolabel.html</loc></url>
@@ -19,7 +22,6 @@
   <url><loc>https://example.invalid/pages/press-kit.html</loc></url>
   <url><loc>https://example.invalid/pages/compare.html</loc></url>
   <url><loc>https://example.invalid/pages/cookies.html</loc></url>
-  <url><loc>https://example.invalid/pages/docs.html</loc></url>
   <url><loc>https://example.invalid/pages/features.html</loc></url>
   <url><loc>https://example.invalid/pages/gear.html</loc></url>
   <url><loc>https://example.invalid/pages/gear-product.html</loc></url>
@@ -31,7 +33,6 @@
   <url><loc>https://example.invalid/pages/privacy.html</loc></url>
   <url><loc>https://example.invalid/pages/research.html</loc></url>
   <url><loc>https://example.invalid/pages/sectors.html</loc></url>
-  <url><loc>https://example.invalid/pages/security.html</loc></url>
   <url><loc>https://example.invalid/pages/terms.html</loc></url>
   <url><loc>https://example.invalid/pages/sectors/agriculture.html</loc></url>
   <url><loc>https://example.invalid/pages/sectors/aviation.html</loc></url>

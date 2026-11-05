@@ -25,22 +25,82 @@ function renderNavLink(item, root, className = 'nav__link') {
 }
 
 function renderNavGroup(label, id, links, root, active = false) {
+  /* Per-item icon map — Bootstrap Icons only, all verified present */
+  const ITEM_ICONS = {
+    'All sectors': 'bi-grid-3x3-gap',
+    'Agriculture': 'bi-leaf',
+    'Aviation': 'bi-airplane',
+    'Banking': 'bi-bank',
+    'Healthcare': 'bi-hospital',
+    'Manufacturing': 'bi-tools',
+    'Retail': 'bi-shop',
+    'Security & Surveillance': 'bi-shield-check',
+    'Smart City': 'bi-buildings',
+    'Events & Entertainment': 'bi-stars',
+    'AI Store': 'bi-bag',
+    'PCB Guardian': 'bi-cpu',
+    'BeejHealth': 'bi-leaf',
+    'AutoLabel': 'bi-layers',
+    'PPE Safety': 'bi-shield-check',
+    'Gear (all hardware)': 'bi-box-seam',
+    'Edge Starter Kit': 'bi-hdd-network',
+    'Smart Factory Kit': 'bi-gear',
+    'Request a Hardware Quote': 'bi-calculator',
+    'Book a Hardware Demo': 'bi-play-circle',
+    'Playground': 'bi-play-btn',
+    'PCB Guardian ROI calculator': 'bi-calculator',
+    'PPE Safety ROI calculator': 'bi-calculator',
+    'Blog': 'bi-book',
+    'Docs': 'bi-file-text',
+    'Research': 'bi-search',
+    'Glossary': 'bi-file-earmark-text',
+    'Compare approaches': 'bi-bar-chart',
+    'About Us': 'bi-building',
+    'Culture': 'bi-people',
+    'Team': 'bi-person-badge',
+    'Join Us': 'bi-briefcase',
+    'How We Work': 'bi-diagram-3',
+    'Security': 'bi-shield-lock',
+    'Security & Compliance': 'bi-lock'
+  };
+
+  const canonicalHref = links[0]?.href || '';
+  const useTwoCols = links.length >= 4;
+  const isOdd = useTwoCols && (links.length % 2 !== 0);
+
   const itemClasses = [
     'nav__item',
     'nav__item--mega',
-    ...(label === 'Solutions' ? ['nav__item--mega--solutions'] : []),
-    ...(['Resources', 'Company'].includes(label) ? ['nav__item--mega--right'] : []),
+    ...(links.length < 4 ? ['nav__item--mega-compact'] : []),
+    ...(label === 'Hardware' ? ['nav__item--hardware'] : []),
     ...(active ? ['has-current'] : [])
-  ].join(' ');
-  const linksMarkup = links.map((item) => {
-    return `<li>${renderNavLink(item, root, 'nav-group-menu__link')}</li>`;
+  ].filter(Boolean).join(' ');
+
+  const linksMarkup = links.map((item, idx) => {
+    const description = typeof item.description === 'string' ? item.description.trim() : '';
+    const icon = ITEM_ICONS[item.label] || 'bi-arrow-right';
+    const spanLast = isOdd && idx === links.length - 1 ? ' mega__item--span' : '';
+    return `<a class="mega__item${spanLast}" href="${getPageHref(item.href, root)}"${isCurrentPath(item.href) ? ' aria-current="page"' : ''}>
+      <span class="mega__icon" aria-hidden="true"><i class="bi ${icon}"></i></span>
+      <span class="mega__copy">
+        <span class="mega__title">${item.label}</span>${description ? `<span class="mega__desc">${description}</span>` : ''}
+      </span>
+      <i class="bi bi-arrow-right mega__arrow" aria-hidden="true"></i>
+    </a>`;
   }).join('');
+
+  const strip = `
+    <div class="mega__strip">
+      <a class="mega__strip-demo" href="${getPageHref('pages/contact.html', root)}">Book a Demo <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+    </div>`;
+
   return `
     <div class="${itemClasses}">
-      <button class="nav__button${active ? ' has-current' : ''}" type="button" aria-expanded="false" aria-controls="${id}">
-        ${label}<i class="${window.iconClass('chevronDown')} chevron" aria-hidden="true"></i>
-      </button>
-      <ul class="mega-menu nav-group-menu" id="${id}" aria-label="${label}">${linksMarkup}</ul>
+      <a class="nav__button${active ? ' has-current' : ''}" href="${getPageHref(canonicalHref, root)}"${isCurrentPath(canonicalHref) ? ' aria-current="page"' : ''} aria-expanded="false" aria-controls="${id}" aria-haspopup="true">${label}<i class="bi bi-chevron-down mega__chevron" aria-hidden="true"></i></a>
+      <div class="mega" id="${id}" role="region" aria-label="${label}">
+        <div class="mega__body mega__right mega__right--${useTwoCols ? '2col' : '1col'}">${linksMarkup}</div>
+        ${strip}
+      </div>
     </div>
   `;
 }
@@ -55,22 +115,38 @@ function renderHeader(root = getRootPath()) {
   const navGroups = window.NAV_DATA?.groups || {};
   const navMarkup = (window.NAV_DATA?.main || []).map((group) => {
     if (group.label === 'Home') return renderNavLink(group, root);
-    if (group.label === 'Hardware') return renderNavLink(group, root);
     const entries = navGroups[group.label] || [];
     const active = entries.some((entry) => isCurrentPath(entry.href));
     return renderNavGroup(group.label, `nav-${group.label.toLowerCase()}`, entries, root, active);
   }).join('');
   const mobileGroups = (window.NAV_DATA?.main || []).map((group) => {
     if (group.label === 'Home') return renderNavLink(group, root, 'mobile-menu__link');
-    if (group.label === 'Hardware') return renderNavLink(group, root, 'mobile-menu__link');
     const entries = navGroups[group.label] || [];
     const expanded = entries.some((entry) => isCurrentPath(entry.href));
     const id = `mobile-${group.label.toLowerCase()}`;
+    const ITEM_ICONS = {
+      'All sectors': 'bi-grid-3x3-gap', 'Agriculture': 'bi-leaf', 'Aviation': 'bi-airplane',
+      'Banking': 'bi-bank', 'Healthcare': 'bi-hospital', 'Manufacturing': 'bi-tools',
+      'Retail': 'bi-shop', 'Security & Surveillance': 'bi-shield-check', 'Smart City': 'bi-buildings',
+      'Events & Entertainment': 'bi-stars', 'AI Store': 'bi-bag', 'PCB Guardian': 'bi-cpu',
+      'BeejHealth': 'bi-leaf', 'AutoLabel': 'bi-layers', 'PPE Safety': 'bi-shield-check',
+      'Gear (all hardware)': 'bi-box-seam', 'Edge Starter Kit': 'bi-hdd-network',
+      'Smart Factory Kit': 'bi-gear', 'Request a Hardware Quote': 'bi-calculator',
+      'Book a Hardware Demo': 'bi-play-circle', 'Playground': 'bi-play-btn',
+      'PCB Guardian ROI calculator': 'bi-calculator', 'PPE Safety ROI calculator': 'bi-calculator',
+      'Blog': 'bi-book', 'Docs': 'bi-file-text', 'Research': 'bi-search',
+      'Glossary': 'bi-file-earmark-text', 'Compare approaches': 'bi-bar-chart',
+      'About Us': 'bi-building', 'Culture': 'bi-people', 'Team': 'bi-person-badge',
+      'Join Us': 'bi-briefcase', 'How We Work': 'bi-diagram-3',
+      'Security': 'bi-shield-lock', 'Security & Compliance': 'bi-lock'
+    };
     return `
-      <button class="mobile-menu__group${expanded ? ' is-active' : ''}" type="button" aria-expanded="${expanded}" aria-controls="${id}">${group.label} <i class="${window.iconClass('chevronDown')}" aria-hidden="true"></i></button>
-      <ul class="mobile-menu__panel" id="${id}"${expanded ? '' : ' hidden'}>${entries.map((entry) => {
-        return `<li>${renderNavLink(entry, root, 'mobile-menu__panel-link')}</li>`;
-      }).join('')}</ul>`;
+      <button class="mobile-menu__group${expanded ? ' is-active' : ''}" type="button" aria-expanded="${expanded}" aria-controls="${id}">${group.label}<i class="bi bi-chevron-down" aria-hidden="true"></i></button>
+      <ul class="mobile-menu__panel" id="${id}"${expanded ? '' : ' hidden'}><div class="mobile-menu__panel-inner">${entries.map((entry) => {
+        const description = typeof entry.description === 'string' ? entry.description.trim() : '';
+        const icon = ITEM_ICONS[entry.label] || 'bi-arrow-right';
+        return `<li><a class="mobile-menu__panel-link" href="${getPageHref(entry.href, root)}"${isCurrentPath(entry.href) ? ' aria-current="page"' : ''}><span class="drw__icon" aria-hidden="true"><i class="bi ${icon}"></i></span><span><strong>${entry.label}</strong>${description ? `<small>${description}</small>` : ''}</span><i class="bi bi-arrow-right" aria-hidden="true"></i></a></li>`;
+      }).join('')}</div></ul>`;
   }).join('');
   const announcement = ANNOUNCEMENT.enabled && ANNOUNCEMENT.text
     ? `<div class="announcement-bar" data-announcement><span>${ANNOUNCEMENT.href ? `<a href="${pageHref(ANNOUNCEMENT.href)}">${ANNOUNCEMENT.text}</a>` : ANNOUNCEMENT.text}</span><button class="announcement-bar__close icon-button" type="button" aria-label="Dismiss announcement">×</button></div>`
@@ -81,6 +157,7 @@ function renderHeader(root = getRootPath()) {
 
   headerHost.innerHTML = `
     ${announcement}
+    <div class="mega-overlay" data-mega-overlay aria-hidden="true"></div>
     <header class="site-header" aria-label="Main header">
       <div class="site-header__inner">
         <nav class="navbar" aria-label="Main navigation">
@@ -93,44 +170,28 @@ function renderHeader(root = getRootPath()) {
               <i class="${window.iconClass('moon')}" aria-hidden="true"></i>
             </button>
             <a class="nav-login header-login${isLoginPage ? ' is-active' : ''}" href="${pageHref('pages/login.html')}"${isLoginPage ? ' aria-current="page"' : ''}>Login</a>
-            <a class="btn btn--secondary header-start" href="${pageHref('pages/contact.html')}">Contact Us</a>
+            <a class="btn btn--primary header-start" href="${pageHref('pages/contact.html')}"><span>Contact Us</span><i class="bi bi-arrow-right" aria-hidden="true"></i></a>
           </div>
         </nav>
       </div>
     </header>
     <div class="mobile-overlay" data-mobile-overlay></div>
     <aside class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" aria-hidden="true" inert>
-      <div class="mobile-menu__header">
-        ${LOGO_HTML(root)}
-        <button class="icon-button mobile-menu__close" type="button" aria-label="Close menu" data-mobile-close><i class="${window.iconClass('close')}" aria-hidden="true"></i></button>
-      </div>
-      <a class="btn btn--primary mobile-menu__cta" href="${pageHref('pages/contact.html')}">Book a Demo</a>
       <nav class="mobile-menu__nav" aria-label="Mobile primary navigation">
         ${mobileGroups}
       </nav>
       <div class="mobile-menu__footer">
         <a class="mobile-menu__login" href="${pageHref('pages/login.html')}"${isLoginPage ? ' aria-current="page"' : ''}>Login</a>
+        <a class="mobile-menu__contact" href="${pageHref('pages/contact.html')}">Contact Us</a>
       </div>
     </aside>
   `;
   window.initPhotos?.(headerHost);
-  headerHost.querySelectorAll('.mega-menu').forEach((menu) => {
-    const featureCard = menu.querySelector('.mega-menu__feature');
-    if (!featureCard) return;
-    const updateFeature = (event) => {
-      const link = event.target.closest('.mega-menu__link[data-feature-href]');
-      if (!link || !menu.contains(link)) return;
-      featureCard.href = getPageHref(link.dataset.featureHref, root);
-      featureCard.querySelector('.mega-menu__feature-eyebrow').textContent = link.dataset.featureEyebrow;
-      featureCard.querySelector('.mega-menu__feature-title').textContent = link.dataset.featureTitle;
-      featureCard.querySelector('.mega-menu__feature-description').textContent = link.dataset.featureDescription;
-      featureCard.querySelector('.mega-menu__feature-cta-label').textContent = link.dataset.featureCta;
-    };
-    menu.addEventListener('pointerover', updateFeature);
-    menu.addEventListener('focusin', updateFeature);
-    const firstLink = menu.querySelector('.mega-menu__link[data-feature-href]');
-    if (firstLink) updateFeature({ target: firstLink });
-  });
+  try {
+    initMegaMenuEnhancements(headerHost, root);
+  } catch (error) {
+    console.warn('mega menu skipped', error);
+  }
 
   if (ANNOUNCEMENT.enabled && ANNOUNCEMENT.text) {
     try {
@@ -152,6 +213,26 @@ function renderHeader(root = getRootPath()) {
   }
 }
 
+function initMegaMenuEnhancements(headerHost, root) {
+  headerHost.querySelectorAll('.mega-menu').forEach((menu) => {
+    const featureCard = menu.querySelector('.mega-menu__feature');
+    if (!featureCard) return;
+    const updateFeature = (event) => {
+      const link = event.target.closest('.mega-menu__link[data-feature-href]');
+      if (!link || !menu.contains(link)) return;
+      featureCard.href = getPageHref(link.dataset.featureHref, root);
+      featureCard.querySelector('.mega-menu__feature-eyebrow').textContent = link.dataset.featureEyebrow;
+      featureCard.querySelector('.mega-menu__feature-title').textContent = link.dataset.featureTitle;
+      featureCard.querySelector('.mega-menu__feature-description').textContent = link.dataset.featureDescription;
+      featureCard.querySelector('.mega-menu__feature-cta-label').textContent = link.dataset.featureCta;
+    };
+    menu.addEventListener('pointerover', updateFeature);
+    menu.addEventListener('focusin', updateFeature);
+    const firstLink = menu.querySelector('.mega-menu__link[data-feature-href]');
+    if (firstLink) updateFeature({ target: firstLink });
+  });
+}
+
 function renderFooter(root = getRootPath()) {
   const footerHost = document.querySelector('#site-footer');
   if (!footerHost) return;
@@ -162,11 +243,9 @@ function renderFooter(root = getRootPath()) {
   const footerPageOverrides = {
     Sectors: 'pages/sectors.html',
     Features: 'pages/features.html',
-    Documentation: 'pages/docs.html',
     Careers: 'pages/careers.html',
     'Privacy Policy': 'pages/privacy.html',
     'Terms of Service': 'pages/terms.html',
-    Security: 'pages/security.html',
     'Cookie Policy': 'pages/cookies.html'
   };
   const footerSections = [
@@ -217,15 +296,17 @@ function renderFooter(root = getRootPath()) {
   footerHost.innerHTML = `
     ${closingCta}
     <footer class="site-footer" data-tone="dark">
+      <div class="footer-strip">
+        <address class="footer-contact">
+          <a href="${siteContact.phoneHref}" data-site="phone">${siteContact.phone}</a>
+          <a href="mailto:${siteContact.email}" data-site="email">${siteContact.email}</a>
+          <span data-site="location">${siteContact.location}</span>
+        </address>
+      </div>
       <div class="footer-grid">
         <div class="footer-col">
           ${LOGO_HTML(root)}
           <p>Computer Vision and Agentic AI for Indian industry.</p>
-          <address class="footer-contact">
-            <a href="${siteContact.phoneHref}" data-site="phone">${siteContact.phone}</a>
-            <a href="mailto:${siteContact.email}" data-site="email">${siteContact.email}</a>
-            <span data-site="location">${siteContact.location}</span>
-          </address>
           <form class="newsletter-form" novalidate>
             <div class="form-field"><label class="sr-only" for="newsletter-email">Email</label><input id="newsletter-email" name="email" type="email" placeholder="Your email" aria-label="Email address" autocomplete="email" required /></div>
             <div class="newsletter-honeypot" aria-hidden="true"><label for="newsletter-website">Leave this field empty</label><input id="newsletter-website" name="_gotcha" type="text" tabindex="-1" autocomplete="off" /></div>
@@ -234,7 +315,9 @@ function renderFooter(root = getRootPath()) {
           </form>
           <div class="social-list">${socialMarkup}</div>
         </div>
-        ${linksMarkup}
+        <div class="footer-links-grid">
+          ${linksMarkup}
+        </div>
       </div>
       <div class="footer-bottom">
         <span class="footer-bottom__copyright">© 2026 FrameIQ. All rights reserved.</span>

@@ -1,0 +1,13 @@
+body.gk-quiet .gk-hero::before,
+body.gk-quiet .gk-hero::after { display: none; }
+
+body.gk-quiet .gk-hero { overflow: visible; }
+body.gk-quiet .legal-layout,
+body.gk-quiet .legal-content { max-width: 720px; margin-inline: auto; }
+body.gk-quiet .legal-content { font-size: 1.1rem; line-height: 1.75; }
+body.gk-quiet .legal-toc,
+body.gk-quiet .content-page__toc { position: sticky; top: calc(var(--header-h, 72px) + 16px); align-self: start; }
+body.gk-quiet .legal-toc a,
+body.gk-quiet .content-page__toc a { text-transform: none; }
+body.gk-quiet .legal-toc a.is-active,
+body.gk-quiet .content-page__toc a.is-active { color: #6542c8; font-weight: 700; }

@@ -1,37 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" href="data:," /><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PPE Safety ROI Calculator | FrameIQ</title><meta name="description" content="Explore an illustrative PPE video-review time and value estimate using your own assumptions." /><link rel="canonical" href="https://example.invalid/pages/roi-ppe-safety.html" />
-    <link rel="stylesheet" href="../assets/css/tokens.css" /><link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" /><link rel="stylesheet" href="../assets/css/base.css" /><link rel="stylesheet" href="../assets/css/components.css" /><link rel="stylesheet" href="../assets/css/search.css" /><link rel="stylesheet" href="../assets/css/pages/content.css" /><link rel="stylesheet" href="../assets/css/pages/site-pages.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PPE Safety ROI Calculator | FrameIQ</title>
+    <meta name="description" content="Explore an illustrative PPE video-review time and value estimate using your own assumptions." />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="../assets/css/tokens.css" />
+    <link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" />
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/nav-fix.css" />
+    <link rel="stylesheet" href="../assets/css/gk-kit.css" />
+    <link rel="stylesheet" href="../assets/css/demo-page.css" />
+    <link rel="stylesheet" href="../assets/css/roi-calc.css" />
     <script src="../assets/data/site-data.js" defer></script>
-    <script src="../assets/data/live-carryover.js" defer></script>
-    <script src="../assets/js/live-carryover-render.js" defer></script><script src="../assets/data/images.js" defer></script><script src="../assets/data/search-index.js" defer></script><script src="../assets/js/photos.js" defer></script><script src="../assets/js/icons.js" defer></script><script src="../assets/js/components.js" defer></script><script src="../assets/js/search.js" defer></script><script src="../assets/js/main.js" defer></script><script src="../assets/js/roi-calculators.js" defer></script><script src="../assets/js/seo.js" defer></script>
-      <link rel="stylesheet" href="../assets/css/motion.css" />
-    <script src="../assets/js/motion.js" defer></script>
-</head>
-  <body data-root="../"><script>try{const saved=localStorage.getItem('frameiq-theme');document.body.dataset.theme=saved==='light'||saved==='dark'?saved:(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark')}catch(error){document.body.dataset.theme=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}</script>
-    <a class="skip-link" href="#main-content">Skip to content</a><div id="site-header"></div>
-    <main id="main-content" class="content-page">
-      
-      <header class="content-page__heading"><p class="eyebrow">Illustrative calculator</p><h1>PPE review estimate</h1><p>Enter your own assumptions to explore video-review time and an illustrative value of that time. This is not a product result, quote, forecast, or promised saving.</p></header>
-      <section class="calculator-card" data-roi-calculator="ppe" aria-labelledby="ppe-calculator-title">
-        <h2 id="ppe-calculator-title">Your assumptions</h2>
-        <div class="calculator-fields">
-          <label>Camera views<input name="cameras" type="number" min="0" step="1" inputmode="numeric"></label>
-          <label>Recorded hours per camera per day<input name="hours" type="number" min="0" step="0.1" inputmode="decimal"></label>
-          <label>Operating days per month<input name="days" type="number" min="0" step="1" inputmode="numeric"></label>
-          <label>Manual review minutes per recorded camera-hour<input name="minutes" type="number" min="0" step="0.1" inputmode="decimal"></label>
-          <label>Labour cost per hour (INR)<input name="hourlyCost" type="number" min="0" step="1" inputmode="decimal"></label>
-          <label>Share of review time explored (%)<input name="coverage" type="number" min="0" max="100" step="1" inputmode="numeric"></label>
+    <script src="../assets/js/forms.js" defer></script>
+    <script src="../assets/js/icons.js" defer></script>
+    <script src="../assets/js/components.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
+    <script src="../assets/js/roi-calc.js" defer></script>
+    <script src="../assets/js/roi-ppe.js" defer></script>
+  </head>
+  <body data-root="../">
+    <script>try{const saved=localStorage.getItem('frameiq-theme');document.body.dataset.theme=saved==='light'||saved==='dark'?saved:(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark')}catch(error){document.body.dataset.theme=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}</script>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div id="site-header"></div>
+    <main id="main-content">
+      <section class="dm-band dm-band--dark dm-hero">
+        <div class="dm-wrap dm-hero__grid">
+          <div class="dm-reveal">
+            <span class="dm-eyebrow">Demos</span>
+            <h1>PPE review <b>estimate</b></h1>
+            <p class="dm-hero__copy">Explore an illustrative PPE video-review time and value estimate.</p>
+            <div class="dm-actions">
+              <span class="dm-chip">Illustrative calculator</span>
+              <span class="dm-chip">Video review</span>
+              <span class="dm-chip">Value estimate</span>
+            </div>
+            <div class="dm-actions"><a class="dm-btn" href="contact.html">Book a Demo <i class="bi bi-arrow-right" aria-hidden="true"></i></a></div>
+          </div>
+          <div class="dm-frame dm-reveal" aria-label="Illustrative PPE safety compliance summary">
+            <div class="dm-frame__titlebar"><span></span><span></span><span></span><span class="dm-frame__title">PPE Safety review</span></div>
+            <div class="dm-frame__tabs"><span>Compliance</span><span>Review</span><span>Notes</span></div>
+            <div class="dm-frame__body">
+              <div class="dm-frame__canvas"><i class="bi bi-shield-check" aria-hidden="true"></i><i class="bi bi-person-badge" aria-hidden="true"></i><i class="bi bi-camera-video" aria-hidden="true"></i></div>
+              <div class="dm-frame__status">Illustrative safety-compliance summary</div>
+            </div>
+          </div>
         </div>
-        <p class="calculator-formula"><strong>Formula:</strong> camera views × recorded hours/day × operating days/month × manual review minutes/camera-hour ÷ 60 × explored share = illustrative hours/month. Illustrative hours × your hourly-cost input = illustrative value of time. No automated review coverage or savings is assumed.</p>
-        <p class="calculator-disclaimer">Illustrative estimate based on your inputs</p>
-        <div class="calculator-results" aria-live="polite"><p>Enter all six assumptions to display an estimate.</p></div>
-        <div class="calculator-actions"><button class="btn btn--secondary" type="button" data-calculator-print>Print to PDF</button><button class="btn btn--primary" type="button" data-calculator-email disabled>Email me this result</button></div>
-        <p class="calculator-status" role="status" aria-live="polite"></p>
       </section>
-      <p class="calculator-note">Use only figures you are comfortable entering in this browser. Values remain on this device unless you choose to open an email draft.</p>
-    </main><div id="site-footer"></div>
+
+      <section class="roi-band">
+        <div class="dm-wrap roi-calculator roi-calculator--mirrored" data-roi-calculator="ppe">
+          <aside class="roi-estimate dm-reveal" aria-live="polite">
+            <h2>Estimate</h2>
+            <div class="roi-estimate__headline" data-roi-outputs></div>
+            <p class="roi-disclaimer" data-roi-status>Illustrative estimate based on your inputs</p>
+          </aside>
+          <div class="roi-inputs dm-reveal">
+            <span class="dm-chip">Your assumptions</span>
+            <h2>Inputs</h2>
+            <p class="roi-note">Enter your own assumptions to explore video-review time and an illustrative value of that time. This is not a product result, quote, forecast, or promised saving.</p>
+            <div class="roi-inputs__fields" data-roi-fields></div>
+            <p class="roi-formula"><strong>Formula:</strong> camera views x recorded hours/day x operating days/month x manual review minutes/camera-hour / 60 x explored share = illustrative hours/month. Illustrative hours x your hourly-cost input = illustrative value of time. No automated review coverage or savings is assumed.</p>
+            <button class="roi-reset" type="button" data-roi-reset>Reset</button>
+            <p class="roi-note">Enter all six assumptions to display an estimate.</p>
+            <div class="roi-actions">
+              <button class="roi-reset" type="button" data-roi-print>Print to PDF</button>
+              <button class="dm-btn" type="button" data-roi-email>Email me this result</button>
+            </div>
+            <p class="roi-status" data-roi-action-status role="status" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="roi-band roi-band--dark dm-band dm-band--dark">
+        <div class="dm-wrap">
+          <div class="roi-assumptions dm-reveal">
+            <h2>Assumptions</h2>
+            <details open>
+              <summary>What this estimate means</summary>
+              <p>No automated review coverage or savings is assumed.</p>
+              <p>This is not a product result, quote, forecast, or promised saving.</p>
+            </details>
+          </div>
+          <p class="roi-note dm-reveal">Use only figures you are comfortable entering in this browser. Values remain on this device unless you choose to open an email draft.</p>
+        </div>
+      </section>
+
+      <section class="dm-band dm-band--dark">
+        <div class="dm-wrap dm-reveal">
+          <div class="dm-related">
+            <a class="dm-card" href="playground.html"><h3>Playground</h3><p>Explore illustrative FrameIQ AI Playground scenes.</p><i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            <a class="dm-card" href="roi-pcb-guardian.html"><h3>PCB Guardian ROI calculator</h3><p>Explore an illustrative PCB inspection time and value estimate.</p><i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="dm-band dm-band--dark dm-cta">
+        <div class="dm-wrap dm-reveal">
+          <span class="dm-chip">Talk to us</span>
+          <h2>Start a conversation</h2>
+          <p>Tell us about your use case and the FrameIQ team can review your enquiry.</p>
+          <a class="dm-btn" href="contact.html">Contact FrameIQ <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </section>
+    </main>
+    <div id="site-footer"></div>
   </body>
 </html>

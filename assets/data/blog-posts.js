@@ -56,4 +56,4 @@ if (window.LIVE_CARRYOVER?.SHOW_UNCONFIRMED) {
 }
 
 // false hides unfinished articles
-window.FRAMEIQ_BLOG_POSTS.SHOW_DRAFT = true;
+window.FRAMEIQ_BLOG_POSTS.SHOW_DRAFT = window.SITE_FLAGS?.SHOW_DRAFTS === true;

@@ -14,9 +14,9 @@
     return (list || []).filter(function (i) { return i.confirmed || D.SHOW_UNCONFIRMED; });
   }
   function section(id, eyebrow, title, note) {
-    var s = el('section', 'rs-section reveal');
+    var s = el('section', 'gk-band reveal');
     s.id = id;
-    var wrap = el('div', 'container');
+    var wrap = el('div', 'gk-wrap');
     wrap.appendChild(el('p', 'rs-eyebrow', eyebrow));
     wrap.appendChild(el('h2', 'rs-h2', title));
     if (note) wrap.appendChild(el('p', 'rs-note', note));
@@ -24,9 +24,9 @@
     return { s: s, wrap: wrap };
   }
   function cards(list, numbered) {
-    var grid = el('div', 'rs-grid');
+    var grid = el('div', 'gk-cards');
     list.forEach(function (item, i) {
-      var c = el('article', 'rs-card');
+      var c = el('article', 'gk-card');
       if (numbered) c.appendChild(el('span', 'rs-step', String(i + 1).padStart(2, '0')));
       c.appendChild(el('h3', 'rs-h3', item.title));
       c.appendChild(el('p', 'rs-p', item.text));
@@ -36,19 +36,19 @@
     return grid;
   }
 
-  var hero = el('section', 'rs-hero');
-  var hw = el('div', 'container rs-hero__inner');
+  var hero = el('section', 'gk-hero');
+  var hw = el('div', 'gk-wrap');
   var left = el('div', 'rs-hero__copy');
   left.appendChild(el('p', 'rs-eyebrow', 'Research · Computer vision'));
   var h1 = el('h1', 'rs-h1');
   h1.appendChild(document.createTextNode('From raw pixels to '));
-  h1.appendChild(el('span', 'text-gradient', 'useful decisions'));
+  h1.appendChild(el('b', '', 'useful decisions'));
   left.appendChild(h1);
   left.appendChild(el('p', 'rs-lead', D.intro.summary));
   var actions = el('div', 'rs-actions');
-  var a1 = el('a', 'btn btn--primary', 'Discuss a collaboration');
+  var a1 = el('a', 'gk-btn', 'Discuss a collaboration');
   a1.href = 'contact.html?topic=research';
-  var a2 = el('a', 'btn btn--secondary', 'Browse AI Store');
+  var a2 = el('a', 'gk-btn gk-btn--ghost', 'Browse AI Store');
   a2.href = 'ai-store.html';
   actions.appendChild(a1); actions.appendChild(a2);
   left.appendChild(actions);
@@ -145,14 +145,14 @@
     root.appendChild(s.s);
   });
 
-  var cta = el('section', 'rs-section rs-cta reveal');
-  var cw = el('div', 'container rs-cta__box');
+  var cta = el('section', 'gk-band gk-band--dark reveal');
+  var cw = el('div', 'gk-wrap gk-cta');
   cw.appendChild(el('p', 'rs-eyebrow', 'Talk to us'));
   cw.appendChild(el('h2', 'rs-h2', 'Have a vision problem to explore?'));
   cw.appendChild(el('p', 'rs-p', 'Share what you want to detect and where, and the FrameIQ team can review your enquiry.'));
   var ca = el('div', 'rs-actions');
-  var c1 = el('a', 'btn btn--primary', 'Start a conversation'); c1.href = 'contact.html?topic=research';
-  var c2 = el('a', 'btn btn--secondary', 'Browse sectors'); c2.href = 'sectors.html';
+  var c1 = el('a', 'gk-btn', 'Start a conversation'); c1.href = 'contact.html?topic=research';
+  var c2 = el('a', 'gk-btn gk-btn--ghost', 'Browse sectors'); c2.href = 'sectors.html';
   ca.appendChild(c1); ca.appendChild(c2);
   cw.appendChild(ca);
   cw.appendChild(el('p', 'rs-note', 'Focus areas, scope and timelines are confirmed on enquiry.'));
