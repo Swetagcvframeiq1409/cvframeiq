@@ -2,64 +2,185 @@
 
 /* ---------- section dots ---------- */
 .home-dots { position: fixed; right: 18px; top: 50%; transform: translateY(-50%); z-index: 40; }
+
+
+
 .home-dots ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+
+
+
 .home-dots a { display: flex; align-items: center; justify-content: flex-end; gap: 10px; padding: 4px 0; text-decoration: none; }
+
+
+
 .home-dots__dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(167, 139, 250, .35); transition: transform .3s, background .3s; }
+
+
+
 .home-dots__label {
   max-width: 0; overflow: hidden; white-space: nowrap; opacity: 0;
   padding: 0; border-radius: 999px; font-size: 12px; color: #fff;
   background: rgba(20, 16, 40, .92); border: 1px solid rgba(167, 139, 250, .3);
   transition: max-width .4s cubic-bezier(.23, 1, .32, 1), opacity .3s, padding .3s;
 }
+
+
+
 .home-dots a:hover .home-dots__label, .home-dots a:focus-visible .home-dots__label { max-width: 260px; opacity: 1; padding: 5px 12px; }
+
+
+
 .home-dots a:hover .home-dots__dot { transform: scale(1.5); background: #a78bfa; }
+
+
+
 .home-dots a.is-active .home-dots__dot { background: #a78bfa; transform: scale(1.6); box-shadow: 0 0 0 4px rgba(167, 139, 250, .25); }
-body[data-theme="light"] .home-dots__label { color: #1c1530; background: #fff; }
-@media (max-width: 1099px) { .home-dots { display: none; } }
+@media (max-width: 1099px) {    .home-dots { display: none; } }
+
+
+
+
+
+
 
 /* ---------- two-row marquee with soft edges (for the technology names) ---------- */
 .fx-marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+
+
+
 .fx-marquee__row { display: flex; gap: 12px; width: max-content; animation: fxScroll 38s linear infinite; padding: 6px 0; }
+
+
+
 .fx-marquee__row--reverse { animation-direction: reverse; animation-duration: 46s; }
+
+
+
 .fx-marquee:hover .fx-marquee__row { animation-play-state: paused; }
 @keyframes fxScroll { to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .fx-marquee__row { animation: none; } }
+@media (prefers-reduced-motion: reduce) {    .fx-marquee__row { animation: none; } }
+
+
+
+
+
+
 
 /* technology marquee chips */
 .fx-marquee__row > span { flex: 0 0 auto; padding: .55rem .9rem; border: 1px solid rgba(167, 139, 250, .2); border-radius: 999px; color: var(--text); background: color-mix(in srgb, var(--surface) 92%, transparent); }
 
+
+
+
+
+
+
 /* products showcase */
 .products-showcase__layout { display: grid; grid-template-columns: minmax(180px, 260px) minmax(0, 1fr); gap: clamp(1.25rem, 4vw, 4rem); align-items: stretch; }
+
+
+
 .products-showcase__tabs { display: grid; align-content: start; border-left: 1px solid var(--border); }
+
+
+
 .products-showcase__tab { position: relative; min-height: 58px; padding: .8rem 1rem .8rem 1.25rem; border: 0; color: var(--text-muted); background: transparent; text-align: left; cursor: pointer; font-weight: 700; }
+
+
+
 .products-showcase__tab::before { content: ""; position: absolute; left: -1px; top: 0; bottom: 0; width: 2px; background: transparent; }
+
+
+
 .products-showcase__tab.is-active { color: var(--text); }
+
+
+
 .products-showcase__tab.is-active::before { background: #a78bfa; }
+
+
+
 .products-showcase__progress { position: absolute; left: 0; right: 100%; bottom: 0; height: 2px; background: #a78bfa; opacity: 0; }
+
+
+
 .products-showcase__tab.is-active .products-showcase__progress { right: auto; width: 100%; opacity: 1; transform-origin: left; animation: productProgress 6s linear forwards; }
 @keyframes productProgress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+
+
 .products-showcase__panel { position: relative; display: grid; grid-template-columns: minmax(220px, 1fr) minmax(240px, .75fr); gap: clamp(1rem, 4vw, 3rem); min-height: 390px; padding: clamp(1rem, 3vw, 2rem); border: 1px solid var(--border); border-radius: 24px; overflow: hidden; opacity: 0; transform: translateY(8px); transition: opacity .4s ease, transform .4s ease; }
+
+
+
 .products-showcase__panel.is-visible { opacity: 1; transform: none; }
+
+
+
 .products-showcase__visual { position: relative; min-height: 320px; border-radius: 18px; overflow: hidden; background: radial-gradient(circle at 70% 30%, rgba(167,139,250,.4), transparent 28%), linear-gradient(135deg, #241946, #0b1222 70%, #092d34); }
+
+
+
 .products-showcase__visual::before { content: ""; position: absolute; inset: 18%; border: 1px solid rgba(255,255,255,.22); border-radius: 50%; box-shadow: 0 0 80px rgba(167,139,250,.25); }
+
+
+
 .products-showcase__visual i { position: absolute; color: rgba(255,255,255,.88); font-size: 2rem; }
+
+
+
 .products-showcase__visual i:nth-child(1) { left: 16%; top: 18%; }
+
+
+
 .products-showcase__visual i:nth-child(2) { right: 16%; top: 28%; }
+
+
+
 .products-showcase__visual i:nth-child(3) { left: 28%; bottom: 18%; }
+
+
+
 .products-showcase__visual i:nth-child(4) { right: 25%; bottom: 14%; }
+
+
+
 .products-showcase__copy { align-self: center; }
+
+
+
 .products-showcase__copy h3 { margin: 0 0 .75rem; font-size: clamp(1.75rem, 4vw, 3rem); }
+
+
+
 .products-showcase__copy p { color: var(--text-muted); }
+
+
+
 [data-tone] { transition: background-color .6s ease; border-top: 1px solid transparent; border-image: linear-gradient(90deg, rgba(167,139,250,.65), transparent 55%) 1; }
-body[data-theme="light"] .products-showcase__panel,
-body[data-theme="light"] .fx-marquee__row > span { color: #1c1530; border-color: rgba(35,30,50,.18); background: rgba(255,255,255,.92); }
-body[data-theme="light"] .products-showcase__tab { color: #5c5568; }
-body[data-theme="light"] .products-showcase__tab.is-active { color: #1c1530; }
 @media (max-width: 760px) {
+  
+  
+  
   .products-showcase__layout { grid-template-columns: 1fr; }
+  
+  
+  
   .products-showcase__tabs { grid-template-columns: repeat(5, minmax(max-content, 1fr)); overflow-x: auto; border-left: 0; border-bottom: 1px solid var(--border); }
+  
+  
+  
   .products-showcase__tab { border-bottom: 2px solid transparent; }
+  
+  
+  
   .products-showcase__tab.is-active::before { top: auto; left: 0; right: 0; width: auto; height: 2px; }
+  
+  
+  
   .products-showcase__panel { grid-template-columns: 1fr; }
+  
+  
+  
   .products-showcase__visual { min-height: 250px; }
 }

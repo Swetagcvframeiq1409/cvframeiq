@@ -2,23 +2,71 @@
 
 /* A. gk.css spacing must not stretch Home's own sections (stat band, partners etc.) */
 body.gk-home #main-content > section{padding-block:revert}
+
+
+
 body.gk-home #main-content > section + section{border-top:0}
+
+
+
 body.gk-home #main-content .home-stat-band{padding-block:clamp(28px,4vw,48px)}
+
+
+
+
+
+
 
 /* B. word-reveal headings: nothing may be cut (letters like y, g, p and the 2nd line) */
 #main-content .fx-w{display:inline-block;overflow:visible;padding-bottom:0;margin-bottom:0;vertical-align:baseline}
+
+
+
 #main-content .fx-wi{display:inline-block;will-change:transform,opacity}
+
+
+
 #main-content h1,#main-content h2{line-height:1.12;overflow:visible}
+
+
+
 #main-content h2{padding-bottom:.06em}
+
+
+
+
+
+
 
 /* C. small headings inside side lists / "On this page" must stay small */
 #main-content aside h2,#main-content aside h3,#main-content nav h2,#main-content nav h3,
 #main-content [class*="toc"] h2,#main-content [class*="toc"] h3,#main-content [class*="on-this"] *{font-family:inherit;font-size:.78rem!important;letter-spacing:.14em;text-transform:uppercase;font-weight:600;line-height:1.4}
 
+
+
+
+
+
+
 /* D. header drop-down lists: show every item, no inner scrollbar */
 .site-header .nav-group-menu,.site-header .mega-menu,.site-header .dropdown{max-height:none!important;overflow:visible!important}
+
+
+
 .site-header .nav-group-menu--wide,.site-header .mega-menu{columns:2;column-gap:8px}
+
+
+
 .site-header .nav-group-menu a,.site-header .mega-menu a,.site-header .dropdown a{break-inside:avoid}
 
+
+
+
+
+
+
 .site-footer a{transition:color .3s,transform .4s cubic-bezier(.23,1,.32,1)}
+
+
+
 .site-footer a:hover{color:var(--accent,#8b6ee0);transform:translateX(4px)}

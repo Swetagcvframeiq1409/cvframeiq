@@ -4,11 +4,23 @@
   padding: calc(var(--header-h) + 4rem) 0 4rem;
 }
 
+
+
+
+
+
+
 .dc-hero {
   max-width: 800px;
   margin: 0 auto 3.5rem;
   text-align: center;
 }
+
+
+
+
+
+
 
 .dc-eyebrow {
   margin: 0 0 .85rem;
@@ -17,6 +29,12 @@
   font-weight: 800;
   letter-spacing: .17em;
 }
+
+
+
+
+
+
 
 .dc-hero h1 {
   margin: 0 0 1rem;
@@ -27,7 +45,19 @@
   letter-spacing: -.045em;
 }
 
+
+
+
+
+
+
 .dc-hero h1 .text-gradient { white-space: nowrap; }
+
+
+
+
+
+
 
 .dc-hero > p:last-child,
 .dc-notify > p {
@@ -38,11 +68,23 @@
   line-height: 1.7;
 }
 
+
+
+
+
+
+
 .dc-section,
 .dc-notify {
   max-width: 900px;
   margin: 3.5rem auto 0;
 }
+
+
+
+
+
+
 
 .dc-draft-notice {
   margin: -1.5rem 0 2rem;
@@ -50,6 +92,12 @@
   font-size: .8rem;
   text-align: center;
 }
+
+
+
+
+
+
 
 .dc-section > h2,
 .dc-notify h2 {
@@ -59,11 +107,23 @@
   font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
+
+
+
+
+
+
 .dc-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
+
+
+
+
+
+
 
 .dc-card,
 .dc-notify {
@@ -74,6 +134,12 @@
   background: var(--surface);
   box-shadow: var(--shadow-card);
 }
+
+
+
+
+
+
 
 .dc-card__status,
 .dc-card__unconfirmed {
@@ -88,6 +154,12 @@
   font-weight: 700;
 }
 
+
+
+
+
+
+
 .dc-card h3 {
   margin: 0 0 .7rem;
   color: var(--text);
@@ -95,40 +167,88 @@
   font-size: 1.2rem;
 }
 
+
+
+
+
+
+
 .dc-card > p {
   margin: 0;
   color: var(--text-muted);
   line-height: 1.65;
 }
 
+
+
+
+
+
+
 .dc-notify {
   max-width: 780px;
 }
 
+
+
+
+
+
+
 .dc-notify h2 {
   margin-bottom: .5rem;
 }
+
+
+
+
+
+
 
 .dc-notify > p {
   margin: 0 0 1.2rem;
   font-size: 1rem;
 }
 
+
+
+
+
+
+
 .dc-form {
   display: grid;
   gap: 1rem;
 }
+
+
+
+
+
+
 
 .dc-form__field {
   display: grid;
   gap: .45rem;
 }
 
+
+
+
+
+
+
 .dc-form label {
   color: var(--text);
   font-size: .93rem;
   font-weight: 650;
 }
+
+
+
+
+
+
 
 .dc-form input[type="email"] {
   width: 100%;
@@ -140,14 +260,32 @@
   color: var(--text);
 }
 
+
+
+
+
+
+
 .dc-form input:focus-visible {
   outline: 3px solid var(--ring);
   outline-offset: 2px;
 }
 
+
+
+
+
+
+
 .dc-form input[aria-invalid="true"] {
   border-color: var(--danger);
 }
+
+
+
+
+
+
 
 .dc-form .dc-consent {
   display: flex;
@@ -159,16 +297,34 @@
   line-height: 1.55;
 }
 
+
+
+
+
+
+
 .dc-consent input {
   flex: 0 0 auto;
   margin: .2rem 0 0;
   accent-color: var(--primary);
 }
 
+
+
+
+
+
+
 .dc-consent input:focus-visible {
   outline: 3px solid var(--ring);
   outline-offset: 2px;
 }
+
+
+
+
+
+
 
 .dc-form__trap {
   position: absolute;
@@ -178,6 +334,12 @@
   clip-path: inset(50%);
   white-space: nowrap;
 }
+
+
+
+
+
+
 
 .dc-button {
   display: inline-flex;
@@ -194,16 +356,34 @@
   cursor: pointer;
 }
 
+
+
+
+
+
+
 .dc-button:focus-visible,
 .dc-form__fallback:focus-visible {
   outline: 3px solid var(--ring);
   outline-offset: 3px;
 }
 
+
+
+
+
+
+
 .dc-button:disabled {
   cursor: wait;
   opacity: .7;
 }
+
+
+
+
+
+
 
 .dc-status {
   min-height: 1.4em;
@@ -212,12 +392,24 @@
   line-height: 1.5;
 }
 
+
+
+
+
+
+
 .dc-form__fallback {
   color: var(--text);
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: .15em;
 }
+
+
+
+
+
+
 
 .dc-note {
   margin: 2.5rem 0 0;
@@ -226,40 +418,64 @@
   text-align: center;
 }
 
-body[data-theme="light"] .dc-eyebrow {
-  color: #5b21b6;
-}
-
-body[data-theme="light"] .dc-card__status,
-body[data-theme="light"] .dc-card__unconfirmed {
-  color: #5b21b6;
-}
-
 @media (max-width: 700px) {
+  
+  
+  
   .dc-page {
     width: min(100% - 2rem, 1120px);
     padding-top: calc(var(--header-h) + 2.75rem);
     padding-bottom: 3rem;
   }
 
+  
+
+  
+
+  
+
   .dc-hero {
     margin-bottom: 2.5rem;
     text-align: left;
   }
+
+  
+
+  
+
+  
 
   .dc-draft-notice {
     margin: -1rem 0 1.5rem;
     text-align: left;
   }
 
+  
+
+  
+
+  
+
   .dc-grid {
     grid-template-columns: 1fr;
   }
+
+  
+
+  
+
+  
 
   .dc-section,
   .dc-notify {
     margin-top: 2.5rem;
   }
+
+  
+
+  
+
+  
 
   .dc-button {
     width: 100%;
@@ -267,6 +483,9 @@ body[data-theme="light"] .dc-card__unconfirmed {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  
+  
+  
   .dc-button {
     transition: none;
   }

@@ -166,9 +166,6 @@ function renderHeader(root = getRootPath()) {
             ${navMarkup}
           </div>
           <div class="header-actions">
-            <button class="icon-button header-theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
-              <i class="${window.iconClass('moon')}" aria-hidden="true"></i>
-            </button>
             <a class="nav-login header-login${isLoginPage ? ' is-active' : ''}" href="${pageHref('pages/login.html')}"${isLoginPage ? ' aria-current="page"' : ''}>Login</a>
             <a class="btn btn--primary header-start" href="${pageHref('pages/contact.html')}"><span>Contact Us</span><i class="bi bi-arrow-right" aria-hidden="true"></i></a>
           </div>

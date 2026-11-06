@@ -5,11 +5,16 @@
 
 @media (min-width: 900px) {
 
+  
+
   /* ---------- card: soft light from the top, thin glass border ---------- */
   #home-practices.bento-stack-on .site-bento { counter-reset: bento-n; }
+  
   #home-practices.bento-stack-on .site-bento__item { counter-increment: bento-n; }
 
-  body[data-theme="dark"] #home-practices.bento-stack-on .site-bento__card,
+  
+
+  body #home-practices.bento-stack-on .site-bento__card,
   #home-practices.bento-stack-on[data-tone="dark"] .site-bento__card {
     background:
       radial-gradient(120% 80% at 0% 0%, rgba(142, 110, 255, .14), transparent 55%),
@@ -18,6 +23,8 @@
     box-shadow: 0 40px 90px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(255, 255, 255, .07);
   }
 
+  
+
   /* ---------- left side: counter, gradient title, pill button ---------- */
   #home-practices.bento-stack-on .site-bento__content {
     position: relative;
@@ -25,6 +32,7 @@
     opacity: calc(.25 + .75 * var(--e, 1));
     transform: translateX(calc((1 - var(--e, 1)) * -28px));
   }
+  
   #home-practices.bento-stack-on .site-bento__content::before {
     content: counter(bento-n, decimal-leading-zero) " / 05";
     position: absolute;
@@ -34,6 +42,7 @@
     font: 500 .78rem/1 var(--font-body, inherit);
     letter-spacing: .18em;
   }
+  
   #home-practices.bento-stack-on .site-bento__content strong {
     background: linear-gradient(180deg, var(--tone-text) 35%, color-mix(in srgb, var(--tone-text) 55%, transparent));
     -webkit-background-clip: text;
@@ -41,6 +50,7 @@
     color: transparent;
     letter-spacing: -.045em;
   }
+  
   /* the small label gets a glowing dot */
   #home-practices.bento-stack-on .site-bento__content .eyebrow {
     display: inline-flex;
@@ -52,6 +62,7 @@
     text-transform: uppercase;
     font-size: .7rem;
   }
+  
   #home-practices.bento-stack-on .site-bento__content .eyebrow::before {
     content: "";
     width: 7px;
@@ -61,6 +72,7 @@
     box-shadow: 0 0 0 0 rgba(101, 66, 200, .55);
     animation: bento-pulse 2.4s ease-out infinite;
   }
+  
   /* the link becomes a pill button, it fills with the accent colour on hover */
   #home-practices.bento-stack-on .site-bento__link {
     align-self: flex-start;
@@ -70,6 +82,7 @@
     border-radius: 999px;
     transition: background-color 350ms var(--ease-out, ease), border-color 350ms var(--ease-out, ease), color 350ms var(--ease-out, ease);
   }
+  
   #home-practices.bento-stack-on .site-bento__link .bi {
     display: grid;
     place-items: center;
@@ -80,16 +93,20 @@
     color: var(--tone-surface);
     transition: transform 350ms var(--ease-out, ease), background-color 350ms var(--ease-out, ease);
   }
+  
   #home-practices.bento-stack-on .site-bento__card:hover .site-bento__link {
     background: var(--accent);
     border-color: var(--accent);
     color: #fff;
   }
+  
   #home-practices.bento-stack-on .site-bento__card:hover .site-bento__link .bi {
     background: #fff;
     color: var(--accent);
     transform: translateX(3px) rotate(-45deg);
   }
+
+  
 
   /* ---------- right side: moving colour, dotted grid, glow ---------- */
   #home-practices.bento-stack-on .site-bento__panel {
@@ -97,6 +114,7 @@
     animation: bento-drift 14s ease-in-out infinite alternate;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12);
   }
+  
   #home-practices.bento-stack-on .site-bento__panel::after {
     content: "";
     position: absolute;
@@ -108,10 +126,15 @@
     mask-image: radial-gradient(70% 70% at 50% 50%, #000, transparent);
     pointer-events: none;
   }
+  
   /* each card colour also gets its own drift start so they do not all move together */
   #home-practices.bento-stack-on .site-bento__card--store .site-bento__panel { animation-delay: -3s; }
+  
   #home-practices.bento-stack-on .site-bento__card--gear .site-bento__panel { animation-delay: -6s; }
+  
   #home-practices.bento-stack-on .site-bento__card--beejhealth .site-bento__panel { animation-delay: -9s; }
+
+  
 
   /* ---------- white mock card: floats, glowing "live" dot, round ticks ---------- */
   #home-practices.bento-stack-on .site-bento__mock {
@@ -120,6 +143,7 @@
     animation: bento-float 6s ease-in-out infinite;
     box-shadow: 0 40px 80px rgba(0, 0, 0, .4), 0 0 0 1px rgba(255, 255, 255, .6);
   }
+  
   #home-practices.bento-stack-on .site-bento__mock::after {
     content: "";
     position: absolute;
@@ -132,6 +156,7 @@
     box-shadow: 0 0 0 0 rgba(34, 197, 94, .55);
     animation: bento-live 2s ease-out infinite;
   }
+  
   #home-practices.bento-stack-on .site-bento__mock .bi {
     display: inline-grid;
     place-items: center;
@@ -143,6 +168,8 @@
     color: #6542c8;
     font-size: .8rem;
   }
+
+  
 
   /* ---------- dots: a small glass pill ---------- */
   #home-practices.bento-stack-on .site-bento__dots {
@@ -161,6 +188,9 @@
 @keyframes bento-live   { 70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
 
 @media (prefers-reduced-motion: reduce) {
+  
+  
+  
   #home-practices .site-bento__panel,
   #home-practices .site-bento__mock,
   #home-practices .site-bento__mock::after,

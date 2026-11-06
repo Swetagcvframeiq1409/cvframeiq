@@ -23,10 +23,10 @@
     <script src="../../assets/js/components.js" defer></script>
     <script src="../../assets/js/main.js" defer></script>
     <script src="../../assets/js/hw-gear.js" defer></script>
-  </head>
+      <meta name="color-scheme" content="dark" />
+</head>
   <body data-root="../../">
-    <script>try{const saved=localStorage.getItem('frameiq-theme');document.body.dataset.theme=saved==='light'||saved==='dark'?saved:(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark')}catch(error){document.body.dataset.theme='dark'}</script>
-    <a class="skip-link" href="#main-content">Skip to content</a>
+        <a class="skip-link" href="#main-content">Skip to content</a>
     <div id="site-header"></div>
     <main id="main-content" class="hw-page frameiq-home" data-hardware-gear>
       <section class="hw-band hw-band--dark hw-hero" data-tone="dark" aria-labelledby="gear-title">
@@ -51,7 +51,7 @@
         </div>
       </section>
 
-      <section class="hw-band hw-band--light" data-tone="light" id="catalog">
+      <section class="hw-band hw-band--raised" data-tone="raised" id="catalog">
         <div class="hw-wrap">
           <button class="hw-filter-toggle" type="button" data-filter-toggle aria-expanded="false">Filters</button>
           <div class="hw-catalog-layout">

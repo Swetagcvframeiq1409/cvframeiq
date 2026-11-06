@@ -1,9 +1,24 @@
 /* fix-footer.css - footer layout fix. Linked LAST on every page. Delete the link to undo. */
 /* 1. grid: brand row on top (full width), link columns below, each at least 160px so words do not break */
 .site-footer .footer-grid{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))!important;gap:44px 36px!important;align-items:start}
+
+
+
 .site-footer .footer-grid > :first-child{grid-column:1/-1!important;display:grid;grid-template-columns:minmax(260px,1.2fr) minmax(280px,1fr);gap:24px 48px;align-items:start;padding-bottom:40px;border-bottom:1px solid rgba(127,127,150,.2)}
+
+
+
 .site-footer .footer-grid > :first-child form{max-width:460px}
+
+
+
 .site-footer .footer-grid a{display:inline-block;white-space:normal;line-height:1.4;padding:5px 0}
+
+
+
 .site-footer .footer-grid h3,.site-footer .footer-grid h4{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
 @media(max-width:760px){.site-footer .footer-grid > :first-child{grid-template-columns:1fr}.site-footer .footer-grid{grid-template-columns:1fr 1fr!important}}
+
+
+
 .site-footer{overflow:hidden}

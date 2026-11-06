@@ -1,39 +1,3 @@
-function getStoredTheme() {
-  try {
-    const saved = localStorage.getItem('frameiq-theme');
-    if (saved === 'light' || saved === 'dark') return saved;
-  } catch (error) {
-    console.warn('Saved theme could not be read.', error);
-  }
-  return 'dark';
-}
-
-function applyTheme(theme, persist = true) {
-  document.body.dataset.theme = theme;
-  if (!persist) return;
-  try {
-    localStorage.setItem('frameiq-theme', theme);
-  } catch (error) {
-    console.warn('Theme preference could not be saved.', error);
-  }
-}
-
-function initThemeToggle() {
-  applyTheme(document.body.dataset.theme || getStoredTheme(), false);
-  const toggles = Array.from(document.querySelectorAll('[data-theme-toggle]'));
-  const updateToggleIcons = () => {
-    toggles.forEach((toggle) => {
-    const icon = toggle.querySelector('i');
-    if (icon) icon.className = window.iconClass(document.body.dataset.theme === 'light' ? 'moon' : 'sun');
-    });
-  };
-  updateToggleIcons();
-  toggles.forEach((toggle) => toggle.addEventListener('click', () => {
-    applyTheme(document.body.dataset.theme === 'light' ? 'dark' : 'light');
-    updateToggleIcons();
-  }));
-}
-
 function initMegaMenus() {
   const nav = document.querySelector('.nav');
   if (!nav) return;
@@ -579,7 +543,6 @@ function initSiteContact() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  initThemeToggle();
   try {
     initMegaMenus();
   } catch (error) {

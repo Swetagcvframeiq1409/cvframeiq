@@ -31,7 +31,7 @@ Opening `index.html` straight from the file system mostly works, but the browser
 - No text written over photos.
 - The logo is a temporary text wordmark made in CSS. There's no favicon on purpose.
 - No cookie banner.
-- Both a dark and a light theme, from 320px up to wide desktop screens.
+- A dark-only theme, from 320px up to wide desktop screens.
 
 ## Motion
 

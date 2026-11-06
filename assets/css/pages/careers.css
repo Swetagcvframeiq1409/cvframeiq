@@ -4,11 +4,23 @@
   padding: calc(var(--header-h) + 4rem) 0 4rem;
 }
 
+
+
+
+
+
+
 .cr-hero {
   max-width: 800px;
   margin: 0 auto 3.5rem;
   text-align: center;
 }
+
+
+
+
+
+
 
 .cr-eyebrow {
   margin: 0 0 .85rem;
@@ -17,6 +29,12 @@
   font-weight: 800;
   letter-spacing: .17em;
 }
+
+
+
+
+
+
 
 .cr-hero h1 {
   margin: 0 0 1rem;
@@ -27,6 +45,12 @@
   letter-spacing: -.045em;
 }
 
+
+
+
+
+
+
 .cr-hero > p:last-child {
   max-width: 680px;
   margin: 0 auto;
@@ -35,9 +59,21 @@
   line-height: 1.7;
 }
 
+
+
+
+
+
+
 .cr-section {
   margin-top: 3.5rem;
 }
+
+
+
+
+
+
 
 .cr-draft-notice {
   margin: -1.5rem 0 2rem;
@@ -46,6 +82,12 @@
   text-align: center;
 }
 
+
+
+
+
+
+
 .cr-section > h2 {
   margin: 0 0 1.25rem;
   color: var(--text);
@@ -53,11 +95,23 @@
   font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
+
+
+
+
+
+
 .cr-roles {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
+
+
+
+
+
+
 
 .cr-role,
 .cr-empty,
@@ -70,9 +124,21 @@
   box-shadow: var(--shadow-card);
 }
 
+
+
+
+
+
+
 .cr-empty {
   grid-column: 1 / -1;
 }
+
+
+
+
+
+
 
 .cr-role h3 {
   margin: 0 0 .7rem;
@@ -81,6 +147,12 @@
   font-size: 1.25rem;
 }
 
+
+
+
+
+
+
 .cr-role > p,
 .cr-empty > p {
   margin: 0;
@@ -88,15 +160,33 @@
   line-height: 1.7;
 }
 
+
+
+
+
+
+
 .cr-role .cr-button,
 .cr-empty .cr-button {
   margin-top: 1rem;
 }
 
+
+
+
+
+
+
 .cr-role__details {
   margin-bottom: .65rem !important;
   font-size: .92rem;
 }
+
+
+
+
+
+
 
 .cr-status {
   display: inline-flex;
@@ -108,6 +198,12 @@
   font-size: .76rem;
   font-weight: 700;
 }
+
+
+
+
+
+
 
 .cr-button {
   display: inline-flex;
@@ -125,16 +221,34 @@
   text-decoration: none;
 }
 
+
+
+
+
+
+
 .cr-button:focus-visible {
   outline: 3px solid var(--ring);
   outline-offset: 3px;
 }
+
+
+
+
+
+
 
 .cr-values {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
+
+
+
+
+
+
 
 .cr-value {
   display: flex;
@@ -144,6 +258,12 @@
   line-height: 1.6;
 }
 
+
+
+
+
+
+
 .cr-note {
   margin: 2.5rem 0 0;
   color: var(--text-muted);
@@ -151,35 +271,64 @@
   text-align: center;
 }
 
-body[data-theme="light"] .cr-eyebrow {
-  color: #5b21b6;
-}
-
 @media (max-width: 700px) {
+  
+  
+  
   .cr-page {
     width: min(100% - 2rem, 1120px);
     padding-top: calc(var(--header-h) + 2.75rem);
     padding-bottom: 3rem;
   }
 
+  
+
+  
+
+  
+
   .cr-hero {
     margin-bottom: 2.5rem;
     text-align: left;
   }
+
+  
+
+  
+
+  
 
   .cr-draft-notice {
     margin: -1rem 0 1.5rem;
     text-align: left;
   }
 
+  
+
+  
+
+  
+
   .cr-roles,
   .cr-values {
     grid-template-columns: 1fr;
   }
 
+  
+
+  
+
+  
+
   .cr-section {
     margin-top: 2.5rem;
   }
+
+  
+
+  
+
+  
 
   .cr-button {
     width: 100%;

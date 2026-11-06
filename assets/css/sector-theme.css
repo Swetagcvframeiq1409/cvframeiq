@@ -1,52 +1,10 @@
-/* sector-theme.css — theme-aware gradient bands for sector pages.
-   Scoped entirely to #main-content.sx-page. No header/footer/Home touched.
-   Linked LAST on every sector page (after gk-motion.css) so it wins. */
 
-/* ─────────────────────────────────────────────
-   §1  DESIGN TOKENS  (dark = default, body[data-theme="light"] overrides)
-   ───────────────────────────────────────────── */
-#main-content.sx-page {
-  --sx-bg-0:        #0a0a12;
-  --sx-bg-1:        #0f0e1b;
-  --sx-bg-2:        #14122a;
-  --sx-text:        #f4f3fb;
-  --sx-muted:       #b7b4cf;
-  --sx-card:        rgba(255,255,255,.05);
-  --sx-card-border: rgba(255,255,255,.09);
-  --sx-card-shadow: 0 12px 40px rgba(0,0,0,.35);
-  --sx-hairline:    linear-gradient(90deg,transparent,rgba(139,108,235,.55),transparent);
-  --sx-glow:        radial-gradient(60rem 28rem at 12% 0%,rgba(101,66,200,.38),transparent 62%),
-                    radial-gradient(40rem 24rem at 92% 18%,rgba(70,96,235,.18),transparent 62%);
-  --sx-glow-r:      radial-gradient(50rem 26rem at 88% 50%,rgba(101,66,200,.28),transparent 60%);
-  --sx-accent-grad: linear-gradient(135deg,#1b1046 0%,#2f1c7a 45%,#5236b3 100%);
-  --sx-accent-text: #ffffff;
-  --sx-accent-muted:rgba(255,255,255,.82);
-  --sx-fg:          var(--sx-text);
-  --sx-surface:     var(--sx-bg-1);
-  --sx-surface-hover: var(--sx-bg-2);
-  --sx-border:      var(--sx-card-border);
-  --sx-accent-contrast: #b7a4ff;
-}
 
-body[data-theme="light"] #main-content.sx-page {
-  --sx-bg-0:        #faf9ff;
-  --sx-bg-1:        #f2effd;
-  --sx-bg-2:        #ebe6fb;
-  --sx-text:        #14122a;
-  --sx-muted:       #4b4868;
-  --sx-card:        #ffffff;
-  --sx-card-border: rgba(101,66,200,.16);
-  --sx-card-shadow: 0 10px 30px rgba(101,66,200,.10);
-  --sx-hairline:    linear-gradient(90deg,transparent,rgba(101,66,200,.40),transparent);
-  --sx-glow:        radial-gradient(60rem 28rem at 12% 0%,rgba(101,66,200,.10),transparent 62%),
-                    radial-gradient(40rem 24rem at 92% 18%,rgba(70,96,235,.06),transparent 62%);
-  --sx-glow-r:      radial-gradient(50rem 26rem at 88% 50%,rgba(101,66,200,.08),transparent 60%);
-  --sx-fg:          var(--sx-text);
-  --sx-surface:     #ffffff;
-  --sx-surface-hover: var(--sx-bg-1);
-  --sx-border:      var(--sx-card-border);
-  --sx-accent-contrast: #5532b5;
-}
+
+
+
+
+
 
 /* ─────────────────────────────────────────────
    §2  BASE BAND RESET
@@ -59,7 +17,7 @@ body[data-theme="light"] #main-content.sx-page {
 #main-content.sx-page .sx-band,
 #main-content.sx-page .sx-band[data-tone],
 #main-content.sx-page .sx-band[data-tone="dark"],
-#main-content.sx-page .sx-band[data-tone="light"] {
+#main-content.sx-page .sx-band[data-tone="raised"] {
   background: none;
   background-color: var(--sx-bg-0);
   background-image: none;
@@ -67,16 +25,23 @@ body[data-theme="light"] #main-content.sx-page {
   position: relative;
 }
 
-body[data-theme="light"] #main-content.sx-page .sx-band,
-body[data-theme="light"] #main-content.sx-page .sx-band[data-tone="dark"],
-body[data-theme="light"] #main-content.sx-page .sx-band[data-tone="light"],
-body[data-theme="dark"]  #main-content.sx-page .sx-band[data-tone="dark"],
-body[data-theme="dark"]  #main-content.sx-page .sx-band[data-tone="light"] {
+
+
+
+
+body  #main-content.sx-page .sx-band[data-tone="dark"],
+body  #main-content.sx-page .sx-band[data-tone="raised"] {
   background: none;
   background-color: var(--sx-bg-0);
   background-image: none;
   color: var(--sx-text);
 }
+
+
+
+
+
+
 
 /* ─────────────────────────────────────────────
    §3  BAND BACKGROUNDS  (by section class)
@@ -92,6 +57,12 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band[data-tone="light"] {
   color: var(--sx-text);
 }
 
+
+
+
+
+
+
 /* Filter bar (subnav) — bg-1 */
 #main-content.sx-page .sx-subnav-band.sx-band,
 #main-content.sx-page .sx-band.sx-subnav-band {
@@ -99,6 +70,12 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band[data-tone="light"] {
   background-image: none;
   border-block-color: var(--sx-card-border);
 }
+
+
+
+
+
+
 
 /* Explore visual use cases (proof / marquee band) — bg-1 */
 #main-content.sx-page .sx-proof.sx-band,
@@ -108,6 +85,12 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band[data-tone="light"] {
   color: var(--sx-text);
 }
 
+
+
+
+
+
+
 /* Challenges — bg-0 */
 #main-content.sx-page .sx-challenges.sx-band,
 #main-content.sx-page .sx-band.sx-challenges {
@@ -116,13 +99,17 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band[data-tone="light"] {
   color: var(--sx-text);
 }
 
+
+
+
+
+
+
 /* What we build — ACCENT band (always dark regardless of theme) */
 #main-content.sx-page .sx-solutions.sx-band,
 #main-content.sx-page .sx-band.sx-solutions,
-body[data-theme="light"] #main-content.sx-page .sx-solutions.sx-band,
-body[data-theme="light"] #main-content.sx-page .sx-band.sx-solutions,
-body[data-theme="dark"]  #main-content.sx-page .sx-solutions.sx-band,
-body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
+body  #main-content.sx-page .sx-solutions.sx-band,
+body  #main-content.sx-page .sx-band.sx-solutions {
   background-color: #1b1046;
   background-image:
     var(--sx-accent-grad),
@@ -130,6 +117,12 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
     repeating-linear-gradient(90deg, rgba(255,255,255,.03) 0, rgba(255,255,255,.03) 1px, transparent 1px, transparent 3rem);
   color: var(--sx-accent-text);
 }
+
+
+
+
+
+
 
 /* Signature / journey bands — bg-2 + right glow */
 #main-content.sx-page .sx-signature.sx-band,
@@ -139,6 +132,12 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
   color: var(--sx-text);
 }
 
+
+
+
+
+
+
 /* How FrameIQ works — bg-1 */
 #main-content.sx-page .sx-process.sx-band,
 #main-content.sx-page .sx-band.sx-process {
@@ -146,6 +145,12 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
   background-image: linear-gradient(180deg, var(--sx-bg-1), var(--sx-bg-0));
   color: var(--sx-text);
 }
+
+
+
+
+
+
 
 /* What teams can review — bg-1 */
 #main-content.sx-page .sx-outcomes.sx-band,
@@ -155,6 +160,12 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
   color: var(--sx-text);
 }
 
+
+
+
+
+
+
 /* Explore related capabilities / stack — bg-0 */
 #main-content.sx-page .sx-stack.sx-band,
 #main-content.sx-page .sx-band.sx-stack {
@@ -162,6 +173,12 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
   background-image: linear-gradient(180deg, var(--sx-bg-0), var(--sx-bg-1));
   color: var(--sx-text);
 }
+
+
+
+
+
+
 
 /* FAQ — bg-0 */
 #main-content.sx-page .sx-faq.sx-band,
@@ -171,6 +188,12 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
   color: var(--sx-text);
 }
 
+
+
+
+
+
+
 /* Explore other sectors — bg-1 */
 #main-content.sx-page .sx-others.sx-band,
 #main-content.sx-page .sx-band.sx-others {
@@ -178,6 +201,12 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
   background-image: none;
   color: var(--sx-text);
 }
+
+
+
+
+
+
 
 /* CTA (Start a conversation) — bg-2 */
 #main-content.sx-page .sx-cta.sx-band,
@@ -187,6 +216,12 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
   color: var(--sx-text);
 }
 
+
+
+
+
+
+
 /* Sectors index bands */
 #main-content.sx-page .sx-sector-grid-band.sx-band,
 #main-content.sx-page .sx-band.sx-sector-grid-band {
@@ -194,18 +229,30 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
   background-image: none;
   color: var(--sx-text);
 }
+
+
+
 #main-content.sx-page .sx-marquee-band.sx-band,
 #main-content.sx-page .sx-band.sx-marquee-band {
   background-color: var(--sx-bg-0);
   background-image: none;
   color: var(--sx-text);
 }
+
+
+
 #main-content.sx-page .sx-capabilities.sx-band,
 #main-content.sx-page .sx-band.sx-capabilities {
   background-color: var(--sx-bg-1);
   background-image: none;
   color: var(--sx-text);
 }
+
+
+
+
+
+
 
 /* ─────────────────────────────────────────────
    §4  SIGNATURE-SPECIFIC BAND BACKGROUNDS
@@ -215,40 +262,70 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
   background-color: var(--sx-bg-2);
   background-image: var(--sx-glow-r);
 }
+
+
+
 #main-content.sx-page .sx-sig--healthcare-medical.sx-band {
   background-color: var(--sx-bg-2);
   background-image: var(--sx-glow-r);
 }
+
+
+
 #main-content.sx-page .sx-sig--events-entertainment.sx-band {
   background-color: var(--sx-bg-2);
   background-image: var(--sx-glow-r);
 }
+
+
+
 #main-content.sx-page .sx-sig--manufacturing.sx-band {
   background-color: var(--sx-bg-2);
   background-image:
     repeating-linear-gradient(90deg, rgba(101,66,200,.06) 0, rgba(101,66,200,.06) 1px, transparent 1px, transparent 2rem),
     var(--sx-glow-r);
 }
+
+
+
 #main-content.sx-page .sx-sig--agriculture.sx-band {
   background-color: var(--sx-bg-2);
   background-image: var(--sx-glow-r);
 }
+
+
+
 #main-content.sx-page .sx-sig--banking-finance.sx-band {
   background-color: var(--sx-bg-2);
   background-image: var(--sx-glow-r);
 }
+
+
+
 #main-content.sx-page .sx-sig--aviation.sx-band {
   background-color: var(--sx-bg-2);
   background-image: var(--sx-glow-r);
 }
+
+
+
 #main-content.sx-page .sx-sig--infrastructure.sx-band {
   background-color: var(--sx-bg-2);
   background-image: var(--sx-glow-r);
 }
+
+
+
 #main-content.sx-page .sx-sig--retail.sx-band {
   background-color: var(--sx-bg-2);
   background-image: var(--sx-glow-r);
 }
+
+
+
+
+
+
 
 /* ─────────────────────────────────────────────
    §5  REMOVE HARD CUTS — hairline seams
@@ -258,6 +335,12 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
   border-top: none;
   border-bottom: none;
 }
+
+
+
+
+
+
 
 #main-content.sx-page .sx-band:not(.sx-hero):not(.sx-subnav-band)::before {
   content: "";
@@ -272,6 +355,12 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
   z-index: 1;
 }
 
+
+
+
+
+
+
 /* ─────────────────────────────────────────────
    §6  ACCENT BAND TEXT OVERRIDES
    ───────────────────────────────────────────── */
@@ -283,34 +372,82 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
   --sx-accent-contrast: #d4c4ff;
 }
 
+
+
+
+
+
+
 #main-content.sx-page .sx-solutions .sx-section-heading h2,
 #main-content.sx-page .sx-solutions .sx-split__title h2 {
   color: var(--sx-accent-text);
 }
 
+
+
+
+
+
+
 #main-content.sx-page .sx-solutions .sx-eyebrow {
   color: rgba(255,255,255,.65);
 }
+
+
+
+
+
+
 
 #main-content.sx-page .sx-solutions .sx-solution-row__copy strong {
   color: var(--sx-accent-text);
 }
 
+
+
+
+
+
+
 #main-content.sx-page .sx-solutions .sx-solution-row__copy > span {
   color: var(--sx-accent-muted);
 }
+
+
+
+
+
+
 
 #main-content.sx-page .sx-solutions .sx-solution-row {
   border-top-color: rgba(255,255,255,.14);
 }
 
+
+
+
+
+
+
 #main-content.sx-page .sx-solutions .sx-solution-row:last-child {
   border-bottom-color: rgba(255,255,255,.14);
 }
 
+
+
+
+
+
+
 #main-content.sx-page .sx-solutions .sx-solution-row__number {
   color: rgba(255,255,255,.55);
 }
+
+
+
+
+
+
 
 /* ─────────────────────────────────────────────
    §7  COMPONENT TOKEN OVERRIDES
@@ -341,20 +478,44 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
   box-shadow: var(--sx-card-shadow);
 }
 
+
+
+
+
+
+
 /* Hero panel */
 #main-content.sx-page .sx-hero__panel {
   background: var(--sx-card);
   border-color: var(--sx-card-border);
 }
 
+
+
+
+
+
+
 /* Section headings */
 #main-content.sx-page .sx-section-heading h2 {
   color: var(--sx-text);
 }
 
+
+
+
+
+
+
 #main-content.sx-page .sx-section-heading__lede {
   color: var(--sx-muted);
 }
+
+
+
+
+
+
 
 /* Hero h1 and lede */
 #main-content.sx-page .sx-hero h1 {
@@ -363,24 +524,54 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
   -webkit-text-fill-color: unset;
 }
 
+
+
+
+
+
+
 #main-content.sx-page .sx-hero__lede {
   color: var(--sx-muted);
 }
+
+
+
+
+
+
 
 /* Breadcrumb */
 #main-content.sx-page .sx-breadcrumb {
   color: var(--sx-muted);
 }
 
+
+
+
+
+
+
 /* Subnav chips */
 #main-content.sx-page .sx-subnav__chip {
   color: var(--sx-muted);
 }
 
+
+
+
+
+
+
 /* Marquee items */
 #main-content.sx-page .sx-marquee__item {
   color: var(--sx-muted);
 }
+
+
+
+
+
+
 
 /* Challenge / capability card text */
 #main-content.sx-page .sx-challenge-card h3,
@@ -388,19 +579,43 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
   color: var(--sx-text);
 }
 
+
+
+
+
+
+
 #main-content.sx-page .sx-challenge-card > p:last-child,
 #main-content.sx-page .sx-capability-card > p:last-child {
   color: var(--sx-muted);
 }
+
+
+
+
+
+
 
 /* Process steps */
 #main-content.sx-page .sx-process__step h3 {
   color: var(--sx-text);
 }
 
+
+
+
+
+
+
 #main-content.sx-page .sx-process__step > p:last-child {
   color: var(--sx-muted);
 }
+
+
+
+
+
+
 
 /* Outcomes / stack lists */
 #main-content.sx-page .sx-outcomes__list li,
@@ -410,69 +625,159 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
   border-bottom-color: var(--sx-card-border);
 }
 
+
+
+
+
+
+
 /* Accordion */
 #main-content.sx-page .sx-accordion {
   border-top-color: var(--sx-card-border);
 }
 
+
+
+
+
+
+
 #main-content.sx-page .sx-accordion__item {
   border-bottom-color: var(--sx-card-border);
 }
+
+
+
+
+
+
 
 #main-content.sx-page .sx-accordion__button {
   color: var(--sx-text);
 }
 
+
+
+
+
+
+
 #main-content.sx-page .sx-accordion__panel p {
   color: var(--sx-muted);
 }
+
+
+
+
+
+
 
 /* Tabs */
 #main-content.sx-page .sx-tabs__list {
   border-bottom-color: var(--sx-card-border);
 }
 
+
+
+
+
+
+
 #main-content.sx-page .sx-tabs__tab {
   color: var(--sx-muted);
 }
+
+
+
+
+
+
 
 /* CTA copy */
 #main-content.sx-page .sx-cta__copy h2 {
   color: var(--sx-text);
 }
 
+
+
+
+
+
+
 #main-content.sx-page .sx-cta__copy > p:last-child {
   color: var(--sx-muted);
 }
 
+
+
+
+
+
+
 #main-content.sx-page .sx-cta__contact {
   color: var(--sx-text);
 }
+
+
+
+
+
+
 
 /* Sector card */
 #main-content.sx-page .sx-sector-card {
   color: var(--sx-text);
 }
 
+
+
+
+
+
+
 #main-content.sx-page .sx-sector-card__summary {
   color: var(--sx-muted);
 }
+
+
+
+
+
+
 
 /* Other cards */
 #main-content.sx-page .sx-other-card {
   color: var(--sx-text);
 }
 
+
+
+
+
+
+
 /* Footer note */
 #main-content.sx-page .sx-footer-note {
   color: var(--sx-muted);
 }
+
+
+
+
+
+
 
 /* Pending */
 #main-content.sx-page .sx-pending {
   border-color: var(--sx-card-border);
   color: var(--sx-muted);
 }
+
+
+
+
+
+
 
 /* Secondary button */
 #main-content.sx-page .sx-button--secondary {
@@ -481,9 +786,21 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
   color: var(--sx-text);
 }
 
+
+
+
+
+
+
 #main-content.sx-page .sx-button--secondary:hover {
   background: var(--sx-surface-hover);
 }
+
+
+
+
+
+
 
 /* ─────────────────────────────────────────────
    §8  WHAT WE BUILD — two-column sticky layout
@@ -496,6 +813,12 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
   gap: clamp(2rem, 7vw, 7rem);
 }
 
+
+
+
+
+
+
 #main-content.sx-page .sx-solutions .sx-split__title {
   position: sticky;
   top: calc(var(--header-h, 74px) + 2rem);
@@ -503,19 +826,28 @@ body[data-theme="dark"]  #main-content.sx-page .sx-band.sx-solutions {
 }
 
 @media (max-width: 900px) {
+  
+  
+  
   #main-content.sx-page .sx-solutions .sx-split {
     grid-template-columns: minmax(0, 1fr);
   }
+  
+  
+  
   #main-content.sx-page .sx-solutions .sx-split__title {
     position: static;
   }
 }
+
+
 
 /* ─────────────────────────────────────────────
    §9  REDUCED MOTION
    ───────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
+  
   #main-content.sx-page .sx-hero,
   #main-content.sx-page .sx-signature,
   #main-content.sx-page .sx-cta {
