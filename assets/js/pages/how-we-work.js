@@ -6,14 +6,14 @@
     ? window.COMPANY_PAGE_DATA.process
     : [];
   if (!steps.length) {
-    container.innerHTML = '<p>Draft &mdash; pending content</p>';
+    container.innerHTML = '<p>Coming soon.</p>';
     return;
   }
   container.innerHTML = steps.map(function (step, i) {
     return '<article class="hww-step">'
       + '<span class="hww-step__num">' + String(i + 1).padStart(2, '0') + '</span>'
       + '<h3>' + step.title + '</h3>'
-      + '<p>' + (step.description || 'Draft \u2014 pending content') + '</p>'
+      + '<p>' + (step.description || 'More details coming soon') + '</p>'
       + '</article>';
   }).join('');
 }());

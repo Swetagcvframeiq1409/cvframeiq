@@ -6,7 +6,8 @@ window.SECTOR_UI = {
     order: 1,
     heroTone: 'dark',
     sourceSlug: 'banking',
-    href: 'banking.html'
+    href: 'banking.html',
+    featureIndex: 2
   },
   aviation: {
     icon: 'bi-airplane',
@@ -15,7 +16,8 @@ window.SECTOR_UI = {
     order: 2,
     heroTone: 'dark',
     sourceSlug: 'aviation',
-    href: 'aviation.html'
+    href: 'aviation.html',
+    featureIndex: 2
   },
   infrastructure: {
     icon: 'bi-building',
@@ -24,7 +26,8 @@ window.SECTOR_UI = {
     order: 3,
     heroTone: 'dark',
     sourceSlug: 'smart-city',
-    href: 'smart-city.html'
+    href: 'smart-city.html',
+    featureIndex: 2
   },
   'security-surveillance': {
     icon: 'bi-shield-check',
@@ -43,7 +46,7 @@ window.SECTOR_UI = {
     order: 5,
     heroTone: 'light',
     sourceSlug: 'healthcare',
-    href: 'healthcare.html'
+    href: 'healthcare.html',
   },
   'events-entertainment': {
     icon: 'bi-ticket-perforated',
@@ -52,7 +55,8 @@ window.SECTOR_UI = {
     order: 6,
     heroTone: 'dark',
     sourceSlug: 'events-entertainment',
-    href: 'events-entertainment.html'
+    href: 'events-entertainment.html',
+    featureIndex: 2
   },
   manufacturing: {
     icon: 'bi-gear-wide-connected',

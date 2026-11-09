@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gear Store | FrameIQ</title>
-    <meta name="description" content="Discover cutting-edge AI hardware, development kits, and tools for your next intelligent vision project.">
-    <link rel="icon" href="data:,">
+    <title>Gear Store | FrameIQ Hardware</title>
+    <meta name="description" content="Discover AI hardware, development kits, and vision tools for your next intelligent vision project. Browse the FrameIQ Gear Store.">
+    <link rel="canonical" href="https://cvframeiq.com/hardware/gear">
+    <meta property="og:url" content="https://cvframeiq.com/hardware/gear">
     <link rel="preload" href="../../assets/fonts/space-grotesk-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../../assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../../assets/css/tokens.css">
@@ -14,94 +15,213 @@
     <link rel="stylesheet" href="../../assets/css/components.css">
     <link rel="stylesheet" href="../../assets/css/nav-fix.css">
     <link rel="stylesheet" href="../../assets/css/gk-kit.css">
-    <link rel="stylesheet" href="../../assets/css/home.css">
     <link rel="stylesheet" href="../../assets/css/hw-common.css">
     <link rel="stylesheet" href="../../assets/css/hw-gear.css">
+    <link rel="stylesheet" href="../../assets/css/hw-img.css">
     <script src="../../assets/data/site-data.js" defer></script>
     <script src="../../assets/data/hardware-data.js" defer></script>
     <script src="../../assets/js/icons.js" defer></script>
     <script src="../../assets/js/components.js" defer></script>
     <script src="../../assets/js/main.js" defer></script>
+    <script src="../../assets/js/hw-img.js" defer></script>
     <script src="../../assets/js/hw-gear.js" defer></script>
-      <meta name="color-scheme" content="dark" />
-</head>
+    <meta name="color-scheme" content="dark">
+  </head>
   <body data-root="../../">
-        <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div id="site-header"></div>
+
     <main id="main-content" class="hw-page frameiq-home" data-hardware-gear>
-      <section class="hw-band hw-band--dark hw-hero" data-tone="dark" aria-labelledby="gear-title">
-        <div class="hw-wrap hw-hero__layout">
-          <div class="hw-hero__copy">
-            <div class="hw-head">
-              <p class="hw-eyebrow">FrameIQ Hardware Store</p>
-              <h1 id="gear-title">Gear Store</h1>
-              <p>Discover cutting-edge AI hardware, development kits, and tools for your next intelligent vision project. From neural processors to high-speed sensors, we've got you covered.</p>
+
+      <!-- ── Hero ── -->
+      <section class="hw-band hw-band--dark gk-hero hw-hero" data-tone="dark" aria-labelledby="gear-title">
+        <div class="hw-wrap">
+          <div class="hw-hero-split">
+
+            <div class="hw-hero-split__copy">
+              <div class="hw-head">
+                <p class="hw-eyebrow">FrameIQ Hardware Store</p>
+                <h1 id="gear-title">Gear Store</h1>
+                <p>Discover cutting-edge AI hardware, development kits, and tools for your next intelligent vision project. From neural processors to high-speed sensors, we&rsquo;ve got you covered.</p>
+              </div>
+              <div class="hw-actions">
+                <a class="hw-button hw-button--primary" href="#catalog">Browse Products <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+                <a class="hw-button hw-button--ghost" href="#catalog" data-deals>View Deals <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+              </div>
+              <div class="hw-stats" aria-label="Gear Store highlights">
+                <div class="hw-stat">
+                  <strong data-count-up="50+" data-total-products>50+</strong>
+                  <span>Products</span>
+                </div>
+                <div class="hw-stat">
+                  <strong data-count-up="4.8">4.8</strong>
+                  <span>Avg Rating</span>
+                </div>
+                <div class="hw-stat">
+                  <strong>24/7</strong>
+                  <span>Support</span>
+                </div>
+              </div>
             </div>
-            <div class="hw-actions">
-              <a class="hw-button hw-button--primary" href="#catalog">Browse Products <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
-              <a class="hw-button hw-button--ghost" href="#catalog" data-deals>View Deals <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
-            </div>
-            <div class="hw-stats" aria-label="Gear Store highlights">
-              <div class="hw-stat"><strong data-total-products>50+</strong><span>Products</span></div>
-              <div class="hw-stat"><strong>4.8</strong><span>Avg Rating</span></div>
-              <div class="hw-stat"><strong>24/7</strong><span>Support</span></div>
-            </div>
+
+            <figure class="hw-img-frame hw-hero-split__visual" aria-hidden="true">
+              <!-- TODO image: hardware-gear-hero.webp -->
+              <img
+                src="../../assets/img/hardware-gear-hero.webp"
+                alt=""
+                width="960"
+                height="720"
+                decoding="async"
+              >
+              <span class="hw-img-frame__fallback" aria-hidden="true"><i class="bi bi-cpu"></i></span>
+            </figure>
+
           </div>
-          <div class="hw-hero__visual" aria-label="Hardware product illustration"><i class="bi bi-cpu" aria-hidden="true"></i></div>
         </div>
       </section>
 
+      <!-- ── Catalog ── -->
       <section class="hw-band hw-band--raised" data-tone="raised" id="catalog">
         <div class="hw-wrap">
-          <button class="hw-filter-toggle" type="button" data-filter-toggle aria-expanded="false">Filters</button>
+          <button class="hw-filter-toggle" type="button" data-filter-toggle aria-expanded="false" aria-controls="hw-filter-sheet">
+            <i class="bi bi-sliders" aria-hidden="true"></i><span>Filters</span><span class="hw-filter-toggle__count" data-active-count hidden></span>
+          </button>
           <div class="hw-catalog-layout">
-            <aside class="hw-filters" aria-label="Filter products" data-filter-sheet>
-              <div class="hw-filter-head"><h3>Filters</h3><span class="hw-filter-count" data-count>6 Products</span></div>
-              <div class="hw-filter-group"><div class="hw-search-wrap"><i class="bi bi-search" aria-hidden="true"></i><input id="hw-search" data-search type="search" placeholder="Search products" autocomplete="off" aria-label="Search products"></div></div>
-              <fieldset class="hw-filter-group"><legend>Categories</legend><div data-category-filters></div></fieldset>
-              <fieldset class="hw-filter-group"><legend>Price Range</legend><div data-price-filters></div></fieldset>
-              <fieldset class="hw-filter-group"><legend>Availability</legend><label class="hw-filter-option" for="hw-stock"><span><input id="hw-stock" data-stock type="checkbox"> In Stock Only</span></label></fieldset>
-              <button class="hw-reset" type="button" data-reset>Reset Filters</button>
-              <button class="hw-filter-apply" type="button" data-filter-apply>Apply</button>
-              <div class="hw-custom"><h4>Need Custom Hardware?</h4><p>We help configure hardware setups specifically for your AI vision project.</p><a href="../../pages/contact.html?interest=hardware">Talk to our team</a></div>
-            </aside>
-            <div>
-              <div class="hw-grid-head"><h2>All Products</h2><div class="hw-sort"><label for="hw-sort">Sort by</label><select id="hw-sort" data-sort><option value="featured">Featured</option><option value="newest">Newest</option><option value="price-asc">Price: Low to High</option><option value="price-desc">Price: High to Low</option></select></div></div>
-              <div class="hw-products" data-products aria-live="polite"></div>
+            <div class="hw-filters" id="hw-filter-sheet" role="region" aria-label="Filter products" data-filter-sheet aria-hidden="false">
+              <span class="hw-filter-handle" aria-hidden="true"></span>
+              <div class="hw-filter-scroll" data-filter-scroll>
+                <div class="hw-filter-head">
+                  <h2 id="hw-filter-title">Filters</h2>
+                  <span class="hw-filter-count" data-count aria-live="polite">6 products</span>
+                  <button class="hw-filter-close" type="button" data-filter-close aria-label="Close filters"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+                  <button class="hw-reset" type="button" data-reset data-clear-desktop hidden>Clear all</button>
+                </div>
+                <div class="hw-filter-group">
+                  <div class="hw-search-wrap">
+                    <i class="bi bi-search" aria-hidden="true"></i>
+                    <input id="hw-search" data-search type="search" placeholder="Search products" autocomplete="off" aria-label="Search products">
+                  </div>
+                </div>
+                <fieldset class="hw-filter-group">
+                  <legend>Categories</legend>
+                  <div data-category-filters></div>
+                </fieldset>
+                <fieldset class="hw-filter-group">
+                  <legend>Price Range</legend>
+                  <div data-price-filters></div>
+                </fieldset>
+                <fieldset class="hw-filter-group">
+                  <legend>Availability</legend>
+                  <label class="hw-filter-option hw-filter-row" for="hw-stock">
+                    <input id="hw-stock" data-stock type="checkbox">
+                    <span class="hw-opt-label">In Stock Only</span>
+                    <span class="hw-opt-count" data-stock-count></span>
+                  </label>
+                </fieldset>
+                <div class="hw-custom">
+                  <h3>Need Custom Hardware?</h3>
+                  <p>We help configure hardware setups specifically for your AI vision project.</p>
+                  <a href="../../pages/contact.html?interest=hardware">Talk to our team</a>
+                </div>
+              </div>
+              <div class="hw-filter-footer">
+                <button class="hw-reset" type="button" data-reset data-clear-mobile hidden>Clear all</button>
+                <button class="hw-filter-apply" type="button" data-filter-apply>Show 6 products</button>
+              </div>
+            </div>
+
+            <div class="hw-results">
+              <div class="hw-grid-head">
+                <div class="hw-grid-head__title">
+                  <h2>All Products</h2>
+                  <span data-showing>Showing 6 of 6</span>
+                </div>
+                <div class="hw-sort">
+                  <label for="hw-sort">Sort by</label>
+                  <select id="hw-sort" data-sort>
+                    <option value="featured">Featured</option>
+                    <option value="newest">Newest</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                  </select>
+                </div>
+              </div>
+              <div class="hw-active-filters" data-active-filters aria-label="Active filters" hidden></div>
+              <div class="hw-products gk-cards" data-products aria-live="polite" aria-label="Product catalog">
+                <noscript><span class="gk-draft">Draft — pending content</span></noscript>
+              </div>
             </div>
           </div>
+          <div class="hw-filter-backdrop" data-filter-backdrop hidden></div>
         </div>
       </section>
 
+      <!-- ── More Hardware ── -->
       <section class="hw-band hw-band--dark" data-tone="dark" aria-labelledby="hardware-links-title">
         <div class="hw-wrap">
           <div class="hw-head">
             <p class="hw-eyebrow">More Hardware</p>
             <h2 id="hardware-links-title">Explore the hardware catalog</h2>
           </div>
-          <div class="hw-cross-links">
-            <a class="hw-cross-card" href="edge-starter-kit.html"><h3>Edge Starter Kit</h3><p>Discuss edge hardware options from the FrameIQ catalog.</p></a>
-            <a class="hw-cross-card" href="smart-factory-kit.html"><h3>Smart Factory Kit</h3><p>AI-powered defect detection, production line monitoring, and quality inspection built for Indian manufacturing.</p></a>
-            <a class="hw-cross-card" href="request-quote.html"><h3>Request a Hardware Quote</h3><p>Speak with FrameIQ AI about computer vision, AI automation, and smart monitoring.</p></a>
-            <a class="hw-cross-card" href="book-demo.html"><h3>Book a Hardware Demo</h3><p>Speak with FrameIQ AI about computer vision, AI automation, and smart monitoring.</p></a>
+          <div class="hw-related-grid">
+            <a class="hw-related-card hw-reveal" href="edge-starter-kit.html">
+              <span class="hw-related-card__icon"><i class="bi bi-hdd-network" aria-hidden="true"></i></span>
+              <h3>Edge Starter Kit</h3>
+              <p>Discuss edge hardware options from the FrameIQ catalog.</p>
+              <span class="hw-related-card__cta">Learn more <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </a>
+            <a class="hw-related-card hw-reveal" href="smart-factory-kit.html" style="--hw-delay:60ms">
+              <span class="hw-related-card__icon"><i class="bi bi-gear" aria-hidden="true"></i></span>
+              <h3>Smart Factory Kit</h3>
+              <p>AI-powered defect detection, production line monitoring, and quality inspection built for Indian manufacturing.</p>
+              <span class="hw-related-card__cta">Learn more <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </a>
+            <a class="hw-related-card hw-reveal" href="request-quote.html" style="--hw-delay:120ms">
+              <span class="hw-related-card__icon"><i class="bi bi-calculator" aria-hidden="true"></i></span>
+              <h3>Request a Hardware Quote</h3>
+              <p>Speak with FrameIQ about computer vision, AI automation, and smart monitoring.</p>
+              <span class="hw-related-card__cta">Get a quote <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </a>
+            <a class="hw-related-card hw-reveal" href="book-demo.html" style="--hw-delay:180ms">
+              <span class="hw-related-card__icon"><i class="bi bi-play-circle" aria-hidden="true"></i></span>
+              <h3>Book a Hardware Demo</h3>
+              <p>Book a free 30-minute strategy call. We&rsquo;ll review your use case, show you a live demo, and give you an honest timeline and cost estimate.</p>
+              <span class="hw-related-card__cta">Book a Hardware Demo <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </a>
           </div>
         </div>
       </section>
 
+      <a class="hw-sticky-enquire" href="request-quote.html">Enquire Now <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
     </main>
+
     <div id="site-footer"></div>
+
+    <!-- ── Enquiry dialog ── -->
     <div class="hw-dialog-backdrop" data-dialog hidden aria-hidden="true">
       <div class="hw-dialog" role="dialog" aria-modal="true" aria-labelledby="enquiry-title">
-        <div class="hw-dialog__head"><div><p class="hw-eyebrow">Hardware Enquiry</p><h2 id="enquiry-title">Enquire about this product</h2><span class="hw-chip" data-dialog-product></span></div><button class="hw-dialog__close" type="button" data-dialog-close aria-label="Close enquiry"><i class="bi bi-x-lg" aria-hidden="true"></i></button></div>
+        <div class="hw-dialog__head">
+          <div>
+            <p class="hw-eyebrow">Hardware Enquiry</p>
+            <h2 id="enquiry-title">Enquire about this product</h2>
+            <span class="hw-chip" data-dialog-product></span>
+          </div>
+          <button class="hw-dialog__close" type="button" data-dialog-close aria-label="Close enquiry">
+            <i class="bi bi-x-lg" aria-hidden="true"></i>
+          </button>
+        </div>
         <form class="hw-dialog__form" data-enquiry-form novalidate>
-          <label>First Name*<input name="First Name" required aria-describedby="enquiry-first-error"><span class="hw-dialog__error" id="enquiry-first-error"></span></label>
-          <label>Last Name*<input name="Last Name" required aria-describedby="enquiry-last-error"><span class="hw-dialog__error" id="enquiry-last-error"></span></label>
-          <label>Work Email*<input name="Work Email" type="email" required aria-describedby="enquiry-email-error"><span class="hw-dialog__error" id="enquiry-email-error"></span></label>
-          <label>Company Name<input name="Company Name"></label>
+          <label>First Name*<input name="First Name" required autocomplete="given-name" aria-describedby="enquiry-first-error"><span class="hw-dialog__error" id="enquiry-first-error"></span></label>
+          <label>Last Name*<input name="Last Name" required autocomplete="family-name" aria-describedby="enquiry-last-error"><span class="hw-dialog__error" id="enquiry-last-error"></span></label>
+          <label>Work Email*<input name="Work Email" type="email" required autocomplete="email" aria-describedby="enquiry-email-error"><span class="hw-dialog__error" id="enquiry-email-error"></span></label>
+          <label>Company Name<input name="Company Name" autocomplete="organization"></label>
           <label>Message*<textarea name="Message" required aria-describedby="enquiry-message-error"></textarea><span class="hw-dialog__error" id="enquiry-message-error"></span></label>
           <button class="hw-button hw-button--primary" type="submit">Send Enquiry <i class="bi bi-envelope" aria-hidden="true"></i></button>
         </form>
-        <div class="hw-success" data-success hidden><strong>Enquiry prepared.</strong><p>Your email client will open with the product and enquiry details.</p></div>
+        <div class="hw-success" data-success hidden>
+          <strong>Enquiry prepared.</strong>
+          <p>Your email client will open with the product and enquiry details.</p>
+        </div>
       </div>
     </div>
   </body>

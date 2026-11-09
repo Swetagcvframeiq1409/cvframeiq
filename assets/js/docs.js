@@ -49,7 +49,7 @@
   document.querySelector('#rsd-preview-title').textContent = firstItem?.label || 'Documentation';
   document.querySelectorAll('.rsd-copy').forEach((button) => button.addEventListener('click', async () => {
     const codeEl = button.closest('pre')?.querySelector('code');
-    const text = codeEl ? codeEl.textContent : 'Draft — pending content';
+    const text = codeEl ? codeEl.textContent : 'Content is being prepared.';
     try {
       if (navigator.clipboard?.writeText) await navigator.clipboard.writeText(text);
       else {

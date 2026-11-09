@@ -35,7 +35,8 @@ Opening `index.html` straight from the file system mostly works, but the browser
 
 ## Motion
 
-- `assets/css/motion.css` contains motion styles; `assets/js/motion.js` adds reveal behavior and page transitions.
+- `assets/css/motion.css` contains motion styles; `assets/js/motion.js` adds reveal behavior.
+- `assets/css/base.css` opts same-origin document navigations into the native cross-document View Transitions API and names the shared header. Navigation remains normal browser navigation; unsupported browsers get an instant page swap.
 - Motion timing and easing tokens are in `assets/css/tokens.css`: `--ease-*`, `--dur-*`, `--duration-*`, `--transition-*` and `--stagger`.
 - Add `data-reveal` to an element to reveal it as it enters the viewport. Remove the `js-motion` class from the `<html>` element to disable the motion styles and keep content visible.
 

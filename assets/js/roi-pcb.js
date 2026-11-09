@@ -7,10 +7,42 @@
   let latestResult = '';
   window.FrameIQRoi.createRoiCalculator(root, {
     fields: [
-      { id: 'volume', label: 'Boards reviewed per month', unit: 'boards', default: 0, min: 0, max: 100000, step: 1, help: 'Number of boards reviewed in one month.' },
-      { id: 'minutes', label: 'Manual review minutes per board', unit: 'minutes', default: 0, min: 0, max: 1440, step: .1, help: 'Time spent on manual review for one board.' },
-      { id: 'hourlyCost', label: 'Labour cost per hour (INR)', unit: 'INR/hour', default: 0, min: 0, max: 100000, step: 1, help: 'Your own hourly-cost input.' },
-      { id: 'coverage', label: 'Share of review time explored (%)', unit: '%', default: 0, min: 0, max: 100, step: 1, help: 'The share of review time included in this illustrative estimate.' }
+      {
+        id: 'volume',
+        label: 'Boards reviewed per month',
+        unit: 'boards',
+        default: 2000,
+        min: 0, max: 100000, step: 1,
+        help: 'Number of boards reviewed in one month.',
+        group: 'Camera views'
+      },
+      {
+        id: 'minutes',
+        label: 'Manual review minutes per board',
+        unit: 'minutes',
+        default: 3,
+        min: 0, max: 1440, step: 0.1,
+        help: 'Time spent on manual review for one board.',
+        group: 'Review effort'
+      },
+      {
+        id: 'hourlyCost',
+        label: 'Labour cost per hour (INR)',
+        unit: 'INR/hour',
+        default: 300,
+        min: 0, max: 100000, step: 1,
+        help: 'Your own hourly-cost input.',
+        group: 'Cost'
+      },
+      {
+        id: 'coverage',
+        label: 'Share of review time explored (%)',
+        unit: '%',
+        default: 80,
+        min: 0, max: 100, step: 1,
+        help: 'The share of review time included in this illustrative estimate.',
+        group: 'Review effort'
+      }
     ],
     compute(values) {
       const hours = values.volume * values.minutes / 60 * values.coverage / 100;

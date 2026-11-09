@@ -19,96 +19,121 @@
     <link rel="stylesheet" href="assets/css/gk-kit.css" />
     <link rel="stylesheet" href="assets/css/gk-motion.css" />
     <link rel="stylesheet" href="assets/css/home.css" />
-      <meta name="color-scheme" content="dark" />
-</head>
+    <link rel="stylesheet" href="assets/css/home-story.css" />
+    <link rel="stylesheet" href="assets/css/home-hero-bg.css" />
+    <link rel="stylesheet" href="assets/css/home-polish.css" />
+    <link rel="stylesheet" href="assets/css/home-platform-story.css" />
+    <link rel="stylesheet" href="assets/css/home-desktop-fix.css" />
+    <link rel="stylesheet" href="assets/css/mobile-fixes.css" />
+    <meta name="color-scheme" content="dark" />
+  </head>
   <body class="gk-home frameiq-home" data-root="">
-        <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div id="site-header"></div>
     <main id="main-content">
       <div class="home-progress" aria-hidden="true"></div>
 
-      <!-- Band 1: Hero -->
-      <section class="home-band home-band--dark home-hero" data-tone="dark" aria-labelledby="hero-title">
-        <div class="home-container home-hero__grid">
-          <div class="home-hero__copy">
-            <p class="home-eyebrow" data-reveal>AI Vision · Agentic Intelligence · India</p>
-            <h1 id="hero-title">
-              <span class="hero-line">See Smarter.</span>
-              <span class="hero-line text-gradient">Decide Faster.</span>
-              <span class="hero-line">Scale Bigger.</span>
-            </h1>
-            <p class="home-hero__subtitle">FrameIQ builds enterprise-grade Computer Vision and Agentic AI systems turning raw visual data into autonomous decisions for Indian industry.</p>
-            <div class="home-chips" aria-label="Capabilities">
-              <span>Computer Vision</span><span>Agentic AI</span><span>Real-time Analytics</span><span>Custom Model Dev</span><span>AI Automation</span><span>Edge Deployment</span>
+      <!-- Hero -->
+      <section class="home-band home-band--dark home-hero" id="hero" data-tone="dark" aria-labelledby="hero-title">
+        <span class="hero-orb hero-orb--a" aria-hidden="true"></span>
+        <span class="hero-orb hero-orb--b" aria-hidden="true"></span>
+        <div class="home-container home-hero__layout">
+          <div class="home-hero__grid">
+            <div class="home-hero__copy">
+              <p class="hero-eyebrow-pill hero-reveal" style="--ri:0">
+                <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+                AI Vision &middot; Agentic Intelligence &middot; India
+              </p>
+              <h1 id="hero-title" class="hero-headline">
+                <span class="hero-line hero-reveal" style="--ri:1">See Smarter.</span>
+                <span class="hero-line hero-line--accent hero-reveal" style="--ri:2">Decide Faster.</span>
+                <span class="hero-line hero-reveal" style="--ri:3">Scale Bigger.</span>
+              </h1>
+              <p class="hero-subtitle hero-reveal" style="--ri:4">FrameIQ builds enterprise-grade Computer Vision and Agentic AI systems that turn raw visual data into autonomous decisions for Indian industry.</p>
+              <div class="home-chips hero-reveal" aria-label="Capabilities" style="--ri:5">
+                <span>Computer Vision</span><span>Agentic AI</span><span>Real-time Analytics</span><span>Custom Model Dev</span><span>AI Automation</span><span>Edge Deployment</span>
+              </div>
+              <div class="home-actions hero-reveal" style="--ri:6">
+                <a class="home-button home-button--primary" href="pages/contact.html">Start a Project <span class="home-arrow-square"><i class="bi bi-arrow-right" aria-hidden="true"></i></span></a>
+                <a class="home-button home-button--outline" href="#how-it-works" id="heroHowItWorks"><i class="bi bi-play-circle" aria-hidden="true"></i> See How It Works</a>
+              </div>
             </div>
-            <div class="home-actions">
-              <a class="home-button home-button--light" href="pages/contact.html">Book a Demo <span class="home-arrow-square"><i class="bi bi-arrow-right" aria-hidden="true"></i></span></a>
-              <a class="home-button home-button--outline" href="pages/playground.html">Try Live Demo <span class="home-arrow-square"><i class="bi bi-arrow-right" aria-hidden="true"></i></span></a>
+            <div class="hero-img-stack hero-reveal" aria-label="Computer vision and AI in action" style="--ri:2" id="heroImgStack">
+              <span class="hero-bracket hero-bracket--tl" aria-hidden="true"></span>
+              <span class="hero-bracket hero-bracket--tr" aria-hidden="true"></span>
+              <span class="hero-bracket hero-bracket--bl" aria-hidden="true"></span>
+              <span class="hero-bracket hero-bracket--br" aria-hidden="true"></span>
+              <img class="hero-img-main" data-src="assets/img/cvindustrial.webp" alt="Industrial camera inspecting a manufacturing production line with AI vision overlay" width="800" height="1000" loading="eager" fetchpriority="high" decoding="async" />
             </div>
           </div>
-          <div class="home-vision" aria-label="Vision intelligence preview" data-reveal>
-            <div class="home-vision__grid" aria-hidden="true"></div>
-            <div class="home-vision__bracket home-vision__bracket--tl" aria-hidden="true"></div>
-            <div class="home-vision__bracket home-vision__bracket--tr" aria-hidden="true"></div>
-            <div class="home-vision__bracket home-vision__bracket--bl" aria-hidden="true"></div>
-            <div class="home-vision__bracket home-vision__bracket--br" aria-hidden="true"></div>
-            <div class="home-vision__scan" aria-hidden="true"></div>
-            <span class="home-vision__tag home-vision__tag--one">Computer Vision</span>
-            <span class="home-vision__tag home-vision__tag--two">Agentic AI</span>
-            <span class="home-vision__tag home-vision__tag--three">Real-time Analytics</span>
+          <div class="home-hero__proof">
+            <div class="hero-stats hero-reveal" aria-label="Key metrics" style="--ri:7">
+              <div class="hero-stats__item"><strong><span class="hero-count" data-count="7">7</span><span class="hero-stat-suffix">+</span></strong><span>Industries</span></div>
+              <div class="hero-stats__item"><strong><span class="hero-count" data-count="99.2" data-decimals="1">99.2</span><span class="hero-stat-suffix">%</span></strong><span>Accuracy</span></div>
+              <div class="hero-stats__item"><strong><span class="hero-stat-prefix">&lt;</span><span class="hero-count" data-count="200">200</span><span class="hero-stat-suffix">ms</span></strong><span>Latency</span></div>
+              <div class="hero-stats__item"><strong><span class="hero-count" data-count="24">24</span><span class="hero-stat-suffix">/7</span></strong><span>Monitoring</span></div>
+            </div>
+            <p class="hero-caption hero-reveal" style="--ri:8">FrameIQ AI &middot; Panvel, Maharashtra &middot; Est. 2025</p>
           </div>
         </div>
+        <p class="hero-marquee-label" aria-hidden="true">POWERED BY INDUSTRY-LEADING AI INFRASTRUCTURE</p>
         <div class="home-marquee" aria-label="Technology names">
           <div class="home-marquee__track"><span>PyTorch</span><b>&bull;</b><span>TensorFlow</span><b>&bull;</b><span>OpenCV</span><b>&bull;</b><span>YOLOv8</span><b>&bull;</b><span>Hugging Face</span><b>&bull;</b><span>Python</span><b>&bull;</b><span>ONNX</span><b>&bull;</b><span>FastAPI</span><b>&bull;</b><span>Docker</span><b>&bull;</b><span>AWS</span><b>&bull;</b><span>PyTorch</span><b>&bull;</b><span>TensorFlow</span><b>&bull;</b><span>OpenCV</span><b>&bull;</b><span>YOLOv8</span><b>&bull;</b><span>Hugging Face</span><b>&bull;</b><span>Python</span><b>&bull;</b><span>ONNX</span><b>&bull;</b><span>FastAPI</span><b>&bull;</b><span>Docker</span><b>&bull;</b><span>AWS</span><b>&bull;</b></div>
         </div>
       </section>
 
-      <!-- Band 2: Pinned statement -->
-      <section class="home-band home-band--dark home-statement" data-tone="dark">
-        <div class="home-statement__stage">
-          <div class="home-statement__copy">
-            <p class="home-statement__paragraph" data-story-paragraph>We build AI systems for <strong>visual inspection</strong> and <strong>automation</strong></p>
-            <p class="home-statement__paragraph" data-story-paragraph>FrameIQ AI is working to make <strong>computer vision</strong> and AI useful for <strong>Indian industry</strong></p>
+      <!-- Trusted By -->
+      <section class="home-band home-band--dark home-trusted" id="trusted-by" data-tone="dark" scroll-margin-top="var(--header-h,74px)">
+        <div class="home-container">
+          <div class="home-trusted__inner" data-reveal>
+            <p class="home-trusted__label">TRUSTED BY</p>
+            <ul class="home-trusted__list" aria-label="Company references pending confirmation">
+              <li><span class="gk-draft">Draft — pending content</span></li>
+            </ul>
           </div>
-          <div class="home-scroll-cue" aria-hidden="true"><span>SCROLL</span><i></i></div>
         </div>
       </section>
 
-      <!-- Band 3a: FrameIQ Story (light) — phase 1 big wordmark + phase 2 line reveal -->
-      <section class="home-band home-story-band" data-tone="raised">
-        <div class="home-story-runway" id="storyRunway">
-          <div class="home-platform-stage">
-            <div class="home-platform-panel" id="storyPanel">
-              <!-- Phase 1: big wordmark -->
-              <div class="home-pp-phase1" id="ppPhase1">
-                <div class="home-pp-phase1__mark">FrameIQ</div>
-                <div class="home-pp-phase1__tag">Computer Vision and Agentic AI for Indian industry.</div>
-              </div>
-              <!-- Phase 2: line reveal -->
-              <div class="home-pp-phase2" id="ppPhase2">
-                <div class="home-pp-phase2__wordmark">FrameIQ</div>
-                <span class="home-pp-line" id="ppLine0">builds enterprise-grade Computer Vision and Agentic AI systems,</span>
-                <span class="home-pp-line" id="ppLine1">turning raw visual data into</span>
-                <span class="home-pp-line home-pp-line--big" id="ppLine2">autonomous decisions for Indian industry.</span>
-              </div>
-              <!-- Concentric target -->
-              <div class="home-platform-target" id="ppTarget" aria-hidden="true">
-                <div class="home-platform-target__ring"></div>
-                <div class="home-platform-target__ring"></div>
-                <div class="home-platform-target__ring"></div>
-                <div class="home-platform-target__dot"></div>
-                <div class="home-platform-target__orbit"></div>
-                <div class="home-platform-target__orbit home-platform-target__orbit2"></div>
-              </div>
-              <!-- Progress dash -->
-              <div class="home-platform-dash" aria-hidden="true"><div class="home-platform-dash__fill" id="ppDash"></div></div>
+      <!-- Three-beat pinned story -->
+      <section class="hs-story" id="story" aria-label="FrameIQ story" data-no-split>
+        <div class="hs-runway" id="home-scroll-story">
+          <div class="hs-stage">
+            <div class="hs-bg-wrap" aria-hidden="true">
+              <img class="hs-bg-img" id="hs-bg-0" src="assets/img/vision.webp" width="1672" height="941" alt="" aria-hidden="true" decoding="async" fetchpriority="high" />
+              <img class="hs-bg-img" id="hs-bg-1" src="assets/img/intelligence.webp" width="1672" height="941" alt="" aria-hidden="true" decoding="async" loading="eager" />
+              <img class="hs-bg-img" id="hs-bg-2" src="assets/img/decision.webp" width="1672" height="941" alt="" aria-hidden="true" decoding="async" loading="eager" />
+              <div class="hs-bg-scrim"></div>
             </div>
+            <div class="hs-grid" aria-hidden="true"></div>
+            <div class="hs-decor hs-decor--rings" aria-hidden="true">
+              <span class="hs-ring hs-ring--one"></span>
+              <span class="hs-ring hs-ring--two"></span>
+              <span class="hs-ring hs-ring--three"></span>
+            </div>
+            <span class="hs-dot hs-dot--one" aria-hidden="true"></span>
+            <span class="hs-dot hs-dot--two" aria-hidden="true"></span>
+            <span class="hs-dot hs-dot--glow" aria-hidden="true"></span>
+            <div class="hs-progress" aria-hidden="true"><span class="hs-progress__dot"></span></div>
+            <div class="hs-content">
+              <article class="hs-beat is-current" data-hs-beat="0" aria-hidden="false">
+                <p class="hs-eyebrow">FrameIQ</p>
+                <h2 class="hs-statement" data-hs-words>Computer <span class="hs-accent">Vision</span> and <span class="hs-accent">Agentic AI</span> for <span class="hs-accent">Indian industry</span>.</h2>
+              </article>
+              <article class="hs-beat" data-hs-beat="1" aria-hidden="true">
+                <p class="hs-wordmark" aria-label="FrameIQ">Frame<span>IQ</span></p>
+                <p class="hs-lockup-line">Computer Vision and Agentic AI for Indian industry.</p>
+              </article>
+              <article class="hs-beat" data-hs-beat="2" aria-hidden="true">
+                <p class="hs-statement hs-statement--last" data-hs-words>FrameIQ builds enterprise-grade Computer Vision and Agentic AI systems, turning raw visual data into <span class="hs-accent">autonomous decisions</span> for Indian industry.</p>
+              </article>
+            </div>
+            <p class="hs-counter" aria-live="polite">01 / 03</p>
           </div>
         </div>
       </section>
 
-      <!-- Band 3b: Explore the platform (light) — step explorer -->
-      <section class="home-band home-platform" data-tone="raised">
+      <!-- How FrameIQ works -->
+      <section class="home-band home-platform hs-journey" id="how-it-works" data-tone="raised">
         <div class="home-container">
           <header class="home-section-heading" data-reveal>
             <p class="home-eyebrow">Explore the platform</p>
@@ -118,7 +143,6 @@
         <div class="home-platform-story" id="platformStory">
           <div class="home-platform-stage">
             <div class="home-platform-panel" id="platformPanel">
-              <!-- Phase 3: step explorer -->
               <div class="home-pp-phase3 home-pp-phase3--always" id="ppPhase3">
                 <div class="home-pp-counter"><span id="ppCurrent">01</span> / 05</div>
                 <div class="home-pp-step-title" id="ppStepTitle">Understand</div>
@@ -136,14 +160,13 @@
                   <button class="home-pp-step-btn" data-pp-step="4">05</button>
                 </nav>
               </div>
-              <!-- Dot-grid and soft circle are via ::before/::after on .home-platform-panel -->
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Band 4: Four Pillars (light band, dark cards) -->
-      <section class="home-band home-pillars" data-tone="raised">
+      <!-- Four Pillars -->
+      <section class="home-band home-pillars" id="pillars" data-tone="raised">
         <div class="home-container">
           <header class="home-section-heading" data-reveal>
             <p class="home-eyebrow">Our Expertise</p>
@@ -151,21 +174,21 @@
             <p>Specialized computer vision solutions tailored to transform your industry</p>
           </header>
           <div class="home-pillar-list">
-            <article class="home-pillar-card" id="pillar-1">
+            <article class="home-pillar-card" id="pillar-1" data-reveal>
               <div class="home-pillar-card__copy"><span>01 / 04</span><h3>Computer Vision for Industry</h3><p>AI-powered defect detection, production line monitoring, and quality inspection built for Indian manufacturing.</p><ul><li>Automated Quality Inspection</li><li>Defect Detection &amp; Classification</li><li>Production Line Monitoring</li><li>Safety &amp; Compliance AI</li><li>Predictive Maintenance</li></ul><a href="pages/features.html">Explore more about Computer Vision for Industry <i class="bi bi-arrow-right" aria-hidden="true"></i></a></div>
-              <div class="home-pillar-card__demo home-demo--purple"><div class="home-mini-ui"><h4>Computer Vision for Industry</h4><ul><li><i class="bi bi-check-circle-fill"></i>Automated Quality Inspection</li><li><i class="bi bi-check-circle-fill"></i>Defect Detection &amp; Classification</li><li class="is-active"><i class="bi bi-check-circle-fill"></i>Production Line Monitoring</li><li><i class="bi bi-check-circle-fill"></i>Safety &amp; Compliance AI</li></ul></div></div>
+              <div class="home-pillar-card__demo home-pillar-card__demo--img"><img src="assets/img/cvindustrial.webp" alt="Industrial camera inspecting a manufacturing production line" width="1600" height="1000" loading="lazy" decoding="async" onerror="this.style.display='none'" /></div>
             </article>
-            <article class="home-pillar-card" id="pillar-2">
+            <article class="home-pillar-card" id="pillar-2" data-reveal>
               <div class="home-pillar-card__copy"><span>02 / 04</span><h3>Smart Agriculture (BeejHealth)</h3><p>India's AI crop health advisory. Farmers photograph crops our model instantly diagnoses disease, pests, and nutrient issues.</p><ul><li>Crop Disease Detection</li><li>Pest &amp; Nutrient Analysis</li><li>Instant Mobile Diagnosis</li><li>Hindi Language Support</li><li>Yield Prediction AI</li></ul><a href="pages/beejhealth.html">Explore more about Smart Agriculture (BeejHealth) <i class="bi bi-arrow-right" aria-hidden="true"></i></a></div>
-              <div class="home-pillar-card__demo home-demo--indigo"><div class="home-mini-ui"><h4>Smart Agriculture (BeejHealth)</h4><ul><li><i class="bi bi-check-circle-fill"></i>Crop Disease Detection</li><li><i class="bi bi-check-circle-fill"></i>Pest &amp; Nutrient Analysis</li><li class="is-active"><i class="bi bi-check-circle-fill"></i>Instant Mobile Diagnosis</li><li><i class="bi bi-check-circle-fill"></i>Hindi Language Support</li></ul></div></div>
+              <div class="home-pillar-card__demo home-pillar-card__demo--img"><img src="assets/img/smartagriculture.webp" alt="Aerial view of crop fields monitored by AI vision system" width="1600" height="1000" loading="lazy" decoding="async" onerror="this.style.display='none'" /></div>
             </article>
-            <article class="home-pillar-card" id="pillar-3">
+            <article class="home-pillar-card" id="pillar-3" data-reveal>
               <div class="home-pillar-card__copy"><span>03 / 04</span><h3>Security &amp; Surveillance AI</h3><p>Intelligent threat detection, access control, and perimeter monitoring 24/7 automated surveillance without human fatigue.</p><ul><li>Real-time Threat Detection</li><li>Facial Recognition &amp; Access Control</li><li>Anomaly &amp; Intrusion Alerts</li><li>Crowd Analytics &amp; Safety</li><li>Multi-camera Orchestration</li></ul><a href="pages/sectors/security-surveillance.html">Explore more about Security &amp; Surveillance AI <i class="bi bi-arrow-right" aria-hidden="true"></i></a></div>
-              <div class="home-pillar-card__demo home-demo--teal"><div class="home-mini-ui"><h4>Security &amp; Surveillance AI</h4><ul><li><i class="bi bi-check-circle-fill"></i>Real-time Threat Detection</li><li><i class="bi bi-check-circle-fill"></i>Facial Recognition &amp; Access Control</li><li class="is-active"><i class="bi bi-check-circle-fill"></i>Anomaly &amp; Intrusion Alerts</li><li><i class="bi bi-check-circle-fill"></i>Crowd Analytics &amp; Safety</li></ul></div></div>
+              <div class="home-pillar-card__demo home-pillar-card__demo--img"><img src="assets/img/securitysurveillance.webp" alt="Security camera network monitoring a facility perimeter" width="1600" height="1000" loading="lazy" decoding="async" onerror="this.style.display='none'" /></div>
             </article>
-            <article class="home-pillar-card" id="pillar-4">
+            <article class="home-pillar-card" id="pillar-4" data-reveal>
               <div class="home-pillar-card__copy"><span>04 / 04</span><h3>Next-Gen AI Vision Agents</h3><p>Autonomous AI agents combining vision intelligence with decision-making self-learning systems that adapt with your business.</p><ul><li>Autonomous Vision Systems</li><li>Multi-Modal AI (Vision + NLP)</li><li>Self-Optimizing Pipelines</li><li>Intelligent Workflow Automation</li><li>Custom Agent Development</li></ul><a href="pages/features.html">Explore more about Next-Gen AI Vision Agents <i class="bi bi-arrow-right" aria-hidden="true"></i></a></div>
-              <div class="home-pillar-card__demo home-demo--amber"><div class="home-mini-ui"><h4>Next-Gen AI Vision Agents</h4><ul><li><i class="bi bi-check-circle-fill"></i>Autonomous Vision Systems</li><li><i class="bi bi-check-circle-fill"></i>Multi-Modal AI (Vision + NLP)</li><li class="is-active"><i class="bi bi-check-circle-fill"></i>Intelligent Workflow Automation</li><li><i class="bi bi-check-circle-fill"></i>Custom Agent Development</li></ul></div></div>
+              <div class="home-pillar-card__demo home-pillar-card__demo--img"><img src="assets/img/nextgenai.webp" alt="Autonomous AI vision agents processing multi-camera data streams" width="1600" height="1000" loading="lazy" decoding="async" onerror="this.style.display='none'" /></div>
             </article>
           </div>
           <nav class="home-pillar-nav" aria-label="Pillar pagination">
@@ -174,122 +197,297 @@
           </nav>
         </div>
       </section>
-
-      <!-- Band 5: Metrics (dark) -->
-      <section class="home-band home-band--dark home-metrics-band" data-tone="dark">
-        <div class="home-container home-metrics" data-home-metrics></div>
+      <!-- Our Process -->
+      <section class="home-band home-band--dark home-process" id="process" data-tone="dark" style="scroll-margin-top:var(--header-h,74px)">
+        <div class="home-container">
+          <span class="home-section-anchor" id="our-process" aria-hidden="true"></span>
+          <header class="home-section-heading" data-reveal>
+            <p class="home-eyebrow">OUR PROCESS</p>
+            <h2>From Idea to <span class="home-tech-heading-accent">Live AI</span> in Weeks, Not Months</h2>
+            <p>A pragmatic, experiment-first approach that delivers measurable ROI not lengthy enterprise pilots.</p>
+          </header>
+          <div class="home-process__steps" data-reveal>
+            <article class="home-process__card">
+              <div class="home-process__icon"><i class="bi bi-chat-dots" aria-hidden="true"></i></div>
+              <span class="home-process__num">01</span>
+              <h3>Discovery Call</h3>
+              <p>We map your camera network, operational KPIs, and pain points then define exactly what AI needs to see and do.</p>
+            </article>
+            <article class="home-process__card">
+              <div class="home-process__icon"><i class="bi bi-flask" aria-hidden="true"></i></div>
+              <span class="home-process__num">02</span>
+              <h3>Prototype &amp; Validate</h3>
+              <p>Our team builds a working CV pipeline in <span class="home-nowrap">1&ndash;2 weeks</span>. You see real inference on your own footage before any commitment.</p>
+            </article>
+            <article class="home-process__card">
+              <div class="home-process__icon"><i class="bi bi-rocket-takeoff" aria-hidden="true"></i></div>
+              <span class="home-process__num">03</span>
+              <h3>Deploy to Production</h3>
+              <p>We integrate with your existing infra CCTV, ERP, PLC with zero workflow disruption. Live in <span class="home-nowrap">2&ndash;6 weeks</span>.</p>
+            </article>
+            <article class="home-process__card">
+              <div class="home-process__icon"><i class="bi bi-graph-up" aria-hidden="true"></i></div>
+              <span class="home-process__num">04</span>
+              <h3>Monitor &amp; Evolve</h3>
+              <p>Models retrain on new data continuously. You get a live dashboard, alerts, and a dedicated AI engineer on standby.</p>
+            </article>
+          </div>
+          <p class="home-process__pill" data-reveal>Typical go-live: 2&ndash;6 weeks &middot; No long-term commitment required</p>
+        </div>
       </section>
 
-      <!-- Band 7: Industries (light) -->
-      <section class="home-band home-industries" data-tone="raised">
+      <!-- Industries -->
+      <section class="home-band home-industries hs-carousel" data-tone="raised" id="industries" style="scroll-margin-top:var(--header-h,74px)">
         <div class="home-container">
-          <div class="home-industry-top"><div class="home-industry-pills" role="tablist" aria-label="Featured industries"><button role="tab" aria-selected="true">Manufacturing</button><button role="tab" aria-selected="false">Agriculture</button><button role="tab" aria-selected="false">Healthcare</button><button role="tab" aria-selected="false">Retail</button><button role="tab" aria-selected="false">Smart Cities</button><button role="tab" aria-selected="false">Banking</button><button role="tab" aria-selected="false">Aviation</button><button role="tab" aria-selected="false">Security &amp; Surveillance</button></div><a class="home-button home-button--dark home-view-all" href="pages/sectors.html">View all <span class="home-arrow-square"><i class="bi bi-arrow-right" aria-hidden="true"></i></span></a></div>
-          <div class="home-industry-panel" role="tabpanel">
-            <div class="home-industry-art" aria-hidden="true"><i class="bi bi-buildings"></i></div>
-            <div class="home-industry-copy"><span id="industry-number">01 / 08</span><h3>Manufacturing</h3><p>Explore computer vision use cases for selected production and facility views. The process, environment and review requirements are confirmed on enquiry.</p><a href="pages/sectors/manufacturing.html">Explore sector <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></div>
-            <button class="home-industry-arrow home-industry-arrow--left" type="button" aria-label="Previous industry"><i class="bi bi-arrow-left" aria-hidden="true"></i></button><button class="home-industry-arrow home-industry-arrow--right" type="button" aria-label="Next industry"><i class="bi bi-arrow-right" aria-hidden="true"></i></button>
+          <span class="home-section-anchor" id="industries-section" aria-hidden="true"></span>
+          <div class="hi-top">
+            <div class="hi-pills" role="tablist" aria-label="Featured industries">
+              <button role="tab" id="hi-tab-0" aria-selected="true"  aria-controls="hi-panel" tabindex="0">Manufacturing</button>
+              <button role="tab" id="hi-tab-1" aria-selected="false" aria-controls="hi-panel" tabindex="-1">Agriculture</button>
+              <button role="tab" id="hi-tab-2" aria-selected="false" aria-controls="hi-panel" tabindex="-1">Healthcare</button>
+              <button role="tab" id="hi-tab-3" aria-selected="false" aria-controls="hi-panel" tabindex="-1">Retail</button>
+              <button role="tab" id="hi-tab-4" aria-selected="false" aria-controls="hi-panel" tabindex="-1">Smart Cities</button>
+              <button role="tab" id="hi-tab-5" aria-selected="false" aria-controls="hi-panel" tabindex="-1">Banking</button>
+              <button role="tab" id="hi-tab-6" aria-selected="false" aria-controls="hi-panel" tabindex="-1">Aviation</button>
+              <button role="tab" id="hi-tab-7" aria-selected="false" aria-controls="hi-panel" tabindex="-1">Security &amp; Surveillance</button>
+            </div>
+            <a class="hi-view-all" href="pages/sectors.html">View all <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          </div>
+          <div class="hi-panel" id="hi-panel" role="tabpanel" aria-labelledby="hi-tab-0" data-reveal>
+            <div class="hi-art" aria-hidden="true">
+              <img class="hi-art__img" src="assets/img/manufacturing.webp" alt="Industrial camera above a manufacturing conveyor" width="800" height="600" loading="eager" />
+              <span class="hi-art__icon" aria-hidden="true"><i class="bi bi-gear-wide-connected"></i></span>
+              <span class="hi-art__bracket hi-art__bracket--tl" aria-hidden="true"></span>
+              <span class="hi-art__bracket hi-art__bracket--tr" aria-hidden="true"></span>
+              <span class="hi-art__bracket hi-art__bracket--bl" aria-hidden="true"></span>
+              <span class="hi-art__bracket hi-art__bracket--br" aria-hidden="true"></span>
+              <span class="hi-art__scan" aria-hidden="true"></span>
+              <span class="hi-art__box hi-art__box--a" aria-hidden="true"></span>
+              <span class="hi-art__box hi-art__box--b" aria-hidden="true"></span>
+              <span class="hi-art__fade" aria-hidden="true"></span>
+            </div>
+            <div class="hi-copy">
+              <div class="hi-copy__meta">
+                <span class="hi-copy__num" id="hi-number" aria-live="polite">01 / 08</span>
+                <span class="hi-copy__tag" id="hi-tag">Manufacturing</span>
+              </div>
+              <h3 class="hi-copy__title" id="hi-title">Manufacturing</h3>
+              <p class="hi-copy__desc" id="hi-desc">Explore computer vision use cases for selected production and facility views.</p>
+              <ul class="hi-chips" id="hi-chips" aria-label="Covered use cases">
+                <li><i class="bi bi-check2" aria-hidden="true"></i>Safety &amp; PPE</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i>Quality control</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i>Hazard detection</li>
+              </ul>
+              <div class="hi-copy__footer">
+                <a class="hi-cta" id="hi-cta" href="pages/sectors/manufacturing.html">Explore sector <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+                <div class="hi-arrows">
+                  <button class="hi-arrow" type="button" aria-label="Previous sector" id="hi-prev"><i class="bi bi-arrow-left" aria-hidden="true"></i></button>
+                  <button class="hi-arrow" type="button" aria-label="Next sector" id="hi-next"><i class="bi bi-arrow-right" aria-hidden="true"></i></button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- Band 8: Technologies (dark) -->
-      <section class="home-band home-band--dark home-technologies" data-tone="dark">
+      <!-- Technologies -->
+      <section class="home-band home-band--dark home-technologies" id="technologies" data-tone="dark">
         <div class="home-container">
-          <header class="home-section-heading" data-reveal><p class="home-eyebrow">Our Infrastructure</p><h2>Technologies in the FrameIQ stack</h2></header>
+          <header class="home-section-heading"><p class="home-eyebrow">Our Infrastructure</p><h2>Technologies in the <span class="home-tech-heading-accent">FrameIQ</span> stack</h2></header>
           <div class="home-tech-grid">
-            <article><i class="bi bi-cpu"></i><strong>PyTorch</strong><span>AI framework</span></article>
-            <article><i class="bi bi-diagram-3"></i><strong>TensorFlow</strong><span>AI framework</span></article>
-            <article><i class="bi bi-box-seam"></i><strong>OpenCV</strong><span>Computer vision</span></article>
-            <article><i class="bi bi-bullseye"></i><strong>YOLOv8</strong><span>Object detection</span></article>
-            <article><i class="bi bi-diagram-3"></i><strong>Hugging Face</strong><span>AI platform</span></article>
-            <article><i class="bi bi-code-slash"></i><strong>Python</strong><span>Programming language</span></article>
-            <article><i class="bi bi-box-seam"></i><strong>ONNX</strong><span>Model interoperability</span></article>
-            <article><i class="bi bi-code-slash"></i><strong>FastAPI</strong><span>API framework</span></article>
-            <article><i class="bi bi-box-seam"></i><strong>Docker</strong><span>Containers</span></article>
-            <article><i class="bi bi-cloud"></i><strong>AWS</strong><span>Cloud platform</span></article>
+            <article><div class="home-tech-logo-tile"><img class="home-tech-logo" src="assets/img/techlogo/pytorch.png" alt="" aria-hidden="true" loading="lazy" decoding="async" /></div><div class="home-tech-copy"><strong>PyTorch</strong><span>AI framework</span></div></article>
+            <article><div class="home-tech-logo-tile"><img class="home-tech-logo" src="assets/img/techlogo/tensorflow.png" alt="" aria-hidden="true" loading="lazy" decoding="async" /></div><div class="home-tech-copy"><strong>TensorFlow</strong><span>AI framework</span></div></article>
+            <article><div class="home-tech-logo-tile"><img class="home-tech-logo" src="assets/img/techlogo/opencv.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async" /></div><div class="home-tech-copy"><strong>OpenCV</strong><span>Computer vision</span></div></article>
+            <article><div class="home-tech-logo-tile"><img class="home-tech-logo" src="assets/img/techlogo/yolov8.png" alt="" aria-hidden="true" loading="lazy" decoding="async" /></div><div class="home-tech-copy"><strong>YOLOv8</strong><span>Object detection</span></div></article>
+            <article><div class="home-tech-logo-tile"><img class="home-tech-logo" src="assets/img/techlogo/huggingface.png" alt="" aria-hidden="true" loading="lazy" decoding="async" /></div><div class="home-tech-copy"><strong>Hugging Face</strong><span>AI platform</span></div></article>
+            <article><div class="home-tech-logo-tile"><img class="home-tech-logo" src="assets/img/techlogo/python.png" alt="" aria-hidden="true" loading="lazy" decoding="async" /></div><div class="home-tech-copy"><strong>Python</strong><span>Programming language</span></div></article>
+            <article><div class="home-tech-logo-tile"><img class="home-tech-logo" src="assets/img/techlogo/onnx.png" alt="" aria-hidden="true" loading="lazy" decoding="async" /></div><div class="home-tech-copy"><strong>ONNX</strong><span>Model interoperability</span></div></article>
+            <article><div class="home-tech-logo-tile"><img class="home-tech-logo" src="assets/img/techlogo/fastapi.png" alt="" aria-hidden="true" loading="lazy" decoding="async" /></div><div class="home-tech-copy"><strong>FastAPI</strong><span>API framework</span></div></article>
+            <article><div class="home-tech-logo-tile"><img class="home-tech-logo" src="assets/img/techlogo/docker.png" alt="" aria-hidden="true" loading="lazy" decoding="async" /></div><div class="home-tech-copy"><strong>Docker</strong><span>Containers</span></div></article>
+            <article><div class="home-tech-logo-tile"><img class="home-tech-logo" src="assets/img/techlogo/aws.png" alt="" aria-hidden="true" loading="lazy" decoding="async" /></div><div class="home-tech-copy"><strong>AWS</strong><span>Cloud platform</span></div></article>
           </div>
         </div>
       </section>
 
-      <!-- Band 9: Focus Areas (dark) -->
-      <section class="home-band home-band--dark home-focus" data-tone="dark">
+      <!-- Focus Areas -->
+      <section class="home-band home-band--dark home-focus" id="focus-areas" data-tone="dark">
         <div class="home-container">
           <header class="home-section-heading" data-reveal><p class="home-eyebrow">What We Build</p><h2>Our Focus Areas</h2></header>
           <div class="home-focus-grid">
-            <article><span><i class="bi bi-eye"></i></span><h3>Industrial AI</h3><p>Inspection, defect detection, and production-line monitoring for manufacturing.</p><a href="pages/features.html">Explore Industrial AI <i class="bi bi-arrow-right" aria-hidden="true"></i></a></article>
-            <article><span><i class="bi bi-tree"></i></span><h3>Agriculture</h3><p>An AI crop-health advisory focused on disease, pest, and nutrient insights.</p><a href="pages/beejhealth.html">Explore Agriculture <i class="bi bi-arrow-right" aria-hidden="true"></i></a></article>
-            <article><span><i class="bi bi-stars"></i></span><h3>Agentic AI</h3><p>Autonomous AI agents combining vision intelligence with decision-making.</p><a href="pages/features.html">Explore Agentic AI <i class="bi bi-arrow-right" aria-hidden="true"></i></a></article>
-            <article><span><i class="bi bi-grid"></i></span><h3>AI Store</h3><p>A growing library of plug-and-deploy computer-vision models and workflow components.</p><a href="pages/ai-store.html">Explore AI Store <i class="bi bi-arrow-right" aria-hidden="true"></i></a></article>
+            <article>
+              <span class="home-focus-icon"><i class="bi bi-eye" aria-hidden="true"></i></span>
+              <h3>Industrial AI</h3>
+              <p>Inspection, defect detection, and production-line monitoring for manufacturing.</p>
+              <a href="pages/features.html">Explore Industrial AI <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            </article>
+            <article>
+              <span class="home-focus-icon"><i class="bi bi-tree" aria-hidden="true"></i></span>
+              <h3>Agriculture</h3>
+              <p>An AI crop-health advisory focused on disease, pest, and nutrient insights.</p>
+              <a href="pages/beejhealth.html">Explore Agriculture <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            </article>
+            <article>
+              <span class="home-focus-icon"><i class="bi bi-stars" aria-hidden="true"></i></span>
+              <h3>Agentic AI</h3>
+              <p>Autonomous AI agents combining vision intelligence with decision-making.</p>
+              <a href="pages/features.html">Explore Agentic AI <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            </article>
+            <article>
+              <span class="home-focus-icon"><i class="bi bi-grid" aria-hidden="true"></i></span>
+              <h3>AI Store</h3>
+              <p>A growing library of plug-and-deploy computer-vision models and workflow components.</p>
+              <a href="pages/ai-store.html">Explore AI Store <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- Band 10: Blog cards (dark) -->
-      <section class="home-band home-band--dark home-blog-band" data-tone="dark">
+      <!-- Why FrameIQ -->
+      <section class="home-band home-band--dark home-why" id="why" data-tone="dark" style="scroll-margin-top:var(--header-h,74px)">
+        <div class="home-container">
+          <span class="home-section-anchor" id="why-frameiq" aria-hidden="true"></span>
+          <header class="home-section-heading" data-reveal>
+            <p class="home-eyebrow">WHY FRAMEIQ</p>
+            <h2>Built Different. Built for Results.</h2>
+          </header>
+          <div class="home-why__grid" data-reveal>
+            <article class="home-why__card">
+              <strong class="home-why__value">40+</strong>
+              <span class="home-why__label">models in production</span>
+              <h3>Cutting-Edge Models</h3>
+            </article>
+            <article class="home-why__card">
+              <strong class="home-why__value">7+</strong>
+              <span class="home-why__label">sectors served</span>
+              <h3>India-First Approach</h3>
+            </article>
+            <article class="home-why__card">
+              <strong class="home-why__value">100%</strong>
+              <span class="home-why__label">data ownership</span>
+              <h3>End-to-End Ownership</h3>
+            </article>
+            <article class="home-why__card">
+              <strong class="home-why__value">2&ndash;6 wk</strong>
+              <span class="home-why__label">go-live</span>
+              <h3>Weeks Not Months</h3>
+            </article>
+            <article class="home-why__card">
+              <strong class="home-why__value">MIT</strong>
+              <span class="home-why__label">core license</span>
+              <h3>Open-Source Core</h3>
+            </article>
+            <article class="home-why__card">
+              <strong class="home-why__value">Now</strong>
+              <span class="home-why__label">onboarding</span>
+              <h3>Early Partner Benefits</h3>
+            </article>
+          </div>
+          <div class="home-why__cta" data-reveal>
+            <p>Ready to see FrameIQ in action?</p>
+            <a class="home-button home-button--primary" href="pages/contact.html">Book Free Call <span class="home-arrow-square"><i class="bi bi-arrow-right" aria-hidden="true"></i></span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog -->
+      <section class="home-band home-band--dark home-blog-band" id="blog" data-tone="dark">
         <div class="home-container">
           <header class="home-blog-heading" data-reveal>
-            <p class="home-eyebrow">Ideas from the Engineering Frontline</p>
+            <p class="home-eyebrow">IDEAS FROM THE ENGINEERING FRONTLINE</p>
             <h2>From the blog</h2>
           </header>
-          <div class="home-blog-grid" id="homeBlogGrid">
-            <!-- filled by home.js from FRAMEIQ_BLOG_POSTS / LIVE_CARRYOVER -->
-          </div>
+          <div class="home-blog-grid" id="homeBlogGrid"><!-- filled by home.js --></div>
         </div>
       </section>
 
-      <!-- Band 11: Recognition (dark) -->
-      <section class="home-band home-band--dark home-recognition" data-tone="dark">
+      <!-- Client Results -->
+      <section class="home-band home-band--dark home-client-results" id="client-results" data-tone="dark" style="scroll-margin-top:var(--header-h,74px)">
         <div class="home-container">
           <header class="home-section-heading" data-reveal>
-            <p class="home-eyebrow">Our Recognition</p>
-            <h2>Our Recognition</h2>
-            <span class="gk-draft">Draft — pending content</span>
+            <p class="home-eyebrow">Client Results</p>
+            <h2>Client Results</h2>
           </header>
-          <div class="home-recognition-strip" aria-label="Recognition placeholders">
-            <article><i class="bi bi-award" aria-hidden="true"></i></article>
-            <article><i class="bi bi-award" aria-hidden="true"></i></article>
-            <article><i class="bi bi-award" aria-hidden="true"></i></article>
-            <article><i class="bi bi-award" aria-hidden="true"></i></article>
-            <article><i class="bi bi-award" aria-hidden="true"></i></article>
-            <article><i class="bi bi-award" aria-hidden="true"></i></article>
-            <article><i class="bi bi-award" aria-hidden="true"></i></article>
-            <article><i class="bi bi-award" aria-hidden="true"></i></article>
+          <div class="home-results-stats-row" id="homeResultsStatic" data-reveal>
+            <article class="home-result-stat" data-reveal>
+              <strong class="home-result-stat__value"><span class="gk-draft">Draft — pending content</span></strong>
+              <span class="home-result-stat__label">Avg. Incident Reduction</span>
+            </article>
+            <article class="home-result-stat" data-reveal>
+              <strong class="home-result-stat__value home-result-stat__value--range"><span class="gk-draft">Draft — pending content</span></strong>
+              <span class="home-result-stat__label">Typical Go-Live</span>
+            </article>
+            <article class="home-result-stat" data-reveal>
+              <strong class="home-result-stat__value"><span class="gk-draft">Draft — pending content</span></strong>
+              <span class="home-result-stat__label">Model Accuracy</span>
+            </article>
+            <article class="home-result-stat" data-reveal>
+              <strong class="home-result-stat__value"><span class="gk-draft">Draft — pending content</span></strong>
+              <span class="home-result-stat__label">Sectors Deployed</span>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- Band 12: Client Testimonials (dark) -->
-      <section class="home-band home-band--dark home-testimonials-band" data-tone="dark">
+      <!-- FAQ -->
+      <section class="home-band home-band--dark home-faq-section" id="home-faq" data-tone="dark" style="scroll-margin-top:var(--header-h,74px)">
         <div class="home-container">
-          <div class="home-testimonials-inner">
-            <div class="home-testimonials-left">
-              <h2>What our clients say</h2>
-              <p>From factory floors to farm fields — here's what early FrameIQ partners are saying.</p>
+          <div class="home-faq-layout-desktop">
+            <div class="home-faq-sticky-col">
+              <p class="home-eyebrow">Frequently Asked Questions</p>
+              <h2>Frequently Asked Questions</h2>
+              <aside class="home-faq-contact-card" aria-labelledby="home-faq-contact-title">
+                <h3 id="home-faq-contact-title">Still have questions?</h3>
+                <div class="home-faq-contact-rows">
+                  <a href="tel:+919423149303"><i class="bi bi-telephone" aria-hidden="true"></i><span>+91 94231 49303</span></a>
+                  <a href="mailto:official@cvframeiq.com"><i class="bi bi-envelope" aria-hidden="true"></i><span>official@cvframeiq.com</span></a>
+                  <p><i class="bi bi-clock" aria-hidden="true"></i><span>Mon-Sat 9 AM&ndash;6 PM IST</span></p>
+                </div>
+                <a class="home-faq-contact-btn" href="pages/contact.html">Contact Us <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+              </aside>
             </div>
-            <div class="home-testimonials-right" id="homeTestimonials">
-              <!-- filled by home.js -->
+            <div class="home-faq-accordion-col">
+              <div id="home-faq-list" aria-label="Frequently asked questions"></div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Closing gradient bar -->
-      <div class="home-closing-gradient" aria-hidden="true"></div>
-
-      <!-- Band 13: Closing contact (dark) -->
-      <section class="home-band home-band--dark home-closing" data-tone="dark">
+      <!-- Contact -->
+      <section class="home-band home-band--dark home-contact" id="home-contact" data-tone="dark" aria-labelledby="home-contact-title">
         <div class="home-container">
-          <div class="home-closing-card">
-            <strong class="home-closing__wordmark">FrameIQ</strong>
-            <address>
-              <span>Panvel, Maharashtra, India</span>
-              <a href="tel:+919423149303">+91 94231 49303</a>
-              <a href="mailto:official@cvframeiq.com">official@cvframeiq.com</a>
-            </address>
-            <a class="home-button home-button--light" href="pages/contact.html">Book a Demo <span class="home-arrow-square"><i class="bi bi-arrow-right" aria-hidden="true"></i></span></a>
+          <header class="home-section-heading" data-reveal>
+            <h2 id="home-contact-title">Let's Build Something Intelligent Together</h2>
+          </header>
+          <div class="home-contact-grid">
+            <div class="home-contact-info" data-reveal>
+              <a href="mailto:official@cvframeiq.com"><i class="bi bi-envelope" aria-hidden="true"></i><span>official@cvframeiq.com</span></a>
+              <a href="tel:+919423149303"><i class="bi bi-telephone" aria-hidden="true"></i><span>+91 94231 49303</span></a>
+              <p><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Panvel, Maharashtra, India</span></p>
+              <p class="home-contact-response">We reply within 24 hours on business days.</p>
+            </div>
+            <form class="home-contact-form" id="home-contact-form" data-reveal>
+              <div class="home-contact-honeypot" aria-hidden="true">
+                <label for="home-website">Leave this field empty</label>
+                <input id="home-website" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+              </div>
+              <div class="home-contact-fields">
+                <div class="home-contact-field"><label for="home-first-name">First Name*</label><input id="home-first-name" name="firstName" type="text" autocomplete="given-name" required /></div>
+                <div class="home-contact-field"><label for="home-last-name">Last Name*</label><input id="home-last-name" name="lastName" type="text" autocomplete="family-name" required /></div>
+                <div class="home-contact-field"><label for="home-work-email">Work Email*</label><input id="home-work-email" name="workEmail" type="email" autocomplete="email" required /></div>
+                <div class="home-contact-field"><label for="home-company">Company Name</label><input id="home-company" name="company" type="text" autocomplete="organization" /></div>
+                <div class="home-contact-field home-contact-field--full"><label for="home-industry">Industry</label><select id="home-industry" name="sector"><option value="">Select an industry</option><option>Manufacturing</option><option>Agriculture</option><option>Healthcare</option><option>Retail</option><option>Logistics &amp; Warehousing</option><option>Other</option></select></div>
+                <div class="home-contact-field home-contact-field--full"><label for="home-message">Message*</label><textarea id="home-message" name="projectDetails" rows="4" required></textarea></div>
+              </div>
+              <div class="home-contact-form__bottom">
+                <button class="home-contact-submit" type="submit">Send Message <i class="bi bi-arrow-right" aria-hidden="true"></i></button>
+                <p>We'll use your details only to reply to your enquiry.</p>
+              </div>
+              <div class="home-contact-message" id="home-contact-message" role="status" aria-live="polite"></div>
+            </form>
           </div>
         </div>
       </section>
+
     </main>
     <div id="site-footer"></div>
     <script src="assets/data/site-data.js" defer></script>
@@ -303,5 +501,37 @@
     <script src="assets/js/search.js" defer></script>
     <script src="assets/js/main.js" defer></script>
     <script src="assets/js/home.js" defer></script>
+    <script src="assets/js/home-story.js" defer></script>
+    <script>
+    // Count-up for .home-result-stat__value cards
+    (function () {
+      if (!('IntersectionObserver' in window)) return;
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var stats = document.querySelectorAll('.home-result-stat__value[data-result-count]');
+      if (!stats.length) return;
+      if (reduce) return; // show final values as-is
+      var obs = new IntersectionObserver(function (entries, o) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var el = e.target;
+          var end = Number(el.dataset.resultCount);
+          var dec = Number(el.dataset.resultDecimals || 0);
+          var suffix = el.dataset.resultSuffix || '';
+          var t0 = performance.now();
+          (function tick(now) {
+            var p = Math.min((now - t0) / 1400, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = (end * eased).toFixed(dec) + suffix;
+            if (p < 1) requestAnimationFrame(tick);
+          })(t0);
+          o.unobserve(el);
+        });
+      }, { threshold: 0.4 });
+      stats.forEach(function (el, i) {
+        el.closest('[data-reveal]') && el.closest('[data-reveal]').style.setProperty('--ri', i);
+        obs.observe(el);
+      });
+    })();
+    </script>
   </body>
 </html>

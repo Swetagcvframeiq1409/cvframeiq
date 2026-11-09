@@ -1,4 +1,4 @@
-.hw-demo { --demo-purple: var(--accent-readable); }
+.hw-demo { --demo-purple: #6542c8; }
 
 
 
@@ -149,27 +149,19 @@
 
 
 
-.hw-demo__timeline { display:grid; gap:18px; margin:0; padding:0; list-style:none; counter-reset:expect; }
+.hw-demo__timeline { display:grid; gap:0; margin:0 0 20px; padding:0; list-style:none; counter-reset:expect; }
 
-
-
-.hw-demo__timeline li { display:grid; grid-template-columns:34px 1fr; gap:12px; align-items:center; color:#5d5967; font-weight:700; }
-
-
+.hw-demo__timeline li { display:grid; grid-template-columns:34px minmax(0,1fr); gap:12px; align-items:start; margin-bottom:16px; color:#5d5967; font-weight:700; line-height:1.5; }
 
 .hw-demo__timeline li::before { counter-increment:expect; content:counter(expect); display:grid; place-items:center; width:34px; height:34px; border-radius:50%; background:var(--demo-purple); color:#fff; }
 
-
+.hw-demo__timeline li:last-child { margin-bottom:0; }
 
 .hw-demo__expect p { color:#5d5967; line-height:1.6; }
 
-
-
 .hw-demo__contact { display:grid; gap:8px; margin-top:24px; padding-top:20px; border-top:1px solid rgba(101,66,200,.18); }
 
-
-
-.hw-demo__contact a { color:var(--demo-purple); font-weight:700; }
+.hw-demo__contact a { display:inline-flex; min-height:44px; align-items:center; color:var(--demo-purple); font-weight:700; overflow-wrap:anywhere; }
 
 
 
@@ -202,3 +194,15 @@
 @media(max-width:700px){.hw-demo__choices{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.hw-demo__choices{grid-template-columns:1fr}.hw-demo__steps{flex-direction:column}.hw-demo__steps [data-step-button]{width:100%;font-size:.9rem}}
 @media(prefers-reduced-motion:reduce){.hw-demo__progress span{transition:none}}
+
+.hw-demo__alternative .hw-demo__button {
+  background: #6542c8;
+  color: #fff;
+}
+
+.hw-demo__contact a { color: #3b2a7a; }
+
+.hw-demo__card .hw-demo__steps [data-step-button] { color: rgba(255, 255, 255, .7); }
+.hw-demo__card .hw-demo__steps [data-step-button][aria-current="step"] { color: #fff; }
+.hw-demo__card .hw-demo__panel h2 { color: #fff; }
+.hw-demo__card .hw-demo__note { color: rgba(255, 255, 255, .7); }

@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About | FrameIQ</title>
+    <title>About FrameIQ AI | Computer Vision &amp; Agentic AI</title>
+    <meta name="description" content="FrameIQ AI builds computer vision and agentic AI systems that turn raw visual data into real operational decisions for Indian industry." />
+    <meta name="theme-color" content="#09090d" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="About FrameIQ AI" />
+    <meta property="og:description" content="We teach cameras to understand what they see. FrameIQ AI builds computer vision and agentic AI for Indian industry." />
+    <meta property="og:locale" content="en_IN" />
     <link rel="icon" href="data:," />
     <link rel="stylesheet" href="../assets/css/tokens.css" />
     <link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" />
@@ -11,67 +17,98 @@
     <link rel="stylesheet" href="../assets/css/components.css" />
     <link rel="stylesheet" href="../assets/css/nav-fix.css" />
     <link rel="stylesheet" href="../assets/css/about-page.css" />
+    <link rel="stylesheet" href="../assets/css/mobile-fixes.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "FrameIQ AI",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Panvel",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "IN"
+        },
+        "email": "official@cvframeiq.com"
+      }
+    </script>
     <script src="../assets/data/site-data.js" defer></script>
     <script src="../assets/js/icons.js" defer></script>
     <script src="../assets/js/components.js" defer></script>
     <script src="../assets/js/main.js" defer></script>
     <script src="../assets/js/about-page.js" defer></script>
-      <meta name="color-scheme" content="dark" />
-</head>
+    <meta name="color-scheme" content="dark" />
+  </head>
   <body data-root="../">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <div id="site-header"></div>
 
     <main class="ab" id="main-content">
-
-      <!-- 1. HERO (white) -->
-      <section class="ab-band ab-raised ab-hero">
-        <div class="ab-wrap ab-hero__grid">
-          <p class="ab-hero-label">About us</p>
-          <div>
-            <h1 class="ab-h1 ab-rv">Building the Future of <span class="ab-accent">AI Vision</span> in India</h1>
-            <p class="ab-lead ab-rv">FrameIQ AI was incorporated in June 2025 in Panvel, Maharashtra, India. We focus on computer vision and agentic AI for practical applications.</p>
+      <!-- 1. HERO — single-column text block -->
+      <section class="ab-band ab-hero" aria-labelledby="about-title">
+        <div class="ab-wrap ab-hero__content">
+          <p class="ab-hero-label">About FrameIQ AI</p>
+          <h1 class="ab-h1 ab-rv" id="about-title">We teach cameras to <span class="ab-accent">understand</span> what they see.</h1>
+          <p class="ab-lead ab-rv">FrameIQ AI builds computer vision and agentic AI systems that turn raw visual data into real operational decisions for Indian industry.</p>
+          <div class="ab-hero__actions ab-rv">
+            <a href="#solutions" class="ab-btn ab-btn--primary">See what we build</a>
+            <a href="#story" class="ab-btn ab-btn--ghost">Our story</a>
           </div>
+          <ul class="ab-hero__facts ab-rv" aria-label="FrameIQ facts">
+            <li>Incorporated June 2025</li>
+            <li>Panvel, Maharashtra</li>
+            <li>Computer vision + agentic AI</li>
+          </ul>
         </div>
       </section>
 
-      <!-- 2. MEDIA BAND (white) - tile scales up on scroll -->
-      <section class="ab-band ab-raised ab-media-band" data-ab-media>
+      <section class="ab-image-tile" aria-label="FrameIQ collaboration illustration">
         <div class="ab-wrap">
-          <div class="ab-tile"><i class="bi bi-camera-video"></i></div>
-          <p class="ab-caption">Placeholder media — real photo/video pending</p>
+          <img src="../assets/img/tile1.webp" alt="Illustration of people collaborating around a table" width="1680" height="944" decoding="async" />
         </div>
       </section>
 
-      <!-- 3. WORDMARK + WHO / WHAT / WHY (dark, pinned) -->
-      <section class="ab-story" data-ab-story data-step="0">
+      <!-- 2. WHO / WHAT / WHY CIRCLES -->
+      <section class="ab-story is-static" id="story" data-ab-story data-step="0" aria-label="Who, what, and why">
         <div class="ab-stage">
-          <div class="ab-mark" aria-hidden="true">
-            <span class="ab-ring"></span><span class="ab-ring"></span><span class="ab-ring"></span>
-            <span class="ab-mark__dot">FrameIQ</span>
-          </div>
           <div class="ab-circles">
-            <article class="ab-circle" data-n="2"><h3>Who</h3><p>FrameIQ AI was incorporated in June 2025 in Panvel, Maharashtra, India.</p></article>
-            <article class="ab-circle" data-n="3"><h3>What</h3><p>We focus on computer vision and agentic AI for practical applications.</p></article>
-            <article class="ab-circle" data-n="4"><h3>Why</h3><p>We want to make visual intelligence useful across India.</p></article>
+            <article class="ab-circle" data-n="2">
+              <div class="ab-circle__inner">
+                <h2>Who</h2>
+                <p>FrameIQ AI was incorporated in June 2025 in Panvel, Maharashtra, India.</p>
+              </div>
+            </article>
+            <article class="ab-circle" data-n="3">
+              <div class="ab-circle__inner">
+                <h2>What</h2>
+                <p>We focus on computer vision and agentic AI for practical applications.</p>
+              </div>
+            </article>
+            <article class="ab-circle" data-n="4">
+              <div class="ab-circle__inner">
+                <h2>Why</h2>
+                <p>We want to make visual intelligence useful across India.</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- 4. GROWTH LINES + STATEMENT (white) -->
-      <section class="ab-band ab-raised ab-grow-band">
+      <!-- 3. SCROLL-LIT STATEMENT -->
+      <section class="ab-band ab-grow-band" id="solutions">
         <div class="ab-wrap">
+          <p class="ab-signal-caption">raw signal to detected events (illustrative)</p>
           <ul class="ab-growth" data-ab-growth aria-hidden="true">
-            <li style="--h:22%;--d:.0s"></li><li style="--h:46%;--d:.08s"></li><li style="--h:64%;--d:.16s"></li>
+            <li style="--h:22%;--d:0s"></li><li style="--h:46%;--d:.08s"></li><li style="--h:64%;--d:.16s"></li>
             <li style="--h:40%;--d:.24s"></li><li style="--h:88%;--d:.32s"></li><li style="--h:100%;--d:.4s"></li>
             <li style="--h:52%;--d:.48s"></li><li style="--h:70%;--d:.56s"></li><li style="--h:34%;--d:.64s"></li>
           </ul>
-          <p class="ab-statement" data-ab-words>FrameIQ AI is working to make computer vision and AI useful for Indian industry — turning raw visual data into autonomous decisions.</p>
+          <p class="ab-statement" data-ab-words>FrameIQ AI is working to make computer vision and AI useful for Indian industry, turning raw visual data into autonomous decisions.</p>
         </div>
       </section>
 
-      <!-- 5. VISION / MISSION (white, pinned, crossfade) -->
-      <section class="ab-vm" data-ab-vm>
+      <!-- 4. VISION BAND -->
+      <section class="ab-vm is-static" data-ab-vm aria-label="Vision and mission">
         <div class="ab-vm__stage">
           <div class="ab-vm__item is-on">
             <p class="ab-label">Vision</p>
@@ -84,57 +121,105 @@
         </div>
       </section>
 
-      <!-- 6. VALUES JOURNEY (grey, pinned, rotating arc) -->
-      <section class="ab-journey" data-ab-journey>
+      <!-- 5. CORE VALUES -->
+      <section class="ab-journey is-static" data-ab-journey aria-label="Our core values">
         <div class="ab-jstage">
-          <div class="ab-ring-big" aria-hidden="true"></div>
-          <div class="ab-nodes" aria-hidden="true"></div>
-          <div class="ab-jhead"><p class="ab-label">Values</p><h2 class="ab-h2">Our Core Values</h2></div>
-          <ol class="ab-vtext">
-            <li><h3>Innovation First</h3><p>We push the boundaries of what is possible with AI and turn every challenge into an opportunity to build something that has not existed before.</p></li>
-            <li><h3>Speed &amp; Excellence</h3><p>We ship fast without compromising quality, combining urgency with craft.</p></li>
-            <li><h3>India First</h3><p>Built for Indian conditions, from Indian agriculture to Indian manufacturing.</p></li>
-            <li><h3>Customer Obsessed</h3><p>We solve real problems. Our customers' success is our north star.</p></li>
-            <li><h3>Transparency</h3><p>Open communication and honest relationships help us own our mistakes and communicate when something is not ready.</p></li>
-            <li><h3>Responsible AI</h3><p>AI must benefit everyone, so we build with fairness, privacy, and sustainability in mind.</p></li>
-          </ol>
+          <!-- Left column -->
+          <div class="ab-jleft">
+            <div class="ab-jhead">
+              <p class="ab-label">Values</p>
+              <h2 class="ab-h2">Our Core Values</h2>
+            </div>
+            <div class="ab-arc-area" aria-hidden="true">
+              <div class="ab-ring-big"></div>
+              <div class="ab-nodes" role="group" aria-label="Choose a core value"></div>
+            </div>
+          </div>
+          <!-- Right column -->
+          <div class="ab-jright">
+            <ol class="ab-vtext gk-cards" aria-live="polite">
+              <li class="gk-card">
+                <span class="ab-value-icon"><i class="bi bi-lightbulb" aria-hidden="true"></i></span>
+                <h3>Innovation First</h3>
+                <p>We push the boundaries of what is possible with AI and turn every challenge into an opportunity to build something that has not existed before.</p>
+              </li>
+              <li class="gk-card">
+                <span class="ab-value-icon"><i class="bi bi-lightning-charge" aria-hidden="true"></i></span>
+                <h3>Speed &amp; Excellence</h3>
+                <p>We ship fast without compromising quality, combining urgency with craft.</p>
+              </li>
+              <li class="gk-card">
+                <span class="ab-value-icon"><i class="bi bi-flag" aria-hidden="true"></i></span>
+                <h3>India First</h3>
+                <p>Built for Indian conditions, from Indian agriculture to Indian manufacturing.</p>
+              </li>
+              <li class="gk-card">
+                <span class="ab-value-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
+                <h3>Customer Obsessed</h3>
+                <p>We solve real problems. Our customers' success is our north star.</p>
+              </li>
+              <li class="gk-card">
+                <span class="ab-value-icon"><i class="bi bi-eye" aria-hidden="true"></i></span>
+                <h3>Transparency</h3>
+                <p>Open communication and honest relationships help us own our mistakes and communicate when something is not ready.</p>
+              </li>
+              <li class="gk-card">
+                <span class="ab-value-icon"><i class="bi bi-shield-check" aria-hidden="true"></i></span>
+                <h3>Responsible AI</h3>
+                <p>AI must benefit everyone, so we build with fairness, privacy, and sustainability in mind.</p>
+              </li>
+            </ol>
+            <div class="ab-jcontrols" aria-label="Value navigation">
+              <button class="ab-jprev" type="button" aria-label="Previous value"><i class="bi bi-arrow-left" aria-hidden="true"></i></button>
+              <span class="ab-jcounter" aria-live="polite">01 / 06</span>
+              <button class="ab-jnext" type="button" aria-label="Next value"><i class="bi bi-arrow-right" aria-hidden="true"></i></button>
+            </div>
+            <div class="ab-jprogress" aria-hidden="true"><div class="ab-jprogress__bar"></div></div>
+          </div>
         </div>
       </section>
 
-      <!-- 7. CORE PILLARS (white) -->
-      <section class="ab-band ab-raised">
+      <!-- 6. CORE PILLARS -->
+      <section class="ab-band ab-pillars-band" aria-labelledby="pillars-title">
         <div class="ab-wrap">
           <div class="ab-pillars-head ab-rv">
-            <h2 class="ab-h2">Core Pillars</h2>
+            <h2 class="ab-h2" id="pillars-title">Core Pillars</h2>
             <p class="ab-body">Specialized computer vision solutions tailored to transform your industry.</p>
           </div>
           <div class="ab-cards">
-            <article class="ab-card ab-rv"><span class="ab-ico"><i class="bi bi-cpu" aria-hidden="true"></i></span><h3>Computer Vision for Industry</h3><p>AI-powered defect detection, production line monitoring, and quality inspection built for Indian manufacturing.</p></article>
-            <article class="ab-card ab-rv"><span class="ab-ico"><i class="bi bi-flower2" aria-hidden="true"></i></span><h3>Smart Agriculture (BeejHealth)</h3><p>BeejHealth is an AI crop health advisory for Indian agriculture, with disease, pest, and nutrient insights.</p></article>
-            <article class="ab-card ab-rv"><span class="ab-ico"><i class="bi bi-shield-check" aria-hidden="true"></i></span><h3>Security &amp; Surveillance AI</h3><p>Computer vision for threat detection, access control, and perimeter monitoring.</p></article>
-            <article class="ab-card ab-rv"><span class="ab-ico"><i class="bi bi-robot" aria-hidden="true"></i></span><h3>Next-Gen AI Vision Agents</h3><p>Autonomous AI agents combining vision intelligence with decision-making and intelligent workflow automation.</p></article>
+            <article class="ab-card ab-rv">
+              <div class="ab-card__art ab-art--circuit" aria-hidden="true"><i class="bi bi-cpu"></i><span></span><b></b><em></em></div>
+              <span class="ab-ico"><i class="bi bi-cpu" aria-hidden="true"></i></span>
+              <span class="ab-tag">PCB Guardian</span>
+              <h3>Computer Vision for Industry</h3>
+              <p>AI-powered defect detection, production line monitoring, and quality inspection built for Indian manufacturing.</p>
+            </article>
+            <article class="ab-card ab-rv">
+              <div class="ab-card__art ab-art--field" aria-hidden="true"><i class="bi bi-flower2"></i><span></span><b></b><em></em></div>
+              <span class="ab-ico"><i class="bi bi-flower2" aria-hidden="true"></i></span>
+              <span class="ab-tag">BeejHealth</span>
+              <h3>Smart Agriculture</h3>
+              <p>BeejHealth is an AI crop health advisory for Indian agriculture, with disease, pest, and nutrient insights.</p>
+            </article>
+            <article class="ab-card ab-rv">
+              <div class="ab-card__art ab-art--safety" aria-hidden="true"><i class="bi bi-shield-check"></i><span></span><b></b><em></em></div>
+              <span class="ab-ico"><i class="bi bi-shield-check" aria-hidden="true"></i></span>
+              <span class="ab-tag">PPE Safety</span>
+              <h3>Security &amp; Surveillance AI</h3>
+              <p>Computer vision for threat detection, access control, and perimeter monitoring.</p>
+            </article>
+            <article class="ab-card ab-rv">
+              <div class="ab-card__art ab-art--agents" aria-hidden="true"><i class="bi bi-robot"></i><span></span><b></b><em></em></div>
+              <span class="ab-ico"><i class="bi bi-robot" aria-hidden="true"></i></span>
+              <span class="ab-tag">Agentic AI</span>
+              <h3>Next-Gen AI Vision Agents</h3>
+              <p>Autonomous AI agents combining vision intelligence with decision-making and intelligent workflow automation.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- 8. TEAM / CULTURE / JOIN US (one big card + two small cards) -->
-      <section class="ab-band ab-raised ab-split-band">
-        <div class="ab-wrap ab-bento">
-          <a class="ab-link-card ab-link-card--big ab-rv" href="team.html">
-            <div class="ab-tile ab-tile--s"><i class="bi bi-people"></i></div>
-            <div class="ab-link-card__row"><div><h3>Meet the Team</h3><p>Explore our teams, expertise, and leadership.</p></div><i class="bi bi-arrow-up-right"></i></div>
-          </a>
-          <a class="ab-link-card ab-link-card--sm ab-rv" href="culture.html">
-            <div class="ab-tile ab-tile--s"><i class="bi bi-lightbulb"></i></div>
-            <div class="ab-link-card__row"><div><h3>Experience the Culture</h3><p>Behind the scenes at FrameIQ.</p></div><i class="bi bi-arrow-up-right"></i></div>
-          </a>
-          <a class="ab-link-card ab-link-card--sm ab-rv" href="careers.html">
-            <div class="ab-tile ab-tile--s"><i class="bi bi-briefcase"></i></div>
-            <div class="ab-link-card__row"><div><h3>Join Us</h3><p>Open positions and roles at FrameIQ.</p></div><i class="bi bi-arrow-up-right"></i></div>
-          </a>
-        </div>
-      </section>
-
+      <!-- 7. PRESERVED EXPLORE LINKS -->
       <section class="ab-band ab-raised ab-explore-band" aria-labelledby="about-explore-title">
         <div class="ab-wrap">
           <div class="ab-pillars-head">
@@ -142,29 +227,61 @@
           </div>
           <div class="ab-explore-grid">
             <a class="ab-link-card" href="culture.html">
-              <div class="ab-tile ab-tile--s"><i class="bi bi-lightbulb" aria-hidden="true"></i></div>
+              <div class="ab-visual ab-visual--culture" aria-hidden="true"><i class="bi bi-lightbulb"></i><span>IDEAS IN MOTION</span><b></b></div>
               <div class="ab-link-card__row"><div><h3>Culture</h3><p>How we work, collaborate, and celebrate together.</p></div><i class="bi bi-arrow-up-right" aria-hidden="true"></i></div>
             </a>
             <a class="ab-link-card" href="team.html">
-              <div class="ab-tile ab-tile--s"><i class="bi bi-people" aria-hidden="true"></i></div>
+              <div class="ab-visual ab-visual--team" aria-hidden="true"><i class="bi bi-people"></i><span></span><b></b><em></em></div>
               <div class="ab-link-card__row"><div><h3>Team</h3><p>Meet the people building bold AI solutions.</p></div><i class="bi bi-arrow-up-right" aria-hidden="true"></i></div>
             </a>
             <a class="ab-link-card" href="security.html">
-              <div class="ab-tile ab-tile--s"><i class="bi bi-shield-lock" aria-hidden="true"></i></div>
+              <div class="ab-visual ab-visual--security" aria-hidden="true"><i class="bi bi-shield-lock"></i><span>SECURE BY DESIGN</span><b></b></div>
               <div class="ab-link-card__row"><div><h3>Security</h3><p>Our approach to security and responsible handling of data.</p></div><i class="bi bi-arrow-up-right" aria-hidden="true"></i></div>
             </a>
-            <a class="ab-link-card" href="careers.html">
-              <div class="ab-tile ab-tile--s"><i class="bi bi-briefcase" aria-hidden="true"></i></div>
-              <div class="ab-link-card__row"><div><h3>Join Us</h3><p>Open positions and roles at FrameIQ.</p></div><i class="bi bi-arrow-up-right" aria-hidden="true"></i></div>
-            </a>
             <a class="ab-link-card" href="how-we-work.html">
-              <div class="ab-tile ab-tile--s"><i class="bi bi-diagram-3" aria-hidden="true"></i></div>
+              <div class="ab-visual ab-visual--workflow" aria-hidden="true"><i class="bi bi-diagram-3"></i><span></span><b></b><em></em></div>
               <div class="ab-link-card__row"><div><h3>How We Work</h3><p>Our principles, process, and approach to delivery.</p></div><i class="bi bi-arrow-up-right" aria-hidden="true"></i></div>
             </a>
           </div>
         </div>
       </section>
 
+      <!-- 8. TEAM / CULTURE / CAREERS -->
+      <section class="ab-band ab-raised ab-split-band" aria-label="Team, culture, and careers">
+        <div class="ab-wrap ab-bento">
+          <a class="ab-link-card ab-link-card--big ab-rv" href="team.html">
+            <div class="ab-visual ab-visual--team" aria-hidden="true"><i class="bi bi-people"></i><span></span><b></b><em></em></div>
+            <div class="ab-link-card__row"><div><h2>Meet the Team</h2><p>Explore our teams, expertise, and leadership.</p></div><i class="bi bi-arrow-up-right" aria-hidden="true"></i></div>
+          </a>
+          <a class="ab-link-card ab-link-card--sm ab-rv" href="culture.html">
+            <div class="ab-visual ab-visual--culture" aria-hidden="true"><i class="bi bi-lightbulb"></i><span>IDEAS IN MOTION</span><b></b></div>
+            <div class="ab-link-card__row"><div><h3>Experience the Culture</h3><p>Behind the scenes at FrameIQ.</p></div><i class="bi bi-arrow-up-right" aria-hidden="true"></i></div>
+          </a>
+          <a class="ab-link-card ab-link-card--sm ab-rv" href="careers.html">
+            <div class="ab-visual ab-visual--careers" aria-hidden="true"><i class="bi bi-briefcase"></i><span>BUILD WHAT'S NEXT</span><b></b></div>
+            <div class="ab-link-card__row"><div><h3>Join Us</h3><p>Open positions and roles at FrameIQ.</p></div><i class="bi bi-arrow-up-right" aria-hidden="true"></i></div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 9. CTA AND CONTACT -->
+      <section class="ab-band ab-cta-band" aria-labelledby="about-cta-title">
+        <div class="ab-wrap">
+          <div class="ab-cta-card">
+            <p class="ab-label">Let's build with vision</p>
+            <h2 class="ab-h2" id="about-cta-title">The Right Conversation Can Save You Six Months</h2>
+            <p class="ab-cta-copy">From quality control and safety monitoring to AI-powered operations, FrameIQ helps teams move from inspection to action.</p>
+            <div class="ab-cta-actions">
+              <a href="contact.html" class="ab-btn ab-btn--primary">Talk to us</a>
+              <a href="careers.html" class="ab-btn ab-btn--ghost">Join the team</a>
+            </div>
+            <div class="ab-cta-office">
+              <div><strong>Panvel, Maharashtra</strong><span>FrameIQ AI</span></div>
+              <div><strong>+91 9309777977</strong><span>Call us</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <div id="site-footer"></div>

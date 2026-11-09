@@ -62,7 +62,7 @@ window.LIVE_CARRYOVER = {
       },
       {
         question: 'How long does it take to go live?',
-        answer: 'Typical deployment takes 2 6 weeks. A standard use case like PPE detection or defect inspection can be live in 2 weeks. Fully custom agentic pipelines with ERP/PLC integration take 4 8 weeks including testing and validation. We always start with a 1 2 week prototype so you see real results before committing.',
+        answer: 'Typical deployment takes 2–6 weeks. A standard use case like PPE detection or defect inspection can be live in 2 weeks. Fully custom agentic pipelines with ERP/PLC integration take 4–8 weeks including testing and validation. We always start with a 1–2 week prototype so you see real results before committing.',
         sourcePage: '/'
       },
       {

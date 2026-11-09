@@ -4,6 +4,10 @@
   const reveal = () => {
     const items = [...document.querySelectorAll('.rs-reveal')];
     if (reduced || !('IntersectionObserver' in window)) { items.forEach((item) => item.classList.add('is-in')); return; }
+    items.forEach((item) => {
+      if (item.getBoundingClientRect().top <= window.innerHeight) item.classList.add('is-in');
+    });
+    document.documentElement.classList.add('rs-js');
     const observer = new IntersectionObserver((entries, current) => entries.forEach((entry) => {
       if (entry.isIntersecting) { entry.target.classList.add('is-in'); current.unobserve(entry.target); }
     }), { threshold: 0.15 });

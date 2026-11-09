@@ -1,24 +1,4 @@
-/* fx.css - motion effects and page transitions. Linked last on every page.
-   Delete the link line to undo. */
-
-/* page-to-page transition (Chrome and Edge; other browsers just ignore it) */
-@view-transition { navigation: auto; }
-
-
-
-::view-transition-old(root) { animation: fxOut .28s ease both; }
-
-
-
-::view-transition-new(root) { animation: fxIn .45s cubic-bezier(.23, 1, .32, 1) both; }
-@keyframes fxOut { to { opacity: 0; transform: translateY(-8px); } }
-@keyframes fxIn { from { opacity: 0; transform: translateY(14px); } }
-
-
-
-
-
-
+/* fx.css - motion effects. Linked last on pages that use it. */
 
 /* heading words slide up out of a mask */
 .fx-w { display: inline-block; overflow: hidden; padding-bottom: .12em; vertical-align: top; }
@@ -62,10 +42,6 @@
 .site-footer > * { max-width: 100%; }
 
 @media (prefers-reduced-motion: reduce) {
-  
-  
-  
-  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
   
   
   

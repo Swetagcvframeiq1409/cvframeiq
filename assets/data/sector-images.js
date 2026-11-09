@@ -1,0 +1,21 @@
+window.FIQ_IMAGES = {
+  'security-surveillance-helps': { w: 1274, h: 952, variants: true, alt: 'Two ceiling cameras covering a marked safety zone on a factory floor', pos: '50% 55%' },
+  'manufacturing-hero': { w: 1274, h: 952, variants: true, alt: 'Robotic arms working on a production line under a scanning light', pos: '50% 50%' },
+  'smart-city-helps': { w: 1274, h: 952, variants: true, alt: 'Technician inspecting an electrical panel with a handheld light', pos: '40% 50%' },
+  'security-surveillance-hero': { w: 1274, h: 952, variants: true, alt: 'Worker walking through an access-controlled turnstile gate', pos: '50% 50%' },
+  'retail-hero': { w: 1274, h: 952, variants: true, alt: 'Autonomous robot moving through a stocked warehouse aisle', pos: '50% 55%' },
+  'smart-city-hero': { w: 1274, h: 952, variants: true, alt: 'Industrial pipeline valve monitored by a sensor', pos: '65% 45%' },
+  'manufacturing-helps': { w: 1274, h: 952, variants: true, alt: 'Gear and bearing assembly under an inspection scan', pos: '50% 50%' },
+  'hub-tile-quality-control': { w: 1274, h: 952, variants: true, alt: 'Circuit board passing under an inspection camera', pos: '50% 50%' },
+  'events-entertainment-hero': { w: 1274, h: 952, variants: true, alt: 'Crowd moving through orderly entry lanes toward a venue stage', pos: '50% 40%' },
+  'hub-tile-venue-operations': { w: 1274, h: 952, variants: true, alt: 'Visitors moving through a large venue concourse', pos: '50% 55%' },
+  'hub-hero': { w: 1274, h: 952, variants: true, alt: 'Camera lens reflecting a city skyline, a factory, an airport and a crop field', pos: '50% 50%' },
+  'retail-helps': { w: 1274, h: 952, variants: true, alt: 'Autonomous carriers moving pallets through a warehouse toward a truck', pos: '50% 55%' },
+  'manufacturing-defect-inspection': { w: 1274, h: 952, variants: true, alt: 'Cast metal part under an inspection camera on a conveyor', pos: '50% 55%' },
+  'ai-agents-control-room': { w: 1274, h: 952, variants: true, alt: 'Operator at a monitor wall with a network graph over an industrial plant', pos: '50% 45%' },
+  'manufacturing-predictive-maintenance': { w: 1274, h: 952, variants: true, alt: 'Technician checking an electric motor with a handheld sensor', pos: '55% 50%' },
+  'manufacturing-line-monitoring': { w: 1274, h: 952, variants: true, alt: 'Large production machine inside a highlighted detection volume', pos: '50% 50%' },
+  'ai-analytics-operator': { w: 1274, h: 952, variants: true, alt: 'Operator in front of a holographic data surface and robot arms', pos: '50% 50%' },
+  'infrastructure-pump-station': { w: 1274, h: 952, variants: true, alt: 'Pump and motor unit with glowing flow lines', pos: '55% 55%' },
+  'home-team': { w: 1274, h: 952, variants: true, alt: 'Team members reviewing operational data and camera feeds in a control room', pos: '50% 50%' }
+};

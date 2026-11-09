@@ -1,4 +1,4 @@
-// gk-motion.js - progress bar, pointer spotlight, marquee clone, parallax, heading underline, soft page leave.
+// gk-motion.js - progress bar, pointer spotlight, marquee clone, parallax, and heading underline.
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -75,16 +75,4 @@
     });
   }
 
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('a[href]');
-    if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || a.target === '_blank' || a.hasAttribute('download')) return;
-    var u = new URL(a.href, location.href);
-    if (u.origin !== location.origin || (u.pathname === location.pathname && u.hash) || /^(mailto|tel):/.test(a.getAttribute('href'))) return;
-    e.preventDefault();
-    document.body.classList.add('gk-leave');
-    setTimeout(function () { location.href = a.href; }, 180);
-  });
-  window.addEventListener('pageshow', function () {
-    document.body.classList.remove('gk-leave');
-  });
 })();

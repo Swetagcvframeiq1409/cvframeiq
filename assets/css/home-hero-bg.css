@@ -1,0 +1,95 @@
+/* home-hero-bg.css — background image layers for the 3-beat scroll story hero.
+   Scoped to .hs-story only. No other section touched. */
+
+/* ── Image wrapper ── */
+.hs-bg-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ── Individual image layers ── */
+.hs-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  opacity: 0;
+  /* crossfade 600 ms + subtle scale from 1.06 → 1.00 over the step */
+  transition: opacity 600ms cubic-bezier(.4, 0, .2, 1),
+              transform 8000ms linear;
+  transform: scale(1.06);
+  will-change: opacity, transform;
+  /* hide broken-image icon on error */
+  color: transparent;
+  font-size: 0;
+}
+
+/* Active layer */
+.hs-bg-img.is-active {
+  opacity: 1;
+  transform: scale(1.00);
+}
+
+/* ── Scrim layers (above images, below content) ── */
+.hs-bg-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* top-to-bottom gradient + centre darkening radial */
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(8, 6, 16, 0.28), rgba(8, 6, 16, 0.55) 70%),
+    linear-gradient(
+      180deg,
+      rgba(8, 6, 16, 0.55) 0%,
+      rgba(8, 6, 16, 0.35) 40%,
+      rgba(8, 6, 16, 0.75) 100%
+    );
+}
+
+/* ── Ensure existing decorative elements stay above images ── */
+.hs-grid,
+.hs-decor,
+.hs-dot,
+.hs-progress,
+.hs-counter {
+  z-index: 2;
+}
+
+/* ── Content stays above everything ── */
+.hs-content {
+  z-index: 3;
+}
+
+/* ── Reduced motion: no scale, instant swap ── */
+@media (prefers-reduced-motion: reduce) {
+  .hs-bg-img {
+    transition: opacity 0ms;
+    transform: scale(1) !important;
+  }
+  .hs-bg-img.is-active {
+    transform: scale(1);
+  }
+}
+
+/* ── Mobile 360px: slightly stronger scrim ── */
+@media (max-width: 480px) {
+  .hs-bg-scrim {
+    background:
+      radial-gradient(ellipse at 50% 50%, rgba(8, 6, 16, 0.38), rgba(8, 6, 16, 0.65) 70%),
+      linear-gradient(
+        180deg,
+        rgba(8, 6, 16, 0.65) 0%,
+        rgba(8, 6, 16, 0.45) 40%,
+        rgba(8, 6, 16, 0.82) 100%
+      );
+  }
+}
+
+/* ── Light theme: hero stays visually dark (images are atmosphere backgrounds) ── */
+/* The scrim is sufficient; no override needed since .hs-story has its own dark bg */

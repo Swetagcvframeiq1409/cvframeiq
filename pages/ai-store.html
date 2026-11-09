@@ -9,15 +9,16 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Computer Vision Products | FrameIQ AI Store" />
     <meta property="og:description" content="Explore FrameIQ computer vision products for industry use cases. Scope, deployment and timelines are confirmed on enquiry." />
-    <meta property="og:url" content="https://example.invalid/pages/ai-store.html" />
-    <link rel="canonical" href="https://example.invalid/pages/ai-store.html" />
     <link rel="preload" href="../assets/fonts/space-grotesk-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="../assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="../assets/css/tokens.css" />
     <link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" />
     <link rel="stylesheet" href="../assets/css/base.css" />
     <link rel="stylesheet" href="../assets/css/components.css" />
-    <link rel="stylesheet" href="../assets/css/pages/ai-store.css" />
+    <link rel="stylesheet" href="../assets/css/nav-fix.css" />
+    <link rel="stylesheet" href="../assets/css/gk-kit.css" />
+    <link rel="stylesheet" href="../assets/css/ai-store.css" />
+    <link rel="stylesheet" href="../assets/css/mobile-fixes.css" />
     <script src="../assets/data/site-data.js" defer></script>
     <script src="../assets/data/live-carryover.js" defer></script>
     <script src="../assets/js/live-carryover-render.js" defer></script>
@@ -28,58 +29,44 @@
     <script src="../assets/js/components.js" defer></script>
     <script src="../assets/js/main.js" defer></script>
     <script src="../assets/data/ai-products.js" defer></script>
+    <script src="../assets/data/sectors.js" defer></script>
     <script src="../assets/js/pages/ai-store.js" defer></script>
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Computer Vision Products | FrameIQ AI Store" />
-    <meta name="twitter:description" content="Explore FrameIQ computer vision products for industry use cases. Scope, deployment and timelines are confirmed on enquiry." />
-    <meta name="theme-color" content="#08090d" />
-    <link rel="manifest" href="../site.webmanifest" />
-    <script src="../assets/js/seo.js" defer></script>
-    <link rel="stylesheet" href="../assets/css/motion.css" />
-    <script src="../assets/js/motion.js" defer></script>
-    <link rel="stylesheet" href="../assets/css/fx.css" />
-    <link rel="stylesheet" href="../assets/css/nav-fix.css" />
-    <link rel="stylesheet" href="../assets/css/gk.css" />
-    <link rel="stylesheet" href="../assets/css/fix-round3.css" />
-    <link rel="stylesheet" href="../assets/css/gk-kit.css" />
-    <link rel="stylesheet" href="../assets/css/gk-motion.css" />
-    <link rel="stylesheet" href="../assets/css/gk-store.css" />
-      <meta name="color-scheme" content="dark" />
-</head>
+    <meta name="color-scheme" content="dark" />
+  </head>
   <body data-root="../">
-        <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div id="site-header"></div>
 
-    <main id="main-content" class="as-page">
+    <main id="main-content" class="ais-page">
 
-      <!-- Band 1: Hero (dark) -->
-      <section class="as-hero-band gk-band gk-band--dark" aria-labelledby="as-title">
-        <div class="gk-wrap as-hero-wrap">
-          <div class="as-hero-copy">
-            <span class="gk-eyebrow">AI Store</span>
-            <h1 id="as-title">Computer Vision<br /><span class="text-gradient">Product Portfolio</span></h1>
-            <p class="as-hero-sub">Computer vision products for industry use cases. Scope, deployment and timelines are confirmed on enquiry.</p>
-            <div class="as-hero-actions">
-              <a class="as-btn as-btn--primary" href="#catalog">
+      <!-- Band 1: Hero -->
+      <section class="ais-hero-band gk-band gk-band--dark gk-hero" aria-labelledby="ais-title">
+        <div class="gk-wrap ais-hero-wrap">
+          <div class="ais-hero-copy ais-reveal">
+            <span class="gk-eyebrow">AI STORE</span>
+            <h1 id="ais-title">Computer Vision<br /><span class="text-gradient">Product Portfolio</span></h1>
+            <p class="ais-hero-sub">Computer vision products for industry use cases. Scope, deployment and timelines are confirmed on enquiry.</p>
+            <div class="ais-hero-actions">
+              <a class="ais-btn ais-btn--primary" href="#catalog">
                 Explore products
                 <i class="bi bi-arrow-down" aria-hidden="true"></i>
               </a>
-              <a class="as-btn as-btn--ghost" href="#demo">
-                Try the demo scene
+              <a class="ais-btn ais-btn--secondary" href="#demo">
+                Try a demo scene
                 <i class="bi bi-arrow-right" aria-hidden="true"></i>
               </a>
             </div>
           </div>
-          <div class="as-hero-metrics" aria-label="Portfolio summary">
-            <div class="as-metric">
-              <strong id="as-product-total" aria-live="polite">8</strong>
+          <div class="ais-hero-metrics ais-reveal" aria-label="Portfolio summary">
+            <div class="ais-metric">
+              <strong id="ais-product-total" aria-live="polite">8</strong>
               <span>products</span>
             </div>
-            <div class="as-metric">
+            <div class="ais-metric">
               <strong>Enquiry</strong>
               <span>confirms scope</span>
             </div>
-            <div class="as-metric">
+            <div class="ais-metric">
               <strong>Demo</strong>
               <span>scene available</span>
             </div>
@@ -87,130 +74,165 @@
         </div>
       </section>
 
-      <!-- Band 2: Filter + Catalog (dark) -->
-      <section class="as-catalog-band gk-band gk-band--dark" id="catalog" aria-labelledby="as-catalog-title">
+      <!-- Band 2: Spotlight (PPE Compliance Monitor featured) -->
+      <section class="ais-spotlight-band gk-band" aria-labelledby="ais-spotlight-title">
+        <div class="gk-wrap ais-spotlight-inner ais-reveal">
+          <div class="ais-spotlight-copy">
+            <span class="ais-spotlight-eyebrow">
+              <i class="bi bi-stars" aria-hidden="true"></i>
+              Featured use case
+            </span>
+            <h2 id="ais-spotlight-title">PPE Compliance Monitor</h2>
+            <p class="ais-spotlight-desc">A computer vision use case for identifying personal protective equipment in workplace camera views. Discuss camera placement, review workflows and deployment scope on enquiry.</p>
+            <div class="ais-spotlight-actions">
+              <a class="ais-btn ais-btn--primary" href="contact.html?product=ppe-compliance-monitor">
+                Enquire
+                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              </a>
+              <a class="ais-btn ais-btn--secondary" href="#catalog">
+                Browse all products
+              </a>
+            </div>
+          </div>
+          <div class="ais-spotlight-art">
+            <picture>
+              <source srcset="../assets/img/ai-store-hero.webp" type="image/webp" />
+              <img
+                src="../assets/img/ai-store-hero.webp"
+                alt="PPE Compliance Monitor — workplace safety camera view"
+                width="1680" height="944"
+                loading="lazy"
+                decoding="async"
+                class="ais-spotlight-img"
+                onerror="this.style.display='none';this.parentElement.parentElement.querySelector('.ais-spotlight-art-fallback').removeAttribute('hidden')"
+              />
+            </picture>
+            <div class="ais-spotlight-art-fallback" hidden aria-hidden="true">
+              <i class="bi bi-shield-check ais-spotlight-art-icon"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Band 3: Catalog — toolbar is inside so sticky is scoped to this section -->
+      <section class="ais-catalog-band gk-band gk-band--dark" id="catalog" aria-labelledby="ais-catalog-title">
         <div class="gk-wrap">
-          <div class="as-catalog-head">
+          <div class="ais-catalog-head ais-reveal">
             <div>
               <span class="gk-eyebrow">Product Catalog</span>
-              <h2 id="as-catalog-title">Explore the portfolio</h2>
+              <h2 id="ais-catalog-title">Explore the portfolio</h2>
             </div>
             <p>Browse computer vision use cases by category or search the catalog.</p>
           </div>
-
-          <!-- Filter bar -->
-          <div class="as-filter-bar" role="group" aria-label="Filter and search products">
-            <div class="as-filter-chips-wrap">
-              <span class="as-filter-label" id="as-filter-label">
-                <i class="bi bi-funnel" aria-hidden="true"></i>
-                Filter
-              </span>
-              <div class="as-filter-chips" id="as-filter-chips" role="group" aria-labelledby="as-filter-label"></div>
-            </div>
-            <div class="as-filter-right">
-              <label class="as-search-wrap">
+        </div>
+        <div class="ais-toolbar" id="ais-toolbar" role="group" aria-label="Filter and search products">
+          <div class="ais-toolbar-inner">
+            <div class="ais-chips-scroll" id="ais-filter-chips" role="group" aria-label="Filter by category"></div>
+            <div class="ais-toolbar-right">
+              <label class="ais-search-wrap">
                 <span class="sr-only">Search products</span>
-                <i class="bi bi-search as-search-icon" aria-hidden="true"></i>
-                <input id="as-search" class="as-search-input" type="search"
+                <i class="bi bi-search ais-search-icon" aria-hidden="true"></i>
+                <input id="ais-search" class="ais-search-input" type="search"
                   aria-label="Search products by name, summary or capability"
-                  placeholder="Search products" autocomplete="off" />
+                  placeholder="Search" autocomplete="off" />
               </label>
-              <div class="as-view-toggle" role="group" aria-label="Product layout">
-                <button type="button" class="as-view-btn" data-as-view="grid" aria-label="Grid view" aria-pressed="true">
+              <div class="ais-view-toggle" role="group" aria-label="Product layout">
+                <button type="button" class="ais-view-btn" data-ais-view="grid" aria-label="Grid view" aria-pressed="true">
                   <i class="bi bi-grid" aria-hidden="true"></i>
                 </button>
-                <button type="button" class="as-view-btn" data-as-view="list" aria-label="List view" aria-pressed="false">
+                <button type="button" class="ais-view-btn" data-ais-view="list" aria-label="List view" aria-pressed="false">
                   <i class="bi bi-list-ul" aria-hidden="true"></i>
                 </button>
               </div>
-              <label class="as-sort-wrap">
-                <span class="sr-only">Sort by</span>
-                <select id="as-sort" class="as-sort-select" aria-label="Sort products">
-                  <option value="featured">Featured</option>
-                  <option value="name-asc">Name: A to Z</option>
-                  <option value="name-desc">Name: Z to A</option>
-                </select>
-              </label>
+              <label class="sr-only" for="ais-sort">Sort by</label>
+              <select id="ais-sort" class="ais-sort-select" aria-label="Sort products">
+                <option value="featured">Featured</option>
+                <option value="name-asc">Name: A to Z</option>
+                <option value="name-desc">Name: Z to A</option>
+              </select>
             </div>
           </div>
+        </div>
+        <div class="gk-wrap">
 
           <!-- Results meta -->
-          <div class="as-results-meta">
-            <p id="as-result-count" aria-live="polite" aria-atomic="true">Showing 0 of 8 products</p>
-            <div class="as-compare-controls">
-              <span id="as-compare-status" role="status" aria-live="polite"></span>
-              <button class="as-btn as-btn--ghost as-compare-open" type="button" id="as-compare-open" disabled>
+          <div class="ais-results-meta">
+            <p id="ais-result-count" aria-live="polite" aria-atomic="true">Showing 0 of 8 products</p>
+            <div class="ais-compare-controls">
+              <span id="ais-compare-status" role="status" aria-live="polite"></span>
+              <button class="ais-btn ais-btn--secondary" type="button" id="ais-compare-open" disabled style="font-size:.82rem;min-height:36px;padding:.4rem .9rem">
                 <i class="bi bi-arrow-left-right" aria-hidden="true"></i>
-                Compare <span id="as-compare-count">0</span>
+                Compare <span id="ais-compare-count">0</span>
               </button>
             </div>
           </div>
 
           <!-- Product grid -->
-          <div class="as-product-grid" id="as-product-grid" aria-busy="true">
-            <div class="as-skeleton" aria-hidden="true"></div>
-            <div class="as-skeleton" aria-hidden="true"></div>
-            <div class="as-skeleton" aria-hidden="true"></div>
-            <div class="as-skeleton" aria-hidden="true"></div>
-            <div class="as-skeleton" aria-hidden="true"></div>
-            <div class="as-skeleton" aria-hidden="true"></div>
+          <div class="ais-product-grid" id="ais-product-grid" aria-busy="true">
+            <div class="ais-skeleton" aria-hidden="true"></div>
+            <div class="ais-skeleton" aria-hidden="true"></div>
+            <div class="ais-skeleton" aria-hidden="true"></div>
+            <div class="ais-skeleton" aria-hidden="true"></div>
+            <div class="ais-skeleton" aria-hidden="true"></div>
+            <div class="ais-skeleton" aria-hidden="true"></div>
+            <noscript><span class="gk-draft">Draft — pending content</span></noscript>
           </div>
 
           <!-- Empty state -->
-          <div class="as-empty" id="as-empty" hidden>
-            <i class="bi bi-search as-empty-icon" aria-hidden="true"></i>
+          <div class="ais-empty" id="ais-empty" hidden>
+            <i class="bi bi-search ais-empty-icon" aria-hidden="true"></i>
             <h3>No products match your search</h3>
             <p>Try a different term or clear the active filters.</p>
-            <button class="as-btn as-btn--ghost" type="button" id="as-clear-empty">Clear filters</button>
+            <button class="ais-btn ais-btn--secondary" type="button" id="ais-clear-empty">Clear filters</button>
           </div>
 
-          <p class="as-catalog-note">Product details, deployment scope and timelines are confirmed on enquiry.</p>
+          <p class="ais-catalog-note">Product details, deployment scope and timelines are confirmed on enquiry.</p>
         </div>
       </section>
 
-      <!-- Band 3: Demo playground (light) -->
-      <section class="as-demo-band gk-band" id="demo" aria-labelledby="as-demo-title">
+      <!-- Band 4: Demo playground -->
+      <section class="ais-demo-band gk-band" id="demo" aria-labelledby="ais-demo-title">
         <div class="gk-wrap">
-          <div class="as-demo-panel">
-            <div class="as-demo-copy">
+          <div class="ais-demo-panel ais-reveal">
+            <div class="ais-demo-copy">
               <span class="gk-eyebrow">Try it</span>
-              <h2 id="as-demo-title">Explore an illustrative scene</h2>
+              <h2 id="ais-demo-title">Explore an illustrative scene</h2>
               <p>Playground uses demo data. Select a scene to explore the interface.</p>
             </div>
-            <div class="as-demo-links" id="as-playground-links"></div>
+            <div class="ais-demo-links" id="ais-playground-links"></div>
           </div>
         </div>
       </section>
 
-      <!-- Band 4: Why FrameIQ (dark) -->
-      <section class="as-why-band gk-band gk-band--dark" aria-labelledby="as-why-title">
+      <!-- Band 5: Why FrameIQ (numbered panels) -->
+      <section class="ais-why-band gk-band gk-band--dark" aria-labelledby="ais-why-title">
         <div class="gk-wrap">
-          <div class="as-why-head">
+          <div class="ais-why-head ais-reveal">
             <span class="gk-eyebrow">The FrameIQ Approach</span>
-            <h2 id="as-why-title">Why FrameIQ AI Store</h2>
+            <h2 id="ais-why-title">Why FrameIQ AI Store</h2>
           </div>
-          <div class="as-why-grid">
-            <article class="as-why-card gk-r">
-              <span class="as-why-num">01</span>
-              <i class="bi bi-box-seam as-why-icon" aria-hidden="true"></i>
+          <div class="ais-why-grid">
+            <article class="ais-why-card ais-reveal">
+              <span class="ais-why-num" aria-hidden="true">01</span>
+              <i class="bi bi-box-seam ais-why-icon" aria-hidden="true"></i>
               <h3>Ready-to-use approach</h3>
               <p>Computer vision models for common industry use cases</p>
             </article>
-            <article class="as-why-card gk-r" style="--gk-d:80ms">
-              <span class="as-why-num">02</span>
-              <i class="bi bi-hdd-network as-why-icon" aria-hidden="true"></i>
+            <article class="ais-why-card ais-reveal" style="transition-delay:60ms">
+              <span class="ais-why-num" aria-hidden="true">02</span>
+              <i class="bi bi-hdd-network ais-why-icon" aria-hidden="true"></i>
               <h3>Edge or cloud options</h3>
               <p>Deployment options are discussed for your hardware and latency needs</p>
             </article>
-            <article class="as-why-card gk-r" style="--gk-d:160ms">
-              <span class="as-why-num">03</span>
-              <i class="bi bi-sliders as-why-icon" aria-hidden="true"></i>
+            <article class="ais-why-card ais-reveal" style="transition-delay:120ms">
+              <span class="ais-why-num" aria-hidden="true">03</span>
+              <i class="bi bi-sliders ais-why-icon" aria-hidden="true"></i>
               <h3>Custom training</h3>
               <p>Models can be discussed for fine-tuning on your own data</p>
             </article>
-            <article class="as-why-card gk-r" style="--gk-d:240ms">
-              <span class="as-why-num">04</span>
-              <i class="bi bi-geo-alt as-why-icon" aria-hidden="true"></i>
+            <article class="ais-why-card ais-reveal" style="transition-delay:180ms">
+              <span class="ais-why-num" aria-hidden="true">04</span>
+              <i class="bi bi-geo-alt ais-why-icon" aria-hidden="true"></i>
               <h3>Built for India</h3>
               <p>Designed with Indian industry use cases in mind</p>
             </article>
@@ -218,21 +240,33 @@
         </div>
       </section>
 
-      <!-- Band 5: Enquiry CTA (dark, high contrast) -->
-      <section class="as-enquiry-band gk-band gk-band--dark" aria-labelledby="as-enquiry-title">
+      <!-- Band 6: Browse by sector -->
+      <section class="ais-sectors-band gk-band" aria-labelledby="ais-sectors-title">
         <div class="gk-wrap">
-          <div class="as-enquiry-inner">
-            <div class="as-enquiry-copy">
+          <div class="ais-sectors-head ais-reveal">
+            <span class="gk-eyebrow">Browse by sector</span>
+            <h2 id="ais-sectors-title">Industries we serve</h2>
+            <p>Explore computer vision use cases by industry. Scope and suitability are confirmed on enquiry.</p>
+          </div>
+          <div class="ais-sectors-grid" id="ais-sectors-grid"></div>
+        </div>
+      </section>
+
+      <!-- Band 7: Enquiry CTA -->
+      <section class="ais-enquiry-band gk-band gk-band--dark" aria-labelledby="ais-enquiry-title">
+        <div class="gk-wrap">
+          <div class="ais-enquiry-inner ais-reveal">
+            <div class="ais-enquiry-copy">
               <span class="gk-eyebrow">Talk to us</span>
-              <h2 id="as-enquiry-title">Have a use case in mind?</h2>
+              <h2 id="ais-enquiry-title">Have a use case in mind?</h2>
               <p>Tell us what you want to detect and the FrameIQ team can review your enquiry.</p>
             </div>
-            <div class="as-enquiry-actions">
-              <a class="as-btn as-btn--cta" href="contact.html">
+            <div class="ais-enquiry-actions">
+              <a class="ais-btn ais-btn--cta" href="contact.html">
                 Start a project
                 <i class="bi bi-arrow-right" aria-hidden="true"></i>
               </a>
-              <a class="as-btn as-btn--ghost" href="sectors.html">Explore sectors</a>
+              <a class="ais-btn ais-btn--secondary" href="sectors.html">Explore sectors</a>
             </div>
           </div>
         </div>
@@ -241,55 +275,55 @@
     </main>
 
     <!-- Product detail dialog -->
-    <dialog class="as-dialog" id="as-detail-dialog" aria-labelledby="as-dialog-title">
-      <div class="as-dialog-header">
-        <span class="as-dialog-category" id="as-dialog-category"></span>
-        <button class="as-dialog-close" type="button" id="as-dialog-close" aria-label="Close product details">
+    <dialog class="ais-dialog" id="ais-detail-dialog" aria-labelledby="ais-dialog-title">
+      <div class="ais-dialog-header">
+        <span class="ais-dialog-category" id="ais-dialog-category"></span>
+        <button class="ais-dialog-close" type="button" id="ais-dialog-close" aria-label="Close product details">
           <i class="bi bi-x-lg" aria-hidden="true"></i>
         </button>
       </div>
-      <div class="as-dialog-body">
-        <h2 id="as-dialog-title"></h2>
-        <p id="as-dialog-summary"></p>
+      <div class="ais-dialog-body">
+        <h2 id="ais-dialog-title"></h2>
+        <p id="ais-dialog-summary"></p>
         <h3>Capabilities</h3>
-        <ul id="as-dialog-capabilities"></ul>
-        <p class="as-dialog-note">Integration requirements are discussed on enquiry</p>
+        <ul id="ais-dialog-capabilities"></ul>
+        <p class="ais-dialog-note">Integration requirements are discussed on enquiry</p>
       </div>
-      <div class="as-dialog-actions">
-        <a class="as-btn as-btn--primary" id="as-dialog-enquire" href="contact.html">
+      <div class="ais-dialog-actions">
+        <a class="ais-btn ais-btn--primary" id="ais-dialog-enquire" href="contact.html">
           Enquire
           <i class="bi bi-arrow-right" aria-hidden="true"></i>
         </a>
-        <button class="as-btn as-btn--ghost" type="button" data-close-dialog>Close</button>
+        <button class="ais-btn ais-btn--secondary" type="button" data-close-dialog>Close</button>
       </div>
     </dialog>
 
-    <!-- Compare tray (fixed bottom) -->
-    <div class="as-tray" id="gk-store-trays" aria-label="AI store selections">
-      <button class="as-tray-btn" type="button" id="gk-ai-compare">
+    <!-- Compare tray -->
+    <div class="ais-tray" id="ais-tray" aria-label="AI store selections">
+      <button class="ais-tray-btn" type="button" id="ais-tray-compare">
         <i class="bi bi-arrow-left-right" aria-hidden="true"></i>
-        Compare <span id="gk-ai-compare-count">0</span>
+        Compare <span id="ais-tray-count">0</span>
       </button>
-      <a class="as-tray-btn as-tray-btn--primary" href="contact.html">
+      <a class="ais-tray-btn ais-tray-btn--primary" href="contact.html">
         Enquiry
         <i class="bi bi-arrow-right" aria-hidden="true"></i>
       </a>
     </div>
 
     <!-- Compare dialog -->
-    <dialog class="as-dialog as-compare-dialog" id="as-compare-dialog" aria-labelledby="as-compare-title">
-      <div class="as-dialog-header">
-        <span class="as-dialog-category">Product comparison</span>
-        <button class="as-dialog-close" type="button" id="as-compare-close" aria-label="Close comparison">
+    <dialog class="ais-dialog ais-compare-dialog" id="ais-compare-dialog" aria-labelledby="ais-compare-title">
+      <div class="ais-dialog-header">
+        <span class="ais-dialog-category">Product comparison</span>
+        <button class="ais-dialog-close" type="button" id="ais-compare-close" aria-label="Close comparison">
           <i class="bi bi-x-lg" aria-hidden="true"></i>
         </button>
       </div>
-      <div class="as-dialog-body">
-        <h2 id="as-compare-title">Compare products</h2>
-        <div id="as-compare-content"></div>
+      <div class="ais-dialog-body">
+        <h2 id="ais-compare-title">Compare products</h2>
+        <div id="ais-compare-content"></div>
       </div>
-      <div class="as-dialog-actions">
-        <button class="as-btn as-btn--ghost" type="button" data-compare-close>Close</button>
+      <div class="ais-dialog-actions">
+        <button class="ais-btn ais-btn--secondary" type="button" data-compare-close>Close</button>
       </div>
     </dialog>
 

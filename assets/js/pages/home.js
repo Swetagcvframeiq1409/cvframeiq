@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   updateHeader();
   window.addEventListener('scroll', updateHeader, { passive: true });
 
-  document.body.classList.add('is-page-ready');
   const blogImages = {
     'AI for Traffic Management': 'assets/img/photos/blog-traffic.jpg',
     "Edge vs Cloud Video Analytics: What's Right for You?": 'assets/img/photos/blog-edge.jpg',
@@ -30,18 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     image.addEventListener('error', () => image.remove());
     art.prepend(image);
   });
-  document.querySelectorAll('a[href]').forEach((link) => {
-    link.addEventListener('click', (event) => {
-      const href = link.getAttribute('href');
-      if (!href || href.startsWith('#') || link.target === '_blank' || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-      const url = new URL(link.href, window.location.href);
-      if (url.origin !== window.location.origin) return;
-      event.preventDefault();
-      document.body.classList.add('is-page-leaving');
-      window.setTimeout(() => { window.location.assign(url.href); }, reducedMotion ? 0 : 200);
-    });
-  });
-
   const practiceCarousel = document.querySelector('[data-practice-carousel]');
   const practiceCards = practiceCarousel ? Array.from(practiceCarousel.children) : [];
   const practiceDots = Array.from(document.querySelectorAll('.practice-carousel-dots i'));

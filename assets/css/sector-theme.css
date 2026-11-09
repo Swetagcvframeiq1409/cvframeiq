@@ -663,7 +663,17 @@ body  #main-content.sx-page .sx-band.sx-solutions {
 
 
 #main-content.sx-page .sx-accordion__panel p {
-  color: var(--sx-muted);
+  color: #d6d3de;
+}
+
+#main-content.sx-page .sx-accordion__button {
+  color: #f5f6fb;
+}
+
+#main-content.sx-page .sx-band[data-tone="dark"] .gk-draft {
+  border-color: rgba(255,255,255,.6);
+  background: rgba(255,255,255,.12);
+  color: #fff;
 }
 
 

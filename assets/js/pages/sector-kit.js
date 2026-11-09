@@ -6,7 +6,6 @@
   function initReveal() {
     const items = Array.from(document.querySelectorAll('[data-sx-reveal]'));
     if (!items.length) return;
-    document.documentElement.classList.add('sx-js');
     items.forEach((item) => item.classList.add('sx-reveal'));
 
     const revealAll = () => {
@@ -18,6 +17,8 @@
       });
     };
 
+    revealVisible();
+    document.documentElement.classList.add('sx-js');
     if (reducedMotion.matches || !('IntersectionObserver' in window)) {
       revealAll();
       return;
@@ -161,7 +162,15 @@
           if (active) {
             chip.setAttribute('aria-current', 'location');
             if (!wasActive) {
-              chip.scrollIntoView({ block: 'nearest', inline: 'center', behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+              const scroller = nav.querySelector('.sx-subnav__chips');
+              if (scroller) {
+                const chipBounds = chip.getBoundingClientRect();
+                const scrollerBounds = scroller.getBoundingClientRect();
+                if (chipBounds.left < scrollerBounds.left || chipBounds.right > scrollerBounds.right) {
+                  const left = scroller.scrollLeft + chipBounds.left - scrollerBounds.left - (scroller.clientWidth - chipBounds.width) / 2;
+                  scroller.scrollTo({ left, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+                }
+              }
             }
           } else {
             chip.removeAttribute('aria-current');

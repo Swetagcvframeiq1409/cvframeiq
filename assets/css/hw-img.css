@@ -1,0 +1,300 @@
+/* hw-img.css — hardware page image frames, shared across all 5 hardware pages */
+
+/* ── Image frame ── */
+.hw-img-frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(101, 66, 200, .22);
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(101, 66, 200, .18), rgba(85, 216, 236, .07));
+  box-shadow: 0 0 0 1px rgba(101, 66, 200, .08), 0 8px 40px rgba(101, 66, 200, .18);
+}
+
+.hw-img-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.hw-img-frame.is-loaded img { opacity: 1; }
+.hw-img-frame.img-failed img { display: none; }
+.hw-img-frame.is-loaded .hw-img-frame__fallback { display: none; }
+
+/* Fallback icon shown when image fails or before load */
+.hw-img-frame__fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgba(101, 66, 200, .45);
+  font-size: clamp(3rem, 8vw, 6rem);
+  pointer-events: none;
+}
+
+/* ── Hero split layout ── */
+.hw-hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+
+.hw-hero-split__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.hw-hero-split__visual {
+  aspect-ratio: 4 / 3;
+}
+
+/* ── Spec table ── */
+.hw-spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--hw-line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.hw-spec-table th,
+.hw-spec-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--hw-line);
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+.hw-spec-table th {
+  width: 38%;
+  font-weight: 700;
+  background: rgba(101, 66, 200, .06);
+  color: var(--hw-ink);
+}
+
+.hw-spec-table td { color: var(--hw-ink-muted); }
+
+.hw-spec-table tr:last-child th,
+.hw-spec-table tr:last-child td { border-bottom: 0; }
+
+/* ── Tab panel image ── */
+.hw-tab-img-frame {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  margin-top: 24px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(101, 66, 200, .18);
+  background: linear-gradient(135deg, rgba(101, 66, 200, .14), rgba(85, 216, 236, .06));
+}
+
+.hw-tab-img-frame img {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.hw-tab-img-frame img.is-current { opacity: 1; }
+
+/* ── Related hardware cards ── */
+.hw-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.hw-related-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+  border: 1px solid var(--hw-line);
+  border-radius: 16px;
+  background: var(--hw-card-bg);
+  color: var(--hw-card-ink);
+  text-decoration: none;
+  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+.hw-related-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(101, 66, 200, .5);
+  box-shadow: 0 16px 36px rgba(101, 66, 200, .14);
+}
+
+.hw-related-card__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(101, 66, 200, .1);
+  color: #6542c8;
+  font-size: 1.3rem;
+}
+
+.hw-related-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--hw-card-ink);
+}
+
+.hw-related-card p {
+  margin: 0;
+  color: var(--hw-card-ink-muted);
+  font-size: .875rem;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.hw-related-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #6542c8;
+  font-weight: 700;
+  font-size: .875rem;
+}
+
+.hw-related-card .gk-draft {
+  align-self: flex-start;
+  border-color: rgba(255,255,255,.48);
+  background: rgba(255,255,255,.1);
+  color: #fff;
+}
+
+.hw-band[data-tone="dark"] .hw-related-card__cta { color: #b8a3ff; }
+.hw-band[data-tone="dark"] .hw-related-card__icon {
+  background: rgba(184, 163, 255, .14);
+  color: #b8a3ff;
+}
+
+/* ── Consult split (quote + demo pages) ── */
+.hw-consult-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: start;
+}
+
+.hw-consult-sticky {
+  position: sticky;
+  top: calc(var(--header-h, 74px) + 24px);
+}
+
+.hw-consult-img {
+  aspect-ratio: 4 / 3;
+  margin-top: 32px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(101, 66, 200, .18);
+  background: linear-gradient(135deg, rgba(101, 66, 200, .14), rgba(85, 216, 236, .06));
+}
+
+.hw-consult-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.hw-consult-img.is-loaded img { opacity: 1; }
+
+/* ── What happens next steps ── */
+.hw-next-steps {
+  display: grid;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.hw-next-step {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.hw-next-step__num {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(101, 66, 200, .12);
+  color: #6542c8;
+  font: 700 .9rem/1 "Space Grotesk", sans-serif;
+  flex-shrink: 0;
+}
+
+.hw-next-step__text {
+  padding-top: 10px;
+  color: var(--hw-ink-muted);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* ── Contact info block ── */
+.hw-contact-block {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--hw-line);
+}
+
+.hw-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--hw-ink-muted);
+  font-size: .9rem;
+}
+
+.hw-contact-row i {
+  color: #b8a8ff;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.hw-contact-row a { color: #b8a8ff; font-weight: 700; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .hw-hero-split,
+  .hw-consult-split {
+    grid-template-columns: 1fr;
+  }
+
+  .hw-consult-sticky { position: static; }
+
+  .hw-related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px) {
+  .hw-related-grid { grid-template-columns: 1fr; }
+
+  .hw-hero-split__visual { aspect-ratio: 16 / 9; }
+
+  .hw-consult-img { aspect-ratio: 16 / 9; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hw-img-frame img,
+  .hw-consult-img img { transition: none; opacity: 1; }
+  .hw-tab-img-frame img { transition: none; }
+
+  .hw-related-card { transition: none; }
+}

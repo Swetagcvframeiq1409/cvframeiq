@@ -406,30 +406,53 @@
   top: var(--header-h, 74px);
   left: 0;
   width: min(56rem, calc(100vw - 2rem));
+  max-width: min(1120px, calc(100vw - 32px));
   box-sizing: border-box;
   transform: translateY(8px);
   border: 1px solid var(--mega-border);
   border-radius: 0 0 16px 16px;
-  background: var(--mega-bg);
+  /* Solid opaque background — no ghosting through transparent bg */
+  background: #111113;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.32);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   z-index: calc(var(--z-header, 100) + 10);
-  transition: opacity 0.18s ease-out, transform 0.18s ease-out, visibility 0.18s;
+  /* Animate ONLY the panel. Children get no opacity/transform of their own.
+     visibility delay matches opacity duration so panel hides after fade-out. */
+  transition: opacity 0.16s ease-out, transform 0.16s ease-out, visibility 0s linear 0.16s;
 }
 
-
-
-
-
-
+/* Invisible bridge fills the gap between trigger row and panel top
+   so the pointer never leaves a hover-sensitive area while crossing. */
+.mega::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: transparent;
+  pointer-events: auto;
+}
 
 .site-header .nav__item.is-open > .mega {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: translateY(0);
+  /* Open: all delays zero — panel and children appear together, no ghost */
+  transition: opacity 0.16s ease-out, transform 0.16s ease-out, visibility 0s linear 0s;
+}
+
+/* Children must NOT carry their own opacity or transform — panel animates as one unit */
+.mega .mega__item,
+.mega .mega__icon,
+.mega .mega__copy,
+.mega .mega__title,
+.mega .mega__desc {
+  opacity: 1;
+  transform: none;
 }
 
 
@@ -732,7 +755,7 @@
 /* Hardware mega-menu refinements */
 .site-header .nav__item--hardware > .mega {
   border-radius: 0 0 16px 16px;
-  transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0s linear 0.2s;
+  transition: opacity 0.16s ease-out, transform 0.16s ease-out, visibility 0s linear 0.16s;
 }
 
 
@@ -742,7 +765,7 @@
 
 
 .site-header .nav__item--hardware.is-open > .mega {
-  transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0s;
+  transition: opacity 0.16s ease-out, transform 0.16s ease-out, visibility 0s linear 0s;
 }
 
 
@@ -1532,9 +1555,27 @@
   }
   
   .header-actions .mobile-menu__toggle {
+    display: inline-flex;
     width: 44px;
     height: 44px;
   }
+}
+
+@media (min-width: 1025px) and (max-width: 1100px) {
+  :root { --header-h: 64px; }
+
+  .site-header { height: 64px; }
+  .site-header .nav,
+  .site-header .header-login,
+  .site-header .header-start { display: none !important; }
+  .mobile-menu__toggle { display: inline-flex; }
+  .header-actions .mobile-menu__toggle {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+  }
+  .header-actions { margin-left: auto; }
+  .navbar { justify-content: space-between; }
 }
 
 @media (max-width: 767px) {
@@ -1577,34 +1618,13 @@
 
   .mega {
     transform: translateY(0);
-  }
-
-  
-
-  .site-header .nav__item--hardware > .mega {
-    transition: none;
-    animation: none;
-  }
-
-  
-
-  .site-header .nav__item--hardware.is-open > .mega {
-    transition: none;
-    animation: none;
-  }
-
-  
-
-  .site-header .nav__item--hardware .mega__item,
-  .site-header .nav__item--hardware .mega__icon,
-  .site-header .nav__item--hardware .mega__arrow,
-  .site-header .nav__item--hardware .mega__strip-demo {
-    transition: none;
+    visibility: hidden;
   }
 
   
 
   .site-header .nav__item.is-open > .mega {
+    visibility: visible;
     transform: translateY(0);
   }
 
@@ -1637,3 +1657,231 @@
 
 
 html.menu-open { overflow: hidden; }
+
+/* ── Demos mega menu (two-column) ── */
+/* Override compact width — specificity must beat .nav__item--mega-compact > .mega (0,2,0) */
+.nav__item--mega-compact > .nav-mega--demos,
+.nav-mega--demos {
+  width: min(880px, calc(100vw - 32px));
+  max-width: min(880px, calc(100vw - 32px));
+  border: 1px solid rgba(101, 66, 200, 0.28);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(101, 66, 200, 0.12);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: opacity 0.18s ease-out, transform 0.18s ease-out, visibility 0s linear 0.18s;
+}
+
+.site-header .nav__item.is-open > .nav-mega--demos {
+  transition: opacity 0.18s ease-out, transform 0.18s ease-out, visibility 0s linear 0s;
+}
+
+.mega__demos-layout {
+  display: grid;
+  grid-template-columns: 1fr 0.65fr;
+  min-height: 0;
+  /* override .mega__body single-column default */
+  grid-template-columns: 1fr 0.65fr;
+}
+
+/* Left column: item rows */
+.mega__demos-list {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-mega--demos .mega__item {
+  display: grid;
+  grid-template-columns: 44px 1fr 18px;
+  align-items: center;
+  gap: 12px;
+  min-height: auto;
+  padding: 12px 14px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.14s ease, border-color 0.14s ease;
+}
+
+/* 2px left accent bar — slides in on hover */
+.nav-mega--demos .mega__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--hdr-accent);
+  border-radius: 1px;
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.14s ease;
+}
+
+.nav-mega--demos .mega__item:hover::before,
+.nav-mega--demos .mega__item:focus-visible::before {
+  transform: scaleY(1);
+}
+
+.nav-mega--demos .mega__item:hover,
+.nav-mega--demos .mega__item:focus-visible {
+  background: var(--mega-item-hover);
+  border-color: rgba(101, 66, 200, 0.22);
+}
+
+.nav-mega--demos .mega__item[aria-current="page"] {
+  background: rgba(101, 66, 200, 0.08);
+  border-color: rgba(101, 66, 200, 0.2);
+}
+
+.nav-mega--demos .mega__item[aria-current="page"]::before {
+  transform: scaleY(1);
+}
+
+.nav-mega--demos .mega__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(101, 66, 200, 0.2);
+  font-size: 18px;
+  transition: background 0.14s ease, color 0.14s ease, border-color 0.14s ease;
+}
+
+.nav-mega--demos .mega__item:hover .mega__icon,
+.nav-mega--demos .mega__item:focus-visible .mega__icon {
+  background: #6542c8;
+  color: #fff;
+  border-color: #6542c8;
+}
+
+.nav-mega--demos .mega__item[aria-current="page"] .mega__icon {
+  background: rgba(101, 66, 200, 0.22);
+  color: #c4b5fd;
+  border-color: rgba(101, 66, 200, 0.35);
+}
+
+/* Current-page accent dot next to title */
+.mega__current-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--hdr-accent);
+  margin-left: 6px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Row stagger on open */
+@media (prefers-reduced-motion: no-preference) {
+  .site-header .nav__item.is-open > .nav-mega--demos .mega__item {
+    animation: demosRowIn 0.22s ease-out both;
+    animation-delay: calc(0.06s + var(--row-i, 0) * 0.03s);
+  }
+}
+
+@keyframes demosRowIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Right column: feature card */
+.mega__demos-card {
+  background: linear-gradient(145deg, #2a1a5e 0%, #3d2490 45%, #6542c8 100%);
+  display: flex;
+  align-items: stretch;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mega__demos-card__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 28px 24px;
+  width: 100%;
+}
+
+.mega__demos-card__eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.mega__demos-card__label {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.mega__demos-card__sub {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.mega__demos-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease, gap 0.12s ease;
+  align-self: flex-start;
+}
+
+.mega__demos-card__cta:hover {
+  background: rgba(255, 255, 255, 0.25);
+  gap: 10px;
+}
+
+/* Light theme overrides for Demos panel */
+[data-theme="light"] .nav-mega--demos,
+html.theme-light .nav-mega--demos {
+  --mega-bg: #ffffff;
+  --mega-border: #e2e2e6;
+  --mega-item-hover: #f5f4ff;
+  --mega-muted: #4a4a55;
+  --mega-icon-bg: rgba(101, 66, 200, 0.1);
+  --mega-icon-color: #6542c8;
+  --hdr-text-active: #111113;
+  background: #ffffff;
+  border-color: #d8d8e0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(101, 66, 200, 0.1);
+}
+
+[data-theme="light"] .nav-mega--demos .mega__title,
+html.theme-light .nav-mega--demos .mega__title {
+  color: #111113;
+}
+
+[data-theme="light"] .nav-mega--demos .mega__desc,
+html.theme-light .nav-mega--demos .mega__desc {
+  color: #4a4a55;
+}
+
+/* Reduced motion: no stagger, no translate */
+@media (prefers-reduced-motion: reduce) {
+  .nav-mega--demos,
+  .nav-mega--demos .mega__item,
+  .nav-mega--demos .mega__icon,
+  .nav-mega--demos .mega__item::before,
+  .mega__demos-card__cta {
+    transition: none;
+    animation: none;
+  }
+}

@@ -7,24 +7,20 @@ function initMegaMenus() {
   const linksFor = (item) => Array.from(item.querySelectorAll('.mega a'));
   let closeTimer = null;
   let openTimer = null;
-  let suppressFocusOpen = false;
+  let openMenu = null; // the single currently-open item
+  let suppressFocusOpen = false; // prevent focusin re-opening after Escape
 
   const syncOverlay = () => {
-    const shouldShow = window.matchMedia('(min-width: 1025px)').matches
-      && items.some((item) => item.classList.contains('is-open'));
+    const shouldShow = window.matchMedia('(min-width: 1025px)').matches && openMenu !== null;
     overlay?.classList.toggle('is-open', shouldShow);
   };
 
   const closeItem = (item, returnFocus = false) => {
     item.classList.remove('is-open');
-    const trigger = item.querySelector('.nav__button');
-    trigger?.setAttribute('aria-expanded', 'false');
+    item.querySelector('.nav__button')?.setAttribute('aria-expanded', 'false');
+    if (openMenu === item) openMenu = null;
     syncOverlay();
-    if (returnFocus && trigger) {
-      suppressFocusOpen = true;
-      trigger.focus();
-      suppressFocusOpen = false;
-    }
+    if (returnFocus) item.querySelector('.nav__button')?.focus();
   };
 
   const positionPanel = (item) => {
@@ -33,44 +29,68 @@ function initMegaMenus() {
     const panel = panelFor(item);
     if (!trigger || !panel) return;
     const triggerRect = trigger.getBoundingClientRect();
-    const panelWidth = panel.getBoundingClientRect().width;
-    const left = Math.max(16, Math.min(triggerRect.left, window.innerWidth - panelWidth - 16));
+    const panelWidth = Math.min(
+      parseFloat(getComputedStyle(panel).width) || 560,
+      window.innerWidth - 16
+    );
+    const idealLeft = triggerRect.left;
+    const left = Math.max(8, Math.min(idealLeft, window.innerWidth - panelWidth - 8));
     panel.style.left = `${left}px`;
     panel.style.top = `${triggerRect.bottom}px`;
+    const headerH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 74;
+    const isResourcesMenu = trigger.textContent.trim() === 'Resources';
+    if (isResourcesMenu) {
+      panel.style.maxHeight = 'none';
+      panel.style.overflowY = 'visible';
+      panel.style.overflow = 'visible';
+      return;
+    }
+    panel.style.maxHeight = `calc(100vh - ${headerH + 16}px)`;
+    panel.style.overflowY = 'auto';
+    panel.style.overflow = 'auto';
   };
 
   const closeAll = (except = null, returnFocus = false) => {
+    window.clearTimeout(closeTimer);
+    window.clearTimeout(openTimer);
     items.forEach((item) => {
-      if (item !== except) closeItem(item, returnFocus && item.classList.contains('is-open'));
+      if (item !== except) closeItem(item, returnFocus && item === openMenu);
     });
   };
 
   const openItem = (item) => {
     window.clearTimeout(closeTimer);
-    /* If another item is open, keep panel visible and just switch — no close/reopen */
-    const alreadyOpen = items.find((i) => i !== item && i.classList.contains('is-open'));
-    if (alreadyOpen) {
-      alreadyOpen.classList.remove('is-open');
-      alreadyOpen.querySelector('.nav__button')?.setAttribute('aria-expanded', 'false');
+    window.clearTimeout(openTimer);
+    if (item === openMenu) return;
+    // Close any other open item immediately (no flash)
+    if (openMenu && openMenu !== item) {
+      openMenu.classList.remove('is-open');
+      openMenu.querySelector('.nav__button')?.setAttribute('aria-expanded', 'false');
+      openMenu = null;
     }
-    if (item.classList.contains('is-open')) return;
     item.classList.add('is-open');
-    const trigger = item.querySelector('.nav__button');
-    trigger?.setAttribute('aria-expanded', 'true');
+    item.querySelector('.nav__button')?.setAttribute('aria-expanded', 'true');
+    openMenu = item;
     positionPanel(item);
     syncOverlay();
   };
 
   const scheduleClose = () => {
     window.clearTimeout(closeTimer);
-    closeTimer = window.setTimeout(() => closeAll(), 220);
+    closeTimer = window.setTimeout(() => closeAll(), 180);
   };
+
+  // Home link and Login — hovering them closes all panels immediately
+  const homeLink = nav.querySelector('.nav__link');
+  homeLink?.addEventListener('pointerenter', () => closeAll());
+  document.querySelector('.header-login')?.addEventListener('pointerenter', () => closeAll());
 
   items.forEach((item) => {
     const trigger = item.querySelector('.nav__button');
     if (!trigger) return;
     const panel = panelFor(item);
 
+    // Focus management (keyboard only — suppress on hover)
     item.addEventListener('focusout', () => {
       window.setTimeout(() => {
         if (!item.contains(document.activeElement)) closeItem(item);
@@ -78,98 +98,105 @@ function initMegaMenus() {
     });
 
     item.addEventListener('focusin', () => {
-      if (!suppressFocusOpen && window.matchMedia('(min-width: 1025px)').matches) openItem(item);
+      if (suppressFocusOpen) return;
+      if (window.matchMedia('(min-width: 1025px)').matches) openItem(item);
     });
 
+    // Click: toggle open/close. Only fires on actual pointer clicks, not keyboard Enter (which fires keydown).
     trigger.addEventListener('click', (event) => {
-      if (trigger.tagName === 'A' && !window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
-      event.preventDefault();
+      // Ignore synthetic clicks from keyboard (isTrusted=false in some browsers, or pointerType empty)
+      // Only toggle on pointer/mouse clicks, not keyboard activation
+      if (event.detail === 0) return; // keyboard-activated click has detail=0
+      if (trigger.tagName === 'A') event.preventDefault();
       if (item.classList.contains('is-open')) closeItem(item);
       else openItem(item);
     });
 
+    // Hover: 80ms open intent, 180ms close delay
     item.addEventListener('pointerenter', () => {
-      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-        window.clearTimeout(closeTimer);
-        window.clearTimeout(openTimer);
+      if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+      window.clearTimeout(closeTimer);
+      window.clearTimeout(openTimer);
+      // If another panel is already open, switch immediately (no delay)
+      if (openMenu && openMenu !== item) {
+        openItem(item);
+      } else {
         openTimer = window.setTimeout(() => openItem(item), 80);
       }
     });
 
     item.addEventListener('pointerleave', () => {
+      if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
       window.clearTimeout(openTimer);
       scheduleClose();
     });
 
-    panel?.addEventListener('pointerenter', () => window.clearTimeout(closeTimer));
-    panel?.addEventListener('pointerleave', scheduleClose);
+    // Panel itself: cancel close while pointer is inside (covers the gap via ::before bridge in CSS)
+    panel?.addEventListener('pointerenter', () => {
+      window.clearTimeout(closeTimer);
+      window.clearTimeout(openTimer);
+    });
+    panel?.addEventListener('pointerleave', () => scheduleClose());
 
+    // Keyboard
     trigger.addEventListener('keydown', (event) => {
       const triggerList = items.map((i) => i.querySelector('.nav__button')).filter(Boolean);
       const triggerIdx = triggerList.indexOf(trigger);
-
       if (event.key === 'Enter' || event.key === ' ') {
-        if (trigger.tagName === 'A') {
-          if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
-            event.preventDefault();
-            openItem(item);
-          }
-          return;
-        }
         event.preventDefault();
-        if (item.classList.contains('is-open')) closeItem(item);
-        else openItem(item);
+        // Enter/Space always opens; use Escape to close
+        openItem(item);
         return;
       }
       if (event.key === 'ArrowDown') {
         event.preventDefault();
         openItem(item);
-        window.setTimeout(() => {
-          if (item.classList.contains('is-open')) linksFor(item)[0]?.focus();
-        }, 20);
+        window.setTimeout(() => linksFor(item)[0]?.focus(), 20);
         return;
       }
       if (event.key === 'ArrowRight') {
         event.preventDefault();
-        const next = triggerList[(triggerIdx + 1) % triggerList.length];
-        next?.focus();
+        triggerList[(triggerIdx + 1) % triggerList.length]?.focus();
         return;
       }
       if (event.key === 'ArrowLeft') {
         event.preventDefault();
-        const prev = triggerList[(triggerIdx - 1 + triggerList.length) % triggerList.length];
-        prev?.focus();
+        triggerList[(triggerIdx - 1 + triggerList.length) % triggerList.length]?.focus();
         return;
       }
     });
 
     linksFor(item).forEach((link, index, links) => {
       link.addEventListener('keydown', (event) => {
-        let destination = null;
-        if (event.key === 'ArrowDown') destination = links[(index + 1) % links.length];
-        else if (event.key === 'ArrowUp') destination = links[(index - 1 + links.length) % links.length];
-        else if (event.key === 'Home') destination = links[0];
-        else if (event.key === 'End') destination = links[links.length - 1];
-        if (destination) { event.preventDefault(); destination.focus(); }
+        let dest = null;
+        if (event.key === 'ArrowDown') dest = links[(index + 1) % links.length];
+        else if (event.key === 'ArrowUp') dest = links[(index - 1 + links.length) % links.length];
+        else if (event.key === 'Home') dest = links[0];
+        else if (event.key === 'End') dest = links[links.length - 1];
+        if (dest) { event.preventDefault(); dest.focus(); }
       });
     });
   });
 
+  // Click outside closes all
   document.addEventListener('click', (event) => {
     if (!(event.target instanceof Element) || !event.target.closest('.nav__item--mega')) {
-      items.forEach((item) => closeItem(item));
+      closeAll();
     }
   });
 
+  // Escape closes open panel and returns focus
   document.addEventListener('keydown', (event) => {
     if (event.key !== 'Escape') return;
-    const openItemEl = items.find((item) => item.classList.contains('is-open'));
-    if (openItemEl) {
+    if (openMenu) {
       event.preventDefault();
-      closeItem(openItemEl, true);
+      suppressFocusOpen = true;
+      closeItem(openMenu, true);
+      window.setTimeout(() => { suppressFocusOpen = false; }, 50);
     }
   });
 
+  // Scroll closes if moved more than 80px
   let lastScrollY = window.scrollY;
   window.addEventListener('scroll', () => {
     if (Math.abs(window.scrollY - lastScrollY) > 80) {
@@ -178,11 +205,7 @@ function initMegaMenus() {
     }
   }, { passive: true });
 
-  window.addEventListener('resize', () => {
-    closeAll();
-    syncOverlay();
-  });
-
+  window.addEventListener('resize', () => { closeAll(); syncOverlay(); });
   window.addEventListener('blur', () => closeAll());
 }
 
@@ -227,6 +250,7 @@ function initMobileMenu() {
   const focusable = () => Array.from(
     menu.querySelectorAll('a[href], button:not([disabled])')
   ).filter((el) => {
+    if (el.closest('[hidden]')) return false;
     let node = el;
     while (node && node !== menu) {
       if (node.inert) return false;
@@ -349,9 +373,9 @@ function initMobileMenu() {
     link.addEventListener('click', () => closeMenu(false));
   });
 
-  /* Close when viewport grows past 1024px */
+  /* Close when viewport grows past 1100px */
   window.addEventListener('resize', () => {
-    if (window.innerWidth >= 1025 && menu.classList.contains('is-open')) closeMenu(false);
+    if (window.innerWidth >= 1101 && menu.classList.contains('is-open')) closeMenu(false);
   });
 }
 
@@ -475,8 +499,8 @@ function initPagePolish() {
 
   const header = document.querySelector('.site-header');
   const measureHeader = () => {
-    if (!header) return;
-    document.documentElement.style.setProperty('--header-h', `${header.getBoundingClientRect().height}px`);
+    const height = header?.getBoundingClientRect().height || 72;
+    document.documentElement.style.setProperty('--header-h', `${height}px`);
   };
   measureHeader();
   if (header && 'ResizeObserver' in window) new ResizeObserver(measureHeader).observe(header);

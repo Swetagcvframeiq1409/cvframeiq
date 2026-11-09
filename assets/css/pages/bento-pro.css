@@ -101,8 +101,8 @@
   }
   
   #home-practices.bento-stack-on .site-bento__card:hover .site-bento__link .bi {
-    background: #fff;
-    color: var(--accent);
+    background: var(--surface-raised);
+    color: var(--accent-readable);
     transform: translateX(3px) rotate(-45deg);
   }
 

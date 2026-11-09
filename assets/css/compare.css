@@ -1,20 +1,55 @@
-.rsc-hero-pills { display: flex; gap: 1rem; margin-top: 2rem; }
+/* Hero pills removed per Prompt 33 */
+.rsc-hero-pills { display: none; }
 
+/* Compact hero: two columns from 992px, max 460px tall */
+.rsc-hero-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+@media (min-width: 992px) {
+  .rsc-hero-wrap {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* Compact hero band: override gk-hero, rs-band padding and rs-hero min-height */
+.rsc-hero-band.gk-hero {
+  padding: calc(var(--header-h, 76px) + 1.5rem) 0 1.5rem !important;
+}
+.rsc-hero-band.rs-band {
+  padding-block: 0 !important;
+}
+.rsc-hero-band.rs-hero {
+  min-height: 0 !important;
+}
+/* Constrain h1 size in compare hero so total height stays ≤460px */
+.rsc-hero-band .rs-h1 {
+  font-size: clamp(2.4rem, 4vw, 4rem);
+}
 
-
-.rsc-hero-pills .rs-chip { min-width: 7rem; text-align: center; }
-
-
-
-.rsc-hero-pills .rs-chip { transform: translateX(0); transition: transform 600ms var(--ease-standard); }
-
-
-
-.rsc-hero-pills.is-in .rs-chip:first-child { transform: translateX(-8px); }
-
-
-
-.rsc-hero-pills.is-in .rs-chip:last-child { transform: translateX(8px); }
+/* Compare hero image figure */
+.rsc-hero-fig {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid rgba(101,66,200,.2);
+  box-shadow: 0 0 0 1px rgba(101,66,200,.08), 0 8px 32px rgba(101,66,200,.14);
+  background: linear-gradient(135deg, rgba(101,66,200,.22), rgba(85,216,236,.08));
+  margin: 0;
+  aspect-ratio: 16 / 9;
+  display: none;
+}
+@media (min-width: 992px) {
+  .rsc-hero-fig { display: block; }
+}
+.rsc-hero-fig__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.rsc-hero-fig__img[data-failed="true"] { display: none; }
 
 
 
@@ -82,15 +117,23 @@
 
 
 
-.rsc-table thead th { position: static; background: var(--rs-bg); color: var(--rs-fg); }
-
-
-
-.rsc-table tbody tr:hover { background: color-mix(in srgb, var(--rs-accent) 8%, transparent); }
-
-
-
-.rsc-table tbody th { width: 25%; color: var(--rs-fg); }
+/* Sticky table header row under main header */
+.rsc-table thead th {
+  position: sticky;
+  top: var(--header-h, 76px);
+  z-index: 10;
+  background: var(--color-bg, #08090d);
+  color: var(--text);
+}
+/* Purple top border on Edge and Cloud columns */
+.rsc-table thead th:nth-child(2),
+.rsc-table thead th:nth-child(3) {
+  border-top: 2px solid rgba(101,66,200,.55);
+}
+/* First column bold */
+.rsc-table tbody th { width: 25%; color: var(--text); font-weight: 700; }
+/* Subtle row hover */
+.rsc-table tbody tr:hover { background: color-mix(in srgb, var(--rs-accent, #6542c8) 8%, transparent); }
 
 
 
@@ -108,6 +151,12 @@
 
 .rsc-reading { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 
+.rsc-reading.gk-cards { border: 0; border-radius: 0; overflow: visible; }
+
+.rsc-reading.gk-cards .gk-card { border: 1px solid var(--border); border-radius: 16px; }
+
+.rsc-reading.gk-cards .gk-card:nth-child(3n) { border-right: 1px solid var(--border); }
+
 
 
 .rsc-reading .rs-card { padding: 1.5rem; }
@@ -120,45 +169,28 @@
 
 .rsc-reading a { color: var(--rs-accent); }
 @media (max-width: 700px) {
-  
-  
-  
+  /* Stacked card layout — no horizontal scroll */
   .rsc-table-wrap { overflow: visible; }
-  
-  
-  
+
   .rsc-table, .rsc-table tbody, .rsc-table tr, .rsc-table td, .rsc-table th { display: block; width: auto; }
-  
-  
-  
+
   .rsc-table thead { display: none; }
-  
-  
-  
+
   .rsc-table tr { margin-bottom: 1rem; border: 1px solid var(--border); border-radius: 1rem; padding: .8rem; }
-  
-  
-  
+
   .rsc-table tbody th, .rsc-table td { border: 0; padding: .55rem; }
-  
-  
-  
-  .rsc-table tbody th { color: var(--rs-fg); }
-  
-  
-  
+
+  .rsc-table tbody th { color: var(--text); font-weight: 700; }
+
+  /* "Edge" and "Cloud" labels before each data cell */
   .rsc-table td::before { display: block; margin-bottom: .2rem; color: var(--text-soft); font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-  
-  
-  
+
   .rsc-table td:nth-child(2)::before { content: 'Edge'; }
-  
-  
-  
+
   .rsc-table td:nth-child(3)::before { content: 'Cloud'; }
-  
-  
-  
+
   .rsc-reading { grid-template-columns: 1fr; }
+
+  .rsc-reading.gk-cards .gk-card { border-right: 1px solid var(--border); }
 }
 @media (prefers-reduced-motion: reduce) {    .rsc-hero-pills.is-in .rs-chip, .rsc-progress span { transition: none; transform: none; } }

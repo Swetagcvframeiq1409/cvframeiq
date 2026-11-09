@@ -228,11 +228,6 @@ body .blog-v2{--bl-bg:#0b0c10;--bl-ink:#f2f2f7;--bl-mute:#a1a4b3;--bl-line:#2325
 
 
 
-/* header solid background on the light blog page */
-body:has(.blog-v2) .site-header { background: #fff; }
-
-
-
 body:has(.blog-v2) .site-header { background: #0b0c10; }
 
 
@@ -276,4 +271,3 @@ body:has(.article) .article h1 {
 
 
 .bl-next-article span { font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--bl-mute, #5d6170); }
-

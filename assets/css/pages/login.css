@@ -247,7 +247,7 @@
 
 
 .login-input-wrap input::placeholder,
-.login-input-wrap textarea::placeholder { color: #777b91; opacity: 1; }
+.login-input-wrap textarea::placeholder { color: var(--text-soft); opacity: 1; }
 
 
 

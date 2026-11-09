@@ -1,6 +1,8 @@
 window.SECTORS = [
   {
     slug: 'banking',
+    capabilityIndex: 2,
+    media: { hero: null, helps: null },
     imageSlot: 'sector-banking',
     name: 'Banking & Finance',
     icon: 'bank',
@@ -17,6 +19,8 @@ window.SECTORS = [
   },
   {
     slug: 'aviation',
+    capabilityIndex: 2,
+    media: { hero: 'hub-tile-venue-operations', helps: null },
     imageSlot: 'sector-aviation',
     name: 'Aviation',
     icon: 'airplane',
@@ -33,6 +37,8 @@ window.SECTORS = [
   },
   {
     slug: 'healthcare',
+    capabilityIndex: 2,
+    media: { hero: null, helps: null },
     imageSlot: 'sector-healthcare',
     name: 'Healthcare & Medical',
     icon: 'hospital',
@@ -49,6 +55,16 @@ window.SECTORS = [
   },
   {
     slug: 'manufacturing',
+    capabilityIndex: 0,
+    media: {
+      hero: 'manufacturing-hero',
+      helps: 'manufacturing-helps',
+      gallery: [
+        { title: 'Automated Quality Inspection', image: 'manufacturing-defect-inspection' },
+        { title: 'Production Line Monitoring', image: 'manufacturing-line-monitoring' },
+        { title: 'Predictive Maintenance', image: 'manufacturing-predictive-maintenance' }
+      ]
+    },
     imageSlot: 'sector-manufacturing',
     name: 'Manufacturing',
     icon: 'factory',
@@ -65,6 +81,8 @@ window.SECTORS = [
   },
   {
     slug: 'security-surveillance',
+    capabilityIndex: 2,
+    media: { hero: 'security-surveillance-hero', helps: 'security-surveillance-helps' },
     imageSlot: 'sector-security-surveillance',
     name: 'Security & Surveillance',
     icon: 'security',
@@ -81,6 +99,8 @@ window.SECTORS = [
   },
   {
     slug: 'smart-city',
+    capabilityIndex: 2,
+    media: { hero: 'smart-city-hero', helps: 'smart-city-helps', extra: 'infrastructure-pump-station' },
     imageSlot: 'sector-infrastructure',
     name: 'Infrastructure',
     icon: 'city',
@@ -97,6 +117,8 @@ window.SECTORS = [
   },
   {
     slug: 'retail',
+    capabilityIndex: 2,
+    media: { hero: 'retail-hero', helps: 'retail-helps' },
     imageSlot: 'sector-retail',
     name: 'Retail',
     icon: 'retail',
@@ -113,6 +135,8 @@ window.SECTORS = [
   },
   {
     slug: 'agriculture',
+    capabilityIndex: 1,
+    media: { hero: null, helps: null },
     imageSlot: 'sector-agriculture',
     name: 'Agriculture',
     icon: 'agriculture',
@@ -129,6 +153,8 @@ window.SECTORS = [
   },
   {
     slug: 'events-entertainment',
+    capabilityIndex: 2,
+    media: { hero: 'events-entertainment-hero', helps: null },
     imageSlot: 'sector-events-entertainment',
     name: 'Events & Entertainment',
     icon: 'ticket',

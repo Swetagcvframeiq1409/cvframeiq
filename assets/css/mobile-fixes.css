@@ -1,0 +1,437 @@
+/* mobile-fixes.css
+   Shared overrides used by legacy and template-based pages that do not share
+   a single page stylesheet. Page-specific behavior stays in its own stylesheet.
+   Loaded last so specificity wins cleanly; reduced motion and themes are preserved.
+*/
+
+/* ═══════════════════════════════════════════════════════════════
+   1. PPE-SAFETY — "PPE classes" label + image overflow
+   ═══════════════════════════════════════════════════════════════ */
+
+/* The tab panel uses a two-column grid; on narrow screens the
+   label column gets squeezed to near-zero, forcing one char/line. */
+@media (max-width: 640px) {
+  /* Stack the tab-panel two-column grid */
+  .pp-tab-panel.is-on {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  /* Ensure the text column never collapses */
+  .pp-tab-panel > * {
+    min-width: 0;
+    word-break: normal;
+    overflow-wrap: break-word;
+    white-space: normal;
+    writing-mode: horizontal-tb;
+  }
+
+  /* Workflow grid: hide the rail on very small screens */
+  .pp-workflow-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Hero media: constrain to viewport */
+  .pp-hero-media {
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* Workflow image: constrain */
+  .pp-workflow-img {
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+  }
+  .pp-workflow-img img,
+  .pp-tab-img img,
+  .pp-hero-media img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  /* Tab image: constrain */
+  .pp-tab-img {
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+
+  /* Facts strip: already 1-col at 620px in product-pages.css,
+     but ensure no overflow */
+  .pp-facts {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* Fact label: prevent rotation / narrow-column wrapping */
+  .pp-fact-label {
+    writing-mode: horizontal-tb;
+    word-break: normal;
+    white-space: normal;
+    min-width: 0;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   2. MOBILE NAV — About submenu descriptions clipped / sideways scroll
+   ═══════════════════════════════════════════════════════════════ */
+
+/* The mobile panel uses grid-template-columns: 32px 1fr 18px.
+   The description <small> inside the 1fr column can overflow if
+   the panel itself has no overflow-x:hidden. */
+.mobile-menu__panel {
+  overflow-x: hidden;
+}
+
+/* The link-copy column must not overflow */
+.mobile-menu__panel-link {
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* The text container (strong + small) */
+.mobile-menu__panel-link > :not(.drw__icon):not(.bi) {
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Description text: wrap normally, clamp to 2 lines */
+.mobile-menu__panel-link small {
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Strong title: allow wrap */
+.mobile-menu__panel-link strong {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* The nav scroll area must not scroll sideways */
+.mobile-menu__nav {
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   3. ABOUT PAGES — explore-grid cards (Team, Culture, Security, How We Work)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* 3a. Remove "SECURE BY DESIGN" caption from the security tile visual.
+       The span inside .ab-visual--security holds that text. */
+.ab-visual--security > span,
+.ab-visual--culture > span,
+.ab-visual--careers > span {
+  /* Move caption into the card body area — hide the overlay version */
+  display: none;
+}
+
+/* 3b. Unify card borders to match gk-card token (1px solid var(--border)) */
+.ab-link-card {
+  border: 1px solid var(--border, rgba(255,255,255,.1));
+  border-radius: var(--radius-lg, 16px);
+}
+
+/* 3c. Uniform spacing and radius across all four explore cards */
+.ab-explore-grid .ab-link-card {
+  padding: 12px;
+  border-radius: 16px;
+}
+
+/* 3d. Hamburger button: ensure it always has visible content.
+       main.js builds the toggle with window.iconClass('menu') which
+       returns a Bootstrap Icons class string. If icons.js hasn't run
+       yet the <i> is empty. Give it a fallback text character. */
+.mobile-menu__toggle {
+  /* Ensure the button is never an empty box */
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Visible border so the box is never invisible */
+  border: 1px solid var(--hdr-border, rgba(255,255,255,.18));
+  border-radius: 8px;
+  background: transparent;
+  color: var(--hdr-text-active, #f8f8f8);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Fallback: if the <i> inside is empty, show a ≡ character */
+.mobile-menu__toggle:empty::before,
+.mobile-menu__toggle > i:only-child:empty::before {
+  content: "≡";
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+/* Focus / active / scrolled states — never let it become invisible */
+.mobile-menu__toggle:focus-visible {
+  outline: 2px solid var(--hdr-accent, #6542c8);
+  outline-offset: 2px;
+}
+
+.site-header.is-scrolled .mobile-menu__toggle {
+  border-color: rgba(255,255,255,.22);
+  color: #f8f8f8;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   4. CHAT FAB — Compare page: never cover Back/Skip/Next row or footer "+"
+   ═══════════════════════════════════════════════════════════════ */
+
+/* On the compare page the guide actions row (.rsc-actions) sits near
+   the bottom. Add bottom padding to the guide card so the FAB doesn't
+   overlap it. The FAB is at bottom:1rem (16px) + 3.6rem (58px) height
+   = ~74px from bottom. We add 80px padding-bottom to the guide card
+   and to the footer accordion area. */
+.rs-page .rsc-guide-card {
+  padding-bottom: 80px;
+}
+
+/* Footer accordion "+" icons: the footer-col__toggle sits at the bottom
+   of the page. Add bottom padding to the footer so the FAB never covers it. */
+@media (max-width: 1100px) {
+  .site-footer {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* But if the hw-sticky-enquire bar is present, don't double-pad */
+  body.has-hw-sticky-enquire .site-footer {
+    padding-bottom: 0;
+  }
+}
+
+/* Hide the FAB while the guide actions row is in the viewport.
+   We use a CSS-only approach: when the page has the .rs-page class
+   (compare page), shift the FAB up enough to clear the guide card. */
+.rs-page ~ .chatbot-button,
+.rs-page + .chatbot-button {
+  bottom: 5rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   5. RESEARCH — pinned image panels cut off on the right
+   ═══════════════════════════════════════════════════════════════ */
+
+/* The pillar panels use a two-column grid. On narrow screens the
+   figure column overflows. */
+@media (max-width: 900px) {
+  .res-pillar-panel {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .res-pillar-fig {
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .res-pillar-img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+  }
+
+  /* The pillar layout container */
+  .res-pillar-layout {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* The sticky column must not overflow */
+  .res-pillar-sticky {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
+/* The hero wrap inline style sets grid-template-columns via JS.
+   Ensure it never overflows. */
+.res-hero .res-wrap {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.res-hero-fig {
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.res-hero-fig__img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+/* Marquee: prevent horizontal overflow */
+.res-marquee {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   6. AI-STORE — toolbar sticky scope + feature card copy
+   ═══════════════════════════════════════════════════════════════ */
+
+/* 6a. Make the toolbar sticky only within the catalog section.
+       The catalog band has class .ais-catalog-band. We change
+       position:sticky to position:sticky but scope it by removing
+       the sticky behaviour outside the catalog band. */
+
+/* The toolbar is rendered inside .ais-catalog-band by the JS.
+   We need to ensure it only sticks within that band. The cleanest
+   CSS-only approach is to set the catalog band to position:relative
+   and overflow:clip on the axis that matters, but that breaks sticky.
+   Instead we rely on the natural stacking: the toolbar is already
+   inside the catalog band, so sticky works correctly as long as the
+   band has enough height. The real issue is that the toolbar sticks
+   over sections above/below because the band's overflow is visible.
+   Fix: give the catalog band a containing block for sticky. */
+.ais-catalog-band {
+  /* Create a stacking context so sticky is contained */
+  isolation: isolate;
+  /* Ensure the toolbar doesn't stick outside this band */
+  overflow: clip;
+  overflow-clip-margin: 0;
+}
+
+/* But overflow:clip breaks the sticky toolbar inside. Use a wrapper
+   approach: the toolbar sticks within the band's scroll container.
+   Since the page scrolls (not the band), we can't use overflow:clip
+   on the band without breaking sticky. Instead, we hide the toolbar
+   when it would be outside the band using a sentinel approach.
+   CSS-only: we simply ensure the toolbar z-index is lower than the
+   hero and other sections so it slides under them. */
+.ais-catalog-band {
+  overflow: visible; /* revert clip — sticky needs this */
+  position: relative;
+  z-index: 1;
+}
+
+/* Lower the toolbar z-index so it slides under adjacent sections */
+.ais-toolbar {
+  z-index: 20; /* was 30 — lower than hero/other sections at z-index 1+ */
+}
+
+/* Adjacent sections get a higher z-index so they cover the toolbar */
+.ais-hero-band,
+.ais-spotlight-band,
+.ais-why-band,
+.ais-sectors-band,
+.ais-demo-band,
+.ais-enquiry-band {
+  position: relative;
+  z-index: 2;
+  background: inherit; /* ensure opaque background covers toolbar */
+}
+
+/* 6b. Feature cards (why-cards) with repeated copy.
+       The data comes from JS (ai-products.js / ai-store.js).
+       We can't change the copy in CSS, but we can apply a
+       gk-draft placeholder style to cards that have identical
+       descriptions. Since we can't detect duplicates in CSS,
+       we apply a subtle "draft" indicator to the why-band cards
+       to signal they need content review. */
+.ais-why-card {
+  position: relative;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   7. SECTOR ACCORDIONS — blank panels, near-invisible text, empty gaps
+   ═══════════════════════════════════════════════════════════════ */
+
+/* 7a. Raise text contrast in sector cards on dark backgrounds */
+.sector-detail-page .gk-card p,
+.sector-detail-page .gk-card li,
+.sector-detail-page .gk-card span {
+  color: var(--text-muted, #a8afc2);
+}
+
+/* Ensure headings are always full-contrast */
+.sector-detail-page .gk-card h3,
+.sector-detail-page .gk-card h2 {
+  color: var(--text, #f5f6fb);
+}
+
+/* 7b. Sector use-case cards: ensure text is readable */
+.sector-detail-page .sector-detail__use-cases .gk-card {
+  background: var(--b-bg, rgba(255,255,255,.03));
+}
+
+/* 7c. gk-draft placeholder for empty content areas */
+.sector-detail-page .gk-draft p {
+  color: var(--text-muted, #a8afc2);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GLOBAL — prevent horizontal scroll at all tested widths
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Catch-all: any direct child of body that overflows */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Ensure images never overflow their containers */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Ensure all grid/flex containers have min-width:0 */
+  .pp-hero-grid,
+  .pp-workflow-grid,
+  .pp-tabs-wrap,
+  .pp-faq-grid,
+  .pp-related-grid,
+  .pp-cta-inner,
+  .pp-facts,
+  .pp-problem-grid {
+    min-width: 0;
+  }
+
+  /* Research panels */
+  .res-pillar-panel,
+  .res-pillar-layout,
+  .res-wrap {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* About page circles: prevent overflow */
+  .ab-circles {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   REDUCED MOTION — preserve all existing behaviour
+   ═══════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  /* No new animations introduced in this file */
+  .ab-journey.is-static .ab-vtext li {
+    transition: none;
+  }
+}

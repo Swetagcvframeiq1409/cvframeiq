@@ -72,22 +72,22 @@ window.NAV_DATA = {
   groups: {
     Solutions: [
       { label: 'All sectors', description: 'Explore how computer vision can be applied across industries.', href: 'pages/sectors.html' },
-      { label: 'Agriculture', description: 'Explore computer vision use cases for agriculture.', href: 'pages/sectors/agriculture.html' },
-      { label: 'Aviation', description: 'Explore computer vision use cases for aviation.', href: 'pages/sectors/aviation.html' },
       { label: 'Banking & Finance', description: 'Explore computer vision use cases for banking and finance.', href: 'pages/sectors/banking.html' },
-      { label: 'Healthcare & Medical', description: 'Explore computer vision use cases for healthcare and medical environments.', href: 'pages/sectors/healthcare.html' },
-      { label: 'Manufacturing', description: 'Explore computer vision use cases for manufacturing.', href: 'pages/sectors/manufacturing.html' },
-      { label: 'Retail', description: 'Explore computer vision use cases for retail.', href: 'pages/sectors/retail.html' },
-      { label: 'Security & Surveillance', description: 'Explore computer vision use cases for security and surveillance.', href: 'pages/sectors/security-surveillance.html' },
+      { label: 'Aviation', description: 'Explore computer vision use cases for aviation.', href: 'pages/sectors/aviation.html' },
       { label: 'Infrastructure', description: 'Explore computer vision use cases for infrastructure environments.', href: 'pages/sectors/smart-city.html' },
-      { label: 'Events & Entertainment', description: 'Use cases to discuss for selected event and entertainment venues.', href: 'pages/sectors/events-entertainment.html' }
+      { label: 'Security & Surveillance', description: 'Explore computer vision use cases for security and surveillance.', href: 'pages/sectors/security-surveillance.html' },
+      { label: 'Healthcare & Medical', description: 'Explore computer vision use cases for healthcare and medical environments.', href: 'pages/sectors/healthcare.html' },
+      { label: 'Events & Entertainment', description: 'Use cases to discuss for selected event and entertainment venues.', href: 'pages/sectors/events-entertainment.html' },
+      { label: 'Manufacturing', description: 'Explore computer vision use cases for manufacturing.', href: 'pages/sectors/manufacturing.html' },
+      { label: 'Agriculture', description: 'Explore computer vision use cases for agriculture.', href: 'pages/sectors/agriculture.html' },
+      { label: 'Retail', description: 'Explore computer vision use cases for retail.', href: 'pages/sectors/retail.html' }
     ],
     Products: [
       { label: 'AI Store', description: 'Explore FrameIQ computer vision products for industry use cases.', href: 'pages/ai-store.html' },
       { label: 'PCB Guardian', description: 'Discuss a computer-vision PCB inspection concept with FrameIQ.', href: 'pages/pcb-guardian.html' },
       { label: 'BeejHealth', description: 'BeejHealth is an AI crop health advisory for Indian agriculture.', href: 'pages/beejhealth.html' },
       { label: 'AutoLabel', description: 'Discuss image annotation and data preparation requirements with FrameIQ.', href: 'pages/autolabel.html' },
-      { label: 'PPE Safety', description: 'Explore the existing PPE Compliance Monitor listing and discuss workplace.', href: 'pages/ppe-safety.html' }
+      { label: 'PPE Safety', description: 'Explore the existing PPE Compliance Monitor listing and discuss workplace visual-review requirements.', href: 'pages/ppe-safety.html' }
     ],
     Hardware: [
       { label: 'Gear (all hardware)', description: 'Explore cameras, processing units, sensor kits and development boards.', href: 'pages/hardware/gear.html' },
@@ -117,10 +117,7 @@ window.NAV_DATA = {
     ]
   },
   footer: {
-    solutions: [
-      { label: 'Sectors', href: 'pages/sectors.html' },
-      { label: 'Events & Entertainment', href: 'pages/sectors/events-entertainment.html' }
-    ],
+    solutions: [],
     products: [
       { label: 'AI Store', href: 'pages/ai-store.html' },
       { label: 'PCB Guardian', href: 'pages/pcb-guardian.html' },
@@ -165,6 +162,8 @@ window.NAV_DATA = {
     ]
   }
 };
+
+window.NAV_DATA.footer.solutions = window.NAV_DATA.groups.Solutions;
 
 window.FOOTER_SOCIALS = [
   { label: 'GitHub', href: 'https://github.com/cvframeiq', icon: 'github' },

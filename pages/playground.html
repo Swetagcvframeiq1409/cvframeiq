@@ -3,125 +3,230 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="../assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="../assets/fonts/space-grotesk-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
     <title>Playground | FrameIQ AI</title>
-    <meta name="description" content="Explore the FrameIQ AI Playground. Interactive demos and experiments are coming soon." />
+    <meta name="description" content="Explore the FrameIQ AI Playground. Illustrative demo scenes for PPE, PCB, crop, and traffic use cases." />
+    <link rel="canonical" href="https://cvframeiq.com/pages/playground.html" />
+    <meta property="og:title" content="Playground | FrameIQ AI" />
+    <meta property="og:description" content="Explore the FrameIQ AI Playground. Illustrative demo scenes for PPE, PCB, crop, and traffic use cases." />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cvframeiq.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Demos", "item": "https://cvframeiq.com/pages/playground.html" },
+          { "@type": "ListItem", "position": 3, "name": "Playground", "item": "https://cvframeiq.com/pages/playground.html" }
+        ]
+      }
+    </script>
     <link rel="icon" href="data:," />
     <link rel="stylesheet" href="../assets/css/tokens.css" />
-    <link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" />
+    <link rel="preload" href="../assets/fonts/bootstrap-icons.css" as="style" />
+    <link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" /></noscript>
     <link rel="stylesheet" href="../assets/css/base.css" />
     <link rel="stylesheet" href="../assets/css/components.css" />
     <link rel="stylesheet" href="../assets/css/nav-fix.css" />
     <link rel="stylesheet" href="../assets/css/gk-kit.css" />
     <link rel="stylesheet" href="../assets/css/demo-page.css" />
     <script src="../assets/data/site-data.js" defer></script>
+    <script src="../assets/js/demo-page.js" defer></script>
     <script src="../assets/js/forms.js" defer></script>
     <script src="../assets/js/icons.js" defer></script>
     <script src="../assets/js/components.js" defer></script>
     <script src="../assets/js/main.js" defer></script>
-      <meta name="color-scheme" content="dark" />
-</head>
+    <meta name="color-scheme" content="dark light" />
+  </head>
   <body data-root="../">
-        <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div id="site-header"></div>
-    <main id="main-content">
-      <section class="dm-band dm-band--dark dm-hero">
+
+    <main id="main-content" class="demo-page dm-playground">
+
+      <!-- Hero -->
+      <section id="overview" class="dm-band dm-band--dark gk-band gk-band--dark dm-hero" aria-labelledby="pg-title">
         <div class="dm-wrap dm-hero__grid">
-          <div class="dm-reveal">
-            <span class="dm-eyebrow">Demos</span>
-            <h1>Playground</h1>
-            <p class="dm-hero__copy">Explore the FrameIQ AI Playground.</p>
+          <div class="dm-playground__intro dm-reveal">
+            <nav class="demo-breadcrumb" aria-label="Breadcrumb">
+              <a href="../index.html"><i class="bi bi-house" aria-hidden="true"></i> Home</a>
+              <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              <a href="playground.html">Demos</a>
+              <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              <span aria-current="page">Playground</span>
+            </nav>
+            <span class="dm-eyebrow">DEMOS</span>
+            <h1 id="pg-title">FrameIQ AI Playground</h1>
+            <p class="dm-hero__copy">Explore the FrameIQ AI Playground. Illustrative demo scenes for PPE, PCB, crop, and traffic use cases.</p>
             <div class="dm-actions">
-              <a class="dm-btn" href="contact.html">Book a Demo <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
-              <a class="dm-btn dm-btn--ghost" href="#workspace">Explore scenes</a>
+              <span class="dm-chip">Simulated demo</span>
+              <span class="dm-chip">Illustrative scenes</span>
             </div>
           </div>
-          <div class="dm-frame dm-reveal" aria-label="Illustrative Playground preview">
-            <div class="dm-frame__titlebar"><span class="dm-dot"></span><span class="dm-dot"></span><span class="dm-dot"></span><span class="dm-frame__title">FrameIQ Playground</span></div>
-            <div class="dm-frame__tabs"><span>Scenes</span><span>Review</span><span>Notes</span></div>
-            <div class="dm-frame__body">
-              <div class="dm-frame__canvas"><div class="dm-frame__scan" aria-hidden="true"></div></div>
-              <div class="dm-frame__status">Illustrative scene preview</div>
+          <div class="dm-playground__visual dm-reveal" aria-label="Illustrative Playground preview">
+            <div class="dm-frame">
+              <div class="dm-frame__titlebar">
+                <span class="dm-dot"></span><span class="dm-dot"></span><span class="dm-dot"></span>
+                <span class="dm-frame__title">FrameIQ Playground</span>
+              </div>
+              <div class="dm-frame__tabs"><span>Scenes</span><span>Review</span><span>Notes</span></div>
+              <div class="dm-frame__body">
+                <div class="dm-frame__canvas demo-media">
+                  <div class="dm-frame__scan" aria-hidden="true"></div>
+                  <picture>
+                    <source srcset="../assets/img/Playground%20Hero.webp" type="image/webp" />
+                    <img
+                      src="../assets/img/Playground Hero.webp"
+                      alt="Industrial plant floor with workers in safety gear, illustrative scene preview"
+                      width="1680" height="944"
+                      fetchpriority="high"
+                      decoding="async"
+                      class="dm-media-img"
+                      onerror="this.closest('.demo-media').classList.add('dm-media--fallback');this.remove()"
+                    />
+                  </picture>
+                  <i class="bi bi-person-workspace dm-media-icon" aria-hidden="true"></i>
+                </div>
+              </div>
             </div>
+            <p class="dm-frame__caption">Illustrative scene preview</p>
+          </div>
+          <div class="dm-playground__actions dm-actions">
+            <a class="dm-btn" href="contact.html">Book a Demo <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            <a class="dm-btn dm-btn--ghost" href="#workspace">Explore scenes</a>
           </div>
         </div>
       </section>
 
-      <section id="workspace" class="dm-band">
+      <!-- Workspace -->
+      <section id="workspace" class="dm-band gk-band" aria-labelledby="workspace-title">
         <div class="dm-wrap">
-          <div class="dm-workspace dm-reveal">
+          <div class="dm-workspace">
             <div class="dm-controls">
               <span class="dm-chip">Simulated demo</span>
-              <h2>Illustrative demo scenes</h2>
-              <p class="dm-scene__copy">Playground uses demo data. These scene outlines are illustrative and do not run detection or represent measured results.</p>
+              <h2 id="workspace-title">Illustrative demo scenes</h2>
               <div class="dm-tabs" role="tablist" aria-label="Illustrative scenes">
-                <button type="button" role="tab" id="dm-tab-ppe" aria-controls="ppe" aria-selected="true" data-dm-tab>PPE</button>
-                <button type="button" role="tab" id="dm-tab-pcb" aria-controls="pcb" aria-selected="false" tabindex="-1" data-dm-tab>PCB</button>
-                <button type="button" role="tab" id="dm-tab-crop" aria-controls="crop" aria-selected="false" tabindex="-1" data-dm-tab>Crop</button>
-                <button type="button" role="tab" id="dm-tab-traffic" aria-controls="traffic" aria-selected="false" tabindex="-1" data-dm-tab>Traffic</button>
+                <button type="button" role="tab" id="dm-tab-ppe" aria-controls="dm-stage" aria-selected="true" data-dm-tab data-scene="ppe" data-title="PPE scene &middot; Illustrative" data-description="A sample workplace camera view can be used to discuss visible helmet and vest review requirements." data-image="../assets/img/ppesafety.webp" data-alt="Industrial workers in high-visibility vests and helmets, workplace camera view" data-icon="bi-person-workspace">
+                  <span class="dm-tabs__title"><i class="bi bi-person-workspace" aria-hidden="true"></i><span>PPE</span></span>
+                  <span class="dm-tabs__copy">A sample workplace camera view can be used to discuss visible helmet and vest review requirements.</span>
+                </button>
+                <button type="button" role="tab" id="dm-tab-pcb" aria-controls="dm-stage" aria-selected="false" tabindex="-1" data-dm-tab data-scene="pcb" data-title="PCB scene &middot; Illustrative" data-description="A sample board image can be used to discuss visual inspection criteria and reference imagery." data-image="../assets/img/pcb-guardian-hero.webp" data-alt="Printed circuit board under inspection camera, macro view of solder joints" data-icon="bi-cpu">
+                  <span class="dm-tabs__title"><i class="bi bi-cpu" aria-hidden="true"></i><span>PCB</span></span>
+                  <span class="dm-tabs__copy">A sample board image can be used to discuss visual inspection criteria and reference imagery.</span>
+                </button>
+                <button type="button" role="tab" id="dm-tab-crop" aria-controls="dm-stage" aria-selected="false" tabindex="-1" data-dm-tab data-scene="crop" data-title="Crop scene &middot; Illustrative" data-description="A sample crop image can be used to discuss visible areas that may need further assessment." data-image="../assets/img/smartagriculture.webp" data-alt="Green crop rows in an Indian farm field at dawn, illustrative scene" data-icon="bi-flower1">
+                  <span class="dm-tabs__title"><i class="bi bi-flower1" aria-hidden="true"></i><span>Crop</span></span>
+                  <span class="dm-tabs__copy">A sample crop image can be used to discuss visible areas that may need further assessment.</span>
+                </button>
+                <button type="button" role="tab" id="dm-tab-traffic" aria-controls="dm-stage" aria-selected="false" tabindex="-1" data-dm-tab data-scene="traffic" data-title="Traffic scene &middot; Illustrative" data-description="A sample road view can be used to discuss vehicle movement and camera placement needs." data-image="../assets/img/revolutiontraffic.webp" data-alt="City road junction with vehicle light trails, illustrative traffic scene" data-icon="bi-car-front">
+                  <span class="dm-tabs__title"><i class="bi bi-car-front" aria-hidden="true"></i><span>Traffic</span></span>
+                  <span class="dm-tabs__copy">A sample road view can be used to discuss vehicle movement and camera placement needs.</span>
+                </button>
               </div>
             </div>
             <div class="dm-stage">
-              <section class="dm-scene is-active" id="ppe" role="tabpanel" aria-labelledby="dm-tab-ppe" data-dm-scene>
-                <h3>PPE scene · Illustrative</h3>
-                <p class="dm-scene__copy">A sample workplace camera view can be used to discuss visible helmet and vest review requirements.</p>
-                <div class="dm-stage__visual"><i class="bi bi-person-workspace" aria-hidden="true"></i></div>
-                <p class="dm-stage__caption">Illustrative scene only; no detection was run.</p>
-                <div class="dm-actions"><button class="dm-btn dm-btn--ghost" type="button" data-dm-copy>Copy JSON</button><span data-dm-status role="status" aria-live="polite"></span></div>
+              <div class="dm-stage__header">
+                <span class="dm-stage__active" data-dm-active-title>PPE scene &middot; Illustrative</span>
+                <button class="dm-btn dm-btn--ghost" type="button" data-dm-copy>
+                  <i class="bi bi-clipboard" aria-hidden="true"></i><span data-dm-copy-label>Copy JSON</span>
+                </button>
+                <span class="dm-stage__status" data-dm-status role="status" aria-live="polite"></span>
+              </div>
+              <section id="dm-stage" class="dm-stage__panel" role="tabpanel" aria-labelledby="dm-tab-ppe" tabindex="-1">
+                <div class="dm-stage__visual demo-media">
+                  <img
+                    src="../assets/img/ppesafety.webp"
+                    alt="Industrial workers in high-visibility vests and helmets, workplace camera view"
+                    width="1680" height="944"
+                    fetchpriority="high"
+                    decoding="async"
+                    class="dm-media-img"
+                    data-dm-active-image
+                  />
+                  <i class="bi bi-person-workspace dm-media-icon" aria-hidden="true"></i>
+                </div>
+                <div class="dm-tabs__panel" id="dm-view-scenes" role="tabpanel" aria-labelledby="dm-view-tab-scenes" data-dm-view-panel>
+                  <h3 class="dm-scene__title" data-dm-active-heading>PPE scene &middot; Illustrative</h3>
+                  <p class="dm-scene__copy" data-dm-active-copy>A sample workplace camera view can be used to discuss visible helmet and vest review requirements.</p>
+                </div>
+                <div class="dm-tabs__panel" id="dm-view-review" role="tabpanel" aria-labelledby="dm-view-tab-review" data-dm-view-panel hidden>
+                  <p class="dm-stage__caption">Illustrative scene only; no detection was run.</p>
+                </div>
+                <div class="dm-tabs__panel" id="dm-view-notes" role="tabpanel" aria-labelledby="dm-view-tab-notes" data-dm-view-panel hidden>
+                  <pre class="dm-json-preview" data-dm-json-preview></pre>
+                </div>
               </section>
-              <section class="dm-scene" id="pcb" role="tabpanel" aria-labelledby="dm-tab-pcb" data-dm-scene hidden>
-                <h3>PCB scene · Illustrative</h3>
-                <p class="dm-scene__copy">A sample board image can be used to discuss visual inspection criteria and reference imagery.</p>
-                <div class="dm-stage__visual"><i class="bi bi-cpu" aria-hidden="true"></i></div>
-                <p class="dm-stage__caption">Illustrative scene only; no detection was run.</p>
-                <div class="dm-actions"><button class="dm-btn dm-btn--ghost" type="button" data-dm-copy>Copy JSON</button><span data-dm-status role="status" aria-live="polite"></span></div>
-              </section>
-              <section class="dm-scene" id="crop" role="tabpanel" aria-labelledby="dm-tab-crop" data-dm-scene hidden>
-                <h3>Crop scene · Illustrative</h3>
-                <p class="dm-scene__copy">A sample crop image can be used to discuss visible areas that may need further assessment.</p>
-                <div class="dm-stage__visual"><i class="bi bi-flower1" aria-hidden="true"></i></div>
-                <p class="dm-stage__caption">Illustrative scene only; no detection was run.</p>
-                <div class="dm-actions"><button class="dm-btn dm-btn--ghost" type="button" data-dm-copy>Copy JSON</button><span data-dm-status role="status" aria-live="polite"></span></div>
-              </section>
-              <section class="dm-scene" id="traffic" role="tabpanel" aria-labelledby="dm-tab-traffic" data-dm-scene hidden>
-                <h3>Traffic scene · Illustrative</h3>
-                <p class="dm-scene__copy">A sample road view can be used to discuss vehicle movement and camera placement needs.</p>
-                <div class="dm-stage__visual"><i class="bi bi-car-front" aria-hidden="true"></i></div>
-                <p class="dm-stage__caption">Illustrative scene only; no detection was run.</p>
-                <div class="dm-actions"><button class="dm-btn dm-btn--ghost" type="button" data-dm-copy>Copy JSON</button><span data-dm-status role="status" aria-live="polite"></span></div>
-              </section>
+              <div class="dm-view-tabs" role="tablist" aria-label="Scene information">
+                <button type="button" role="tab" id="dm-view-tab-scenes" aria-controls="dm-view-scenes" aria-selected="true" data-dm-view-tab="scenes">Scenes</button>
+                <button type="button" role="tab" id="dm-view-tab-review" aria-controls="dm-view-review" aria-selected="false" tabindex="-1" data-dm-view-tab="review">Review</button>
+                <button type="button" role="tab" id="dm-view-tab-notes" aria-controls="dm-view-notes" aria-selected="false" tabindex="-1" data-dm-view-tab="notes">Notes</button>
+              </div>
             </div>
           </div>
-          <div class="dm-card dm-followup dm-reveal">
-            <h2>Explore FrameIQ</h2>
-            <p>Browse the <a href="features.html">features</a> or <a href="sectors.html">sectors</a> served by FrameIQ.</p>
-          </div>
-          <div class="dm-card dm-followup dm-reveal">
-            <h2>Questions? Contact us</h2>
-            <p>Talk with the FrameIQ team.</p>
-            <a class="dm-btn" href="contact.html">Contact us</a>
+        </div>
+      </section>
+
+      <!-- Assumptions -->
+      <section id="assumptions" class="dm-band gk-band" aria-labelledby="assumptions-title">
+        <div class="dm-wrap">
+          <div class="dm-assumptions dm-reveal">
+            <h2 id="assumptions-title">Assumptions</h2>
+            <details open>
+              <summary>
+                What this demo means
+                <i class="bi bi-chevron-down dm-chevron" aria-hidden="true"></i>
+              </summary>
+              <p>Playground uses demo data. These scene outlines are illustrative and do not run detection or represent measured results.</p>
+              <p>This is not a product result, quote, forecast, or promised saving.</p>
+              <p>Use only figures you are comfortable entering in this browser. Values remain on this device unless you choose to open an email draft.</p>
+            </details>
           </div>
         </div>
       </section>
 
-      <section class="dm-band dm-band--dark">
+      <!-- Related demos -->
+      <section id="related" class="dm-band dm-band--dark gk-band gk-band--dark" aria-labelledby="related-title">
         <div class="dm-wrap dm-reveal">
+          <p class="dm-related-heading" id="related-title">Keep exploring</p>
           <div class="dm-related">
-            <a class="dm-card" href="roi-pcb-guardian.html"><h3>PCB Guardian ROI calculator</h3><p>Explore an illustrative PCB inspection time and value estimate.</p><i class="bi bi-arrow-right" aria-hidden="true"></i></a>
-            <a class="dm-card" href="roi-ppe-safety.html"><h3>PPE Safety ROI calculator</h3><p>Explore an illustrative PPE video-review time and value estimate.</p><i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            <div class="dm-card dm-explore-card">
+              <h3>Explore FrameIQ</h3>
+              <p>Browse the <a href="features.html">features</a> or <a href="sectors.html">sectors</a> served by FrameIQ.</p>
+            </div>
+            <a class="dm-card" href="roi-pcb-guardian.html">
+              <div class="dm-card__thumb" aria-hidden="true">
+                <picture>
+                  <source srcset="../assets/img/menu-pcb.webp" type="image/webp" />
+                  <img src="../assets/img/menu-pcb.webp" alt="" width="1264" height="1264" loading="lazy" decoding="async" class="dm-card__thumb-img" onerror="this.closest('.dm-card__thumb').classList.add('dm-card__thumb--fallback');this.remove()" />
+                </picture>
+                <i class="bi bi-cpu" aria-hidden="true"></i>
+              </div>
+              <h3>PCB Guardian ROI calculator</h3>
+              <p>Explore an illustrative PCB inspection time and value estimate.</p>
+              <div class="dm-card__footer">
+                <i class="bi bi-arrow-right dm-card__arrow" aria-hidden="true"></i>
+              </div>
+            </a>
+            <a class="dm-card" href="roi-ppe-safety.html">
+              <div class="dm-card__thumb" aria-hidden="true">
+                <picture>
+                  <source srcset="../assets/img/ppesafety.webp" type="image/webp" />
+                  <img src="../assets/img/ppesafety.webp" alt="" width="1680" height="944" loading="lazy" decoding="async" class="dm-card__thumb-img" style="object-position: 50% 62%" onerror="this.closest('.dm-card__thumb').classList.add('dm-card__thumb--fallback');this.remove()" />
+                </picture>
+                <i class="bi bi-shield-check" aria-hidden="true"></i>
+              </div>
+              <h3>PPE Safety ROI calculator</h3>
+              <p>Explore an illustrative PPE video-review time and value estimate.</p>
+              <div class="dm-card__footer">
+                <i class="bi bi-arrow-right dm-card__arrow" aria-hidden="true"></i>
+              </div>
+            </a>
           </div>
         </div>
       </section>
 
-      <section class="dm-band dm-band--dark dm-cta">
-        <div class="dm-wrap dm-reveal">
-          <span class="dm-chip">Talk to us</span>
-          <h2>Start a conversation</h2>
-          <p>Tell us about your use case and the FrameIQ team can review your enquiry.</p>
-          <a class="dm-btn" href="contact.html">Contact FrameIQ <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
-        </div>
-      </section>
     </main>
     <div id="site-footer"></div>
-    <script src="../assets/js/demo-page.js" defer></script>
   </body>
 </html>

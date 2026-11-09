@@ -75,5 +75,4 @@
 
 
 
-body.gk-leave{opacity:0;transition:opacity .22s ease}
-@media(prefers-reduced-motion:reduce){.gk-hero .gk-wrap > *{opacity:1;transform:none;animation:none}.gk-hero::before,.gk-hero::after,.gk-marquee__track{animation:none}[data-gk-parallax]{transform:none!important}.gk-band h2::after{transform:scaleX(1);transition:none}body.gk-leave{opacity:1}}
+@media(prefers-reduced-motion:reduce){.gk-hero .gk-wrap > *{opacity:1;transform:none;animation:none}.gk-hero::before,.gk-hero::after,.gk-marquee__track{animation:none}[data-gk-parallax]{transform:none!important}.gk-band h2::after{transform:scaleX(1);transition:none}}

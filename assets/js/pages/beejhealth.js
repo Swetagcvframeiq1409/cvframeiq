@@ -28,20 +28,7 @@
     s.appendChild(wrap);
     return { s: s, wrap: wrap };
   }
-  function cards(list, numbered) {
-    var grid = el('div', 'gk-cards');
-    list.forEach(function (item, i) {
-      var c = el('article', 'gk-card');
-      if (numbered)       c.appendChild(el('span', 'gk-journey__num', String(i + 1).padStart(2, '0')));
-      c.appendChild(el('h3', 'bh-h3', item.title));
-      c.appendChild(el('p', 'bh-p', item.text));
-      tag(c, item);
-      grid.appendChild(c);
-    });
-    return grid;
-  }
-
-  var hero = el('header', 'gk-hero');
+  var hero = el('header', 'gk-band gk-band--dark gk-hero');
   var hw = el('div', 'gk-wrap');
   var left = el('div', 'bh-hero__copy');
   left.appendChild(el('p', 'gk-eyebrow', 'BeejHealth · Agriculture'));
@@ -65,15 +52,60 @@
   hero.appendChild(hw);
   root.appendChild(hero);
 
-  var problem = section('problem', 'Product concept', 'Problem to explore');
-  var problemCopy = el('p', 'bh-lead', D.intro.summary);
-  problem.wrap.appendChild(problemCopy);
-  root.appendChild(problem.s);
+  var capabilityGroups = [
+    ['Focus areas', 'Where it can apply', D.focusAreas],
+    ['Crops', 'Supported crops', D.crops],
+    ['Platform', 'Platform features', D.platformFeatures],
+    ['Technology', 'Technology', D.technology],
+    ['Roadmap', 'Roadmap (indicative, subject to change)', D.roadmap]
+  ].map(function (group) {
+    return { label: group[1], items: visible(group[2]) };
+  }).filter(function (group) {
+    return group.items.length > 0;
+  });
+
+  if (capabilityGroups.length) {
+    var capabilities = section('capabilities', 'Capabilities', 'Platform features');
+    var tabs = el('div', 'gk-tabs');
+    tabs.dataset.gkTabs = '';
+    var tabBar = el('div', 'gk-tabs__bar');
+    tabBar.setAttribute('role', 'tablist');
+    tabBar.setAttribute('aria-label', 'BeejHealth capabilities');
+    capabilityGroups.forEach(function (group, i) {
+      var tabId = 'bh-capability-tab-' + i;
+      var panelId = 'bh-capability-panel-' + i;
+      var button = el('button', '', group.label);
+      button.type = 'button';
+      button.id = tabId;
+      button.setAttribute('role', 'tab');
+      button.setAttribute('aria-controls', panelId);
+      button.setAttribute('aria-selected', String(i === 0));
+      tabBar.appendChild(button);
+
+      var panel = el('div', 'gk-tabs__panel' + (i === 0 ? ' is-on' : ''));
+      panel.id = panelId;
+      panel.setAttribute('role', 'tabpanel');
+      panel.setAttribute('aria-labelledby', tabId);
+      var copy = el('div', 'bh-tab-copy');
+      group.items.forEach(function (item) {
+        copy.appendChild(el('h3', 'bh-h3', item.title));
+        copy.appendChild(el('p', 'bh-p', item.text));
+        tag(copy, item);
+      });
+      var art = el('div', 'gk-art product-camera-art');
+      art.setAttribute('aria-hidden', 'true');
+      art.appendChild(el('span')); art.appendChild(el('span')); art.appendChild(el('span'));
+      panel.append(copy, art);
+      tabs.appendChild(panel);
+    });
+    tabs.insertBefore(tabBar, tabs.firstChild);
+    capabilities.wrap.appendChild(tabs);
+    root.appendChild(capabilities.s);
+  }
 
   var wf = visible(D.workflow);
   if (wf.length) {
     var s1 = section('workflow', 'How it could work', 'Discussion workflow');
-    s1.s.className = 'gk-band gk-band--dark reveal';
     var journey = el('div', 'gk-journey');
     journey.dataset.gkJourney = '';
     var nums = el('div', 'gk-journey__nums');
@@ -98,22 +130,10 @@
     root.appendChild(s1.s);
   }
 
-  [
-    ['focus', 'Focus areas', 'Where it can apply', D.focusAreas],
-    ['crops', 'Crops', 'Supported crops', D.crops],
-    ['platform', 'Platform', 'Platform features', D.platformFeatures],
-    ['technology', 'Technology', 'Technology', D.technology],
-    ['roadmap', 'Roadmap', 'Roadmap (indicative, subject to change)', D.roadmap]
-  ].forEach(function (cfg) {
-    var items = visible(cfg[3]);
-    if (!items.length) return;
-    var s = section(cfg[0], cfg[1], cfg[2]);
-    if (cfg[0] === 'technology' || cfg[0] === 'roadmap') s.s.className = 'gk-band gk-band--dark reveal';
-    s.wrap.appendChild(cards(items, false));
-    root.appendChild(s.s);
-  });
-
-  var rel = section('related', 'Related', 'Related pages');
+  var rel = section('problem', 'Product concept', 'Problem to explore');
+  rel.wrap.appendChild(el('p', 'bh-lead', D.intro.summary));
+  rel.wrap.appendChild(el('p', 'gk-eyebrow', 'Related'));
+  rel.wrap.appendChild(el('h3', 'bh-h3', 'Related pages'));
   var rg = el('div', 'gk-cards');
   var products = (window.AI_PRODUCTS || []).filter(function (p) { return /crop/i.test(p.name); });
   products.forEach(function (p) {
@@ -134,6 +154,28 @@
   rg.appendChild(sc);
   rel.wrap.appendChild(rg);
   root.appendChild(rel.s);
+
+  var faqs = (window.FAQ_DATA || []).filter(function (item) {
+    return item.question === 'What is BeejHealth?' && item.answer;
+  });
+  if (faqs.length) {
+    var faq = section('faq', 'Frequently asked questions', 'Common questions');
+    var accordion = el('div', 'gk-acc');
+    accordion.dataset.gkAcc = '';
+    faqs.forEach(function (item) {
+      var entry = el('div', 'gk-acc__item');
+      var question = el('button', 'gk-acc__q', item.question);
+      question.type = 'button';
+      var answer = el('div', 'gk-acc__a');
+      var answerContent = el('div');
+      answerContent.appendChild(el('p', 'bh-p', item.answer));
+      answer.appendChild(answerContent);
+      entry.append(question, answer);
+      accordion.appendChild(entry);
+    });
+    faq.wrap.appendChild(accordion);
+    root.appendChild(faq.s);
+  }
 
   var cta = el('section', 'gk-band gk-band--dark reveal');
   var cw = el('div', 'gk-wrap gk-cta');

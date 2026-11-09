@@ -9,6 +9,12 @@
     item.classList.add('is-visible');
     item.classList.remove('is-entering');
     item.style.setProperty('--reveal-delay', '0ms');
+    item.style.transform = '';
+    item.style.opacity = '';
+    item.style.clipPath = '';
+    item.style.mask = '';
+    item.style.filter = '';
+    item.style.overflow = '';
   });
 
   if (reduce || !('IntersectionObserver' in window)) {
@@ -121,7 +127,7 @@
         - Math.abs(b.boundingClientRect.top + b.boundingClientRect.height / 2 - innerHeight / 2));
       updateTimeline(activeSteps[0]);
     }
-  }, { threshold: [0, .12, .25, .5, .75, 1], rootMargin: '0px 0px -6% 0px' });
+  }, { threshold: [0, .01, .12, .25, .5, .75, 1], rootMargin: '-5% 0px' });
 
   targets.forEach((item) => {
     if (item.closest('[hidden], [inert], details:not([open])')) {
@@ -161,21 +167,6 @@
     revealAll();
     observer.disconnect();
     mutations.disconnect();
-  }, 2500);
+  }, 1500);
 
-  document.addEventListener('click', (event) => {
-    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    const link = event.target.closest('a[href]');
-    if (!link || link.target || link.hasAttribute('download')) return;
-    const url = new URL(link.href, location.href);
-    if (url.origin !== location.origin || url.hash || /^(mailto|tel):/i.test(link.href)) return;
-    try {
-      event.preventDefault();
-      document.body.classList.add('page-exit');
-      window.setTimeout(() => location.assign(url.href), 150);
-    } catch (error) {
-      console.warn('Page transition failed; navigating immediately.', error);
-      location.assign(url.href);
-    }
-  });
 })();

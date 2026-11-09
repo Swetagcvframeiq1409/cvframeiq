@@ -12,6 +12,8 @@
 
 .hw-edge-hero__layout { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, .75fr); gap: 72px; align-items: center; min-height: 0; }
 
+.hw-edge-hero__layout, .hw-edge-hero__copy, .hw-edge-signal { opacity: 1; visibility: visible; transform: none; }
+
 
 
 .hw-edge-hero__copy { display: flex; flex-direction: column; align-items: start; }
@@ -103,6 +105,12 @@
 
 
 .hw-edge-products { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+
+.hw-edge-products.gk-cards { border: 0; border-radius: 0; overflow: visible; }
+
+.hw-edge-products.gk-cards .gk-card { border: 1px solid var(--hw-line); border-radius: 16px; }
+
+.hw-edge-products.gk-cards .gk-card:nth-child(3n) { border-right: 1px solid var(--hw-line); }
 
 
 
@@ -207,6 +215,10 @@
 
 
 .hw-edge-marquee:hover { animation-play-state: paused; }
+
+.hw-edge-cta .gk-cta .hw-eyebrow { color: #e2d9ff; }
+
+.hw-edge-cta .gk-cta .hw-actions { justify-content: center; margin-top: 0; }
 
 
 

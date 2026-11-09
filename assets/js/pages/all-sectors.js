@@ -3,6 +3,7 @@
 
   const root = document.querySelector('#sx-root');
   if (!root || root.dataset.page !== 'all-sectors') return;
+  if (root.dataset.renderedPage === 'all-sectors') return;
 
   const entries = Object.entries(window.SECTOR_UI || {}).sort((left, right) => left[1].order - right[1].order);
   const sectors = entries.map(([slug, ui]) => ({
@@ -24,8 +25,22 @@
     return result;
   }
 
+  function media(parent, name, className, options = {}) {
+    const frame = node('div', `sx-media ${className || ''}`.trim());
+    frame.innerHTML = window.FIQ.img(name, options);
+    const image = frame.querySelector('img');
+    if (image) {
+      image.addEventListener('error', () => {
+        frame.innerHTML = window.FIQ.img(null, { alt: image.alt || 'Sector visual' });
+      }, { once: true });
+    }
+    parent.appendChild(frame);
+    return frame;
+  }
+
   function band(id, tone, className = '') {
-    const result = node('section', `sx-band ${className}`.trim());
+    const gkTone = tone === 'dark' ? ' gk-band--dark' : '';
+    const result = node('section', `sx-band gk-band${gkTone} ${className}`.trim());
     result.id = id;
     result.dataset.tone = tone;
     root.appendChild(result);
@@ -52,8 +67,8 @@
   }
 
   function buildHero() {
-    const section = band('hero', 'dark', 'sx-hero');
-    const content = wrap(section, 'sx-wrap sx-hero__layout');
+    const section = band('hero', 'dark', 'sx-hero gk-hero');
+    const content = wrap(section, 'sx-wrap gk-wrap sx-hero__layout');
     const copy = node('div', 'sx-hero__copy');
     const breadcrumb = node('nav', 'sx-breadcrumb');
     breadcrumb.setAttribute('aria-label', 'Breadcrumb');
@@ -61,23 +76,25 @@
     home.href = '../index.html';
     breadcrumb.append(home, document.createTextNode(' / Sectors'));
     copy.append(breadcrumb, node('p', 'sx-eyebrow', 'INDUSTRIES'));
-    const title = node('h1', '');
-    title.append(document.createTextNode('All '), node('em', '', 'sectors'));
+    const title = node('h1', '', 'Explore industry use cases');
     copy.append(title, node('p', 'sx-hero__lede', 'Explore how computer vision can be applied across industries. Scope and timelines are confirmed on enquiry.'));
 
     const actions = node('div', 'sx-actions');
-    const explore = node('a', 'sx-button sx-button--primary', 'Explore industries');
+    const explore = node('a', 'sx-button sx-button--primary gk-btn', 'Explore industries');
     explore.href = '#all-sectors';
-    const talk = node('a', 'sx-button sx-button--secondary', 'Talk to us');
+    const exploreIcon = icon('bi bi-arrow-down');
+    explore.appendChild(exploreIcon);
+    const talk = node('a', 'sx-button sx-button--secondary gk-btn', 'Talk to us');
     talk.href = 'contact.html';
+    talk.appendChild(icon('bi bi-arrow-up-right'));
     actions.append(explore, talk);
     copy.appendChild(actions);
 
     const panel = node('div', 'sx-hero__panel sx-hero__panel--overview');
-    panel.setAttribute('aria-hidden', 'true');
-    const mark = node('div', 'sx-hero__overview-mark');
-    mark.append(icon('bi bi-eye'));
-    panel.append(mark);
+    media(panel, 'hub-hero', 'sx-hero__overview-media', {
+      priority: true,
+      sizes: '(min-width:992px) 42vw, 92vw'
+    });
     const labels = node('div', 'sx-hero__overview-labels');
     sectors.slice(0, 4).forEach(({ data, ui }) => {
       const label = node('span', 'sx-hero__overview-label', data.name);
@@ -115,19 +132,23 @@
   function buildSectorGrid() {
     const section = band('all-sectors', 'light', 'sx-sector-grid-band');
     const content = wrap(section);
-    sectionHeading(
-      content,
-      'SECTOR USE CASES',
-      'Explore industry use cases',
-      'Examples of visual use cases to discuss for each operating environment.'
+    const intro = node('header', 'sx-section-heading');
+    intro.append(
+      node('p', 'sx-eyebrow', 'SECTOR USE CASES'),
+      node('p', 'sx-section-heading__lede', 'Examples of visual use cases to discuss for each operating environment.')
     );
-    const grid = node('div', 'sx-sector-grid');
+    content.appendChild(intro);
+    const grid = node('div', 'gk-cards sx-sector-grid');
     sectors.forEach(({ slug, data, ui }, index) => {
-      const link = addReveal(node('a', `sx-sector-card${index === 0 ? ' sx-sector-card--featured' : ''}`), index * 60);
+      const link = addReveal(node('a', 'gk-card sx-sector-card'), index * 60);
       link.id = `sector-${slug}`;
       link.href = `sectors/${ui.href}`;
       link.setAttribute('aria-label', `Explore ${data.name} solutions`);
       link.style.setProperty('--sx-tint', ui.tint);
+      media(link, data.media?.hero, 'sx-sector-card__media', {
+        sizes: '(min-width:1280px) 30vw, (min-width:768px) 46vw, 92vw'
+      });
+      const body = node('span', 'sx-sector-card__body');
       const top = node('span', 'sx-sector-card__top');
       top.append(node('span', 'sx-sector-card__index', String(index + 1).padStart(2, '0')));
       const chip = node('span', 'sx-icon-chip');
@@ -139,7 +160,8 @@
       arrow.classList.add('sx-sector-card__arrow');
       const action = node('span', 'sx-sector-card__action', 'Explore sector');
       action.appendChild(arrow);
-      link.append(top, title, summary, action);
+      body.append(top, title, summary, action);
+      link.appendChild(body);
       grid.appendChild(link);
     });
     content.appendChild(grid);
@@ -150,17 +172,24 @@
     const section = band('cross-sector-keywords', 'dark', 'sx-marquee-band');
     const content = wrap(section);
     sectionHeading(content, 'COMPUTER VISION ACROSS SECTORS', 'Visual use cases');
-    const labels = [...new Set(sectors.flatMap(({ data }) => data.groups.map((group) => group.title)))];
-    if (!labels.length) return;
-    const marquee = node('div', 'sx-marquee');
-    marquee.setAttribute('role', 'group');
-    marquee.setAttribute('aria-label', 'Capabilities used across sectors');
-    const rail = node('div', 'sx-marquee__rail');
-    const track = node('div', 'sx-marquee__track');
-    labels.forEach((label) => track.appendChild(node('span', 'sx-marquee__item', label)));
-    rail.appendChild(track);
-    marquee.appendChild(rail);
-    content.appendChild(marquee);
+    const tiles = [
+      { title: 'Venue operations', image: 'hub-tile-venue-operations' },
+      { title: 'Event safety', image: null },
+      { title: 'Safety & PPE', image: 'hub-tile-safety-ppe' },
+      { title: 'Hazard detection', image: 'hub-tile-hazard-detection' },
+      { title: 'Vehicle safety', image: 'hub-tile-vehicle-safety' },
+      { title: 'Quality control', image: 'hub-tile-quality-control' }
+    ];
+    const grid = node('div', 'sx-visual-grid');
+    tiles.forEach((item) => {
+      const tile = node('article', 'sx-visual-tile');
+      media(tile, item.image, 'sx-visual-tile__media', {
+        sizes: '(min-width:1280px) 30vw, (min-width:768px) 46vw, 88vw'
+      });
+      tile.appendChild(node('h3', '', item.title));
+      grid.appendChild(tile);
+    });
+    content.appendChild(grid);
   }
 
   function buildCapabilities() {
@@ -168,15 +197,21 @@
     const content = wrap(section);
     sectionHeading(content, 'FRAMEIQ CAPABILITIES', 'Computer vision for real-world workflows');
     const pillars = window.FEATURES?.pillars || [];
-    const grid = node('div', 'sx-capability-grid');
+    const grid = node('div', 'gk-cards sx-capability-grid');
+    const pillarImages = [
+      'manufacturing-defect-inspection',
+      null,
+      'security-surveillance-hero',
+      'ai-agents-control-room'
+    ];
     pillars.slice(0, 4).forEach((pillar, index) => {
-      const card = addReveal(node('article', 'sx-card sx-capability-card'), index * 60);
+      const card = addReveal(node('article', 'gk-card sx-card sx-capability-card'), index * 60);
+      media(card, pillarImages[index], 'sx-capability-card__media', {
+        sizes: '(min-width:1280px) 23vw, (min-width:768px) 44vw, 90vw'
+      });
       card.append(node('p', 'sx-capability-card__index', String(index + 1).padStart(2, '0')), node('h3', '', pillar.title), node('p', '', pillar.summary));
       grid.appendChild(card);
     });
-    if (!grid.childElementCount) {
-      grid.appendChild(node('p', 'sx-pending sx-muted', 'Draft — pending content'));
-    }
     content.appendChild(grid);
   }
 
@@ -185,13 +220,13 @@
     const content = wrap(section);
     sectionHeading(content, 'HOW WE WORK', 'How FrameIQ works');
     const steps = window.COMPANY_PAGE_DATA?.process || [];
-    const list = node('ol', 'sx-process__list');
+    const list = node('ol', 'gk-cards sx-process__list');
+    const stepIcons = ['bi bi-bullseye', 'bi bi-cpu', 'bi bi-patch-check', 'bi bi-rocket-takeoff', 'bi bi-graph-up-arrow'];
     steps.forEach((step, index) => {
-      const item = addReveal(node('li', 'sx-process__step'), index * 60);
-      item.append(node('span', 'sx-process__number', String(index + 1).padStart(2, '0')), node('h3', '', step.title), node('p', '', step.description));
+      const item = addReveal(node('li', 'gk-card sx-process__step'), index * 60);
+      item.append(node('span', 'sx-process__number', String(index + 1).padStart(2, '0')), icon(stepIcons[index] || 'bi bi-arrow-right'), node('h3', '', step.title), node('p', '', step.description));
       list.appendChild(item);
     });
-    if (!steps.length) list.appendChild(node('li', 'sx-pending sx-muted', 'Draft — pending content'));
     content.appendChild(list);
   }
 
@@ -205,21 +240,19 @@
     const section = band('sector-faq', 'light', 'sx-faq');
     const content = wrap(section);
     sectionHeading(content, 'COMMON QUESTIONS', 'Frequently asked questions');
-    const accordion = node('div', 'sx-accordion');
-    accordion.dataset.sxAccordion = '';
+    const accordion = node('div', 'gk-acc');
+    accordion.dataset.gkAcc = '';
     faqs.forEach((item, index) => {
-      const entry = node('article', `sx-accordion__item${index === 0 ? ' is-open' : ''}`);
-      const button = node('button', 'sx-accordion__button', item.question);
+      const entry = node('div', 'gk-acc__item');
+      const button = node('button', 'gk-acc__q', item.question);
       const panelId = `sx-all-sectors-faq-${index + 1}`;
       button.type = 'button';
-      button.dataset.sxAccordionButton = '';
-      button.setAttribute('aria-expanded', String(index === 0));
       button.setAttribute('aria-controls', panelId);
-      button.appendChild(icon('bi bi-plus'));
-      const panel = node('div', 'sx-accordion__panel');
+      const panel = node('div', 'gk-acc__a');
       panel.id = panelId;
-      panel.setAttribute('aria-hidden', String(index !== 0));
-      panel.appendChild(node('p', '', item.answer));
+      const panelInner = node('div');
+      panelInner.appendChild(node('p', '', item.answer));
+      panel.appendChild(panelInner);
       entry.append(button, panel);
       accordion.appendChild(entry);
     });
@@ -228,17 +261,20 @@
 
   function buildCta() {
     const section = band('sector-cta', 'light', 'sx-cta');
-    const content = wrap(section, 'sx-wrap sx-cta__inner');
+    const content = wrap(section, 'sx-wrap gk-cta sx-cta__inner');
     const copy = node('div', 'sx-cta__copy');
     copy.append(node('p', 'sx-eyebrow', 'START A CONVERSATION'), node('h2', '', "Don't see your industry?"));
     copy.appendChild(node('p', '', 'Tell us what you want to detect and the FrameIQ team can review your enquiry.'));
     const actions = node('div', 'sx-cta__actions');
-    const demo = node('a', 'sx-button sx-button--primary', 'Book a Demo');
+    const demo = node('a', 'gk-btn', 'Book a Demo');
     demo.href = 'contact.html';
-    const project = node('a', 'sx-button sx-button--secondary', 'Start a project');
+    demo.appendChild(icon('bi bi-arrow-up-right'));
+    const project = node('a', 'gk-btn', 'Start a project');
     project.href = 'contact.html';
-    const store = node('a', 'sx-button sx-button--secondary', 'Browse AI Store');
+    project.appendChild(icon('bi bi-arrow-up-right'));
+    const store = node('a', 'gk-btn', 'Browse AI Store');
     store.href = 'ai-store.html';
+    store.appendChild(icon('bi bi-arrow-up-right'));
     actions.append(demo, project, store);
     const contacts = node('div', 'sx-cta__contact');
     const phone = window.SITE_CONTACT?.phone;
@@ -274,6 +310,7 @@
     window.SECTOR_KIT?.initAccordion();
     window.SECTOR_KIT?.initTabs();
     window.SECTOR_KIT?.initSubnav();
+    root.dataset.renderedPage = 'all-sectors';
   }
 
   render();

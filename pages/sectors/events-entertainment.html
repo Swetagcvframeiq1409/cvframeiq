@@ -38,8 +38,10 @@
     <script src="../../assets/data/company-data.js" defer></script>
     <script src="../../assets/data/sectors.js" defer></script>
     <script src="../../assets/js/sector-ui.js" defer></script>
+    <script src="../../assets/data/sector-images.js" defer></script>
+    <script src="../../assets/js/sector-image.js" defer></script>
     <script src="../../assets/js/pages/sector-kit.js" defer></script>
-    <script src="../../assets/js/pages/sector-page.js" defer></script>
+    <script src="../../assets/js/pages/sector-detail.js" defer></script>
     <script src="../../assets/js/seo.js" defer></script>
       <link rel="stylesheet" href="../../assets/css/motion.css" />
     <script src="../../assets/js/motion.js" defer></script>
@@ -51,13 +53,16 @@
   <link rel="stylesheet" href="../../assets/css/gk-kit.css" />
   <link rel="stylesheet" href="../../assets/css/gk-motion.css" />
   <link rel="stylesheet" href="../../assets/css/sector-theme.css" />
+  <link rel="stylesheet" href="../../assets/css/pages/sectors.css" />
+  <link rel="stylesheet" href="../../assets/css/sector-detail.css" />
+  <link rel="stylesheet" href="../../assets/css/mobile-fixes.css" />
     <meta name="color-scheme" content="dark" />
 </head>
   <body data-root="../../">
         <a class="skip-link" href="#main-content">Skip to content</a>
-    <div id="site-header"></div>
-    <main id="main-content" class="sx-page">
-      <div id="sx-root" data-sector="events-entertainment"></div>
+    <div id="site-header"><header class="site-header" aria-label="Main header"><div class="site-header__inner"><nav class="navbar" aria-label="Main navigation"><a class="brand" href="../../index.html" aria-label="FrameIQ home">Frame<span class="brand__iq">IQ</span></a></nav></div></header></div>
+    <main id="main-content" class="sector-detail-page">
+      <div id="sx-root" data-sector="events-entertainment"><section class="gk-band gk-band--dark gk-hero sector-detail__hero"><div class="gk-wrap"><nav class="gk-crumb" aria-label="Breadcrumb"><a href="../../index.html">Home</a> / <a href="../sectors.html">Sectors</a> / Events &amp; Entertainment</nav><span class="gk-eyebrow">SOLUTIONS</span><h1>Events &amp; Entertainment</h1></div></section></div>
     </main>
     <div id="site-footer"></div>
       <script src="../../assets/js/fx.js" defer></script>

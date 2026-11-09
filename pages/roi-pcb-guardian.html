@@ -3,11 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="../assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="../assets/fonts/space-grotesk-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
     <title>PCB Guardian ROI Calculator | FrameIQ</title>
-    <meta name="description" content="Explore an illustrative PCB inspection time and value estimate using your own assumptions." />
+    <meta name="description" content="Explore an illustrative PCB inspection time and value estimate." />
+    <link rel="canonical" href="https://cvframeiq.com/pages/roi-pcb-guardian.html" />
+    <meta property="og:title" content="PCB Guardian ROI Calculator | FrameIQ" />
+    <meta property="og:description" content="Explore an illustrative PCB inspection time and value estimate." />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cvframeiq.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Demos", "item": "https://cvframeiq.com/pages/playground.html" },
+          { "@type": "ListItem", "position": 3, "name": "PCB Guardian ROI calculator", "item": "https://cvframeiq.com/pages/roi-pcb-guardian.html" }
+        ]
+      }
+    </script>
     <link rel="icon" href="data:," />
     <link rel="stylesheet" href="../assets/css/tokens.css" />
-    <link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" />
+    <link rel="preload" href="../assets/fonts/bootstrap-icons.css" as="style" />
+    <link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" /></noscript>
     <link rel="stylesheet" href="../assets/css/base.css" />
     <link rel="stylesheet" href="../assets/css/components.css" />
     <link rel="stylesheet" href="../assets/css/nav-fix.css" />
@@ -15,96 +33,164 @@
     <link rel="stylesheet" href="../assets/css/demo-page.css" />
     <link rel="stylesheet" href="../assets/css/roi-calc.css" />
     <script src="../assets/data/site-data.js" defer></script>
+    <script src="../assets/js/demo-page.js" defer></script>
     <script src="../assets/js/forms.js" defer></script>
     <script src="../assets/js/icons.js" defer></script>
     <script src="../assets/js/components.js" defer></script>
     <script src="../assets/js/main.js" defer></script>
-    <script src="../assets/js/roi-calc.js" defer></script>
+    <script src="../assets/js/demo-calc.js" defer></script>
     <script src="../assets/js/roi-pcb.js" defer></script>
-      <meta name="color-scheme" content="dark" />
-</head>
+    <meta name="color-scheme" content="dark light" />
+  </head>
   <body data-root="../">
-        <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div id="site-header"></div>
-    <main id="main-content">
-      <section class="dm-band dm-band--dark dm-hero">
+
+    <main id="main-content" class="demo-page">
+
+      <!-- Hero -->
+      <section id="overview" class="dm-band dm-band--dark gk-band gk-band--dark dm-hero" aria-labelledby="pcb-title">
         <div class="dm-wrap dm-hero__grid">
           <div class="dm-reveal">
+            <nav class="demo-breadcrumb" aria-label="Breadcrumb">
+              <a href="../index.html"><i class="bi bi-house" aria-hidden="true"></i> Home</a>
+              <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              <a href="playground.html">Demos</a>
+              <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              <span aria-current="page">PCB Guardian ROI calculator</span>
+            </nav>
             <span class="dm-eyebrow">Demos</span>
-            <h1>PCB Guardian <b>estimate</b></h1>
+            <h1 id="pcb-title">PCB Guardian ROI calculator</h1>
             <p class="dm-hero__copy">Explore an illustrative PCB inspection time and value estimate.</p>
             <div class="dm-actions">
               <span class="dm-chip">Illustrative calculator</span>
               <span class="dm-chip">Inspection time</span>
               <span class="dm-chip">Value estimate</span>
             </div>
-            <div class="dm-actions"><a class="dm-btn" href="contact.html">Book a Demo <i class="bi bi-arrow-right" aria-hidden="true"></i></a></div>
-          </div>
-          <div class="dm-frame dm-reveal" aria-label="Illustrative PCB inspection summary">
-            <div class="dm-frame__titlebar"><span></span><span></span><span></span><span class="dm-frame__title">PCB Guardian review</span></div>
-            <div class="dm-frame__tabs"><span>Inspection</span><span>Summary</span><span>Notes</span></div>
-            <div class="dm-frame__body">
-              <div class="dm-frame__canvas"><i class="bi bi-cpu" aria-hidden="true"></i><i class="bi bi-search" aria-hidden="true"></i><i class="bi bi-check2-circle" aria-hidden="true"></i></div>
-              <div class="dm-frame__status">Illustrative inspection summary</div>
+            <div class="dm-actions">
+              <a class="dm-btn" href="contact.html">Book a Demo <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+              <a class="dm-btn dm-btn--ghost" href="#calculator">Open calculator</a>
             </div>
+          </div>
+          <div class="dm-reveal" aria-label="Illustrative PCB inspection summary">
+            <div class="dm-frame">
+              <div class="dm-frame__titlebar">
+                <span class="dm-dot"></span><span class="dm-dot"></span><span class="dm-dot"></span>
+                <span class="dm-frame__title">PCB Guardian review</span>
+              </div>
+              <div class="dm-frame__tabs"><span>Inspection</span><span>Summary</span><span>Notes</span></div>
+              <div class="dm-frame__body">
+                <div class="dm-frame__canvas demo-media">
+                  <picture>
+                    <source srcset="../assets/img/pcb-guardian-hero.webp" type="image/webp" />
+                    <img
+                      src="../assets/img/pcb-guardian-hero.webp"
+                      alt="Printed circuit board under precision inspection camera, illustrative summary"
+                      width="1680" height="944"
+                      fetchpriority="high"
+                      decoding="async"
+                      class="dm-media-img"
+                      onerror="this.closest('.demo-media').classList.add('dm-media--fallback');this.remove()"
+                    />
+                  </picture>
+                  <i class="bi bi-cpu dm-media-icon" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+            <p class="dm-frame__caption">Illustrative inspection summary</p>
           </div>
         </div>
       </section>
 
-      <section class="roi-band">
+      <!-- Calculator -->
+      <section id="calculator" class="roi-band gk-band" aria-labelledby="calc-title">
         <div class="dm-wrap roi-calculator" data-roi-calculator="pcb">
           <div class="roi-inputs dm-reveal">
             <span class="dm-chip">Your assumptions</span>
-            <h2>Inputs</h2>
+            <h2 id="calc-title">Inputs</h2>
             <div class="roi-inputs__fields" data-roi-fields></div>
-            <p class="roi-formula"><strong>Formula:</strong> boards/month x review minutes/board / 60 x explored share = illustrative hours/month. Illustrative hours x your hourly-cost input = illustrative value of time. No automation coverage or savings is assumed.</p>
-            <button class="roi-reset" type="button" data-roi-reset>Reset</button>
+            <p class="roi-formula"><strong>Formula:</strong> boards/month &times; review minutes/board / 60 &times; explored share = illustrative hours/month. Illustrative hours &times; your hourly-cost input = illustrative value of time. No automation coverage or savings is assumed.</p>
+            <button class="roi-reset" type="button" data-roi-reset>Reset to sample values</button>
             <p class="roi-formula">Enter all four assumptions to display an estimate.</p>
+            <div class="roi-actions">
+              <button class="roi-reset roi-copy" type="button" data-roi-copy>
+                <i class="bi bi-clipboard" aria-hidden="true"></i> Copy summary
+              </button>
+              <span class="roi-status" data-roi-copy-status role="status" aria-live="polite"></span>
+            </div>
             <div class="roi-actions">
               <button class="roi-reset" type="button" data-roi-print>Print to PDF</button>
               <button class="dm-btn" type="button" data-roi-email>Email me this result</button>
             </div>
             <p class="roi-status" data-roi-action-status role="status" aria-live="polite"></p>
           </div>
-          <aside class="roi-estimate dm-reveal" aria-live="polite">
+          <aside class="roi-estimate dm-reveal" aria-label="Estimate results">
             <h2>Estimate</h2>
             <div class="roi-estimate__headline" data-roi-outputs></div>
             <p class="roi-disclaimer" data-roi-status>Illustrative estimate based on your inputs</p>
           </aside>
         </div>
+        <div class="roi-mobile-result" data-roi-mobile-result role="region" aria-label="Estimate summary" aria-live="polite" hidden>
+          <span><strong data-mobile-hours>0</strong><span>Illustrative review time explored per month</span></span>
+          <span><strong data-mobile-value>0</strong><span>Illustrative value of time, using your hourly-cost input</span></span>
+        </div>
       </section>
 
-      <section class="roi-band">
+      <!-- Assumptions -->
+      <section id="assumptions" class="roi-band gk-band" aria-labelledby="assumptions-title">
         <div class="dm-wrap">
           <div class="roi-assumptions dm-reveal">
-            <h2>Assumptions</h2>
+            <h2 id="assumptions-title">Assumptions</h2>
             <details open>
-              <summary>What this estimate means</summary>
+              <summary>
+                What this estimate means
+                <i class="bi bi-chevron-down dm-chevron" aria-hidden="true"></i>
+              </summary>
               <p>No automation coverage or savings is assumed.</p>
               <p>This is not a product result, quote, forecast, or promised saving.</p>
             </details>
           </div>
-          <p class="roi-note dm-reveal">Use only figures you are comfortable entering in this browser. Values remain on this device unless you choose to open an email draft.</p>
+          <p class="dm-footnote dm-reveal">Use only figures you are comfortable entering in this browser. Values remain on this device unless you choose to open an email draft.</p>
         </div>
       </section>
 
-      <section class="dm-band dm-band--dark">
+      <!-- Related demos -->
+      <section id="related" class="dm-band dm-band--dark gk-band gk-band--dark" aria-labelledby="related-title">
         <div class="dm-wrap dm-reveal">
+          <p class="dm-related-heading" id="related-title">Related demos</p>
           <div class="dm-related">
-            <a class="dm-card" href="playground.html"><h3>Playground</h3><p>Explore illustrative FrameIQ AI Playground scenes.</p><i class="bi bi-arrow-right" aria-hidden="true"></i></a>
-            <a class="dm-card" href="roi-ppe-safety.html"><h3>PPE Safety ROI calculator</h3><p>Explore an illustrative PPE video-review time and value estimate.</p><i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            <a class="dm-card" href="playground.html">
+              <div class="dm-card__thumb" aria-hidden="true">
+                <picture>
+                  <source srcset="../assets/img/menu-playground.webp" type="image/webp" />
+                  <img src="../assets/img/menu-playground.webp" alt="" width="1264" height="1264" loading="lazy" decoding="async" class="dm-card__thumb-img" onerror="this.closest('.dm-card__thumb').classList.add('dm-card__thumb--fallback');this.remove()" />
+                </picture>
+                <i class="bi bi-play-circle" aria-hidden="true"></i>
+              </div>
+              <h3>Playground</h3>
+              <p>Explore illustrative FrameIQ AI Playground scenes.</p>
+              <div class="dm-card__footer">
+                <i class="bi bi-arrow-right dm-card__arrow" aria-hidden="true"></i>
+              </div>
+            </a>
+            <a class="dm-card" href="roi-ppe-safety.html">
+              <div class="dm-card__thumb" aria-hidden="true">
+                <picture>
+                  <source srcset="../assets/img/ppesafety.webp" type="image/webp" />
+                  <img src="../assets/img/ppesafety.webp" alt="" width="1680" height="944" loading="lazy" decoding="async" class="dm-card__thumb-img" style="object-position: 50% 62%" onerror="this.closest('.dm-card__thumb').classList.add('dm-card__thumb--fallback');this.remove()" />
+                </picture>
+                <i class="bi bi-shield-check" aria-hidden="true"></i>
+              </div>
+              <h3>PPE Safety ROI calculator</h3>
+              <p>Explore an illustrative PPE video-review time and value estimate.</p>
+              <div class="dm-card__footer">
+                <i class="bi bi-arrow-right dm-card__arrow" aria-hidden="true"></i>
+              </div>
+            </a>
           </div>
         </div>
       </section>
 
-      <section class="dm-band dm-band--dark dm-cta">
-        <div class="dm-wrap dm-reveal">
-          <span class="dm-chip">Talk to us</span>
-          <h2>Start a conversation</h2>
-          <p>Tell us about your use case and the FrameIQ team can review your enquiry.</p>
-          <a class="dm-btn" href="contact.html">Contact FrameIQ <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
-        </div>
-      </section>
     </main>
     <div id="site-footer"></div>
   </body>

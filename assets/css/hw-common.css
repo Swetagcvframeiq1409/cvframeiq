@@ -146,11 +146,11 @@ body .hw-page .hw-band[data-tone="dark"] .hw-eyebrow{ color: #b8a8ff; }
 
 
 
-.hw-reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.hw-reveal { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s ease; }
 
+.hw-page.hw-reveal-ready .hw-reveal { opacity: 0; transform: translateY(24px); }
 
-
-.hw-reveal.is-visible { opacity: 1; transform: none; }
+.hw-page.hw-reveal-ready .hw-reveal.is-visible { opacity: 1; transform: none; }
 
 
 

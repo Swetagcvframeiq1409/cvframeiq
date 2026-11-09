@@ -55,7 +55,7 @@
   }
 
   function pendingCard() {
-    return node('p', 'sx-pending sx-muted', 'Draft — pending content');
+    return node('p', 'gk-draft sx-pending', 'Draft — pending content');
   }
 
   function addIconChip(parent, ui) {
@@ -460,7 +460,7 @@
       iconChip.appendChild(icon(`bi ${icons[index] || 'bi-bank'}`));
       const copy = node('div', 'sx-sig-banking__point-copy');
       copy.append(node('h3', '', group.title), node('p', '', group.items[0] || ''));
-      const status = node('span', 'sx-sig-banking__status', sector.status === 'draft' ? 'Draft' : sector.status);
+      const status = node('span', 'sx-sig-banking__status', sector.status === 'draft' ? 'Coming soon' : sector.status);
       point.append(iconChip, copy, status);
       list.appendChild(point);
     });
@@ -515,7 +515,7 @@
       stage.dataset.sxAviationStage = String(index);
       const indexLabel = node('span', 'sx-aviation__stage-index', String(index + 1).padStart(2, '0'));
       const title = node('h3', '', group.title);
-      const status = node('span', 'sx-aviation__stage-status', sector.status === 'draft' ? 'Draft' : sector.status);
+      const status = node('span', 'sx-aviation__stage-status', sector.status === 'draft' ? 'Coming soon' : sector.status);
       const items = node('ul', 'sx-aviation__stage-items');
       group.items.forEach((item) => items.appendChild(node('li', '', item)));
       stage.append(indexLabel, title, status, items);
@@ -893,7 +893,7 @@
     }
     const section = band('sx-signature', ui.heroTone, 'sx-signature');
     section.hidden = true;
-    const placeholder = node('div', 'sx-sig--pending sx-muted', 'Draft — pending content');
+    const placeholder = node('div', 'sx-sig--pending sx-muted', 'Coming soon');
     placeholder.hidden = true;
     section.appendChild(placeholder);
   }
@@ -1000,8 +1000,7 @@
   function buildFaq() {
     const validFaqs = (window.FAQ_DATA || []).filter((item) => (
       /industr|sector|go live|deployment/i.test(item.question) &&
-      item.answer &&
-      !/^\[placeholder/i.test(item.answer)
+      !(typeof item.answer === 'string' && /^\[placeholder/i.test(item.answer))
     ));
     if (!validFaqs.length) return;
     const section = band('sx-faq', 'dark', 'sx-faq');
@@ -1021,7 +1020,9 @@
       const panel = node('div', 'sx-accordion__panel');
       panel.id = panelId;
       panel.setAttribute('aria-hidden', String(index !== 0));
-      panel.appendChild(node('p', '', item.answer));
+      panel.appendChild(item.answer
+        ? node('p', '', item.answer)
+        : node('p', 'gk-draft', 'Draft — pending content'));
       entry.append(button, panel);
       accordion.appendChild(entry);
     });

@@ -7,12 +7,60 @@
   let latestResult = '';
   window.FrameIQRoi.createRoiCalculator(root, {
     fields: [
-      { id: 'cameras', label: 'Camera views', unit: 'views', default: 0, min: 0, max: null, sliderMax: 100000, step: 1, help: 'Number of camera views included.' },
-      { id: 'hours', label: 'Recorded hours per camera per day', unit: 'hours/day', default: 0, min: 0, max: null, sliderMax: 24, step: .1, help: 'Recorded hours for each camera view per day.' },
-      { id: 'days', label: 'Operating days per month', unit: 'days/month', default: 0, min: 0, max: null, sliderMax: 31, step: 1, help: 'Operating days included in one month.' },
-      { id: 'minutes', label: 'Manual review minutes per recorded camera-hour', unit: 'minutes/hour', default: 0, min: 0, max: null, sliderMax: 60, step: .1, help: 'Manual review time for one recorded camera-hour.' },
-      { id: 'hourlyCost', label: 'Labour cost per hour (INR)', unit: 'INR/hour', default: 0, min: 0, max: null, sliderMax: 100000, step: 1, help: 'Your own hourly-cost input.' },
-      { id: 'coverage', label: 'Share of review time explored (%)', unit: '%', default: 0, min: 0, max: 100, step: 1, help: 'The share of review time included in this illustrative estimate.' }
+      {
+        id: 'cameras',
+        label: 'Camera views',
+        unit: 'views',
+        default: 10,
+        min: 0, max: null, sliderMax: 100000, step: 1,
+        help: 'Number of camera views included.',
+        group: 'Camera views'
+      },
+      {
+        id: 'hours',
+        label: 'Recorded hours per camera per day',
+        unit: 'hours/day',
+        default: 8,
+        min: 0, max: null, sliderMax: 24, step: 0.1,
+        help: 'Recorded hours for each camera view per day.',
+        group: 'Camera views'
+      },
+      {
+        id: 'days',
+        label: 'Operating days per month',
+        unit: 'days/month',
+        default: 22,
+        min: 0, max: null, sliderMax: 31, step: 1,
+        help: 'Operating days included in one month.',
+        group: 'Review effort'
+      },
+      {
+        id: 'minutes',
+        label: 'Manual review minutes per recorded camera-hour',
+        unit: 'minutes/hour',
+        default: 5,
+        min: 0, max: null, sliderMax: 60, step: 0.1,
+        help: 'Manual review time for one recorded camera-hour.',
+        group: 'Review effort'
+      },
+      {
+        id: 'hourlyCost',
+        label: 'Labour cost per hour (INR)',
+        unit: 'INR/hour',
+        default: 300,
+        min: 0, max: null, sliderMax: 100000, step: 1,
+        help: 'Your own hourly-cost input.',
+        group: 'Cost'
+      },
+      {
+        id: 'coverage',
+        label: 'Share of review time explored (%)',
+        unit: '%',
+        default: 80,
+        min: 0, max: 100, step: 1,
+        help: 'The share of review time included in this illustrative estimate.',
+        group: 'Review effort'
+      }
     ],
     compute(values) {
       const hours = values.cameras * values.hours * values.days * values.minutes / 60 * values.coverage / 100;
