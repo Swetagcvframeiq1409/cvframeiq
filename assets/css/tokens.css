@@ -159,6 +159,9 @@
   /* ── Shared container tokens (header, hero, all bands) ── */
   --container-max: 1312px;
   --container-pad: 24px;
+
+  /* ── Hero gap: distance from header bottom to breadcrumb ── */
+  --hero-gap: clamp(16px, 2.4vw, 40px);
 }
 
 @media (prefers-reduced-motion: reduce) {

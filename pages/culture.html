@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="../assets/css/gk-kit.css" />
     <link rel="stylesheet" href="../assets/css/culture-page.css" />
     <link rel="stylesheet" href="../assets/css/mobile-fixes.css" />
+    <!-- Stable header height to prevent CLS -->
+    <script>document.documentElement.style.setProperty('--header-h','76px');</script>
     <script src="../assets/data/site-data.js" defer></script>
     <script src="../assets/js/icons.js" defer></script>
     <script src="../assets/js/components.js" defer></script>
@@ -21,90 +23,81 @@
     <script src="../assets/js/culture-page.js" defer></script>
       <meta name="color-scheme" content="dark" />
 </head>
-  <body data-root="../">
+  <body data-root="../" class="page-culture">
         <a class="skip-link" href="#main-content">Skip to content</a>
     <div id="site-header"></div>
     <main id="main-content" class="cu-page">
-      <section class="cu-hero">
-        <div class="cu-wrap">
-          <nav class="cu-crumb" aria-label="Breadcrumb">
-            <a href="../index.html">Home</a><i class="bi bi-chevron-right" aria-hidden="true"></i><span>Culture</span>
-          </nav>
-          <h1 class="cu-title">The FrameIQ Culture</h1>
-          <p class="cu-lead">Culture and team stories are being assembled.</p>
+
+      <section class="cu-pan" id="culture-pan" data-cu-pan aria-labelledby="cu-title">
+        <div class="cu-pan__sticky">
+          <div class="cu-wrap cu-pan__head">
+            <nav class="cu-crumb" aria-label="Breadcrumb">
+              <a href="../index.html">Home</a>
+              <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              <span aria-current="page">Culture</span>
+            </nav>
+
+            <div class="cu-hero-copy">
+              <h1 id="cu-title" class="cu-title">The FrameIQ Culture</h1>
+              <p class="cu-lead"><span class="gk-draft">Draft - pending content</span></p>
+            </div>
+          </div>
+
+          <div class="cu-pan__viewport" aria-label="Culture strip">
+            <div class="cu-pan__track" aria-hidden="true" role="presentation"></div>
+          </div>
+
+          <p class="cu-pan__hint">Scroll to Explore</p>
         </div>
       </section>
-      <section class="cu-image-tile" aria-label="FrameIQ collaboration illustration">
-        <div class="cu-wrap">
-          <img src="../assets/img/tile2.webp" alt="Illustration of a team collaborating and sharing ideas" width="1536" height="1024" decoding="async" />
-        </div>
-      </section>
-      <section class="cu-cards" id="culture-stories" aria-label="Explore FrameIQ culture">
-        <div class="cu-wrap cu-cards__grid gk-cards">
-          <a class="cu-card gk-card cu-card--lg" href="team.html">
-            <div class="cu-card__media"><div class="cu-card__img" style="--cu-hue:#d9c8ff"><i class="bi bi-people" aria-hidden="true"></i></div></div>
-            <div class="cu-card__cap">Photo pending</div>
-            <div class="cu-card__body"><h2 class="cu-card__title">Meet the Team</h2><p class="cu-card__text">Explore our teams, expertise, and leadership.</p><i class="bi bi-arrow-up-right cu-card__arrow" aria-hidden="true"></i></div>
-          </a>
-          <a class="cu-card gk-card" href="#gallery">
-            <div class="cu-card__media"><div class="cu-card__img" style="--cu-hue:#ffe3b5"><i class="bi bi-camera" aria-hidden="true"></i></div></div>
-            <div class="cu-card__cap">Photo pending</div>
-            <div class="cu-card__body"><h2 class="cu-card__title">Experience the Culture</h2><p class="cu-card__text">Behind the scenes at FrameIQ.</p><i class="bi bi-arrow-up-right cu-card__arrow" aria-hidden="true"></i></div>
-          </a>
-          <a class="cu-card gk-card cu-card--join" href="careers.html">
-            <div class="cu-card__body"><h2 class="cu-card__title">Join Us</h2><p class="cu-card__text">Open positions and roles at FrameIQ.</p><i class="bi bi-arrow-up-right cu-card__arrow" aria-hidden="true"></i></div>
-          </a>
-        </div>
-      </section>
+
       <section class="cu-gallery" id="gallery" aria-label="Culture gallery">
-        <div class="cu-wrap cu-gallery__top">
-          <label class="cu-filter">
-            <select id="cuFilter" aria-label="Filter gallery">
-              <option value="all" selected>All</option>
-              <option value="collaboration">Collaboration</option>
-              <option value="workspace">Workspace</option>
-              <option value="celebrations">Celebrations</option>
-            </select>
-          </label>
+        <div class="cu-gallery-grid">
+          <figure class="cu-gallery-tile cu-gallery-tile--tall"><div class="cu-gallery-tile__placeholder"><i class="bi bi-image" aria-hidden="true"></i></div></figure>
+          <figure class="cu-gallery-tile"><div class="cu-gallery-tile__placeholder"><i class="bi bi-image" aria-hidden="true"></i></div></figure>
+          <figure class="cu-gallery-tile"><div class="cu-gallery-tile__placeholder"><i class="bi bi-image" aria-hidden="true"></i></div></figure>
+          <figure class="cu-gallery-tile cu-gallery-tile--wide"><div class="cu-gallery-tile__placeholder"><i class="bi bi-image" aria-hidden="true"></i></div></figure>
+          <figure class="cu-gallery-tile"><div class="cu-gallery-tile__placeholder"><i class="bi bi-image" aria-hidden="true"></i></div></figure>
+          <figure class="cu-gallery-tile"><div class="cu-gallery-tile__placeholder"><i class="bi bi-image" aria-hidden="true"></i></div></figure>
+          <figure class="cu-gallery-tile cu-gallery-tile--tall"><div class="cu-gallery-tile__placeholder"><i class="bi bi-image" aria-hidden="true"></i></div></figure>
+          <figure class="cu-gallery-tile"><div class="cu-gallery-tile__placeholder"><i class="bi bi-image" aria-hidden="true"></i></div></figure>
+          <figure class="cu-gallery-tile"><div class="cu-gallery-tile__placeholder"><i class="bi bi-image" aria-hidden="true"></i></div></figure>
+          <figure class="cu-gallery-tile cu-gallery-tile--wide"><div class="cu-gallery-tile__placeholder"><i class="bi bi-image" aria-hidden="true"></i></div></figure>
         </div>
-        <div class="cu-masonry" id="cuMasonry">
-          <div class="cu-col">
-            <figure class="cu-tile" data-category="collaboration"><div class="cu-tile__img cu-r1"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="workspace"><div class="cu-tile__img cu-r2"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="celebrations"><div class="cu-tile__img cu-r4"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="collaboration"><div class="cu-tile__img cu-r3"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="workspace"><div class="cu-tile__img cu-r5"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-          </div>
-          <div class="cu-col">
-            <figure class="cu-tile" data-category="celebrations"><div class="cu-tile__img cu-r3"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="collaboration"><div class="cu-tile__img cu-r1"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="workspace"><div class="cu-tile__img cu-r2"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="celebrations"><div class="cu-tile__img cu-r4"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="collaboration"><div class="cu-tile__img cu-r1"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-          </div>
-          <div class="cu-col">
-            <figure class="cu-tile" data-category="workspace"><div class="cu-tile__img cu-r2"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="celebrations"><div class="cu-tile__img cu-r4"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="collaboration"><div class="cu-tile__img cu-r1"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="workspace"><div class="cu-tile__img cu-r5"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="celebrations"><div class="cu-tile__img cu-r3"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-          </div>
-          <div class="cu-col">
-            <figure class="cu-tile" data-category="celebrations"><div class="cu-tile__img cu-r4"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="collaboration"><div class="cu-tile__img cu-r3"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="workspace"><div class="cu-tile__img cu-r5"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="celebrations"><div class="cu-tile__img cu-r1"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="collaboration"><div class="cu-tile__img cu-r2"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-          </div>
-          <div class="cu-col">
-            <figure class="cu-tile" data-category="workspace"><div class="cu-tile__img cu-r1"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="celebrations"><div class="cu-tile__img cu-r5"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="collaboration"><div class="cu-tile__img cu-r3"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="workspace"><div class="cu-tile__img cu-r2"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
-            <figure class="cu-tile" data-category="celebrations"><div class="cu-tile__img cu-r4"><i class="bi bi-image" aria-hidden="true"></i></div><figcaption>Photo pending</figcaption></figure>
+      </section>
+
+      <section class="cu-cards" id="culture-stories" aria-label="Explore FrameIQ culture">
+        <div class="cu-wrap cu-cards__grid">
+          <a class="cu-card cu-card--lg" href="team.html">
+            <div class="cu-card__media"><div class="cu-card__img" style="--cu-hue:#e7dbff"><i class="bi bi-people" aria-hidden="true"></i></div></div>
+            <div class="cu-card__cap">Photo pending</div>
+            <div class="cu-card__body">
+              <h2 class="cu-card__title">Meet the Team</h2>
+              <p class="cu-card__text">Explore our teams, expertise, and leadership.</p>
+              <i class="bi bi-arrow-up-right cu-card__arrow" aria-hidden="true"></i>
+            </div>
+          </a>
+
+          <div class="cu-card-stack">
+            <a class="cu-card" href="team.html">
+              <div class="cu-card__body">
+                <h2 class="cu-card__title">Experience the Culture</h2>
+                <p class="cu-card__text">Behind the scenes at FrameIQ.</p>
+                <i class="bi bi-arrow-up-right cu-card__arrow" aria-hidden="true"></i>
+              </div>
+            </a>
+
+            <a class="cu-card cu-card--join" href="careers.html">
+              <div class="cu-card__body">
+                <h2 class="cu-card__title">Join Us</h2>
+                <p class="cu-card__text">Open positions and roles at FrameIQ.</p>
+                <i class="bi bi-arrow-up-right cu-card__arrow" aria-hidden="true"></i>
+              </div>
+            </a>
           </div>
         </div>
       </section>
+
     </main>
     <div id="site-footer"></div>
   </body>

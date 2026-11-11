@@ -3,7 +3,7 @@
 
 
 
-.gk-hero .gk-wrap > *{opacity:0;transform:translateY(26px);animation:gkRise .9s var(--gk-ease,cubic-bezier(.23,1,.32,1)) forwards}
+.gk-hero .gk-wrap > *{opacity:0;transform:translateY(26px);animation:gkRise .9s var(--gk-ease,cubic-bezier(.23,1,.32,1)) both forwards}
 
 
 

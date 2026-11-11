@@ -1,0 +1,395 @@
+/* desktop-sector-fixes.css
+   Desktop fixes for Sectors page and Solutions pages (≥1024px).
+   Problems addressed: 1 (images), 2 (reveal), 3 (dead zones),
+   4 (layout width), 5 (placeholder — shared with mobile), 6 (header/scroll).
+   Load after sector-detail.css and mobile-sector-fixes.css.
+   Mobile layout is untouched (all rules are min-width gated).
+*/
+
+/* ═══════════════════════════════════════════════════════════════
+   CRITICAL: Override gk.css rule that adds header-h + large clamp
+   to any [class$="-hero"] inside #main-content. That rule has
+   specificity 0,1,1,0 (ID + attribute). We match it here with the
+   same specificity but later load order wins.
+   ═══════════════════════════════════════════════════════════════ */
+
+#main-content .sx-hero,
+#main-content .gk-hero,
+#main-content .sector-detail__hero {
+  padding-top: var(--hero-gap, clamp(16px, 2.4vw, 40px));
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SHARED (all widths) — reveal safety, fallback images, draft hide
+   These complement mobile-sector-fixes.css without duplicating it.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Ensure gk-hero children always resolve to visible.
+   gk-motion.css sets opacity:0 + animation; animation-fill-mode:both
+   is already set by mobile-sector-fixes.css, but we also need a
+   guaranteed floor so a stalled animation never leaves opacity:0. */
+.gk-hero .gk-wrap > * {
+  animation-fill-mode: both;
+  /* If the animation never fires, the element is still visible */
+  opacity: 1;
+}
+
+/* The animation itself sets opacity:0 → 1, so we only need to
+   ensure the end-state wins. Override the initial keyframe state
+   so elements are never invisible after the animation completes. */
+.gk-hero .gk-wrap > *:is([style*="animation"], .gk-r) {
+  opacity: 1;
+}
+
+/* gk-r reveal: visible by default on desktop too */
+.gk-r {
+  opacity: 1;
+  transform: none;
+}
+
+/* Only hide gk-r when JS has confirmed it should animate */
+html.sx-js .gk-r:not(.is-in) {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s var(--gk-ease, cubic-bezier(0.23, 1, 0.32, 1)),
+              transform 0.9s var(--gk-ease, cubic-bezier(0.23, 1, 0.32, 1));
+  transition-delay: var(--gk-d, 0ms);
+}
+
+html.sx-js .gk-r.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Fallback icon: use sector tint colour, not the generic camera purple */
+.fiq-media--fallback .bi {
+  font-size: 4rem;
+  color: color-mix(in srgb, var(--sx-tint, #8975ff) 65%, rgba(137, 117, 255, 0.55));
+}
+
+/* Sector card media: right-edge fade on all viewports */
+#sx-root .sx-sector-card__media {
+  position: relative;
+}
+
+#sx-root .sx-sector-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 35%;
+  background: linear-gradient(to right, transparent, rgba(8, 9, 13, 0.5));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Sector card media fallback fills the slot */
+#sx-root .sx-sector-card__media .fiq-media--fallback {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 0;
+}
+
+/* sector-detail hero media: proper aspect ratio + object-fit */
+.sector-detail-page .sector-detail__media picture img,
+.sector-detail-page .sector-detail__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
+.sector-detail-page .sector-detail__media .fiq-media--fallback {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: inherit;
+}
+
+/* Card text contrast ≥4.5:1 on dark card backgrounds */
+.sector-detail-page .gk-card p,
+.sector-detail-page .gk-card li {
+  color: #c1becc; /* ~5.2:1 against #191a22 */
+}
+
+.sector-detail-page .gk-card h3 {
+  color: #f7f6fb;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PROBLEM 1 — Missing images (desktop)
+   Hero visual card: max-width 560px, vertically centred, border+glow.
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (min-width: 1024px) {
+  /* Hero media slot: constrained width, 4:3 ratio, top-aligned */
+  .sector-detail-page .sector-detail__media {
+    max-width: 560px;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border: 1px solid rgba(196, 181, 253, 0.18);
+    border-radius: 1.5rem;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.32),
+                0 0 48px rgba(101, 66, 200, 0.18);
+    overflow: hidden;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PROBLEM 2 — Reveal animation safety (desktop)
+   Hero nav/breadcrumb/H1/CTAs must be full brightness on first paint.
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (min-width: 1024px) {
+  /* Above-the-fold hero elements: never animated, always visible */
+  .sector-detail-page .gk-hero .gk-crumb,
+  .sector-detail-page .gk-hero .gk-eyebrow,
+  .sector-detail-page .gk-hero h1,
+  .sector-detail-page .gk-hero > .gk-wrap > p,
+  .sector-detail-page .gk-hero .sector-detail__hero-actions,
+  .sector-detail-page .gk-hero .sector-detail__hero-copy {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  /* Use-case cards: always visible, no min-height dead zone */
+  .sector-detail-page .gk-card {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* gk-r on sector detail pages: force visible */
+  .sector-detail-page .gk-r {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* sx-reveal on all-sectors page: safe defaults */
+  .sx-page .sx-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  html.sx-js .sx-page .sx-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 560ms ease var(--sx-delay, 0ms),
+                transform 560ms ease var(--sx-delay, 0ms);
+  }
+
+  html.sx-js .sx-page .sx-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PROBLEM 3 — Dead zones (desktop)
+   min-height on cards/sections holds space even when content is hidden.
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (min-width: 1024px) {
+  /* Remove fixed min-heights that create dead zones */
+  .sector-detail-page .gk-card {
+    min-height: 0;
+  }
+
+  /* Section padding: content-driven, no excess */
+  .sector-detail-page .gk-band:not(.gk-hero) {
+    padding-block: clamp(56px, 7vw, 96px);
+  }
+
+  /* "How FrameIQ helps here": two columns, top-aligned, no forced equal height */
+  .sector-detail-page .sector-detail__capability-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+    align-items: start;
+    gap: clamp(2rem, 5vw, 4rem);
+  }
+
+  /* Capability copy card: no min-height */
+  .sector-detail-page .sector-detail__capability-copy {
+    min-height: 0;
+    height: auto;
+  }
+
+  /* Capability media column: no min-height */
+  .sector-detail-page .sector-detail__capability-media {
+    min-height: 0;
+  }
+
+  /* Use-case cards: size to content */
+  .sector-detail-page .sector-detail__use-cases .gk-card {
+    min-height: 0;
+    height: auto;
+  }
+
+  /* Process steps: no fixed min-height */
+  #sx-root .sx-process__list > .sx-process__step {
+    min-height: 0;
+  }
+
+  /* Capability cards: no fixed min-height */
+  #sx-root .sx-capability-grid > .sx-capability-card {
+    min-height: 0;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PROBLEM 4 — Layout width (desktop)
+   Container max-width 1280px, consistent across hero/sections/footer.
+   Use-case cards: 2 cols at 1024–1439px, 3 cols at ≥1440px (if ≥6 cards).
+   Sectors grid: 3 cols, consistent 4:3 thumbnails.
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (min-width: 1024px) {
+  /* Unified container: 1280px max, consistent padding */
+  .sector-detail-page .gk-wrap {
+    width: min(1280px, calc(100% - clamp(48px, 8vw, 96px)));
+  }
+
+  /* Hero layout: two columns, text left, visual right — align-items:start set in sector-detail.css */
+
+  /* Use-case cards: 2 columns at 1024–1439px */
+  .sector-detail-page .sector-detail__use-cases .gk-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  /* Related products: auto-fit, min 280px */
+  .sector-detail-page .sector-detail__related .gk-cards {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 1rem;
+  }
+
+  /* Sectors grid: 3 columns, consistent card heights */
+  #sx-root .sx-sector-grid.gk-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* Sector card thumbnails: 4:3 ratio */
+  #sx-root .sx-sector-card__media {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* All-sectors page wrap: match 1280px container */
+  #sx-root .sx-wrap,
+  #sx-root .sx-subnav {
+    width: min(1280px, calc(100% - clamp(48px, 8vw, 96px)));
+  }
+}
+
+@media (min-width: 1440px) {
+  /* Use-case cards: 3 columns when there are enough cards */
+  .sector-detail-page .sector-detail__use-cases .gk-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* Sectors grid: still 3 columns, wider container */
+  #sx-root .sx-sector-grid.gk-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1920px) {
+  /* At 1920px: keep 1280px container so edges align across all sections */
+  .sector-detail-page .gk-wrap {
+    width: min(1280px, calc(100% - 96px));
+  }
+
+  #sx-root .sx-wrap,
+  #sx-root .sx-subnav {
+    width: min(1280px, calc(100% - 96px));
+  }
+
+  /* Hero visual: cap at 560px so it doesn't balloon */
+  .sector-detail-page .sector-detail__media {
+    max-width: 560px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PROBLEM 5 — Placeholder content (shared, all widths)
+   Already handled in JS (sector-detail.js). CSS safety net.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Hide draft cards that slipped through JS filtering */
+.sector-detail-page .gk-card:has(> p.gk-draft:only-child),
+.sector-detail-page .gk-card:has(> .gk-draft:only-child) {
+  display: none;
+}
+
+/* Hide section + heading when all cards are hidden */
+.sector-detail-page #sector-related:not(:has(.gk-card:not([style*="display: none"]))) {
+  display: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PROBLEM 6 — Header and sticky elements (desktop)
+   scroll-margin-top so anchors land below header.
+   Chat/scroll-to-top buttons clear footer and last card.
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (min-width: 1024px) {
+  /* Anchor targets: land below header + 24px breathing room */
+  .sector-detail-page [id],
+  #sx-root [id] {
+    scroll-margin-top: calc(var(--header-h, 76px) + 24px);
+  }
+
+  /* "View use cases" anchor: extra clearance for the section heading */
+  #sector-use-cases,
+  #sector-capabilities,
+  #sector-related {
+    scroll-margin-top: calc(var(--header-h, 76px) + 32px);
+  }
+
+  /* Chat / scroll-to-top FAB: clear footer and last card at 1280px */
+  .chatbot-button,
+  [class*="chat-btn"],
+  [class*="chatbot"],
+  [id*="chat-button"],
+  [id*="chatbot"],
+  [class*="scroll-top"],
+  [id*="scroll-top"] {
+    bottom: 24px;
+    right: 24px;
+  }
+
+  /* Last section before footer: padding so FAB doesn't overlap */
+  .sector-detail-page .sector-detail__cta-band {
+    padding-bottom: 80px;
+  }
+
+  .sx-page .sx-cta {
+    padding-bottom: 80px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   REDUCED MOTION — desktop (complement to mobile-sector-fixes.css)
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .gk-hero .gk-wrap > * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .gk-r,
+  html.sx-js .gk-r:not(.is-in) {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .sector-detail-page .gk-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

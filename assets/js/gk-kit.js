@@ -2,6 +2,44 @@
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  var revealTargets = document.querySelectorAll('.gk-reveal, .gk-r, [data-reveal], .ab-reveal');
+  if (revealTargets.length) {
+    var revealObserver = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18 }) : null;
+
+    revealTargets.forEach(function (el, index) {
+      el.style.setProperty('--gk-d', (index * 60) + 'ms');
+      if (reduce) {
+        el.classList.add('is-in');
+        return;
+      }
+      if (revealObserver) {
+        revealObserver.observe(el);
+        return;
+      }
+      if (el.getBoundingClientRect().top < window.innerHeight * 1.2) {
+        el.classList.add('is-in');
+      }
+    });
+
+    window.addEventListener('load', function () {
+      window.setTimeout(function () {
+        revealTargets.forEach(function (el) {
+          var rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 1.2 && rect.bottom > -40) {
+            el.classList.add('is-in');
+          }
+        });
+      }, 1200);
+    }, { once: true });
+  }
+
   document.querySelectorAll('[data-gk-tabs]').forEach(function (box) {
     var btns = box.querySelectorAll('.gk-tabs__bar button');
     var panels = box.querySelectorAll('.gk-tabs__panel');

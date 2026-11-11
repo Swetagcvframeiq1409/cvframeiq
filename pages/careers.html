@@ -3,13 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Careers | FrameIQ</title>
+    <title>Join Us | FrameIQ</title>
     <meta name="description" content="No open roles right now. Send FrameIQ your CV for future consideration." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Careers | FrameIQ" />
+    <meta property="og:title" content="Join Us | FrameIQ" />
     <meta property="og:description" content="No open roles right now. Send FrameIQ your CV for future consideration." />
     <meta property="og:url" content="https://example.invalid/pages/careers.html" />
-    <link rel="icon" href="data:," />
     <link rel="stylesheet" href="../assets/css/tokens.css" />
     <link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" />
     <link rel="stylesheet" href="../assets/css/base.css" />
@@ -17,54 +16,247 @@
     <link rel="stylesheet" href="../assets/css/nav-fix.css" />
     <link rel="stylesheet" href="../assets/css/gk-kit.css" />
     <link rel="stylesheet" href="../assets/css/careers-page.css" />
+    <meta name="color-scheme" content="dark" />
+    <script>document.documentElement.style.setProperty('--header-h', '76px');</script>
     <script src="../assets/data/site-data.js" defer></script>
     <script src="../assets/js/icons.js" defer></script>
     <script src="../assets/js/components.js" defer></script>
     <script src="../assets/js/main.js" defer></script>
+    <script src="../assets/js/gk-kit.js" defer></script>
     <script src="../assets/js/careers-page.js" defer></script>
-      <meta name="color-scheme" content="dark" />
-</head>
-  <body data-root="../">
-        <a class="skip-link" href="#main-content">Skip to content</a>
+  </head>
+  <body class="cr-page-shell" data-root="../">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div id="site-header"></div>
-    <main id="main-content" class="cu-page jn-page">
-      <section class="jn-hero">
-        <div class="cu-wrap">
-          <h1 class="jn-title">Careers</h1>
-          <p class="jn-lead">No open roles right now — send us your CV for future consideration.</p>
-        </div>
-      </section>
-      <section class="jn-open" id="openings">
-        <div class="cu-wrap">
-          <h2 class="jn-h2">Openings</h2>
-          <p class="jn-empty">No open roles right now — send us your CV.</p>
-        </div>
-      </section>
-      <section class="jn-contact" id="application">
-        <div class="cu-wrap">
-          <div class="jn-contact__box">
-            <form class="jn-form" id="jnForm" novalidate>
-              <h2 class="jn-form__h">Send your CV</h2>
-              <div class="jn-form__grid">
-                <label>Name *<input type="text" name="name" required autocomplete="name" aria-describedby="jn-name-error"><span class="jn-field-error" id="jn-name-error"></span></label>
-                <label>Email *<input type="email" name="email" required autocomplete="email" aria-describedby="jn-email-error"><span class="jn-field-error" id="jn-email-error"></span></label>
-                <label>Phone<input type="tel" name="phone" autocomplete="tel"></label>
-                <label>Role applied for *<input type="text" name="role" required aria-describedby="jn-role-error"><span class="jn-field-error" id="jn-role-error"></span></label>
-                <label class="jn-full">LinkedIn profile<input type="url" name="linkedin" autocomplete="url" aria-describedby="jn-linkedin-error"><span class="jn-field-error" id="jn-linkedin-error"></span></label>
-                <label class="jn-full">Resume upload *<input type="file" name="resume" accept=".pdf,.doc,.docx" required aria-describedby="jn-resume-error"><span class="jn-field-error" id="jn-resume-error"></span></label>
-                <label class="jn-full">Message<textarea name="message" rows="4"></textarea></label>
+
+    <main id="main-content" class="cr-page">
+      <section class="cr-hero-band" aria-labelledby="cr-hero-title">
+        <div class="gk-container">
+          <div class="cr-hero-panel">
+            <div class="cr-hero-copy">
+              <p class="gk-eyebrow">JOIN FRAMEIQ</p>
+              <h1 id="cr-hero-title">Join FrameIQ</h1>
+              <p class="cr-hero-lead">No open roles right now — send us your CV for future consideration.</p>
+              <a class="cr-hero-btn" href="#apply">
+                Send your CV <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+            <figure class="cr-hero-figure" aria-hidden="true">
+              <div class="cr-icon-grid">
+                <span class="cr-icon-tile"><i class="bi bi-people"></i></span>
+                <span class="cr-icon-tile"><i class="bi bi-code-slash"></i></span>
+                <span class="cr-icon-tile"><i class="bi bi-rocket-takeoff"></i></span>
+                <span class="cr-icon-tile"><i class="bi bi-graph-up-arrow"></i></span>
               </div>
-              <label class="jn-check">
-                <input type="checkbox" name="privacy" required aria-describedby="jn-consent-error">
-                <span>I agree to be contacted about this application and acknowledge the <a href="privacy.html">Privacy Policy</a>.</span>
-              </label>
-              <span class="jn-field-error" id="jn-consent-error"></span>
-              <button class="jn-submit" type="submit">Continue to email <i class="bi bi-arrow-right" aria-hidden="true"></i></button>
-              <p class="jn-status" id="jnStatus" role="status" aria-live="polite">This form opens an email draft. Attach your CV to the draft before sending.</p>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="cr-section cr-why" aria-labelledby="cr-why-title">
+        <div class="gk-container" data-reveal>
+          <p class="gk-eyebrow">OUR VALUES</p>
+          <h2 class="cr-section-title" id="cr-why-title">Why join FrameIQ</h2>
+          <!-- TODO content: Why join details pending -->
+          <div class="cr-values-grid">
+            <article class="cr-value-card" data-reveal>
+              <span class="cr-value-index" aria-hidden="true">01</span>
+              <h3>Practical work</h3>
+              <p>We focus on problems that matter in the field and build toward measurable operational outcomes.</p>
+            </article>
+            <article class="cr-value-card" data-reveal>
+              <span class="cr-value-index" aria-hidden="true">02</span>
+              <h3>Focused collaboration</h3>
+              <p>We value clear communication, ownership, and alignment across product, engineering, and operations.</p>
+            </article>
+            <article class="cr-value-card" data-reveal>
+              <span class="cr-value-index" aria-hidden="true">03</span>
+              <h3>Fast learning</h3>
+              <p>We learn by shipping, testing, and improving through real-world feedback from deployment.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cr-section cr-perks" aria-labelledby="cr-perks-title">
+        <div class="gk-container" data-reveal>
+          <p class="gk-eyebrow">PERKS</p>
+          <h2 class="cr-section-title" id="cr-perks-title">Benefits and perks</h2>
+          <!-- TODO content: perks descriptions pending -->
+          <div class="cr-perks-layout">
+            <div class="cr-perks-list">
+              <div class="cr-perk-row" data-reveal>
+                <span class="cr-perk-icon" aria-hidden="true"><i class="bi bi-clock"></i></span>
+                <span class="cr-perk-name">Flexible working hours</span>
+              </div>
+              <div class="cr-perk-row" data-reveal>
+                <span class="cr-perk-icon" aria-hidden="true"><i class="bi bi-book"></i></span>
+                <span class="cr-perk-name">Learning and development budget</span>
+              </div>
+              <div class="cr-perk-row" data-reveal>
+                <span class="cr-perk-icon" aria-hidden="true"><i class="bi bi-heart-pulse"></i></span>
+                <span class="cr-perk-name">Health and wellness support</span>
+              </div>
+              <div class="cr-perk-row" data-reveal>
+                <span class="cr-perk-icon" aria-hidden="true"><i class="bi bi-house"></i></span>
+                <span class="cr-perk-name">Remote-friendly culture</span>
+              </div>
+              <div class="cr-perk-row" data-reveal>
+                <span class="cr-perk-icon" aria-hidden="true"><i class="bi bi-sliders"></i></span>
+                <span class="cr-perk-name">Ownership and autonomy</span>
+              </div>
+              <div class="cr-perk-row" data-reveal>
+                <span class="cr-perk-icon" aria-hidden="true"><i class="bi bi-people"></i></span>
+                <span class="cr-perk-name">Team offsites and events</span>
+              </div>
+              <div class="cr-perk-row" data-reveal>
+                <span class="cr-perk-icon" aria-hidden="true"><i class="bi bi-laptop"></i></span>
+                <span class="cr-perk-name">Equipment and tools allowance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cr-section cr-openings" id="openings" aria-labelledby="cr-openings-title">
+        <div class="gk-container" data-reveal>
+          <div class="cr-openings-top">
+            <h2 class="cr-section-title" id="cr-openings-title">Openings</h2>
+            <label class="cr-search">
+              <i class="bi bi-search" aria-hidden="true"></i>
+              <span class="cr-visually-hidden">Search openings</span>
+              <input type="search" id="crSearch" placeholder="Type a keyword to search" autocomplete="off" />
+            </label>
+          </div>
+          <div class="cr-roles-list" id="crRolesList" role="list">
+            <div class="cr-role-item" role="listitem">
+              <button class="cr-role-row" type="button" data-title="Senior Computer Vision Engineer">
+              <span class="cr-role-main">
+                <span class="cr-role-heading">
+                  <span class="cr-role-title">Senior Computer Vision Engineer</span>
+                  <span class="gk-draft cr-draft">Draft - pending content</span>
+                </span>
+                <span class="cr-role-location"><i class="bi bi-geo-alt" aria-hidden="true"></i> Panvel, Maharashtra</span>
+              </span>
+              <i class="bi bi-arrow-up-right cr-role-arrow" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="cr-role-item" role="listitem">
+              <button class="cr-role-row" type="button" data-title="Product Designer">
+              <span class="cr-role-main">
+                <span class="cr-role-heading">
+                  <span class="cr-role-title">Product Designer</span>
+                  <span class="gk-draft cr-draft">Draft - pending content</span>
+                </span>
+                <span class="cr-role-location"><i class="bi bi-geo-alt" aria-hidden="true"></i> Panvel, Maharashtra</span>
+              </span>
+              <i class="bi bi-arrow-up-right cr-role-arrow" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="cr-role-item" role="listitem">
+              <button class="cr-role-row" type="button" data-title="Operations Associate">
+              <span class="cr-role-main">
+                <span class="cr-role-heading">
+                  <span class="cr-role-title">Operations Associate</span>
+                  <span class="gk-draft cr-draft">Draft - pending content</span>
+                </span>
+                <span class="cr-role-location"><i class="bi bi-geo-alt" aria-hidden="true"></i> Panvel, Maharashtra</span>
+              </span>
+              <i class="bi bi-arrow-up-right cr-role-arrow" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+          <p class="cr-no-roles" id="crNoRoles" hidden>No roles match your search</p>
+        </div>
+      </section>
+
+      <section class="cr-section cr-tiles" aria-label="Explore FrameIQ">
+        <div class="gk-container">
+          <div class="cr-tiles-grid">
+            <a class="cr-tile" href="culture.html" data-reveal>
+              <div class="cr-tile-image" aria-hidden="true">
+                <i class="bi bi-people"></i>
+              </div>
+              <div class="cr-tile-body">
+                <h3>Experience the culture</h3>
+                <p>Behind the scenes at FrameIQ.</p>
+                <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+              </div>
+            </a>
+            <a class="cr-tile" href="#openings" data-reveal>
+              <div class="cr-tile-image" aria-hidden="true">
+                <i class="bi bi-briefcase"></i>
+              </div>
+              <div class="cr-tile-body">
+                <h3>Have a knack for building?</h3>
+                <p>See open roles and send us your CV.</p>
+                <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="cr-section cr-apply" id="apply" aria-labelledby="cr-apply-title">
+        <div class="gk-container">
+          <div class="gk-panel cr-apply-panel">
+            <div class="cr-apply-intro">
+              <h2 class="cr-section-title" id="cr-apply-title">Couldn't find what you're looking for?</h2>
+              <p>Share your details, we will get back to you.</p>
+            </div>
+            <form class="cr-form" id="crForm" novalidate>
+              <div class="cr-form-grid">
+                <div class="cr-field">
+                  <label for="cr-name">Name *</label>
+                  <input type="text" id="cr-name" name="name" required autocomplete="name" aria-describedby="cr-name-error" />
+                  <span class="cr-error" id="cr-name-error" aria-live="polite"></span>
+                </div>
+                <div class="cr-field">
+                  <label for="cr-email">Email *</label>
+                  <input type="email" id="cr-email" name="email" required autocomplete="email" aria-describedby="cr-email-error" />
+                  <span class="cr-error" id="cr-email-error" aria-live="polite"></span>
+                </div>
+                <div class="cr-field">
+                  <label for="cr-phone">Phone</label>
+                  <input type="tel" id="cr-phone" name="phone" autocomplete="tel" />
+                </div>
+                <div class="cr-field">
+                  <label for="cr-role">Role applied for *</label>
+                  <input type="text" id="cr-role" name="role" required aria-describedby="cr-role-error" />
+                  <span class="cr-error" id="cr-role-error" aria-live="polite"></span>
+                </div>
+                <div class="cr-field cr-field-full">
+                  <label for="cr-linkedin">LinkedIn profile</label>
+                  <input type="url" id="cr-linkedin" name="linkedin" autocomplete="url" aria-describedby="cr-linkedin-error" />
+                  <span class="cr-error" id="cr-linkedin-error" aria-live="polite"></span>
+                </div>
+                <div class="cr-field cr-field-full">
+                  <label for="cr-resume">Resume (PDF, DOC, DOCX) *</label>
+                  <input type="file" id="cr-resume" name="resume" accept=".pdf,.doc,.docx" required aria-describedby="cr-resume-error" />
+                  <span class="cr-error" id="cr-resume-error" aria-live="polite"></span>
+                </div>
+                <div class="cr-field cr-field-full">
+                  <label for="cr-message">Message</label>
+                  <textarea id="cr-message" name="message" rows="4"></textarea>
+                </div>
+              </div>
+              <div class="cr-consent-row">
+                <input type="checkbox" id="cr-privacy" name="privacy" required aria-describedby="cr-consent-error" />
+                <label class="cr-consent-label" for="cr-privacy">
+                  I agree to be contacted about this application and acknowledge the <a href="privacy.html">Privacy Policy</a>.
+                </label>
+              </div>
+              <span class="cr-error cr-consent-error" id="cr-consent-error" aria-live="polite"></span>
+              <button type="submit" class="cr-submit">
+                Continue to email <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              </button>
+              <p class="cr-form-note">This form opens an email draft. Attach your CV to the draft before sending.</p>
+              <p class="cr-form-status" id="crStatus" role="status" aria-live="polite"></p>
             </form>
           </div>
         </div>
       </section>
+
     </main>
     <div id="site-footer"></div>
   </body>

@@ -39,11 +39,15 @@
 
   function appendMedia(parent, name, className, options) {
     const media = make('div', `sector-detail__media ${className || ''}`.trim());
-    media.innerHTML = window.FIQ.img(name, options);
+    // Use sector icon as fallback icon so it's never a bare camera
+    const fallbackIcon = `bi-${sector.icon || 'camera-video'}`;
+    media.innerHTML = window.FIQ.img(name, Object.assign({ icon: fallbackIcon }, options || {}));
     const image = media.querySelector('img');
     if (image) {
+      image.setAttribute('loading', options && options.priority ? 'eager' : 'lazy');
+      image.setAttribute('decoding', 'async');
       image.addEventListener('error', () => {
-        media.innerHTML = window.FIQ.img('', { alt: image.alt || 'Sector visual' });
+        media.innerHTML = window.FIQ.img('', { alt: image.alt || 'Sector visual', icon: fallbackIcon });
       }, { once: true });
     }
     parent.appendChild(media);
@@ -51,26 +55,8 @@
   }
 
   function makeNeutralProducts() {
-    const block = make('div', 'gk-cards');
-    const links = [
-      { label: 'AI Store', href: '../ai-store.html', icon: 'bi-grid-3x3-gap' },
-      { label: 'Hardware', href: '../hardware/gear.html', icon: 'bi-cpu' },
-      { label: 'Book a Hardware Demo', href: '../hardware/book-demo.html', icon: 'bi-calendar-check' }
-    ];
-    links.forEach((item) => {
-      const card = make('article', 'gk-card');
-      const icon = make('i', `bi ${item.icon} sector-detail__product-icon`);
-      icon.setAttribute('aria-hidden', 'true');
-      const title = make('h3');
-      title.appendChild(link(item.label, item.href, 'sector-detail__product-link'));
-      card.append(
-        icon,
-        title,
-        make('p', 'gk-draft', 'Draft — pending content')
-      );
-      block.appendChild(card);
-    });
-    return block;
+    // Returns null — no real content yet, so the section is hidden entirely
+    return null;
   }
 
   function buildHero() {
@@ -107,21 +93,18 @@
 
   function buildUseCases() {
     const groups = Array.isArray(sector.groups) ? sector.groups.filter((group) => group?.title) : [];
+    // Only render groups that have real items
+    const realGroups = groups.filter((group) => Array.isArray(group.items) && group.items.length > 0);
+    if (!realGroups.length) return;
     const section = appendBand('sector-use-cases', '', 'sector-detail__use-cases');
     const content = make('div', 'gk-wrap');
     appendHeading(content, 'Use cases to discuss');
     const cards = make('div', 'gk-cards gk-cards--four');
-    groups.forEach((group) => {
+    realGroups.forEach((group) => {
       const card = make('article', 'gk-card');
       card.appendChild(make('h3', '', group.title));
       const list = make('ul');
-      const items = Array.isArray(group.items) ? group.items : [];
-      items.forEach((item) => list.appendChild(make('li', '', item)));
-      if (!items.length) {
-        const draft = make('li');
-        draft.appendChild(make('span', 'gk-draft', 'Draft — pending content'));
-        list.appendChild(draft);
-      }
+      group.items.forEach((item) => list.appendChild(make('li', '', item)));
       card.appendChild(list);
       cards.appendChild(card);
     });
@@ -131,6 +114,8 @@
 
   function buildCapabilities() {
     const feature = Number.isInteger(sector.capabilityIndex) ? window.FEATURES?.pillars?.[sector.capabilityIndex] : null;
+    // Only render if we have either a feature description or a helps image
+    if (!feature && !sector.media?.helps) return;
     const section = appendBand('sector-capabilities', 'gk-band--dark', 'sector-detail__capabilities');
     const content = make('div', 'gk-wrap');
     appendHeading(content, 'How FrameIQ helps here');
@@ -178,10 +163,6 @@
   }
 
   function buildRelated() {
-    const section = appendBand('sector-related', '', 'sector-detail__related');
-    const content = make('div', 'gk-wrap');
-    appendHeading(content, 'Related hardware & products');
-
     const productSlugs = { agriculture: ['crop-disease-detection'] };
     const products = window.AI_PRODUCTS || [];
     const cards = make('div', 'gk-cards');
@@ -217,11 +198,13 @@
       }
     }
 
-    if (!cards.childElementCount) {
-      content.appendChild(makeNeutralProducts());
-    } else {
-      content.appendChild(cards);
-    }
+    // Only render the section when there is real content
+    if (!cards.childElementCount) return;
+
+    const section = appendBand('sector-related', '', 'sector-detail__related');
+    const content = make('div', 'gk-wrap');
+    appendHeading(content, 'Related hardware & products');
+    content.appendChild(cards);
     section.appendChild(content);
   }
 

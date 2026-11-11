@@ -1,0 +1,411 @@
+/* mobile-sector-fixes.css
+   Fixes for Sectors page and Solutions pages on mobile (≤767px).
+   Problems addressed: A1–A4, B1–B4, C1–C4.
+   Desktop layout is untouched. Load after sector-kit.css and sector-detail.css.
+*/
+
+/* ═══════════════════════════════════════════════════════════════
+   CRITICAL: Override gk.css [class$="-hero"] rule (same specificity,
+   later load order wins). body already has padding-top:header-h from
+   components.css, so hero padding-top must be gap only.
+   ═══════════════════════════════════════════════════════════════ */
+
+#main-content .sx-hero,
+#main-content .gk-hero,
+#main-content .sector-detail__hero {
+  padding-top: var(--hero-gap, clamp(16px, 2.4vw, 40px));
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FIX 1 — Sticky filter pill bar (A1, A4)
+   Eyebrow clipped by subnav; pill bar has no edge fade or snap.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Ensure the sector-grid band has enough top clearance so the
+   eyebrow "SECTOR USE CASES" is never hidden under the sticky bar.
+   --subnav-h is set by JS; fall back to 52px. */
+@media (max-width: 767px) {
+  /* Scroll-margin so anchor jumps land below both header + subnav */
+  .sx-page .sx-sector-grid-band {
+    scroll-margin-top: calc(var(--header-h, 76px) + var(--subnav-h, 52px) + 24px);
+  }
+
+  /* Padding above the eyebrow so it is never flush against the subnav */
+  .sx-page .sx-sector-grid-band .sx-section-heading {
+    padding-top: 24px;
+  }
+
+  /* Subnav band: solid dark background + blur so content doesn't bleed through */
+  .sx-page .sx-subnav-band {
+    background: rgba(8, 9, 13, 0.92);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    /* z-index below header (50) but above content */
+    z-index: 38;
+  }
+
+  /* Pill strip: snap + touch scroll + right-edge fade */
+  .sx-page .sx-subnav__chips {
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* 24px right-edge fade so cut-off pill looks intentional */
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      black 1rem,
+      black calc(100% - 1.5rem),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      black 1rem,
+      black calc(100% - 1.5rem),
+      transparent 100%
+    );
+    padding-inline: 1rem;
+    scroll-padding-inline: 1rem;
+  }
+
+  .sx-page .sx-subnav__chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sx-page .sx-subnav__chip {
+    scroll-snap-align: start;
+    /* Minimum 44×44 tap target */
+    min-height: 44px;
+    padding-inline: 0.85rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FIX 2 — Hero top spacing (B1, B4)
+   Large gap between header and breadcrumb; visual starts too low.
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 767px) {
+  /* sector-detail hero: breadcrumb appears ~16px below the header */
+  .sector-detail-page .sector-detail__hero {
+    padding-bottom: clamp(2rem, 6vw, 3rem);
+  }
+
+  /* Breadcrumb → eyebrow → H1 → intro → CTAs: tighten vertical rhythm */
+  .sector-detail-page .gk-crumb {
+    margin-bottom: 12px;
+  }
+
+  .sector-detail-page .gk-eyebrow {
+    margin-bottom: 10px;
+  }
+
+  .sector-detail-page .sector-detail__heading {
+    margin-bottom: 16px;
+  }
+
+  .sector-detail-page .sector-detail__hero-actions {
+    margin-top: 16px;
+    gap: 10px;
+  }
+
+  /* Hero layout: single column, visual immediately after CTAs */
+  .sector-detail-page .sector-detail__hero-layout {
+    gap: 24px;
+  }
+
+  /* Media slot: show at least the top portion on first screen */
+  .sector-detail-page .sector-detail__media {
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* Ensure the hero media image fills its slot */
+  .sector-detail-page .sector-detail__media picture img,
+  .sector-detail-page .sector-detail__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+  }
+
+  /* Also fix the sx-page hero (all-sectors page) */
+  .sx-page .sx-hero {
+    padding-bottom: clamp(2rem, 6vw, 3rem);
+  }
+
+  /* Hero layout gap on sx-page */
+  .sx-page .sx-hero__layout {
+    gap: 24px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FIX 3 — Hero visual slot / missing images (A2, B2)
+   Banking & Healthcare show bare video-camera icon; Events blank grid.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Fallback media block: icon centred on sector gradient, grid overlay.
+   Applied when JS adds .fiq-media--fallback (already done by sector-image.js).
+   We upgrade the fallback to use the sector tint colour and a proper icon. */
+
+/* The fiq-media--fallback already has a grid overlay via ::before in sectors.css.
+   We just ensure it never shows as a plain white/empty box. */
+.fiq-media--fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 76% 18%, color-mix(in srgb, var(--sx-tint, #6542c8) 35%, transparent), transparent 26%),
+    linear-gradient(135deg, #0f0f1a 0%, #17142b 72%);
+}
+
+/* Icon inside fallback: use sector tint, larger on mobile */
+@media (max-width: 767px) {
+  .fiq-media--fallback .bi {
+    font-size: 3.5rem;
+    color: color-mix(in srgb, var(--sx-tint, #8975ff) 70%, rgba(137, 117, 255, 0.55));
+  }
+
+  /* Sector card media: ensure aspect ratio is maintained */
+  #sx-root .sx-sector-card__media {
+    aspect-ratio: 16 / 10;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* Sector card media fallback: fill the slot */
+  #sx-root .sx-sector-card__media .fiq-media--fallback {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    border: 0;
+    border-radius: 0;
+  }
+
+  /* Right-edge dark fade overlay on sector card images */
+  #sx-root .sx-sector-card__media::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 40%;
+    background: linear-gradient(to right, transparent, rgba(8, 9, 13, 0.55));
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  /* sector-detail hero media fallback */
+  .sector-detail-page .sector-detail__media .fiq-media--fallback {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    border: 0;
+    border-radius: inherit;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FIX 4 — Reveal animation safety (B3, C1, C2)
+   Elements stuck at opacity 0; Events title faded.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Elements are visible by default; only hidden when JS is ready */
+.sx-page .sx-reveal,
+.sector-detail-page [data-sx-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Only apply the hide-then-reveal when JS has confirmed readiness */
+html.sx-js .sx-page .sx-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 560ms ease var(--sx-delay, 0ms), transform 560ms ease var(--sx-delay, 0ms);
+}
+
+html.sx-js .sx-page .sx-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* gk-motion hero animation: ensure it always resolves to visible */
+.gk-hero .gk-wrap > * {
+  animation-fill-mode: both;
+}
+
+/* Safety: if animation never fires (e.g. Events title), force visible */
+@media (max-width: 767px) {
+  /* Force all hero children visible after 1.5s via animation fallback */
+  .gk-hero .gk-wrap > * {
+    animation-duration: 0.9s;
+    animation-delay: var(--gk-d, 0.05s);
+  }
+
+  /* sector-detail use-case cards: always visible */
+  .sector-detail-page .gk-card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* gk-r reveal: force visible on mobile after load */
+  .gk-r {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Reduced motion: no transforms, always opacity 1 */
+@media (prefers-reduced-motion: reduce) {
+  .sx-page .sx-reveal,
+  html.sx-js .sx-page .sx-reveal,
+  html.sx-js .sx-page .sx-reveal.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .gk-hero .gk-wrap > * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .gk-r {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Card text contrast: ensure ≥4.5:1 against dark card background */
+@media (max-width: 767px) {
+  .sector-detail-page .gk-card p,
+  .sector-detail-page .gk-card li,
+  .sector-detail-page .gk-card span:not(.gk-draft) {
+    color: #c1becc; /* ~5.2:1 against #191a22 */
+  }
+
+  .sector-detail-page .gk-card h3 {
+    color: #f7f6fb;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FIX 5 — Draft / placeholder content (C3)
+   "Draft: pending content" cards must not be public.
+   Handled in JS (sector-detail.js patch); CSS hides any that slip through.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Hide any card whose only paragraph content is a gk-draft placeholder */
+.sector-detail-page .gk-card:has(> p.gk-draft:only-child),
+.sector-detail-page .gk-card:has(> .gk-draft:only-child) {
+  display: none;
+}
+
+/* Hide the entire "Related hardware & products" section when all cards are hidden */
+.sector-detail-page #sector-related:has(.gk-cards:empty),
+.sector-detail-page #sector-related:not(:has(.gk-card:not([style*="display: none"]))) {
+  display: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FIX 6 — Floating chat button (A3, C4)
+   Button overlaps last lines of card text.
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 767px) {
+  /* Scroll padding so content is never hidden behind the FAB */
+  html {
+    scroll-padding-bottom: 88px;
+  }
+
+  /* Last section before footer gets bottom padding to clear the FAB */
+  .sector-detail-page .sector-detail__cta-band,
+  .sx-page .sx-cta {
+    padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Chat / FAB button: 48px, safe-area aware */
+  .chatbot-button,
+  [class*="chat-btn"],
+  [class*="chatbot"],
+  [id*="chat-button"],
+  [id*="chatbot"] {
+    width: 48px !important;
+    height: 48px !important;
+    right: 16px !important;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FIX 7 — General mobile hygiene (tap targets, padding, no h-scroll)
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 767px) {
+  /* No horizontal scroll */
+  .sx-page,
+  .sector-detail-page {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* Cards: 16px side padding, consistent radius */
+  .sector-detail-page .gk-card {
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  /* Use-case cards grid: single column, 12px gap */
+  .sector-detail-page .sector-detail__use-cases .gk-cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Related products grid: single column */
+  .sector-detail-page .sector-detail__related .gk-cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Buttons: minimum 44×44 tap target */
+  .sector-detail-page .gk-btn,
+  .sx-page .sx-button,
+  .sx-page .sx-subnav__chip {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Wrap: 16px side padding */
+  .sector-detail-page .gk-wrap {
+    width: calc(100% - 2rem);
+    padding-inline: 0;
+  }
+
+  /* Sector grid: single column on mobile (already set in sectors.css,
+     but ensure it applies to the detail page too) */
+  .sector-detail-page .sector-detail__hero-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Capability layout: single column */
+  .sector-detail-page .sector-detail__capability-layout {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  /* Secondary media: full width */
+  .sector-detail-page .sector-detail__media--secondary {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  /* Images: never overflow */
+  .sector-detail-page img,
+  .sx-page img {
+    max-width: 100%;
+    height: auto;
+  }
+}

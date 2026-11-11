@@ -25,13 +25,15 @@
     return result;
   }
 
-  function media(parent, name, className, options = {}) {
+  function media(parent, name, className, options = {}, fallbackIcon = 'bi-camera-video') {
     const frame = node('div', `sx-media ${className || ''}`.trim());
-    frame.innerHTML = window.FIQ.img(name, options);
+    frame.innerHTML = window.FIQ.img(name, Object.assign({ icon: fallbackIcon }, options));
     const image = frame.querySelector('img');
     if (image) {
+      image.setAttribute('loading', options.priority ? 'eager' : 'lazy');
+      image.setAttribute('decoding', 'async');
       image.addEventListener('error', () => {
-        frame.innerHTML = window.FIQ.img(null, { alt: image.alt || 'Sector visual' });
+        frame.innerHTML = window.FIQ.img(null, { alt: image.alt || 'Sector visual', icon: fallbackIcon });
       }, { once: true });
     }
     parent.appendChild(frame);
@@ -147,7 +149,7 @@
       link.style.setProperty('--sx-tint', ui.tint);
       media(link, data.media?.hero, 'sx-sector-card__media', {
         sizes: '(min-width:1280px) 30vw, (min-width:768px) 46vw, 92vw'
-      });
+      }, `bi ${ui.icon}`);
       const body = node('span', 'sx-sector-card__body');
       const top = node('span', 'sx-sector-card__top');
       top.append(node('span', 'sx-sector-card__index', String(index + 1).padStart(2, '0')));

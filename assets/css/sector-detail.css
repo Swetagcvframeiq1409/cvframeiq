@@ -4,13 +4,14 @@
 }
 
 .sector-detail-page .sector-detail__hero {
-  padding-top: calc(var(--header-h, 74px) + clamp(56px, 9vw, 130px));
+  padding-top: var(--hero-gap, clamp(16px, 2.4vw, 40px));
+  padding-bottom: clamp(32px, 5vw, 64px);
 }
 
 .sector-detail-page .sector-detail__hero-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  align-items: center;
+  align-items: start;
   gap: clamp(2rem, 5vw, 4rem);
 }
 
@@ -121,6 +122,7 @@
 
 .sector-detail-page .gk-crumb {
   margin-bottom: 28px;
+  margin-top: 0;
 }
 
 .sector-detail-page .gk-eyebrow {
@@ -328,6 +330,7 @@
 @media (min-width: 992px) {
   .sector-detail-page .sector-detail__hero-layout {
     grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+    align-items: start;
   }
 
   .sector-detail-page .sector-detail__capability-layout {

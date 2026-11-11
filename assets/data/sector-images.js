@@ -17,5 +17,10 @@ window.FIQ_IMAGES = {
   'manufacturing-line-monitoring': { w: 1274, h: 952, variants: true, alt: 'Large production machine inside a highlighted detection volume', pos: '50% 50%' },
   'ai-analytics-operator': { w: 1274, h: 952, variants: true, alt: 'Operator in front of a holographic data surface and robot arms', pos: '50% 50%' },
   'infrastructure-pump-station': { w: 1274, h: 952, variants: true, alt: 'Pump and motor unit with glowing flow lines', pos: '55% 55%' },
-  'home-team': { w: 1274, h: 952, variants: true, alt: 'Team members reviewing operational data and camera feeds in a control room', pos: '50% 50%' }
+  'home-team': { w: 1274, h: 952, variants: true, alt: 'Team members reviewing operational data and camera feeds in a control room', pos: '50% 50%' },
+  /* Sector hero images in assets/img/ root (no variants, single file) */
+  'aviation-hero': { w: 1600, h: 1200, variants: false, dir: 'assets/img', alt: 'Aircraft on a runway viewed from the terminal gate', pos: '50% 50%' },
+  'healthcare-hero': { w: 1600, h: 1200, variants: false, dir: 'assets/img', alt: 'Medical professional reviewing data in a clinical environment', pos: '50% 50%' },
+  'banking-hero': { w: 1600, h: 1200, variants: false, dir: 'assets/img', alt: 'Bank branch interior with service counters', pos: '50% 50%' },
+  'agriculture-hero': { w: 1600, h: 1200, variants: false, dir: 'assets/img', alt: 'Aerial view of crop rows in a field', pos: '50% 50%' }
 };

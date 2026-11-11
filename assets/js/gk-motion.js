@@ -2,6 +2,16 @@
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  function revealFallback() {
+    document.querySelectorAll('.gk-r, .gk-reveal, [data-reveal], .ab-reveal').forEach(function (el) {
+      el.classList.add('is-in');
+    });
+  }
+
+  window.addEventListener('load', function () {
+    window.setTimeout(revealFallback, 1200);
+  }, { once: true });
+
   var bar = document.createElement('div');
   bar.className = 'gk-progress';
   bar.setAttribute('aria-hidden', 'true');

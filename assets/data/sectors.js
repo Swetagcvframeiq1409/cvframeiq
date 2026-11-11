@@ -2,9 +2,7 @@ window.SECTORS = [
   {
     slug: 'banking',
     capabilityIndex: 2,
-    media: { hero: null, helps: null },
-    imageSlot: 'sector-banking',
-    name: 'Banking & Finance',
+    media: { hero: 'banking-hero', helps: null },
     icon: 'bank',
     summary: 'Explore computer vision use cases for reviewing activity in selected banking environments. Data access, privacy considerations and scope are discussed on enquiry.',
     groups: [
@@ -20,7 +18,7 @@ window.SECTORS = [
   {
     slug: 'aviation',
     capabilityIndex: 2,
-    media: { hero: 'hub-tile-venue-operations', helps: null },
+    media: { hero: 'aviation-hero', helps: null },
     imageSlot: 'sector-aviation',
     name: 'Aviation',
     icon: 'airplane',
@@ -38,7 +36,7 @@ window.SECTORS = [
   {
     slug: 'healthcare',
     capabilityIndex: 2,
-    media: { hero: null, helps: null },
+    media: { hero: 'healthcare-hero', helps: null },
     imageSlot: 'sector-healthcare',
     name: 'Healthcare & Medical',
     icon: 'hospital',
@@ -136,7 +134,7 @@ window.SECTORS = [
   {
     slug: 'agriculture',
     capabilityIndex: 1,
-    media: { hero: null, helps: null },
+    media: { hero: 'agriculture-hero', helps: null },
     imageSlot: 'sector-agriculture',
     name: 'Agriculture',
     icon: 'agriculture',

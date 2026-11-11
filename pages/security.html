@@ -33,99 +33,275 @@
     <script src="../assets/js/search.js" defer></script>
     <script src="../assets/js/main.js" defer></script>
     <script src="../assets/js/pages/content.js" defer></script>
-      <meta name="twitter:title" content="FrameIQ Security | FrameIQ AI" />
-      <meta name="twitter:description" content="Security information for FrameIQ AI. This page is a draft pending approval." />
-      <meta name="theme-color" content="#08090d" />
-      <link rel="manifest" href="../site.webmanifest" />
-      <script src="../assets/js/seo.js" defer></script>
-      <link rel="stylesheet" href="../assets/css/motion.css" />
+    <meta name="theme-color" content="#08090d" />
+    <link rel="manifest" href="../site.webmanifest" />
+    <script src="../assets/js/seo.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/motion.css" />
     <script src="../assets/js/motion.js" defer></script>
     <link rel="stylesheet" href="../assets/css/fx.css" />
     <link rel="stylesheet" href="../assets/css/inner-wow.css" />
-  <link rel="stylesheet" href="../assets/css/nav-fix.css" />
-<link rel="stylesheet" href="../assets/css/gk.css" />
-  <link rel="stylesheet" href="../assets/css/fix-round3.css" />
-  <link rel="stylesheet" href="../assets/css/gk-kit.css" />
-  <link rel="stylesheet" href="../assets/css/gk-motion.css" />
-  <link rel="stylesheet" href="../assets/css/gk-quiet.css" />
-  <link rel="stylesheet" href="../assets/css/pages/security.css" />
-  <link rel="stylesheet" href="../assets/css/mobile-fixes.css" />
+    <link rel="stylesheet" href="../assets/css/nav-fix.css" />
+    <link rel="stylesheet" href="../assets/css/gk.css" />
+    <link rel="stylesheet" href="../assets/css/fix-round3.css" />
+    <link rel="stylesheet" href="../assets/css/gk-kit.css" />
+    <link rel="stylesheet" href="../assets/css/gk-motion.css" />
+    <link rel="stylesheet" href="../assets/css/gk-quiet.css" />
+    <link rel="stylesheet" href="../assets/css/pages/security.css" />
+    <link rel="stylesheet" href="../assets/css/mobile-fixes.css" />
     <meta name="color-scheme" content="dark" />
-</head>
+  </head>
   <body data-root="../" class="gk-quiet">
-        <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div id="site-header"></div>
+
+    <!-- Sticky "On this page" TOC (desktop: fixed right; mobile: horizontal chips) -->
+    <aside class="security-toc-wrap" aria-label="On this page">
+      <nav class="security-toc" aria-label="On this page">
+        <p class="security-toc__label">On this page</p>
+        <ul>
+          <li><a href="#security-overview"      data-section="security-overview">Security overview</a></li>
+          <li><a href="#security-certifications" data-section="security-certifications">Certifications</a></li>
+          <li><a href="#security-lifecycle"      data-section="security-lifecycle">Product lifecycle</a></li>
+          <li><a href="#security-standards"      data-section="security-standards">Standards</a></li>
+          <li><a href="#security-procurement"    data-section="security-procurement">Procurement</a></li>
+          <li><a href="#security-reporting"      data-section="security-reporting">Reporting</a></li>
+          <li><a href="#security-faq"            data-section="security-faq">FAQ</a></li>
+          <li><a href="#security-contact"        data-section="security-contact">Contact</a></li>
+        </ul>
+      </nav>
+    </aside>
+
     <main id="main-content" class="security-page">
-      <section class="security-hero" aria-labelledby="security-title">
-        <div class="security-wrap">
-          <p class="gk-eyebrow">LEGAL</p>
-          <h1 id="security-title">FrameIQ Security</h1>
-          <p>Security information for FrameIQ AI.</p>
-          <p class="security-date">Effective date: pending</p>
-          <p class="security-date">Last updated: pending</p>
+
+      <!-- 1. Hero -->
+      <section class="gk-hero" aria-labelledby="security-title">
+        <div class="gk-wrap">
+          <p class="gk-eyebrow">Security</p>
+          <h1 id="security-title">Security</h1>
+          <p>Security information for FrameIQ AI. Effective date: pending &mdash; Last updated: pending</p>
+          <div class="security-actions">
+            <a class="gk-btn" href="contact.html">Contact FrameIQ <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+            <a class="gk-btn gk-btn--ghost" href="#security-overview">Review overview <i class="bi bi-arrow-down" aria-hidden="true"></i></a>
+          </div>
+          <!-- gk-note replaces the old yellow notice -->
+          <div class="gk-note security-hero-note" role="note">
+            <i class="bi bi-info-circle" aria-hidden="true"></i>
+            <span>Security details are being reviewed. This page is a draft pending approval.</span>
+          </div>
         </div>
       </section>
-      <div class="security-wrap">
-        <p class="security-draft" role="note">Security details are being reviewed.</p>
-      </div>
-      <section class="security-content" aria-label="Security information">
-        <div class="security-wrap security-layout">
-          <nav class="security-toc" aria-label="On this page">
-            <h2>On this page</h2>
-            <ul>
-              <li><a href="#security-overview">Security overview</a></li>
-              <li><a href="#security-systems">Information and systems</a></li>
-              <li><a href="#security-access">Access and safeguards</a></li>
-              <li><a href="#security-reporting">Reporting a security concern</a></li>
-              <li><a href="#security-contact">Contact</a></li>
+
+      <!-- 2. Security overview panel -->
+      <section class="gk-band" id="security-overview" aria-labelledby="security-overview-title">
+        <div class="gk-wrap">
+          <div class="gk-panel security-overview">
+            <div class="security-overview__head">
+              <div>
+                <p class="gk-eyebrow">Overview</p>
+                <h2 id="security-overview-title">Security starts with product decisions</h2>
+                <p>FrameIQ is building and shipping AI systems for practical industrial and operational use cases. Security is treated as a product requirement from the earliest stage of design through deployment.</p>
+              </div>
+              <span class="security-icon-tile" aria-hidden="true"><i class="bi bi-shield-check"></i></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Certifications (eyebrow: HIGHLIGHTS) -->
+      <section class="gk-band" id="security-certifications" aria-labelledby="security-certifications-title">
+        <div class="gk-wrap">
+          <p class="gk-eyebrow">Highlights</p>
+          <h2 id="security-certifications-title">Certifications</h2>
+          <div class="gk-cards gk-cards--four">
+            <article class="gk-card">
+              <span class="security-icon-tile" aria-hidden="true"><i class="bi bi-patch-check"></i></span>
+              <h3><span class="gk-draft">Draft - pending content</span></h3>
+              <p><span class="gk-draft">Draft - pending content</span></p>
+            </article>
+            <article class="gk-card">
+              <span class="security-icon-tile" aria-hidden="true"><i class="bi bi-lock"></i></span>
+              <h3><span class="gk-draft">Draft - pending content</span></h3>
+              <p><span class="gk-draft">Draft - pending content</span></p>
+            </article>
+            <article class="gk-card">
+              <span class="security-icon-tile" aria-hidden="true"><i class="bi bi-shield-lock"></i></span>
+              <h3><span class="gk-draft">Draft - pending content</span></h3>
+              <p><span class="gk-draft">Draft - pending content</span></p>
+            </article>
+            <article class="gk-card">
+              <span class="security-icon-tile" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span>
+              <h3><span class="gk-draft">Draft - pending content</span></h3>
+              <p><span class="gk-draft">Draft - pending content</span></p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Product lifecycle (eyebrow: BUILT INTO DELIVERY) -->
+      <section class="gk-band" id="security-lifecycle" aria-labelledby="security-lifecycle-title">
+        <div class="gk-wrap">
+          <p class="gk-eyebrow">Built into delivery</p>
+          <h2 id="security-lifecycle-title">Security across the product lifecycle</h2>
+          <div class="security-lifecycle">
+            <article class="security-step">
+              <span class="security-step__tag">Step 01</span>
+              <h3>Discover</h3>
+              <p><span class="gk-draft">Draft - pending content</span></p>
+            </article>
+            <article class="security-step">
+              <span class="security-step__tag">Step 02</span>
+              <h3>Design</h3>
+              <p><span class="gk-draft">Draft - pending content</span></p>
+            </article>
+            <article class="security-step">
+              <span class="security-step__tag">Step 03</span>
+              <h3>Build</h3>
+              <p><span class="gk-draft">Draft - pending content</span></p>
+            </article>
+            <article class="security-step">
+              <span class="security-step__tag">Step 04</span>
+              <h3>Verify</h3>
+              <p><span class="gk-draft">Draft - pending content</span></p>
+            </article>
+            <article class="security-step security-step--wrap">
+              <span class="security-step__tag">Step 05</span>
+              <h3>Operate</h3>
+              <p><span class="gk-draft">Draft - pending content</span></p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Industry standards (eyebrow: COVERAGE) -->
+      <section class="gk-band" id="security-standards" aria-labelledby="security-standards-title">
+        <div class="gk-wrap">
+          <p class="gk-eyebrow">Coverage</p>
+          <h2 id="security-standards-title">Industry standards and requirements</h2>
+          <div class="gk-split security-standards__split">
+            <div>
+              <ul class="security-sector-list" aria-label="FrameIQ sectors">
+                <li class="is-active">Manufacturing</li>
+                <li>Agriculture</li>
+                <li>Healthcare &amp; Medical</li>
+                <li>Security &amp; Surveillance</li>
+                <li>Retail</li>
+                <li>Smart cities</li>
+                <li>Banking &amp; Finance</li>
+                <li>Aviation</li>
+                <li>Events &amp; Entertainment</li>
+              </ul>
+            </div>
+            <div class="gk-scrollbox security-chips" tabindex="0" role="region" aria-label="Requirements">
+              <div class="security-chip-grid">
+                <div class="security-chip"><span class="security-chip__letter">A</span><span class="gk-draft">Draft - pending content</span></div>
+                <div class="security-chip"><span class="security-chip__letter">B</span><span class="gk-draft">Draft - pending content</span></div>
+                <div class="security-chip"><span class="security-chip__letter">C</span><span class="gk-draft">Draft - pending content</span></div>
+                <div class="security-chip"><span class="security-chip__letter">D</span><span class="gk-draft">Draft - pending content</span></div>
+                <div class="security-chip"><span class="security-chip__letter">E</span><span class="gk-draft">Draft - pending content</span></div>
+                <div class="security-chip"><span class="security-chip__letter">F</span><span class="gk-draft">Draft - pending content</span></div>
+                <div class="security-chip"><span class="security-chip__letter">G</span><span class="gk-draft">Draft - pending content</span></div>
+                <div class="security-chip"><span class="security-chip__letter">H</span><span class="gk-draft">Draft - pending content</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Procurement and security reviews -->
+      <section class="gk-band" id="security-procurement" aria-labelledby="security-procurement-title">
+        <div class="gk-wrap">
+          <p class="gk-eyebrow">Procurement</p>
+          <h2 id="security-procurement-title">Procurement and security reviews</h2>
+          <div class="security-procurement">
+            <ul class="security-bullets">
+              <li><span class="gk-draft">Draft - pending content</span></li>
+              <li><span class="gk-draft">Draft - pending content</span></li>
+              <li><span class="gk-draft">Draft - pending content</span></li>
+              <li><span class="gk-draft">Draft - pending content</span></li>
             </ul>
-          </nav>
-          <div class="security-accordion gk-acc" data-gk-acc>
-            <section class="gk-acc__item" id="security-overview">
-              <h2><button class="gk-acc__q" type="button" aria-expanded="false" aria-controls="security-overview-panel">Security overview</button></h2>
-              <div class="gk-acc__a" id="security-overview-panel"><div><p>Pending approval.</p></div></div>
-            </section>
-            <section class="gk-acc__item" id="security-systems">
-              <h2><button class="gk-acc__q" type="button" aria-expanded="false" aria-controls="security-systems-panel">Information and systems</button></h2>
-              <div class="gk-acc__a" id="security-systems-panel"><div><p>Pending approval.</p></div></div>
-            </section>
-            <section class="gk-acc__item" id="security-access">
-              <h2><button class="gk-acc__q" type="button" aria-expanded="false" aria-controls="security-access-panel">Access and safeguards</button></h2>
-              <div class="gk-acc__a" id="security-access-panel"><div><p>Pending approval.</p></div></div>
-            </section>
-            <section class="gk-acc__item" id="security-reporting">
-              <h2><button class="gk-acc__q" type="button" aria-expanded="false" aria-controls="security-reporting-panel">Reporting a security concern</button></h2>
-              <div class="gk-acc__a" id="security-reporting-panel"><div><p>Pending approval.</p></div></div>
-            </section>
-            <section class="gk-acc__item" id="security-contact">
-              <h2><button class="gk-acc__q" type="button" aria-expanded="false" aria-controls="security-contact-panel">Contact</button></h2>
-              <div class="gk-acc__a" id="security-contact-panel"><div><p>Pending approval.</p></div></div>
-            </section>
+            <ul class="security-bullets">
+              <li><span class="gk-draft">Draft - pending content</span></li>
+              <li><span class="gk-draft">Draft - pending content</span></li>
+              <li><span class="gk-draft">Draft - pending content</span></li>
+              <li><span class="gk-draft">Draft - pending content</span></li>
+            </ul>
+          </div>
+          <a class="security-text-link" href="contact.html">Discuss your project with us <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+        </div>
+      </section>
+
+      <!-- 7. Reporting a security concern -->
+      <section class="gk-band" id="security-reporting" aria-labelledby="security-reporting-title">
+        <div class="gk-wrap">
+          <div class="gk-panel">
+            <p class="gk-eyebrow">Reporting</p>
+            <h2 id="security-reporting-title">Reporting a security concern</h2>
+            <p>If you believe you have identified a security concern related to FrameIQ systems or this page, please contact the team using the details below and share the relevant context, systems, and evidence.</p>
+            <form class="gk-form" id="securityReportForm" novalidate>
+              <div class="gk-form__grid">
+                <div class="gk-form__field">
+                  <label for="secName">Name</label>
+                  <input type="text" id="secName" name="name" autocomplete="name" required />
+                  <span class="gk-form__error">Please enter your name.</span>
+                </div>
+                <div class="gk-form__field">
+                  <label for="secEmail">Work email</label>
+                  <input type="email" id="secEmail" name="email" autocomplete="email" required />
+                  <span class="gk-form__error">Please enter a valid email.</span>
+                </div>
+                <div class="gk-form__field gk-form__field--full">
+                  <label for="secDetails">Concern details</label>
+                  <textarea id="secDetails" name="details" rows="4" placeholder="Describe the concern, affected systems, and any evidence."></textarea>
+                </div>
+              </div>
+              <button type="submit">Send message <i class="bi bi-arrow-up-right" aria-hidden="true"></i></button>
+              <p class="gk-form__status" id="secFormStatus" aria-live="polite"></p>
+            </form>
           </div>
         </div>
       </section>
-      <section class="security-contact">
-        <div class="security-wrap">
-          <h2>Questions? Contact us</h2>
-          <p>Talk with the FrameIQ team about this page.</p>
-          <a class="gk-btn" href="contact.html">Contact us</a>
-        </div>
-      </section>
-      <section class="security-conversation">
-        <div class="security-wrap">
-          <div class="security-conversation__card">
-            <p class="gk-eyebrow">Talk to us</p>
-            <h2>Start a conversation</h2>
-            <p>Tell us about your use case and the FrameIQ team can review your enquiry.</p>
-            <a class="gk-btn" href="contact.html">Contact FrameIQ <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+
+      <!-- 8. FAQ -->
+      <section class="gk-band" id="security-faq" aria-labelledby="security-faq-title">
+        <div class="gk-wrap">
+          <p class="gk-eyebrow">FAQ</p>
+          <h2 id="security-faq-title">Frequently asked questions</h2>
+          <div class="gk-faq" data-sec-acc>
+            <div class="gk-acc__item">
+              <button class="gk-acc__q" type="button" aria-expanded="false"><span>What security information is available today?</span></button>
+              <div class="gk-acc__a"><div><p><span class="gk-draft">Draft - pending content</span></p></div></div>
+            </div>
+            <div class="gk-acc__item">
+              <button class="gk-acc__q" type="button" aria-expanded="false"><span>How are deployments reviewed?</span></button>
+              <div class="gk-acc__a"><div><p><span class="gk-draft">Draft - pending content</span></p></div></div>
+            </div>
+            <div class="gk-acc__item">
+              <button class="gk-acc__q" type="button" aria-expanded="false"><span>Who can access production systems?</span></button>
+              <div class="gk-acc__a"><div><p><span class="gk-draft">Draft - pending content</span></p></div></div>
+            </div>
+            <div class="gk-acc__item">
+              <button class="gk-acc__q" type="button" aria-expanded="false"><span>How do I report a concern?</span></button>
+              <div class="gk-acc__a"><div><p><span class="gk-draft">Draft - pending content</span></p></div></div>
+            </div>
           </div>
         </div>
       </section>
+
+      <!-- 9. Contact -->
+      <section class="gk-band" id="security-contact" aria-labelledby="security-contact-title">
+        <div class="gk-wrap">
+          <p class="gk-eyebrow">Contact</p>
+          <h2 id="security-contact-title">Contact</h2>
+          <p>FrameIQ can be reached by email at <a href="mailto:official@cvframeiq.com">official@cvframeiq.com</a> or by phone at +91 94231 49303. We are based in Panvel, Maharashtra, India.</p>
+        </div>
+      </section>
+
     </main>
     <div id="site-footer"></div>
-      <script src="../assets/js/fx.js" defer></script>
-<script src="../assets/js/gk.js" defer></script>
-      <script src="../assets/js/gk-kit.js" defer></script>
-      <script src="../assets/js/gk-motion.js" defer></script>
-</body>
+    <script src="../assets/js/fx.js" defer></script>
+    <script src="../assets/js/gk.js" defer></script>
+    <script src="../assets/js/gk-kit.js" defer></script>
+    <script src="../assets/js/gk-motion.js" defer></script>
+    <script src="../assets/js/pages/security.js" defer></script>
+  </body>
 </html>

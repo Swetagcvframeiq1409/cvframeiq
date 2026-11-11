@@ -17,8 +17,11 @@
       });
     };
 
-    revealVisible();
+    // Mark JS as ready BEFORE hiding elements so CSS can gate the hide
     document.documentElement.classList.add('sx-js');
+    // Immediately reveal anything already in the viewport
+    revealVisible();
+
     if (reducedMotion.matches || !('IntersectionObserver' in window)) {
       revealAll();
       return;
@@ -30,12 +33,13 @@
         entry.target.classList.add('is-visible');
         currentObserver.unobserve(entry.target);
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px -8% 0px' });
 
     items.forEach((item) => observer.observe(item));
     window.addEventListener('scrollend', revealAll, { once: true });
-    window.setTimeout(revealVisible, 1200);
-    window.setTimeout(revealAll, 2500);
+    // Safety: force-reveal anything still hidden after 1.5 s
+    window.setTimeout(revealVisible, 800);
+    window.setTimeout(revealAll, 1500);
   }
 
   function initCounters() {

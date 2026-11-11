@@ -25,6 +25,8 @@
   // 1) split a heading into words (keeps child tags such as gradient spans)
   function splitHeading(h) {
     if (h.closest(SKIP_HEADINGS) || h.classList.contains('fx-split')) return;
+    if (h.closest('.gk-acc, .gk-acc__item, [data-gk-acc]')) return;
+    if (h.querySelector('.gk-acc__q')) return;
     var i = 0;
     (function walk(node) {
       Array.prototype.slice.call(node.childNodes).forEach(function (n) {

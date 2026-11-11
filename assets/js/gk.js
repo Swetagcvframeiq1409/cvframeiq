@@ -33,23 +33,38 @@
       prepareVisible(entry.target);
       io.unobserve(entry.target);
     });
-  }, { threshold: 0.01, rootMargin: '-5% 0px' });
+  }, { threshold: 0.05, rootMargin: '0px 0px -8% 0px' });
+
+  var allMarked = [];
 
   function mark() {
     main.querySelectorAll('section').forEach(function (sec) {
       if (sec.matches(SKIP) || sec.closest(SKIP)) return;
+      // Skip the hero section entirely — always visible on first paint
+      if (sec.classList.contains('gk-hero') || sec.classList.contains('sector-detail__hero')) return;
       var kids = [];
       Array.prototype.forEach.call(sec.querySelectorAll('h2, h3, p, ul, [class*="grid"] > *, [class*="card"]'), function (n) {
         if (n.closest(SKIP) && n.closest(SKIP) !== sec) return;
         if (n.classList.contains('gk-r') || n.closest('.gk-r')) return;
+        // Skip elements already in the viewport on first paint
+        var rect = n.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          prepareVisible(n);
+          return;
+        }
         kids.push(n);
       });
       kids.slice(0, 24).forEach(function (n, i) {
         n.classList.add('gk-r');
         n.style.setProperty('--gk-d', Math.min(i, 6) * 70 + 'ms');
         io.observe(n);
+        allMarked.push(n);
       });
     });
+    // Safety: force-reveal anything still hidden after 1.5s
+    window.setTimeout(function () {
+      allMarked.forEach(function (n) { prepareVisible(n); });
+    }, 1500);
   }
 
   window.addEventListener('load', function () {

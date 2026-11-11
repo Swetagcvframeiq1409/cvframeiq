@@ -520,11 +520,12 @@ function renderFooter(root = getRootPath()) {
     : `<a class="btn btn--primary" href="${getPageHref('pages/contact.html', root)}">Start a Project <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
             <a class="btn btn--secondary" href="${getPageHref('pages/ai-store.html', root)}">Explore Solutions</a>`;
 
-  /* CTA band — shown on every page except 404 */
+  /* CTA band — shown on every page except 404 and pages that opt out with data-no-footer-cta */
   const isNotFound = !!document.querySelector('main.not-found');
+  const hasOwnCta = !!document.querySelector('main[data-no-footer-cta]');
   const isSolutionsPage = !!document.querySelector('main.sector-detail-page, main.sx-page');
   const enterpriseCtaId = isSolutionsPage ? ' id="ready-to-deploy"' : '';
-  const ctaBand = isNotFound ? '' : `
+  const ctaBand = (isNotFound || hasOwnCta) ? '' : `
     <section class="footer-cta" data-tone="dark"${enterpriseCtaId} aria-labelledby="footer-cta-title">
       <div class="footer-cta__inner">
         <div class="footer-cta__copy">

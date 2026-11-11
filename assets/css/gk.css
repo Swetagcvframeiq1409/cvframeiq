@@ -1,10 +1,13 @@
 /* gk.css - site-wide editorial layer (GeekyAnts-style): big thin type, generous space, pill buttons, hairline cards, calm reveal.
    Linked LAST on every page. Delete the link to undo. Only touches #main-content, never the header, footer or pinned scroll sections. */
-:root{--gk-ease:cubic-bezier(.23,1,.32,1);--gk-pad:clamp(72px,10vw,150px)}
-
-
+:root{--gk-ease:cubic-bezier(.23,1,.32,1);--gk-pad:clamp(72px,10vw,150px);--gk-demo-badge:none}
 
 #main-content{--gk-line:rgba(127,127,150,.22)}
+#main-content .gk-container{width:min(1200px,100% - clamp(20px,5vw,64px));margin-inline:auto}
+#main-content .gk-eyebrow{display:inline-flex;align-items:center;gap:.65rem;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--accent-readable,#b8a3ff)}
+#main-content .gk-eyebrow::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent,#6542c8);box-shadow:0 0 0 4px rgba(101,66,200,.18)}
+#main-content .gk-r,[data-reveal],.gk-reveal,.ab-reveal{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){#main-content .gk-r,[data-reveal],.gk-reveal,.ab-reveal{opacity:1!important;transform:none!important;transition:none!important}}
 
 
 

@@ -1,0 +1,183 @@
+/* how-we-work.css — page-specific styles for pages/how-we-work.html */
+
+/* ── Ensure body text >= 15px ── */
+.hww-page .gk-card p,
+.hww-page .gk-acc__a p,
+.hww-page .hww-phases-faq .gk-acc__a p { font-size: 1rem; }
+
+/* ── Hero ── */
+.hww-page .gk-hero h1 { max-width: 820px; }
+
+/* ── Intro split ── */
+.hww-intro-split { align-items: start; }
+.hww-intro-body { font-size: 1.05rem; line-height: 1.7; color: var(--b-mute); margin: 0; max-width: none; }
+
+/* ── Principles grid ── */
+.hww-principles {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 40px;
+}
+.hww-principle {
+  padding: clamp(20px, 2.5vw, 32px);
+  border-right: 1px solid rgba(255,255,255,.08);
+  border-top: 2px solid transparent;
+  transition: border-top-color .35s ease;
+}
+.hww-principle:last-child { border-right: 0; }
+.hww-principle:hover { border-top-color: var(--gk-acc); }
+.hww-principle h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 10px;
+  color: var(--b-ink);
+}
+.hww-principle p { font-size: .95rem; margin: 0; color: var(--b-mute); line-height: 1.6; }
+
+/* ── Steplist ── */
+.hww-steplist-wrap {
+  max-height: 560px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 40px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  padding: 8px 16px;
+  scrollbar-color: rgba(101,66,200,.8) rgba(255,255,255,.04);
+  scrollbar-width: thin;
+}
+.hww-steplist-wrap::-webkit-scrollbar { width: 6px; }
+.hww-steplist-wrap::-webkit-scrollbar-thumb { background: rgba(101,66,200,.8); border-radius: 999px; }
+.hww-steplist-wrap::-webkit-scrollbar-track { background: rgba(255,255,255,.04); }
+
+/* ── Phases FAQ with purple dot markers ── */
+.hww-phases-faq .gk-acc__q { padding-left: 24px; position: relative; }
+.hww-phases-faq .gk-acc__q::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gk-acc);
+}
+
+/* ── Decision records table ── */
+.hww-table-label {
+  font-size: .76rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gk-acc2);
+  margin: 0 0 16px;
+  font-weight: 600;
+}
+.hww-dr-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .9rem;
+}
+.hww-dr-table th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: .76rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--b-mute);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  font-weight: 600;
+}
+.hww-dr-table td {
+  padding: 12px 12px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  color: var(--b-ink);
+  vertical-align: middle;
+}
+.hww-dr-table tr:last-child td { border-bottom: 0; }
+.hww-status {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: .76rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+}
+.hww-status--open { background: rgba(101,66,200,.18); color: var(--gk-acc2); }
+.hww-status--closed { background: rgba(85,214,161,.12); color: #55d6a1; }
+
+/* ── Quality 2x4 grid ── */
+.hww-quality-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 32px;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.hww-quality-cell { border-bottom: 1px solid rgba(255,255,255,.08); }
+.hww-quality-cell .gk-acc__q { font-size: .98rem; }
+
+/* ── Engagement models 2x2 ── */
+.hww-models {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  margin-top: 40px;
+}
+.hww-models .gk-card:nth-child(2n) { border-right: 0 !important; }
+.hww-models .gk-card:nth-child(3),
+.hww-models .gk-card:nth-child(4) { border-bottom: 0; }
+
+/* ── Contact panel ── */
+.hww-contact-split { align-items: start; }
+.hww-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+  display: grid;
+  gap: 14px;
+}
+.hww-contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--b-mute);
+  font-size: .95rem;
+}
+.hww-contact-list i { color: var(--gk-acc2); font-size: 1rem; }
+.hww-contact-list a { color: var(--b-ink); text-decoration: none; }
+.hww-contact-list a:hover { color: var(--gk-acc2); }
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .hww-page .gk-wrap { width: calc(100% - 40px); }
+}
+@media (max-width: 1100px) {
+  .hww-principles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .hww-principle:nth-child(3) { border-right: 0; }
+  .hww-principle:nth-child(4),
+  .hww-principle:nth-child(5) { border-top: 1px solid rgba(255,255,255,.08); }
+}
+@media (max-width: 960px) {
+  .hww-models { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .hww-quality-grid { grid-template-columns: 1fr; gap: 0; }
+}
+@media (max-width: 768px) {
+  .hww-principles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hww-principle:nth-child(2n) { border-right: 0; }
+  .hww-principle:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,.08); }
+  .hww-steplist-wrap { max-height: none; }
+  .hww-models { grid-template-columns: 1fr !important; }
+  .hww-models .gk-card { border-right: 0 !important; border-bottom: 1px solid var(--b-line) !important; }
+  .hww-models .gk-card:last-child { border-bottom: 0 !important; }
+}
+@media (max-width: 620px) {
+  .hww-principles { grid-template-columns: 1fr; }
+  .hww-principle { border-right: 0; border-top: 1px solid rgba(255,255,255,.08); }
+  .hww-principle:first-child { border-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hww-principle { transition: none; }
+}

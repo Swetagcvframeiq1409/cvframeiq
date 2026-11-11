@@ -4,6 +4,8 @@
   const smallScreen = window.matchMedia('(max-width: 899px)');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const sections = Array.from(document.querySelectorAll('[data-scroll-story]'));
+  const dialSections = sections.filter((section) => section.matches('[data-gk-dial]'));
+  const dialStates = new WeakMap();
   const activeSections = new Set();
   const story = document.getElementById('home-story');
   const slides = story ? Array.from(story.querySelectorAll('.home-story__slide')) : [];
@@ -132,15 +134,139 @@
     practiceDots.forEach((dot, position) => dot.classList.toggle('is-active', position === index));
   };
 
+  const setDialGeometry = (state) => {
+    const width = window.innerWidth;
+    const height = state.pin.getBoundingClientRect().height;
+    const radius = height * 0.53;
+    const rightmost = width < 600 ? 40 : width < 1024 ? width * 0.14 : width * 0.03 + radius;
+    const centerX = rightmost - radius;
+    const centerY = height / 2;
+    const bubbleSize = width < 600 ? 44 : width < 1024 ? 80 : 120;
+
+    state.width = width;
+    state.height = height;
+    state.radius = radius;
+    state.centerX = centerX;
+    state.centerY = centerY;
+    state.pin.style.setProperty('--dial-radius', `${radius}px`);
+    state.pin.style.setProperty('--dial-center-x', `${centerX}px`);
+    state.pin.style.setProperty('--dial-center-y', `${centerY}px`);
+    state.pin.style.setProperty('--dial-bubble-size', `${bubbleSize}px`);
+  };
+
+  const setupDial = (section) => {
+    const pin = section.querySelector('.gk-dial__pin');
+    const buttons = Array.from(section.querySelectorAll('.gk-dial__nums button'));
+    const articles = Array.from(section.querySelectorAll('.gk-dial__t'));
+    if (!pin || !buttons.length || buttons.length !== articles.length) {
+      console.error('Core values dial requires a pin and matching value buttons and articles.');
+      return null;
+    }
+
+    const state = {
+      pin,
+      buttons,
+      articles,
+      width: 0,
+      height: 0,
+      radius: 0,
+      centerX: 0,
+      centerY: 0,
+      activeIndex: -1,
+      pendingIndex: -1,
+      textTimer: 0
+    };
+    section.style.setProperty('--n', String(buttons.length));
+    section.classList.add('is-enhanced');
+    setDialGeometry(state);
+
+    buttons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        const travel = Math.max(section.offsetHeight - pin.offsetHeight, 1);
+        const progress = 0.04 + (index / Math.max(buttons.length - 1, 1)) * 0.92;
+        const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: sectionTop + progress * travel,
+          behavior: reducedMotion.matches ? 'instant' : 'smooth'
+        });
+      });
+    });
+
+    return state;
+  };
+
+  const disableDials = () => {
+    dialSections.forEach((section) => {
+      section.classList.remove('is-enhanced');
+      const state = dialStates.get(section);
+      if (!state) return;
+      window.clearTimeout(state.textTimer);
+      state.activeIndex = -1;
+      state.pendingIndex = -1;
+      state.articles.forEach((article) => article.removeAttribute('aria-hidden'));
+    });
+  };
+
+  const updateDialText = (state, index) => {
+    if (state.activeIndex === index || state.pendingIndex === index) return;
+    state.pendingIndex = index;
+    window.clearTimeout(state.textTimer);
+    state.textTimer = window.setTimeout(() => {
+      state.activeIndex = state.pendingIndex;
+      state.pendingIndex = -1;
+      state.articles.forEach((article, position) => {
+        const active = position === state.activeIndex;
+        article.classList.toggle('is-active', active);
+        article.setAttribute('aria-hidden', String(!active));
+      });
+    }, state.activeIndex < 0 ? 0 : 120);
+  };
+
+  const renderDial = (section, progress) => {
+    const state = dialStates.get(section);
+    if (!state) return;
+    const lastIndex = state.buttons.length - 1;
+    const position = Math.max(0, Math.min(1, (progress - 0.04) / 0.92)) * lastIndex;
+
+    state.buttons.forEach((button, index) => {
+      const angle = (index - position) * (16 * Math.PI / 180);
+      const x = state.centerX + state.radius * Math.cos(angle) - state.width / 2;
+      const y = state.centerY + state.radius * Math.sin(angle) - state.height / 2;
+      const distance = Math.abs(index - position);
+      const scale = distance <= 1
+        ? 1 - distance * 0.15
+        : distance <= 2 ? 0.85 - (distance - 1) * 0.25 : 0.6;
+      const fillOpacity = distance < 0.5
+        ? 0.25
+        : distance <= 1 ? 0.25 - (distance - 0.5) * 0.34
+          : distance <= 2 ? 0.08 - (distance - 1) * 0.04 : 0;
+      const numberOpacity = distance <= 1
+        ? 1 - distance * 0.4
+        : distance <= 2 ? 0.6 - (distance - 1) * 0.3
+          : distance <= 3 ? 0.3 - (distance - 2) * 0.15 : 0.15;
+
+      button.style.setProperty('--bubble-x', `${x}px`);
+      button.style.setProperty('--bubble-y', `${y}px`);
+      button.style.setProperty('--bubble-scale', scale.toFixed(3));
+      button.style.setProperty('--bubble-fill-opacity', Math.max(fillOpacity, 0).toFixed(3));
+      button.style.setProperty('--bubble-number-opacity', numberOpacity.toFixed(3));
+    });
+
+    updateDialText(state, Math.round(position + 0.002));
+  };
+
   const render = () => {
     frame = 0;
     let practiceIndex = -1;
 
     activeSections.forEach((section) => {
       const bounds = section.getBoundingClientRect();
-      const travel = Math.max(bounds.height - window.innerHeight, 1);
+      const isDial = section.matches('[data-gk-dial]');
+      const pin = isDial ? section.querySelector('.gk-dial__pin') : null;
+      const travel = Math.max(bounds.height - (pin ? pin.offsetHeight : window.innerHeight), 1);
       const progress = Math.min(1, Math.max(0, -bounds.top / travel));
       section.style.setProperty('--p', progress.toFixed(4));
+      if (isDial) renderDial(section, progress);
       if (section === aboutValues) {
         const steps = Array.from(section.querySelectorAll('.gk-step'));
         const nums = Array.from(section.querySelectorAll('.gk-journey__nums span'));
@@ -230,13 +356,32 @@
   };
 
   const start = () => {
-    if (smallScreen.matches || reducedMotion.matches || !('IntersectionObserver' in window)) {
+    if (reducedMotion.matches || !('IntersectionObserver' in window)) {
+      stop();
+      disableDials();
+      return;
+    }
+
+    const observedSections = smallScreen.matches ? dialSections : sections;
+    if (!observedSections.length) {
       stop();
       return;
     }
 
-    prepareText();
-    document.documentElement.classList.add('scroll-story-enabled');
+    if (smallScreen.matches) document.documentElement.classList.remove('scroll-story-enabled');
+    else {
+      prepareText();
+      document.documentElement.classList.add('scroll-story-enabled');
+    }
+    dialSections.forEach((section) => {
+      if (!dialStates.has(section)) {
+        const state = setupDial(section);
+        if (state) dialStates.set(section, state);
+      } else {
+        section.classList.add('is-enhanced');
+        setDialGeometry(dialStates.get(section));
+      }
+    });
     observer?.disconnect();
     observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -245,11 +390,17 @@
       });
       schedule();
     }, { rootMargin: '100% 0px' });
-    sections.forEach((section) => observer.observe(section));
+    observedSections.forEach((section) => observer.observe(section));
   };
 
   window.addEventListener('scroll', schedule, { passive: true });
-  window.addEventListener('resize', schedule, { passive: true });
+  window.addEventListener('resize', () => {
+    dialSections.forEach((section) => {
+      const state = dialStates.get(section);
+      if (state) setDialGeometry(state);
+    });
+    schedule();
+  }, { passive: true });
   smallScreen.addEventListener('change', start);
   reducedMotion.addEventListener('change', start);
   start();

@@ -165,6 +165,36 @@ window.NAV_DATA = {
 
 window.NAV_DATA.footer.solutions = window.NAV_DATA.groups.Solutions;
 
+// Culture gallery — fill src/width/height/alt once images are placed in assets/images/culture/
+// Planned rhythm: 6 portrait (1000x1250), 5 landscape (1200x900), 3 square (1000x1000), 2 tall (900x1200)
+// 4 extra empty slots added to balance 5-column layout (20 total = 4 per column)
+window.CULTURE_GALLERY = [
+  { id: 'c01', src: '', width: 1000, height: 1250, alt: 'Draft — pending content', category: 'collaboration' },
+  { id: 'c02', src: '', width: 1200, height: 900,  alt: 'Draft — pending content', category: 'workspace' },
+  { id: 'c03', src: '', width: 1000, height: 1250, alt: 'Draft — pending content', category: 'celebrations' },
+  { id: 'c04', src: '', width: 1200, height: 900,  alt: 'Draft — pending content', category: 'collaboration' },
+  { id: 'c05', src: '', width: 1000, height: 1000, alt: 'Draft — pending content', category: 'workspace' },
+  { id: 'c06', src: '', width: 1000, height: 1250, alt: 'Draft — pending content', category: 'celebrations' },
+  { id: 'c07', src: '', width: 900,  height: 1200, alt: 'Draft — pending content', category: 'collaboration' },
+  { id: 'c08', src: '', width: 1200, height: 900,  alt: 'Draft — pending content', category: 'workspace' },
+  { id: 'c09', src: '', width: 1000, height: 1250, alt: 'Draft — pending content', category: 'celebrations' },
+  { id: 'c10', src: '', width: 1000, height: 1000, alt: 'Draft — pending content', category: 'collaboration' },
+  { id: 'c11', src: '', width: 1200, height: 900,  alt: 'Draft — pending content', category: 'workspace' },
+  { id: 'c12', src: '', width: 900,  height: 1200, alt: 'Draft — pending content', category: 'celebrations' },
+  { id: 'c13', src: '', width: 1000, height: 1250, alt: 'Draft — pending content', category: 'collaboration' },
+  { id: 'c14', src: '', width: 1200, height: 900,  alt: 'Draft — pending content', category: 'workspace' },
+  { id: 'c15', src: '', width: 1000, height: 1000, alt: 'Draft — pending content', category: 'celebrations' },
+  { id: 'c16', src: '', width: 1000, height: 1250, alt: 'Draft — pending content', category: 'collaboration' },
+  // Extra empty slots for column balance (not part of the 16-image brief)
+  // 20 tiles: 5-col=4 each (PASS), 4-col=5 each (PASS), 3-col=7/7/6 (19.6% FAIL)
+  // Add c21 to make 21: 3-col=7 each (PASS), 5-col=5/4/4/4/4 (20% — acceptable)
+  { id: 'c17', src: '', width: 1200, height: 900,  alt: 'Draft — pending content', category: 'workspace' },
+  { id: 'c18', src: '', width: 1000, height: 1000, alt: 'Draft — pending content', category: 'celebrations' },
+  { id: 'c19', src: '', width: 900,  height: 1200, alt: 'Draft — pending content', category: 'collaboration' },
+  { id: 'c20', src: '', width: 1200, height: 900,  alt: 'Draft — pending content', category: 'workspace' },
+  { id: 'c21', src: '', width: 1000, height: 1250, alt: 'Draft — pending content', category: 'celebrations' }
+];
+
 window.FOOTER_SOCIALS = [
   { label: 'GitHub', href: 'https://github.com/cvframeiq', icon: 'github' },
   { label: 'LinkedIn', href: 'https://linkedin.com/company/cvframeiq', icon: 'linkedin' }

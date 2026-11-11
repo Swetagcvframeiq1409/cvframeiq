@@ -1816,7 +1816,7 @@ body[data-theme="light"] #main-content.sx-page .sx-band {
 
 #sx-root .sx-subnav::before {
   left: 0;
-  background: linear-gradient(90deg, var(--surface), transparent);
+  background: none;
 }
 
 #sx-root .sx-subnav::after {
@@ -1825,8 +1825,8 @@ body[data-theme="light"] #main-content.sx-page .sx-band {
 }
 
 #sx-root .sx-subnav__chips {
-  padding-inline: 1rem;
-  scroll-padding-inline: 1rem;
+  padding-inline: 1.5rem;
+  scroll-padding-inline: 1.5rem;
   -webkit-mask-image: none;
   mask-image: none;
 }

@@ -1,7 +1,6 @@
 /* reveal styles only run when JavaScript is available */
 
 html {
-  scroll-behavior: smooth;
   overflow-x: clip;
   scroll-padding-top: calc(var(--header-h) + 12px);
 }

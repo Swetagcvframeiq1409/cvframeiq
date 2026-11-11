@@ -14,9 +14,11 @@
     return '';
   }
 
-  function assetPath(name) {
+  function assetPath(name, meta) {
     const base = getBasePath();
-    return `${base}/${IMAGE_DIR}/${name}`.replace(/\/+/g, '/');
+    // Allow manifest entries to specify a custom directory
+    const dir = (meta && meta.dir) ? meta.dir : IMAGE_DIR;
+    return `${base}/${dir}/${name}`.replace(/\/+/g, '/');
   }
 
   function buildFallback(name, alt, icon) {
@@ -26,12 +28,12 @@
   }
 
   function buildPicture(name, meta, opts) {
-    const source = assetPath(name);
+    const source = assetPath(name, meta);
     const altText = opts && opts.decorative ? '' : (opts && opts.alt ? opts.alt : (meta && meta.alt ? meta.alt : ''));
     const sizes = opts && opts.sizes ? opts.sizes : '(max-width: 480px) 100vw, (max-width: 800px) 80vw, (max-width: 1200px) 60vw, 50vw';
     const loading = opts && opts.priority ? 'eager' : 'lazy';
     const priority = opts && opts.priority ? ' fetchpriority="high"' : '';
-    const imgStyle = meta && meta.pos ? ' style="object-position:' + meta.pos + ';"' : '';
+    const imgStyle = meta && meta.pos ? ' style="object-position:' + meta.pos + '; object-fit: cover;"' : ' style="object-fit: cover;"';
     const dimensions = ' width="' + meta.w + '" height="' + meta.h + '"';
     const image = '<img src="' + source + (meta.variants ? '-800.webp' : '.webp') + '"' + dimensions +
       ' alt="' + altText.replace(/"/g, '&quot;') + '" loading="' + loading + '" decoding="async"' + priority + imgStyle;

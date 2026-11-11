@@ -717,6 +717,62 @@
 
   /* ── pillars ── */
   var pillars = Array.from(document.querySelectorAll('.home-pillar-card'));
+  var pillarSection = document.querySelector('.home-pillars');
+  var pillarDots = Array.from(document.querySelectorAll('[data-pillar-dot]'));
+  var pillarDotList = document.querySelector('.home-pillar-dots');
+  var pillarCounter = document.getElementById('pillarCounter');
+  var activePillarIndex = -1;
+
+  function setActivePillar(index) {
+    if (!pillars.length) return;
+    activePillarIndex = clamp(index, 0, pillars.length - 1);
+    pillarDots.forEach(function (dot, dotIndex) {
+      var isActive = dotIndex === activePillarIndex;
+      dot.classList.toggle('is-active', isActive);
+      if (isActive) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
+    });
+    if (pillarCounter) {
+      pillarCounter.textContent = String(activePillarIndex + 1).padStart(2, '0') + ' / 04';
+    }
+  }
+
+  function getActivePillarIndex() {
+    if (!pillars.length || !pillarSection) return 0;
+
+    var sectionRect = pillarSection.getBoundingClientRect();
+    var header = document.querySelector('.site-header');
+    var headerBottom = header ? header.getBoundingClientRect().bottom : 0;
+    if (sectionRect.top >= window.innerHeight) return 0;
+    if (sectionRect.bottom <= headerBottom) return pillars.length - 1;
+
+    var markerY = Math.max(headerBottom + 12, Math.min(window.innerHeight * 0.42, window.innerHeight - 1));
+    var activeIndex = 0;
+    var nearestDistance = Infinity;
+    pillars.forEach(function (card, index) {
+      var rect = card.getBoundingClientRect();
+      var distance = markerY < rect.top ? rect.top - markerY : markerY > rect.bottom ? markerY - rect.bottom : 0;
+      if (distance === 0 || distance < nearestDistance) {
+        activeIndex = index;
+        nearestDistance = distance;
+      }
+    });
+    return activeIndex;
+  }
+
+  var pillarUpdateQueued = false;
+  function schedulePillarUpdate() {
+    if (pillarUpdateQueued) return;
+    pillarUpdateQueued = true;
+    requestAnimationFrame(function () {
+      pillarUpdateQueued = false;
+      setActivePillar(getActivePillarIndex());
+    });
+  }
+
+  window.addEventListener('scroll', schedulePillarUpdate, { passive: true });
+  window.addEventListener('resize', schedulePillarUpdate);
+  schedulePillarUpdate();
 
   /* ── single rAF scroll loop ── */
   var ticking = false;
@@ -767,17 +823,6 @@
       setPlatformStep(step);
     }
 
-    /* pillars dot update only — no blur/opacity (CSS z-index handles stacking) */
-    if (window.innerWidth >= 768) {
-      pillars.forEach(function (card, i) {
-        var r = card.getBoundingClientRect();
-        card.style.filter = '';
-        card.style.opacity = '';
-        document.querySelectorAll('[data-pillar-dot]').forEach(function (dot, di) {
-          dot.classList.toggle('is-active', di === i && r.top < window.innerHeight * 0.65 && r.bottom > 0);
-        });
-      });
-    }
   }
 
   if (!reduceMotion) {
@@ -786,50 +831,35 @@
     tick();
   }
 
-  /* ── pillar dot clicks ── */
-  document.querySelectorAll('[data-pillar-dot]').forEach(function (dot, i) {
-    dot.addEventListener('click', function () {
-      if (window.innerWidth < 768) {
-        var list = document.querySelector('.home-pillar-list');
-        if (list && pillars[i]) list.scrollTo({ left: pillars[i].offsetLeft - list.offsetLeft, behavior: reduceMotion ? 'auto' : 'smooth' });
-      } else {
-        pillars[i].scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+  /* Dot clicks intentionally scroll only in response to a direct user action. */
+  if (pillarDotList) {
+    pillarDotList.addEventListener('click', function (event) {
+      var clickedDot = event.target.closest('[data-pillar-dot]');
+      if (!clickedDot) return;
+
+      var index = pillarDots.indexOf(clickedDot);
+      if (event.detail > 0) {
+        var listLeft = pillarDotList.getBoundingClientRect().left;
+        var nearestDistance = Infinity;
+        pillarDots.forEach(function (dot, dotIndex) {
+          var visualLeft = listLeft + dotIndex * 16 + (activePillarIndex < dotIndex ? 16 : 0);
+          var visualWidth = dotIndex === activePillarIndex ? 24 : 8;
+          var distance = Math.abs(event.clientX - (visualLeft + visualWidth / 2));
+          if (distance < nearestDistance) {
+            nearestDistance = distance;
+            if (distance <= 16) index = dotIndex;
+          }
+        });
+        if (pillarDots[index] !== clickedDot) pillarDots[index].focus({ preventScroll: true });
+      }
+
+      if (pillars[index]) {
+        pillars[index].scrollIntoView({
+          behavior: reduceMotion ? 'auto' : 'smooth',
+          block: 'start'
+        });
       }
     });
-  });
-
-  /* Mobile carousel: track active dot + counter via scroll event */
-  var pillarList = document.querySelector('.home-pillar-list');
-  var pillarCounter = document.getElementById('pillarCounter');
-  if (pillarList && pillarCounter) {
-    pillarList.addEventListener('scroll', function () {
-      var listRect = pillarList.getBoundingClientRect();
-      var best = 0, bestOverlap = -1;
-      pillars.forEach(function (card, i) {
-        var r = card.getBoundingClientRect();
-        var overlap = Math.min(r.right, listRect.right) - Math.max(r.left, listRect.left);
-        if (overlap > bestOverlap) { bestOverlap = overlap; best = i; }
-      });
-      pillarCounter.textContent = String(best + 1).padStart(2, '0') + ' / 04';
-      document.querySelectorAll('[data-pillar-dot]').forEach(function (dot, di) {
-        dot.classList.toggle('is-active', di === best);
-      });
-    }, { passive: true });
-  }
-
-  /* Mobile carousel: track active dot via IntersectionObserver */
-  if ('IntersectionObserver' in window) {
-    var carouselObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        var idx = pillars.indexOf(e.target);
-        if (idx < 0 || window.innerWidth >= 768) return;
-        document.querySelectorAll('[data-pillar-dot]').forEach(function (dot, di) {
-          dot.classList.toggle('is-active', di === idx);
-        });
-      });
-    }, { threshold: 0.5 });
-    pillars.forEach(function (card) { carouselObs.observe(card); });
   }
 
   /* ── reveal ── */
