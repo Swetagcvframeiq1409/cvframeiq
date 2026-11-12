@@ -1,16 +1,7 @@
 /* Premium finish for the About page. Decoration only; page content stays unchanged. */
-
 body:has(.about-page) { overflow-y: visible !important; }
 
-
-
 .about-page { overflow: visible; }
-
-
-
-
-
-
 
 /* About scroll-story visibility fixes. Keep the first chapter legible when the
    pinned stage becomes active, and avoid long all-empty runway tails. */
@@ -18,25 +9,17 @@ body:has(.about-page) { overflow-y: visible !important; }
   opacity: clamp(.18, calc(min(1, var(--p, 0) / .28)), 1);
 }
 
-
-
 .about-scroll-journal .gk-about-story__chapter:nth-child(2) {
   opacity: calc(min(1, max(0, (var(--p, 0) - .28) / .28)));
 }
-
-
 
 .about-scroll-journal .gk-about-story__chapter:nth-child(3) {
   opacity: calc(min(1, max(0, (var(--p, 0) - .56) / .28)));
 }
 
-
-
 .about-scroll-journal .gk-about-story__runway {
   height: 300vh;
 }
-
-
 
 .about-scroll-journal .gk-about-story,
 .about-scroll-journal .gk-about-values {
@@ -44,16 +27,12 @@ body:has(.about-page) { overflow-y: visible !important; }
   opacity: 1 !important;
 }
 
-
-
 .about-scroll-journal .gk-about-story__stage.is-scroll-pinned {
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 2;
   width: 100%;
 }
-
-
 
 .about-scroll-journal .gk-about-values > .gk-wrap.is-scroll-pinned {
   position: fixed;
@@ -64,14 +43,10 @@ body:has(.about-page) { overflow-y: visible !important; }
   background: var(--b-bg);
 }
 
-
-
 .about-scroll-journal .gk-about-values__stage,
 .about-scroll-journal .gk-about-values .gk-journey__line {
   border-radius: 12px;
 }
-
-
 
 .about-scroll-journal .gk-about-values .gk-journey__line {
   border-left-style: dashed;
@@ -79,29 +54,14 @@ body:has(.about-page) { overflow-y: visible !important; }
 }
 
 @media (min-width: 900px) {
-  
-  
-  
-  html.scroll-story-enabled .about-page .gk-about-closing-statement {
+    html.scroll-story-enabled .about-page .gk-about-closing-statement {
     height: 180vh !important;
   }
 }
 
-
-
-
-
-
-
 .about-page .about-container {
   width: min(1160px, calc(100% - 3rem));
 }
-
-
-
-
-
-
 
 .about-page .about-hero {
   isolation: isolate;
@@ -111,8 +71,6 @@ body:has(.about-page) { overflow-y: visible !important; }
     linear-gradient(135deg, #08090d, #12062b 58%, #08090d);
   background-size: 26px 26px, 170% 170%;
 }
-
-
 
 .about-page .about-hero::before {
   content: "";
@@ -127,8 +85,6 @@ body:has(.about-page) { overflow-y: visible !important; }
   pointer-events: none;
 }
 
-
-
 .about-page .about-hero__copy h1,
 .about-page .about-section__intro h2,
 .about-page .about-story__copy h2,
@@ -138,15 +94,9 @@ body:has(.about-page) { overflow-y: visible !important; }
   font-weight: 300;
 }
 
-
-
 .about-page .about-section__intro { position: relative; }
 
-
-
 .about-page .about-story__copy { max-width: 68ch; }
-
-
 
 .about-page .about-story__copy > p:first-of-type {
   color: var(--tone-text);

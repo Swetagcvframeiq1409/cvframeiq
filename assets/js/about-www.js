@@ -1,5 +1,8 @@
-(() => {
-  const section = document.querySelector('[data-gk-www]');
+﻿(() => {
+  // Respect no-JS fallback
+  if (document.documentElement.classList.contains('no-js')) return;
+  
+  const section = document.querySelector('[data-www]');
   if (!section) return;
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -15,31 +18,22 @@
     if (reducedMotion.matches) return;
 
     const headerHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 76;
-    const mobile = window.matchMedia('(max-width: 599px)').matches;
-    const runwayHeight = window.innerHeight * (mobile ? 3.2 : 4);
+    const runwayHeight = window.innerHeight * 3.6; /* 360svh ~ 3.6 viewport heights */
     const pinHeight = Math.max(window.innerHeight - headerHeight, 1);
     const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-    const sectionHeight = section.classList.contains('is-enhanced') ? section.offsetHeight : runwayHeight;
     const progress = Math.min(1, Math.max(0,
-      (window.scrollY + headerHeight - sectionTop) / Math.max(sectionHeight - pinHeight, 1)
+      (window.scrollY + headerHeight - sectionTop) / Math.max(runwayHeight - pinHeight, 1)
     ));
-    const easeOut = (value) => 1 - (1 - value) ** 3;
-    const maximumGap = mobile ? 0.72 : 0.9;
-    const values = {
-      '--disc-o': 1 - smooth(0.20, 0.34, progress),
-      '--disc-s': 1 + 0.35 * smooth(0.20, 0.34, progress),
-      '--ring-o': 1 - smooth(0.16, 0.26, progress),
-      '--circ-o': smooth(0.30, 0.40, progress),
-      '--gap': 0.13 + (maximumGap - 0.13) * easeOut(smooth(0.46, 0.64, progress)),
-      '--t1-o': smooth(0.56, 0.66, progress),
-      '--t2-o': smooth(0.60, 0.70, progress),
-      '--t3-o': smooth(0.64, 0.74, progress)
-    };
 
-    Object.entries(values).forEach(([name, value]) => {
-      section.style.setProperty(name, String(value));
-    });
-    section.classList.add('is-enhanced');
+    /* Drive --p with the same progress map as Prompt 46 */
+    section.style.setProperty('--p', String(progress));
+
+    /* Add is-enhanced class when scrolling into the pinned section */
+    if (progress > 0.02) {
+      section.classList.add('is-enhanced');
+    } else {
+      section.classList.remove('is-enhanced');
+    }
   };
 
   const schedule = () => {
@@ -51,8 +45,7 @@
       if (frame) window.cancelAnimationFrame(frame);
       frame = 0;
       section.classList.remove('is-enhanced');
-      ['--disc-o', '--disc-s', '--ring-o', '--circ-o', '--gap', '--t1-o', '--t2-o', '--t3-o']
-        .forEach((name) => section.style.removeProperty(name));
+      section.style.removeProperty('--p');
       return;
     }
     render();

@@ -3,8 +3,11 @@
 
   const smallScreen = window.matchMedia('(max-width: 899px)');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const sections = Array.from(document.querySelectorAll('[data-scroll-story]'));
+  const sections = Array.from(document.querySelectorAll('[data-scroll-story], [data-www]'));
   const dialSections = sections.filter((section) => section.matches('[data-gk-dial]'));
+  const aboutWww = document.querySelector('[data-www]');
+  const aboutWwwPin = aboutWww?.querySelector('.about-www__pin');
+  const aboutWwwPointer = aboutWww?.querySelector('.about-www__pointer');
   const dialStates = new WeakMap();
   const activeSections = new Set();
   const story = document.getElementById('home-story');
@@ -262,10 +265,14 @@
     activeSections.forEach((section) => {
       const bounds = section.getBoundingClientRect();
       const isDial = section.matches('[data-gk-dial]');
-      const pin = isDial ? section.querySelector('.gk-dial__pin') : null;
+      const pin = isDial ? section.querySelector('.gk-dial__pin') : section === aboutWww ? aboutWwwPin : null;
       const travel = Math.max(bounds.height - (pin ? pin.offsetHeight : window.innerHeight), 1);
-      const progress = Math.min(1, Math.max(0, -bounds.top / travel));
+      const headerHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 76;
+      const progress = Math.min(1, Math.max(0,
+        section === aboutWww ? (headerHeight - bounds.top) / travel : -bounds.top / travel
+      ));
       section.style.setProperty('--p', progress.toFixed(4));
+      if (section === aboutWww) section.classList.add('is-enhanced');
       if (isDial) renderDial(section, progress);
       if (section === aboutValues) {
         const steps = Array.from(section.querySelectorAll('.gk-step'));
@@ -348,6 +355,7 @@
     observer?.disconnect();
     observer = null;
     activeSections.clear();
+    aboutWww?.classList.remove('is-enhanced');
     document.documentElement.classList.remove('scroll-story-enabled');
     if (frame) {
       window.cancelAnimationFrame(frame);
@@ -362,7 +370,9 @@
       return;
     }
 
-    const observedSections = smallScreen.matches ? dialSections : sections;
+    const observedSections = smallScreen.matches
+      ? [...dialSections, ...sections.filter((section) => section.matches('[data-www]'))]
+      : sections;
     if (!observedSections.length) {
       stop();
       return;
@@ -373,6 +383,7 @@
       prepareText();
       document.documentElement.classList.add('scroll-story-enabled');
     }
+    aboutWww?.classList.add('is-enhanced');
     dialSections.forEach((section) => {
       if (!dialStates.has(section)) {
         const state = setupDial(section);
@@ -392,6 +403,16 @@
     }, { rootMargin: '100% 0px' });
     observedSections.forEach((section) => observer.observe(section));
   };
+
+  if (aboutWwwPin && aboutWwwPointer) {
+    aboutWwwPin.addEventListener('pointermove', (event) => {
+      if (event.pointerType !== 'mouse') return;
+      const bounds = aboutWwwPin.getBoundingClientRect();
+      aboutWwwPointer.style.transform = `translate3d(${event.clientX - bounds.left - 11}px, ${event.clientY - bounds.top - 11}px, 0)`;
+      aboutWwwPointer.classList.add('is-visible');
+    });
+    aboutWwwPin.addEventListener('pointerleave', () => aboutWwwPointer.classList.remove('is-visible'));
+  }
 
   window.addEventListener('scroll', schedule, { passive: true });
   window.addEventListener('resize', () => {

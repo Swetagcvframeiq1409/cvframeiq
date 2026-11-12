@@ -4,8 +4,7 @@
 
 /* ── Header tokens ── */
 .site-header {
-  --hdr-bg: rgba(9, 9, 10, 0.72);
-  --hdr-bg-solid: rgba(14, 14, 16, 0.97);
+  --hdr-bg: rgba(14, 14, 16, 0.97);
   --hdr-border: rgba(255, 255, 255, 0.1);
   --hdr-text: rgba(248, 248, 248, 0.72);
   --hdr-text-active: #f8f8f8;
@@ -30,7 +29,7 @@
   border-bottom-color: var(--hdr-border);
   color: var(--hdr-text-active);
   height: 74px;
-  box-shadow: none;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
   backdrop-filter: blur(14px) saturate(160%);
   -webkit-backdrop-filter: blur(14px) saturate(160%);
 }
@@ -42,7 +41,7 @@
 
 
 .site-header.is-scrolled {
-  background: var(--hdr-bg-solid);
+  background: var(--hdr-bg);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
 }
 
@@ -122,7 +121,7 @@
 
 
 .site-header.is-scrolled {
-  background: var(--hdr-bg-solid);
+  background: var(--hdr-bg);
   border-bottom-color: var(--hdr-border);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
 }
@@ -1000,7 +999,7 @@
 
 /* ── Scrolled state ── */
 .site-header.is-scrolled {
-  background: var(--hdr-bg-solid);
+  background: var(--hdr-bg);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
 }
 
