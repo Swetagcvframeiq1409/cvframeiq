@@ -529,7 +529,7 @@ function renderFooter(root = getRootPath()) {
     <section class="footer-cta" data-tone="dark"${enterpriseCtaId} aria-labelledby="footer-cta-title">
       <div class="footer-cta__inner">
         <div class="footer-cta__copy">
-          <p class="footer-cta__eyebrow"><span aria-hidden="true"></span>Now Accepting Enterprise Clients</p>
+          <p class="footer-cta__eyebrow"><span aria-hidden="true"></span>Let's Build Something That Sees the World Differently.</p>
           <h2 id="footer-cta-title">Ready to Deploy AI That <span class="footer-cta__accent">Actually Works?</span></h2>
           <p class="footer-cta__sub">Free 30-minute strategy call: use-case review, a live demo, and a timeline and cost estimate.</p>
           <div class="footer-cta__actions">

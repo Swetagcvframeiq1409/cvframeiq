@@ -2375,6 +2375,7 @@
   }
 }
 
+@media (min-width: 768px) {
 #hero.home-hero {
   min-height: 0;
   padding: 0;
@@ -2515,6 +2516,9 @@
 
 #hero .home-marquee {
   padding-inline-end: 80px;
+}
+
+
 }
 
 #hero.hero-js-ready .hero-reveal {

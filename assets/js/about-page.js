@@ -1,4 +1,4 @@
-/* about-page.js — Statement line animation + Vision/Mission pinned swap */
+/* about-page.js — Statement line animation + Vision/Mission pinned swap + Statement card collapse + Statement card entrance */
 (() => {
   'use strict';
 
@@ -196,11 +196,63 @@
     drawLines();
   }
 
+  /* ── Section C (mobile): Statement card entrance (lines grow, dots pop, drift) ── */
+  const stmtArtMobile = document.querySelector('.ab-statement__art[data-ab-lines]');
+  let entranceTriggered = false;
+
+  const triggerEntrance = () => {
+    if (entranceTriggered || !stmtArtMobile || reducedMotion.matches || window.innerWidth > 767) return;
+    entranceTriggered = true;
+    stmtArtMobile.querySelectorAll('.ab-line').forEach((line, i) => {
+      line.style.setProperty('--stagger-i', String(i));
+      line.classList.add('is-in');
+    });
+  };
+
+  if (stmtArtMobile && !reducedMotion.matches) {
+    const obs = new IntersectionObserver(
+      (entries) => { if (entries[0].isIntersecting) { triggerEntrance(); obs.disconnect(); } },
+      { threshold: 0.2 }
+    );
+    obs.observe(stmtArtMobile);
+  } else if (stmtArtMobile) {
+    triggerEntrance();
+  }
+
+  /* ── Section C (mobile): Statement card collapse ── */
+  const stmtSection = document.querySelector('.ab-statement');
+  const stmtCard = stmtSection?.querySelector('.ab-statement__card, .gk-stmt__card');
+  const stmtArt = stmtSection?.querySelector('.ab-statement__art');
+
+  const renderStmtCollapse = () => {
+    if (!stmtSection || !stmtCard || !stmtArt || reducedMotion.matches || window.innerWidth > 768) return;
+    
+    const rect = stmtSection.getBoundingClientRect();
+    const hh = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 72;
+    const pinTop = hh + 10;
+    const viewportH = window.innerHeight;
+    const travel = stmtCard.offsetHeight;
+    const p = clamp((rect.top - pinTop) / travel, 0, 1);
+    
+    // Collapse stage: c = smooth(.70, .86, p)
+    const c = p <= 0.70 ? 0 : (p >= 0.86 ? 1 : ease((p - 0.70) / 0.16));
+    
+    // Fade out illustration
+    stmtArt.style.opacity = String(1 - c);
+    
+    // Toggle collapse attribute for CSS
+    if (c >= 1) {
+      stmtCard.setAttribute('data-stmt-c', '');
+    } else {
+      stmtCard.removeAttribute('data-stmt-c');
+    }
+  };
+
   /* ── rAF-throttled scroll/resize ── */
   let frame = 0;
   const scheduleRender = () => {
     if (frame) return;
-    frame = requestAnimationFrame(() => { frame = 0; renderVM(); updateProgressLine(); });
+    frame = requestAnimationFrame(() => { frame = 0; renderVM(); updateProgressLine(); renderStmtCollapse(); });
   };
 
   window.addEventListener('scroll', scheduleRender, { passive: true });

@@ -51,15 +51,24 @@
 
     let R, cx, cy, ringBorder, step, sizeTable, opacityTable, textLeft, textWidth;
     if (isPhone) {
-      ringBorder = Math.min(24, Math.max(16, W * 0.055));
-      R = 0.46 * H;
-      cx = 0.72 * W - R;
-      cy = 0.30 * H;
-      sizeTable = [[0, 112], [1, 68], [2, 44], [3, 30], [3.6, 22]];
-      opacityTable = [[0, 1], [1, 0.65], [2, 0.3], [3, 0.15], [3.6, 0]];
-      step = Math.max(0.26, (112 / 2 + 68 / 2 + 10) / R);
-      textLeft = 20;
-      textWidth = Math.max(W - 40, 0);
+      // Spec: R = clamp(240px, 58svh, 400px), right edge at 9% of W, thickness 12px
+      const svh = H; // stage height = 100svh - header
+      R = Math.min(400, Math.max(240, 0.58 * svh));
+      ringBorder = 12;
+      // Right edge of ring at 9% of W => cx + R = 0.09 * W
+      // This ensures active node (1.6x scaled) right edge + 12px gap <= textLeft (96px)
+      cx = 0.09 * W - R;
+      // Vertical center at middle of stage
+      cy = H / 2;
+      // Node base size 36px, active scaled 1.6x = 57.6px
+      sizeTable = [[0, 57.6], [1, 36], [2, 36], [3, 36], [3.6, 36]];
+      // Opacity: 1, 0.6, 0.38, 0.25 (never below 0.25)
+      opacityTable = [[0, 1], [1, 0.6], [2, 0.38], [3, 0.25], [3.6, 0.25]];
+      // Angular step so adjacent centers >= 56px apart: step = 56 / R
+      step = 56 / R;
+      // Text column: left 96px, right 20px gutter
+      textLeft = 96;
+      textWidth = Math.max(0, W - 116);
     } else if (isCompact) {
       ringBorder = Math.min(24, Math.max(16, W * 0.055));
       R = 0.50 * H;

@@ -436,6 +436,92 @@
   }
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   8. HOME — hide Industries hi-art panel on mobile
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+  .hi-art {
+    display: none !important;
+  }
+  
+  .hero-img-stack {
+    display: none !important;
+  }
+  
+  /* Remove blank space: hi-panel grid gap collapses when hi-art is hidden */
+  .hi-panel {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .hi-copy {
+    padding-top: 24px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   9. ABOUT — Core Values wheel on mobile (keep wheel, dark theme)
+   ════════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+  .gk-values {
+    background: var(--b-bg, #0b0c10) !important;
+    padding-bottom: 0 !important;
+  }
+  .gk-values__intro {
+    background: none !important;
+    border-radius: 0 !important;
+    padding-block: calc(var(--header-h, 76px) + 16px) 16px !important;
+    padding-inline: 16px !important;
+  }
+  .gk-values__intro h2 {
+    color: #f5f6fb !important;
+    font-weight: 300 !important;
+  }
+  .gk-values__stage {
+    background: transparent !important;
+    isolation: isolate;
+    overflow: clip !important;
+    touch-action: pan-y;
+  }
+  .gk-values__ring {
+    border-color: rgba(101, 66, 200, 0.12) !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+  }
+  .gk-values__node {
+    background: rgba(101, 66, 200, 0.18) !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-weight: 600 !important;
+  }
+  .gk-values__node[aria-current="true"] {
+    background: #6542c8 !important;
+    color: #fff !important;
+  }
+  .gk-values__panel.is-active {
+    background: transparent !important;
+  }
+  .gk-values__title {
+    color: #f5f6fb !important;
+    font-weight: 500 !important;
+    font-size: 26px !important;
+    line-height: 1.1 !important;
+  }
+  .gk-values__desc {
+    color: rgba(245, 246, 251, 0.7) !important;
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+    max-width: none !important;
+  }
+  .gk-values.gk-values--arc-active .gk-values__text {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 96px !important;
+    width: calc(100% - 116px) !important;
+    max-width: calc(100% - 116px) !important;
+  }
+}
+
 @media (max-width: 991px) {
   body.frameiq-home #pillars {
     --pillar-card-padding: 20px;
