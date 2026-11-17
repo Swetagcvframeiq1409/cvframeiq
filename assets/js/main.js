@@ -469,16 +469,41 @@ function initSubnav() {
 }
 
 function initCursorGlow() {
-  if (window.matchMedia('(hover: none), (pointer: coarse), (prefers-reduced-motion: reduce)').matches) return;
+  const coarse = window.matchMedia('(hover: none), (pointer: coarse), (prefers-reduced-motion: reduce)');
+  const isMobile = () => window.innerWidth < 768 || (navigator.maxTouchPoints || 0) > 0;
   let frame = 0;
-  document.addEventListener('pointermove', (event) => {
-    if (frame) return;
-    frame = requestAnimationFrame(() => {
-      document.documentElement.style.setProperty('--pointer-x', `${event.clientX}px`);
-      document.documentElement.style.setProperty('--pointer-y', `${event.clientY}px`);
-      frame = 0;
-    });
-  }, { passive: true });
+  let active = false;
+
+  const setGlow = (on) => {
+    if (on === active) return;
+    active = on;
+    document.documentElement.style.setProperty('--glow', on ? 'rgba(143, 105, 255, .25)' : 'transparent');
+    if (!on) {
+      document.documentElement.style.removeProperty('--pointer-x');
+      document.documentElement.style.removeProperty('--pointer-y');
+    }
+  };
+
+  const evaluate = () => {
+    setGlow(!coarse.matches && !isMobile());
+  };
+
+  if ('matchMedia' in window) {
+    coarse.addEventListener('change', evaluate);
+    window.addEventListener('resize', evaluate, { passive: true });
+  }
+  evaluate();
+
+  if (!coarse.matches && !isMobile()) {
+    document.addEventListener('pointermove', (event) => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        document.documentElement.style.setProperty('--pointer-x', `${event.clientX}px`);
+        document.documentElement.style.setProperty('--pointer-y', `${event.clientY}px`);
+        frame = 0;
+      });
+    }, { passive: true });
+  }
 }
 
 function initPagePolish() {

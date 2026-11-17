@@ -4,18 +4,40 @@
 
   var reduce = matchMedia('(prefers-reduced-motion: reduce)');
   var finePointer = matchMedia('(pointer: fine)');
+  var hoverHover = matchMedia('(hover: hover)');
+  var hoverNone = matchMedia('(hover: none)');
+  var pointerCoarse = matchMedia('(pointer: coarse)');
   var ticking = false;
   var follower = null;
   var followerX = 0, followerY = 0;
   var targetX = 0, targetY = 0;
+  var followerHost = section.querySelector('.about-www__stage');
 
-  // Create pointer follower for fine pointers
-  if (finePointer.matches && !reduce.matches) {
-    follower = document.createElement('div');
-    follower.className = 'about-www__follower';
-    follower.setAttribute('aria-hidden', 'true');
-    section.querySelector('.about-www__stage').appendChild(follower);
+  // The pointer follower is a desktop-only, fine-pointer affordance. It must
+  // never be created on touch or narrow viewports, and must be removed when the
+  // viewport is resized below 768px (recreated when it grows back above it).
+  function shouldFollow() {
+    return finePointer.matches && hoverHover.matches && !reduce.matches &&
+      !hoverNone.matches && !pointerCoarse.matches &&
+      !(navigator.maxTouchPoints > 0) && window.innerWidth >= 768;
   }
+  function removeFollower() {
+    if (follower && follower.parentNode) follower.parentNode.removeChild(follower);
+    follower = null;
+  }
+  function syncFollower() {
+    if (shouldFollow()) {
+      if (!follower && followerHost) {
+        follower = document.createElement('div');
+        follower.className = 'about-www__follower';
+        follower.setAttribute('aria-hidden', 'true');
+        followerHost.appendChild(follower);
+      }
+    } else {
+      removeFollower();
+    }
+  }
+  syncFollower();
 
   function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
   function lerp(a, b, t) { return a + (b - a) * t; }
@@ -135,9 +157,11 @@
   function req() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
 
   addEventListener('scroll', req, { passive: true });
-  addEventListener('resize', req, { passive: true });
-  if (follower) addEventListener('mousemove', onMouseMove, { passive: true });
-  addEventListener('pageshow', req);
+  addEventListener('resize', function () { syncFollower(); req(); }, { passive: true });
+  addEventListener('mousemove', onMouseMove, { passive: true });
+  addEventListener('pageshow', function () { syncFollower(); req(); });
+  if (finePointer.addEventListener) finePointer.addEventListener('change', syncFollower);
+  if (hoverHover.addEventListener) hoverHover.addEventListener('change', syncFollower);
 
   // Initial
   update();
