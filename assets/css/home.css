@@ -2602,3 +2602,37 @@ body .frameiq-home .home-band[data-tone="dark"] {
 .js-reveal .home-process__steps[data-reveal].is-visible,
 .js-reveal .home-why__grid[data-reveal].is-visible,
 .js-reveal .home-trusted__inner[data-reveal].is-visible{opacity:1;transform:none}
+@media (max-width: 767px) {
+  .home-hero { overflow-x: clip; }
+  .home-hero__grid, .home-hero__copy { width: 100%; padding-inline: 20px; margin-inline: auto; box-sizing: border-box; }
+  .hero-headline { font-size: clamp(2.1rem, 9vw, 2.75rem); line-height: 1.1; letter-spacing: -0.02em; text-wrap: balance; }
+  .hero-subtitle { font-size: 16px; line-height: 1.6; max-width: 34ch; }
+  .hero-eyebrow-pill { font-size: 12px; letter-spacing: .08em; white-space: nowrap; }
+  .home-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 340px; margin-inline: auto; }
+  .home-actions { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+  .home-button { width: 100%; max-width: 360px; height: 52px; font-size: 16px; }
+  .home-button:focus-visible { outline: 2px solid #6542c8; outline-offset: 2px; }
+  .hero-img-main { width: 100%; aspect-ratio: 16/10; border-radius: 16px; object-fit: cover; }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; text-align: center; }
+  .home-marquee { mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  @media (prefers-reduced-motion: reduce) { .home-marquee__track { animation: none; } }
+}
+@media (max-width: 480px) {
+  .home-hero__grid, .home-hero__copy { padding-inline: 16px; }
+}
+@media (max-width: 767px) {
+  #hero .home-hero__grid .hero-img-stack { display: block !important; }
+  .hero-img-main { width: 100%; aspect-ratio: 16/10; border-radius: 16px; object-fit: cover; }
+  .home-hero__copy { padding-inline: 20px; box-sizing: border-box; }
+  .hero-headline { font-size: clamp(2.1rem, 9vw, 2.75rem); line-height: 1.1; text-wrap: balance; }
+  .hero-subtitle { font-size: 16px; line-height: 1.6; max-width: 34ch; }
+  .hero-eyebrow-pill { font-size: 12px; letter-spacing: .08em; }
+  .home-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 340px; }
+  .home-chips span { font-size: 13px; padding: 6px 12px; }
+  .home-actions { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+  .home-button { width: 100%; max-width: 360px; height: 52px; }
+  .home-button:focus-visible { outline: 2px solid #6542c8; outline-offset: 2px; }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; text-align: center; }
+  .hero-stats__item { opacity: 1 !important; }
+  .home-hero { overflow-x: clip; }
+}

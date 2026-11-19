@@ -1,8 +1,8 @@
-/* nav-fix.css — FrameIQ desktop header and mega menu.
+﻿/* nav-fix.css â€” FrameIQ desktop header and mega menu.
    All rules scoped to .site-header or .mega. No !important wars.
    Breakpoint: desktop nav visible at 1025px and wider. */
 
-/* ── Header tokens ── */
+/* â”€â”€ Header tokens â”€â”€ */
 .site-header {
   --hdr-bg: rgba(14, 14, 16, 0.97);
   --hdr-border: rgba(255, 255, 255, 0.1);
@@ -96,7 +96,7 @@
 
 
 
-/* ── Bar ── */
+/* â”€â”€ Bar â”€â”€ */
 .site-header {
   position: fixed;
   top: 0;
@@ -146,7 +146,7 @@
 
 
 
-/* ── Brand ── */
+/* â”€â”€ Brand â”€â”€ */
 .site-header .brand {
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -175,7 +175,7 @@
 
 
 
-/* ── Navbar layout ── */
+/* â”€â”€ Navbar layout â”€â”€ */
 .navbar {
   width: 100%;
   height: 100%;
@@ -214,7 +214,7 @@
 
 
 
-/* ── Nav triggers ── */
+/* â”€â”€ Nav triggers â”€â”€ */
 .site-header .nav__link,
 .site-header .nav__button {
   position: relative;
@@ -308,7 +308,7 @@
 
 
 
-/* ── Header actions ── */
+/* â”€â”€ Header actions â”€â”€ */
 .header-actions {
   display: flex;
   align-items: center;
@@ -351,7 +351,7 @@
 
 
 
-/* Contact Us — filled purple, white text */
+/* Contact Us â€” filled purple, white text */
 .site-header .header-start {
   display: inline-flex;
   align-items: center;
@@ -399,7 +399,7 @@
 
 
 
-/* ── Mega panel ── */
+/* â”€â”€ Mega panel â”€â”€ */
 .mega {
   position: fixed;
   top: var(--header-h, 74px);
@@ -410,7 +410,7 @@
   transform: translateY(8px);
   border: 1px solid var(--mega-border);
   border-radius: 0 0 16px 16px;
-  /* Solid opaque background — no ghosting through transparent bg */
+  /* Solid opaque background â€” no ghosting through transparent bg */
   background: #111113;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.32);
   opacity: 0;
@@ -440,11 +440,11 @@
   visibility: visible;
   pointer-events: auto;
   transform: translateY(0);
-  /* Open: all delays zero — panel and children appear together, no ghost */
+  /* Open: all delays zero â€” panel and children appear together, no ghost */
   transition: opacity 0.16s ease-out, transform 0.16s ease-out, visibility 0s linear 0s;
 }
 
-/* Children must NOT carry their own opacity or transform — panel animates as one unit */
+/* Children must NOT carry their own opacity or transform â€” panel animates as one unit */
 .mega .mega__item,
 .mega .mega__icon,
 .mega .mega__copy,
@@ -471,7 +471,7 @@
 
 
 
-/* ── Right grid ── */
+/* â”€â”€ Right grid â”€â”€ */
 .mega__right {
   padding: 20px;
   display: grid;
@@ -528,7 +528,7 @@
 
 
 
-/* ── Item row ── */
+/* â”€â”€ Item row â”€â”€ */
 .mega__item {
   display: grid;
   grid-template-columns: 40px 1fr 18px;
@@ -702,7 +702,7 @@
 
 
 
-/* ── Bottom strip ── */
+/* â”€â”€ Bottom strip â”€â”€ */
 .mega__strip {
   display: flex;
   align-items: center;
@@ -952,7 +952,7 @@
 
 
 
-/* ── Page backdrop ── */
+/* â”€â”€ Page backdrop â”€â”€ */
 .mega-overlay {
   position: fixed;
   inset: var(--header-h, 74px) 0 0;
@@ -983,7 +983,7 @@
 
 
 
-/* ── Focus rings ── */
+/* â”€â”€ Focus rings â”€â”€ */
 .site-header a:focus-visible,
 .site-header button:focus-visible {
   outline: 2px solid var(--hdr-accent);
@@ -997,7 +997,7 @@
 
 
 
-/* ── Scrolled state ── */
+/* â”€â”€ Scrolled state â”€â”€ */
 .site-header.is-scrolled {
   background: var(--hdr-bg);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
@@ -1009,7 +1009,7 @@
 
 
 
-/* ── Subnav ── */
+/* â”€â”€ Subnav â”€â”€ */
 .subnav {
   position: sticky;
   top: var(--header-h);
@@ -1119,7 +1119,7 @@
 
 
 
-/* ── Mobile menu toggle button ── */
+/* â”€â”€ Mobile menu toggle button â”€â”€ */
 .mobile-menu__toggle {
   width: 44px;
   height: 44px;
@@ -1140,7 +1140,7 @@
 
 
 
-/* ── Override components.css mobile-menu rules ── */
+/* â”€â”€ Override components.css mobile-menu rules â”€â”€ */
 /* components.css sets width:min(340px,90vw), inset:0 0 0 auto, padding, transform:translateX(105%)
    We need full-width drawer from right, no padding on the shell */
 .mobile-menu {
@@ -1251,7 +1251,7 @@
 
 
 
-/* Single inner wrapper — required for 0fr/1fr trick to collapse to true zero */
+/* Single inner wrapper â€” required for 0fr/1fr trick to collapse to true zero */
 .mobile-menu__panel-inner {
   min-height: 0;
   overflow: hidden;
@@ -1514,7 +1514,7 @@
 
 
 
-/* ── Breakpoints ── */
+/* â”€â”€ Breakpoints â”€â”€ */
 @media (min-width: 1025px) {
   
   .mobile-menu__toggle { display: none; }
@@ -1522,7 +1522,7 @@
 
 
 
-/* ── Mobile bar: 64px at 1024px and narrower ── */
+/* â”€â”€ Mobile bar: 64px at 1024px and narrower â”€â”€ */
 @media (max-width: 1024px) {
   
   :root { --header-h: 64px; }
@@ -1532,7 +1532,7 @@
   
   .mobile-menu__toggle { display: inline-flex; }
   
-  /* Hide Contact Us from bar on mobile — it lives in drawer footer only */
+  /* Hide Contact Us from bar on mobile â€” it lives in drawer footer only */
   .site-header .header-start { display: none !important; }
   
   .site-header__inner { padding-inline: 16px; width: 100%; }
@@ -1590,7 +1590,7 @@
 
 
 
-/* ── Reduced motion ── */
+/* â”€â”€ Reduced motion â”€â”€ */
 @media (prefers-reduced-motion: reduce) {
   
   .site-header,
@@ -1657,8 +1657,8 @@
 
 html.menu-open { overflow: hidden; }
 
-/* ── Demos mega menu (two-column) ── */
-/* Override compact width — specificity must beat .nav__item--mega-compact > .mega (0,2,0) */
+/* â”€â”€ Demos mega menu (two-column) â”€â”€ */
+/* Override compact width â€” specificity must beat .nav__item--mega-compact > .mega (0,2,0) */
 .nav__item--mega-compact > .nav-mega--demos,
 .nav-mega--demos {
   width: min(880px, calc(100vw - 32px));
@@ -1704,7 +1704,7 @@ html.menu-open { overflow: hidden; }
   transition: background 0.14s ease, border-color 0.14s ease;
 }
 
-/* 2px left accent bar — slides in on hover */
+/* 2px left accent bar â€” slides in on hover */
 .nav-mega--demos .mega__item::before {
   content: "";
   position: absolute;
