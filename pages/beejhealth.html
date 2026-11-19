@@ -60,43 +60,24 @@
   <main id="main-content" class="pp-page" data-no-global-cta="true">
 
     <!-- 1. HERO -->
-    <section class="gk-band gk-hero pp-hero-bg" aria-labelledby="bh-h1">
-      <div class="gk-wrap">
-        <div class="pp-hero-grid">
-          <div class="pp-hero-copy">
-            <nav class="pp-crumb" aria-label="Breadcrumb">
-              <a href="../index.html">Home</a> /
-              <a href="ai-store.html">Products</a> /
-              BeejHealth
-            </nav>
-            <span class="gk-eyebrow">BeejHealth · Agriculture</span>
-            <h1 id="bh-h1">Beej<b>Health</b></h1>
-            <p>BeejHealth is an AI crop health advisory for Indian agriculture. Farmers can photograph crops for disease, pest, and nutrient insights.</p>
-            <div class="pp-actions">
-              <a class="gk-btn" href="contact.html?sector=agriculture&amp;product=crop-disease-detection">
-                Enquire
-                <i class="bi bi-arrow-right" aria-hidden="true"></i>
-              </a>
-              <a class="gk-btn gk-btn--ghost" href="playground.html#crop">
-                Try the demo scene
-                <i class="bi bi-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-            <p style="font-size:.82rem;color:var(--text-muted);margin-top:10px">Playground uses demo data.</p>
+    <section class="gk-prodhero" aria-labelledby="h1">
+      <div class="gk-container gk-prodhero__grid">
+        <div class="gk-prodhero__copy">
+          <nav class="gk-crumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a> <i class="bi bi-chevron-right" aria-hidden="true"></i>
+            <a href="ai-store.html">Products</a> <i class="bi bi-chevron-right" aria-hidden="true"></i>
+            BeejHealth
+          </nav>
+          <p class="gk-eyebrow"><span class="gk-icontile"><i class="bi bi-flower1"></i></span> AI CROP HEALTH</p>
+          <h1 id="h1">BeejHealth<br><span class="gk-accent"><span class="gk-draft">Draft - pending content</span></span></h1>
+          <p class="gk-lead">BeejHealth is an AI crop health advisory for Indian agriculture.</p>
+          <div class="gk-prodhero__cta">
+            <a class="gk-btn" href="contact.html">Book a Demo <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            <a class="gk-btn gk-btn--ghost" href="ai-store.html">Back to AI Store <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
           </div>
-          <div class="pp-hero-media" aria-hidden="true">
-            <picture>
-              <source srcset="../assets/img/products/beejhealth-hero.webp" type="image/webp" />
-              <img
-                src="../assets/img/products/beejhealth-hero.webp"
-                alt="BeejHealth — AI crop health advisory for Indian agriculture"
-                width="1200" height="674"
-                fetchpriority="high"
-                decoding="async"
-                onerror="this.parentElement.parentElement.innerHTML='<div class=\'pp-media-fallback\'><i class=\'bi bi-flower1\' aria-hidden=\'true\'></i></div>'"
-              />
-            </picture>
-          </div>
+        </div>
+        <div class="gk-prodhero__visual">
+          <div class="gk-img-slot"><img src="../assets/img/products/beejhealth-hero.webp" alt="BeejHealth" onerror="this.parentElement.innerHTML='<div class=gk-fallback><i class=bi-bi-flower1></i></div>'" /></div>
         </div>
       </div>
     </section>

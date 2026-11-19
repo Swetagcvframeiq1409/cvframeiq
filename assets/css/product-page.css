@@ -1,0 +1,1 @@
+﻿.pdp-page section{padding-block:clamp(4rem,7vw,7rem)} .pdp-page h2{font-size:clamp(2rem,3.2vw,3rem);font-weight:500;line-height:1.12;letter-spacing:-.02em} .pdp-page h2::after,.pdp-page h2::before{content:none} @media(max-width:900px){.pdp-page .pp-tab-panel-title,.pdp-page .pp-tab-title{writing-mode:horizontal-tb;word-break:normal;overflow-wrap:normal;min-width:0}}
