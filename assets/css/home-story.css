@@ -909,3 +909,5 @@
     transition: none;
   }
 }
+
+@media (min-width: 1025px) { .hs-decor--rings, .hs-ring { display: none !important; } }
