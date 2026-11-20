@@ -1,6 +1,7 @@
 // gk-motion.js - progress bar, pointer spotlight, marquee clone, parallax, and heading underline.
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isMobile = window.matchMedia('(hover: none), (pointer: coarse)').matches;
 
   function revealFallback() {
     document.querySelectorAll('.gk-r, .gk-reveal, [data-reveal], .ab-reveal').forEach(function (el) {
@@ -23,7 +24,7 @@
   addEventListener('scroll', prog, { passive: true });
   prog();
 
-  if (reduce) return;
+  if (reduce || isMobile) return;
 
   document.addEventListener('pointermove', function (e) {
     var c = e.target.closest && e.target.closest('.gk-card, .gk-metric');

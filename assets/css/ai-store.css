@@ -82,9 +82,41 @@ body[data-theme="light"] .ais-hero-band { background: #f4f4f8; }
 
 .ais-hero-wrap {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 3rem;
+  align-items: start;
 }
+.ais-hero-right { display: flex; flex-direction: column; gap: 2.5rem; align-items: center; }
+.ais-hero-visual {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 420px;
+  width: 100%;
+}
+.ais-tile {
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  border: 1px solid rgba(101,66,200,.45);
+  background: rgba(101,66,200,.08);
+  display: grid;
+  place-items: center;
+  color: #b8a3ff;
+  font-size: clamp(28px, 4vw, 34px);
+  transition: transform .3s ease, border-color .3s;
+}
+.ais-tile:hover { transform: translateY(-4px); border-color: rgba(101,66,200,.7); }
+@media (prefers-reduced-motion: no-preference) {
+  .ais-tile { animation: aisTileFloat 6s ease-in-out infinite alternate; }
+}
+.ais-tile:nth-child(1){animation-delay:0s}
+.ais-tile:nth-child(2){animation-delay:0.9s}
+.ais-tile:nth-child(3){animation-delay:1.8s}
+.ais-tile:nth-child(4){animation-delay:0.6s}
+.ais-tile:nth-child(5){animation-delay:1.5s}
+.ais-tile:nth-child(6){animation-delay:1.2s}
+@keyframes aisTileFloat{from{transform:translateY(0)}to{transform:translateY(-7px)}}
+@media(prefers-reduced-motion:reduce){.ais-tile{animation:none!important;transform:none!important}}
 .ais-hero-copy h1 {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 300;
@@ -125,7 +157,7 @@ body[data-theme="light"] .ais-hero-sub { color: #4a4a55; }
 .ais-metric strong {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 300;
-  font-size: clamp(1.6rem,3vw,2.4rem);
+  font-size: clamp(28px,3vw,40px);
   letter-spacing: -.03em;
   color: #f5f6fb;
   line-height: 1;
@@ -843,6 +875,14 @@ body[data-theme="light"] .ais-compare-table th { color: #111113; }
   .ais-spotlight-inner { grid-template-columns: 1fr; }
 }
 @media (max-width: 767px) {
+  .ais-hero-wrap { grid-template-columns: 1fr; gap: 2rem; }
+  .ais-hero-right { order: 2; width: 100%; }
+  .ais-hero-visual {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 296px;
+    margin: 0 auto;
+  }
+  .ais-tile { font-size: 28px; }
   .ais-demo-panel { grid-template-columns: 1fr; }
   .ais-demo-links { grid-template-columns: 1fr; }
   .ais-enquiry-inner { flex-direction: column; }
@@ -850,21 +890,87 @@ body[data-theme="light"] .ais-compare-table th { color: #111113; }
   .ais-dialog-actions { flex-direction: column; }
   .ais-product-grid.is-list .ais-card { flex-direction: column; }
   .ais-product-grid.is-list .ais-card-thumb { width: 100%; aspect-ratio: 16/10; }
-  .ais-toolbar-inner { flex-wrap: wrap; }
-  .ais-chips-scroll { order: 1; width: 100%; }
-  .ais-toolbar-right { order: 2; width: 100%; justify-content: flex-end; }
+  
+  /* Toolbar: chips row scrollable, controls on own rows */
+  .ais-toolbar-inner { flex-wrap: wrap; gap: 12px; padding-block: 12px; }
+  .ais-chips-scroll { order: 1; width: 100%; flex: none; }
+  .ais-toolbar-right { order: 2; width: 100%; display: flex; flex-direction: column; gap: 8px; align-items: stretch; }
+  .ais-search-wrap { width: 100%; }
+  .ais-search-input { width: 100%; min-height: 44px; font-size: 16px; }
+  .ais-view-toggle { width: 100%; justify-content: center; min-height: 44px; }
+  .ais-view-btn { width: 44px; height: 44px; min-width: 44px; }
+  .ais-sort-select { width: 100%; min-height: 44px; font-size: 16px; }
+  
+  /* Hero metrics: 3-column grid, smaller value font */
+  .ais-hero-metrics { width: 100%; justify-content: space-between; gap: 0; }
+  .ais-metric { flex: 1; padding: 1rem; min-width: 0; border-right: 1px solid var(--ais-line-dark); }
+  .ais-metric:last-child { border-right: 0; }
+  .ais-metric strong { font-size: clamp(20px, 6vw, 28px); }
+  .ais-metric span { font-size: 0.7rem; }
+  
+  /* Product grid: 1 column, 16/9 media, 16px padding */
+  .ais-product-grid { grid-template-columns: 1fr; }
+  .ais-card-thumb { aspect-ratio: 16/9; }
+  .ais-card-body { padding: 16px; }
+  .ais-card-actions { gap: 8px; }
+  .ais-card-actions .ais-btn--primary { flex: 1; min-height: 44px; font-size: 0.85rem; padding: 0.5rem 0.9rem; }
+  .ais-card-actions .ais-btn--secondary { min-height: 44px; font-size: 0.82rem; padding: 0.5rem 0.9rem; }
+  .ais-card-actions .ais-btn--icon { width: 44px; height: 44px; min-width: 44px; min-height: 44px; }
+  
+  /* Modal: max-height 90vh, width calc(100% - 32px), close 44px, scroll lock, footer stack */
+  .ais-dialog { width: calc(100% - 32px); max-height: 90vh; max-height: 90svh; }
+  .ais-dialog-close { width: 44px; height: 44px; min-width: 44px; min-height: 44px; }
+  .ais-dialog-body { max-height: calc(90vh - 140px); max-height: calc(90svh - 140px); overflow-y: auto; }
+  .ais-dialog-actions { flex-direction: column; gap: 8px; }
+  .ais-dialog-actions .ais-btn { width: 100%; justify-content: center; min-height: 44px; }
+  
+  /* Compare dialog */
+  .ais-compare-dialog { max-width: calc(100% - 32px); }
+  .ais-compare-dialog .ais-dialog-body { max-height: calc(90vh - 120px); max-height: calc(90svh - 120px); }
+  
+  /* Tray buttons */
+  .ais-tray { width: calc(100% - 32px); bottom: 16px; }
+  .ais-tray-btn { min-height: 48px; }
+  
+  /* Sectors grid */
+  .ais-sectors-grid { grid-template-columns: 1fr; }
+  .ais-sector-card { min-height: 44px; }
 }
 @media (max-width: 479px) {
-  .ais-product-grid { grid-template-columns: 1fr; }
-  .ais-why-grid { grid-template-columns: 1fr; }
-  .ais-sectors-grid { grid-template-columns: 1fr; }
-  .ais-hero-metrics { width: 100%; }
-  .ais-metric { flex: 1; }
+  .ais-hero-metrics { gap: 0; }
+  .ais-metric { padding: 0.75rem 0.5rem; }
+  .ais-metric strong { font-size: clamp(18px, 5.5vw, 24px); }
+  .ais-chip { min-height: 40px; padding: 0.3rem 0.75rem; font-size: 0.78rem; }
 }
+@media (max-width: 360px) {
+  .ais-hero-metrics { gap: 0; }
+  .ais-metric { padding: 0.5rem 0.35rem; }
+  .ais-metric strong { font-size: 18px; }
+  .ais-metric span { font-size: 0.65rem; }
+}
+
+/* Fade mask for chip scroll */
+@media (max-width: 767px) {
+  .ais-chips-scroll::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 32px;
+    background: linear-gradient(90deg, transparent, var(--bg, #0b0c10));
+    pointer-events: none;
+    z-index: 1;
+  }
+  .ais-chips-scroll { position: relative; padding-right: 32px; }
+}
+
+/* Body scroll lock when modal open */
+body.ais-dialog-open { overflow: hidden; position: fixed; width: 100%; }
 
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
-  .ais-card, .ais-reveal { opacity: 1; transform: none; transition: none; }
+  .ais-card, .ais-revel { opacity: 1; transform: none; transition: none; }
   .ais-skeleton { animation: none; }
   .ais-btn, .ais-chip, .ais-demo-link, .ais-why-card, .ais-tray, .ais-sector-card, .ais-card-thumb { transition: none; }
   .ais-tray { transform: translate(-50%,0); }

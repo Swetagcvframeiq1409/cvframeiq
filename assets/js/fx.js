@@ -4,7 +4,7 @@
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  if (reduce) return;
+  var isMobile = window.matchMedia('(hover: none), (pointer: coarse)').matches;
 
   // change these lists if a class name on your page is different
   var HEADINGS = '#main-content h2';
@@ -47,7 +47,11 @@
     h.classList.add('fx-split');
     if (io) io.observe(h); else h.classList.add('fx-in');
   }
-  document.querySelectorAll(HEADINGS).forEach(splitHeading);
+
+  // Only split headings on desktop with fine pointer and no reduced motion
+  if (!reduce && !isMobile) {
+    document.querySelectorAll(HEADINGS).forEach(splitHeading);
+  }
 
   // 2) count up numbers like 7+, 99.2%, <200ms (text such as 24/7 is left alone)
   function parse(el) {
@@ -55,12 +59,14 @@
     if (!m || /[\/]/.test(m[3])) return null;
     return { pre: m[1], num: parseFloat(m[2]), dec: (m[2].split('.')[1] || '').length, post: m[3] };
   }
-  document.querySelectorAll(COUNTERS).forEach(function (el) {
-    var p = parse(el); if (!p) return;
-    el._fx = p; el.setAttribute('aria-label', el.textContent.trim());
-    el.textContent = p.pre + (0).toFixed(p.dec) + p.post;
-    if (io) io.observe(el);
-  });
+  if (!reduce) {
+    document.querySelectorAll(COUNTERS).forEach(function (el) {
+      var p = parse(el); if (!p) return;
+      el._fx = p; el.setAttribute('aria-label', el.textContent.trim());
+      el.textContent = p.pre + (0).toFixed(p.dec) + p.post;
+      if (io) io.observe(el);
+    });
+  }
   function countUp(el) {
     var p = el._fx; if (!p) return;
     var start = null, dur = 1400;
@@ -73,9 +79,11 @@
     requestAnimationFrame(tick);
   }
 
-  if (!fine) return;
   // 3) cursor glow on cards (sets --mx / --my; the glow itself is in fx.css)
   // only cards that are already positioned get the glow, so no layout can break
+  // 4) magnetic buttons: move up to 6px toward the cursor
+  // Both only on fine pointer devices
+  if (!fine) return;
   document.querySelectorAll(CARDS).forEach(function (c) {
     if (getComputedStyle(c).position !== 'static') c.classList.add('fx-glow');
   });
@@ -87,7 +95,6 @@
     c.style.setProperty('--my', (e.clientY - r.top) + 'px');
   }, { passive: true });
 
-  // 4) magnetic buttons: move up to 6px toward the cursor
   document.querySelectorAll(BUTTONS).forEach(function (b) {
     b.addEventListener('pointermove', function (e) {
       var r = b.getBoundingClientRect();

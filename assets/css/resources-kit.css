@@ -350,6 +350,23 @@
 
 .rs-cta p { max-width: 62ch; margin: 1rem auto 0; color: var(--text-muted); line-height: 1.6; }
 
+/* ── Prompt 84: gap between hand-written CTA band and footer ── */
+.rs-band.rs-cta {
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .rs-band.rs-cta {
+    margin-bottom: 56px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .rs-band.rs-cta {
+    margin-bottom: 72px;
+  }
+}
+
 .rs-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; margin-top: 1.75rem; }
 
 .rs-button { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; border: 1px solid var(--rs-accent); border-radius: .75rem; padding: .7rem 1rem; background: var(--rs-accent); color: var(--white); font: inherit; font-weight: 700; text-decoration: none; }

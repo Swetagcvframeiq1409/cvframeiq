@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8" />
   <link rel="icon" href="data:," />
-  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PPE Safety | FrameIQ</title>
   <meta name="description" content="Explore the existing PPE Compliance Monitor listing and discuss workplace visual-review requirements with FrameIQ." />
-  <link rel="canonical" href="https://example.invalid/pages/ppe-safety.html" />
+  <link rel="canonical" href="https://cvframeiq.com/pages/ppe-safety.html" />
+  <meta property="og:url" content="https://cvframeiq.com/pages/ppe-safety.html" />
   <link rel="preload" href="../assets/fonts/space-grotesk-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="../assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="../assets/css/tokens.css" />
@@ -23,8 +24,29 @@
   <link rel="stylesheet" href="../assets/css/gk-kit.css" />
   <link rel="stylesheet" href="../assets/css/gk-motion.css" />
   <link rel="stylesheet" href="../assets/css/product-pages.css" />
+  <link rel="stylesheet" href="../assets/css/product-pages-v2.css" />
   <link rel="stylesheet" href="../assets/css/mobile-fixes.css" />
   <meta name="color-scheme" content="dark" />
+  <style>
+    /* Critical CSS for above-the-fold content - prevents FOUC */
+    :root { --header-h: 74px; --surface: #0b0c10; --text: #f5f6fb; --text-muted: #a8afc2; --pp-accent: #6542c8; --pp-accent2: #8b6ee0; --pp-line: rgba(127,127,150,.18); --pp-radius: 20px; --pp-ease: cubic-bezier(.23,1,.32,1); }
+    .pp-page .gk-prodhero { padding-block: calc(var(--header-h) + clamp(56px,9vw,120px)) clamp(64px,9vw,120px); background: var(--surface); }
+    .pp-page .gk-prodhero__grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 64px; align-items: center; }
+    .pp-page .gk-prodhero__copy { min-width: 0; display: flex; flex-direction: column; gap: 0; }
+    .pp-page .gk-prodhero__copy .gk-crumbs { font-size: 13px; color: rgba(168,175,194,.72); margin: 0; }
+    .pp-page .gk-prodhero__copy .gk-eyebrow { margin: 16px 0 0; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: #a78bfa; }
+    .pp-page .gk-prodhero__copy h1 { margin: 16px 0 20px; font-family: "Space Grotesk",sans-serif; font-weight: 500; font-size: clamp(48px,4.6vw,72px); line-height: 1.05; letter-spacing: -.01em; color: var(--text); max-width: 520px; }
+    .pp-page .gk-prodhero__copy .gk-lead { margin: 0 0 12px; font-size: 18px; line-height: 1.6; color: var(--text); max-width: 520px; }
+    .pp-page .gk-prodhero__cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 0; }
+    .pp-page .gk-prodhero__cta .gk-btn { min-height: 48px; padding: 0 20px; border-radius: 6px; background: #fff; color: #0e0f14; font-weight: 600; font-size: 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .pp-page .gk-prodhero__cta .gk-btn--ghost { background: transparent; color: var(--text); border: 1px solid rgba(255,255,255,.5); }
+    .pp-page .gk-prodhero__media { min-width: 0; }
+    .pp-page .gk-prodhero__media img { width: 100%; height: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: 50% 50%; border-radius: 16px; border: 1px solid rgba(255,255,255,.08); display: block; box-shadow: 0 24px 60px rgba(101,66,200,.25); }
+    @media (max-width: 1023px) { .pp-page .gk-prodhero__grid { grid-template-columns: 1fr; gap: 32px; } .pp-page .gk-prodhero__media { order: 2; } .pp-page .gk-prodhero__cta .gk-btn { flex: 1 1 100%; width: 100%; justify-content: center; } }
+    .skip-link { position: absolute; top: -100%; left: 16px; padding: 8px 16px; background: var(--pp-accent); color: #fff; border-radius: 4px; z-index: 10000; text-decoration: none; }
+    .skip-link:focus { top: 16px; }
+    #site-header { position: fixed; top: 0; left: 0; right: 0; height: var(--header-h); z-index: 1000; background: rgba(11,12,16,.9); backdrop-filter: blur(8px); border-bottom: 1px solid var(--pp-line); }
+  </style>
   <script src="../assets/data/site-data.js" defer></script>
   <script src="../assets/data/live-carryover.js" defer></script>
   <script src="../assets/js/live-carryover-render.js" defer></script>
@@ -42,7 +64,12 @@
   <script src="../assets/js/gk-kit.js" defer></script>
   <script src="../assets/js/gk-motion.js" defer></script>
   <script src="../assets/js/pages/product-pages.js" defer></script>
-</head>
+<noscript>
+  <style>
+    [data-reveal], .gk-r, .ais-reveal, .pp-tab-panel { opacity: 1 !important; visibility: visible !important; transform: none !important; }
+  </style>
+</noscript>
+  </head>
 <body data-root="../">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div id="site-header"></div>
@@ -51,23 +78,23 @@
 
     <!-- 1. HERO -->
     <section class="gk-prodhero" aria-labelledby="h1">
-      <div class="gk-container gk-prodhero__grid">
+      <div class="gk-wrap gk-prodhero__grid">
         <div class="gk-prodhero__copy">
           <nav class="gk-crumbs" aria-label="Breadcrumb">
-            <a href="../index.html">Home</a> <i class="bi bi-chevron-right" aria-hidden="true"></i>
-            <a href="ai-store.html">Products</a> <i class="bi bi-chevron-right" aria-hidden="true"></i>
+            <a href="../index.html">Home</a> /
+            <a href="ai-store.html">Products</a> /
             PPE Safety
           </nav>
-          <p class="gk-eyebrow"><span class="gk-icontile"><i class="bi bi-shield-check"></i></span> PPE SAFETY</p>
-          <h1 id="h1">PPE Safety<br><span class="gk-accent"><span class="gk-draft">Draft - pending content</span></span></h1>
+          <p class="gk-eyebrow">PPE SAFETY</p>
+          <h1 id="h1">PPE Safety</h1>
           <p class="gk-lead">Explore the existing PPE Compliance Monitor listing and discuss workplace visual-review requirements.</p>
           <div class="gk-prodhero__cta">
             <a class="gk-btn" href="contact.html">Book a Demo <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
             <a class="gk-btn gk-btn--ghost" href="ai-store.html">Back to AI Store <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
-        <div class="gk-prodhero__visual">
-          <div class="gk-img-slot"><img src="../assets/img/products/ppe-safety-hero.webp" alt="PPE Safety" onerror="this.parentElement.innerHTML='<div class=gk-fallback><i class=bi-bi-shield-check></i></div>'" /></div>
+        <div class="gk-prodhero__media">
+          <img src="../assets/img/products/ppe-safety-hero.webp" alt="PPE Safety" loading="eager" fetchpriority="high" width="1680" height="944" decoding="async" />
         </div>
       </div>
     </section>
@@ -76,26 +103,26 @@
     <section class="gk-band" aria-label="Key facts">
       <div class="gk-wrap">
         <span class="gk-eyebrow">At a glance</span>
-        <div class="pp-facts">
-          <div class="pp-fact">
+        <div class="pp-glance">
+          <div class="pp-glance-cell">
             <i class="bi bi-shield-check" aria-hidden="true"></i>
-            <span class="pp-fact-label">PPE classes listed</span>
-            <span class="pp-fact-value">Helmets and vests</span>
+            <span class="pp-glance-label">PPE classes listed</span>
+            <span class="pp-glance-value">Helmets, vests</span>
           </div>
-          <div class="pp-fact">
+          <div class="pp-glance-cell">
             <i class="bi bi-camera-video" aria-hidden="true"></i>
-            <span class="pp-fact-label">Input</span>
-            <span class="pp-fact-value">Camera footage or images</span>
+            <span class="pp-glance-label">Input</span>
+            <span class="pp-glance-value">Camera footage</span>
           </div>
-          <div class="pp-fact">
+          <div class="pp-glance-cell">
             <i class="bi bi-building" aria-hidden="true"></i>
-            <span class="pp-fact-label">Sector</span>
-            <span class="pp-fact-value">Manufacturing, construction</span>
+            <span class="pp-glance-label">Sector</span>
+            <span class="pp-glance-value">Manufacturing</span>
           </div>
-          <div class="pp-fact">
+          <div class="pp-glance-cell">
             <i class="bi bi-gear" aria-hidden="true"></i>
-            <span class="pp-fact-label">Integration</span>
-            <span class="pp-fact-value">Depends on workplace review process</span>
+            <span class="pp-glance-label">Integration</span>
+            <span class="pp-glance-value">Review process</span>
           </div>
         </div>
       </div>
@@ -130,38 +157,39 @@
       <div class="gk-wrap">
         <span class="gk-eyebrow">How it could work</span>
         <h2 id="ppe-workflow-h2">Discussion workflow</h2>
-        <div class="pp-workflow-grid" data-pp-workflow>
-          <div class="pp-step-rail" aria-hidden="true">
-            <div class="pp-step-num is-on">01</div>
-            <div class="pp-step-num">02</div>
-            <div class="pp-step-num">03</div>
-          </div>
-          <div class="pp-step-cards">
-            <div class="pp-step-card is-on">
+        <div class="pp-workflow-wrap" data-pp-workflow>
+          <div class="pp-workflow-list">
+            <div class="pp-step-card is-on" data-step="0">
+              <span class="pp-step-num">01</span>
               <h3>Define the rules</h3>
               <p>Define the site's PPE rules and relevant camera views.</p>
             </div>
-            <div class="pp-step-card">
+            <div class="pp-step-card" data-step="1">
+              <span class="pp-step-num">02</span>
               <h3>Discuss review</h3>
               <p>Discuss a computer-vision review workflow using representative footage or images.</p>
             </div>
-            <div class="pp-step-card">
+            <div class="pp-step-card" data-step="2">
+              <span class="pp-step-num">03</span>
               <h3>Agree exceptions</h3>
               <p>Agree how exceptions are reviewed and how information may be used.</p>
             </div>
           </div>
-          <div class="pp-workflow-img" aria-hidden="true">
-            <picture>
-              <source srcset="../assets/img/ppesafety.webp" type="image/webp" />
-              <img
-                src="../assets/img/ppesafety.webp"
-                alt=""
-                width="1680" height="944"
-                loading="lazy"
-                decoding="async"
-                onerror="this.parentElement.parentElement.innerHTML='<div class=\'pp-media-fallback\'><i class=\'bi bi-shield-check\' aria-hidden=\'true\'></i></div>'"
-              />
-            </picture>
+          <div class="pp-workflow-media">
+            <div class="pp-workflow-img active" data-step="0">
+              <img src="../assets/img/ppesafety.webp" alt="PPE Safety step 1" loading="lazy" width="720" height="540" />
+            </div>
+            <div class="pp-workflow-img" data-step="1">
+              <img src="../assets/img/products/ppe-safety-hero.webp" alt="PPE Safety step 2" loading="lazy" width="720" height="540" />
+            </div>
+            <div class="pp-workflow-img" data-step="2">
+              <div class="pp-icon-panel">
+                <i class="bi bi-shield-check" aria-hidden="true"></i>
+                <span class="pp-chip">Exception review</span>
+                <span class="pp-chip">Information use</span>
+                <span class="pp-chip">Workflow agreement</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -177,10 +205,10 @@
           </div>
         </div>
         <div class="pp-tabs-wrap" data-pp-tabs>
-          <div>
+          <div class="pp-tab-bar-wrapper">
             <div class="pp-tab-bar" role="tablist" aria-label="PPE Safety requirements">
               <button
-                class="pp-tab-btn"
+                class="pp-tab-btn is-on"
                 type="button"
                 role="tab"
                 id="ppe-tab-0"
@@ -196,7 +224,7 @@
                 aria-controls="ppe-panel-1"
                 aria-selected="false"
                 tabindex="-1"
-                data-img="../assets/img/manufacturing-hero.webp"
+                data-img="../assets/img/products/ppe-safety-hero.webp"
               >Site conditions</button>
               <button
                 class="pp-tab-btn"
@@ -206,34 +234,53 @@
                 aria-controls="ppe-panel-2"
                 aria-selected="false"
                 tabindex="-1"
-                data-img="../assets/img/manufacturing-line-monitoring.webp"
+                data-img=""
               >Integration</button>
             </div>
+          </div>
+          <div class="pp-tab-panels">
             <div class="pp-tab-panel is-on" id="ppe-panel-0" role="tabpanel" aria-labelledby="ppe-tab-0">
-              <h3>PPE classes</h3>
-              <p>Typical listings cover helmets, vests, and other visible compliance checks relevant to a workplace review policy.</p>
+              <div class="pp-tab-panel-grid">
+                <div class="pp-tab-copy">
+                  <h3>PPE classes</h3>
+                  <p>Typical listings cover helmets, vests, and other visible compliance checks relevant to a workplace review policy.</p>
+                </div>
+                <div class="pp-tab-media">
+                  <div class="pp-tab-img-wrap">
+                    <img src="../assets/img/ppesafety.webp" alt="PPE Safety PPE classes" loading="lazy" width="720" height="540" />
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="pp-tab-panel" id="ppe-panel-1" role="tabpanel" aria-labelledby="ppe-tab-1">
-              <h3>Site conditions</h3>
-              <p>Camera placement, lighting, and site-specific policy review are central to realistic PPE compliance monitoring.</p>
+              <div class="pp-tab-panel-grid">
+                <div class="pp-tab-copy">
+                  <h3>Site conditions</h3>
+                  <p>Camera placement, lighting, and site-specific policy review are central to realistic PPE compliance monitoring.</p>
+                </div>
+                <div class="pp-tab-media">
+                  <div class="pp-tab-img-wrap">
+                    <img src="../assets/img/products/ppe-safety-hero.webp" alt="PPE Safety site conditions" loading="lazy" width="720" height="540" />
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="pp-tab-panel" id="ppe-panel-2" role="tabpanel" aria-labelledby="ppe-tab-2">
-              <h3>Integration</h3>
-              <p>Organizations often pair the review workflow with escalation, audit trails, and human-in-the-loop decision support.</p>
+              <div class="pp-tab-panel-grid">
+                <div class="pp-tab-copy">
+                  <h3>Integration</h3>
+                  <p>Organizations often pair the review workflow with escalation, audit trails, and human-in-the-loop decision support.</p>
+                  <div class="pp-chip-group">
+                    <span class="pp-chip">Escalation workflow</span>
+                    <span class="pp-chip">Audit trails</span>
+                    <span class="pp-chip">Human-in-the-loop</span>
+                  </div>
+                </div>
+                <div class="pp-tab-media">
+                  <div class="pp-icon-panel"><i class="bi bi-shield-check" aria-hidden="true"></i></div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="pp-tab-img" aria-hidden="true">
-            <picture>
-              <source srcset="../assets/img/ppesafety.webp" type="image/webp" />
-              <img
-                src="../assets/img/ppesafety.webp"
-                alt="PPE Safety specification illustration"
-                width="1680" height="944"
-                loading="lazy"
-                decoding="async"
-                onerror="this.parentElement.parentElement.innerHTML='<div class=\'pp-media-fallback\'><i class=\'bi bi-shield-check\' aria-hidden=\'true\'></i></div>'"
-              />
-            </picture>
           </div>
         </div>
       </div>
@@ -242,19 +289,19 @@
     <!-- 6. FAQ -->
     <section class="gk-band" aria-labelledby="ppe-faq-h2">
       <div class="gk-wrap">
-        <div class="pp-faq-grid">
-          <div class="pp-faq-intro">
+        <div class="pp-faq-wrap">
+          <div class="pp-faq-intro-col">
             <span class="gk-eyebrow">Frequently asked questions</span>
             <h2 id="ppe-faq-h2">Common questions</h2>
             <p>Answers to questions about the PPE Safety concept.</p>
           </div>
           <div class="pp-acc" data-pp-acc>
             <div class="pp-acc-item">
-              <button class="pp-acc-q" type="button" aria-expanded="false">
+              <button class="pp-acc-q is-on" type="button" aria-expanded="true">
                 Does this replace workplace safety staff?
                 <i class="bi bi-plus-lg pp-acc-icon" aria-hidden="true"></i>
               </button>
-              <div class="pp-acc-a" role="region">
+              <div class="pp-acc-a is-on" role="region" style="max-height:200px">
                 <div><p>No such claim is made. Appropriate human review and workplace policy remain matters to discuss with your organization.</p></div>
               </div>
             </div>
@@ -306,39 +353,6 @@
             <strong>AutoLabel</strong>
             <span>Discuss image annotation and data preparation requirements.</span>
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. CTA BAND -->
-    <section class="gk-band" aria-labelledby="ppe-cta-h2">
-      <div class="pp-cta-band">
-        <div class="pp-cta-inner">
-          <div>
-            <span class="gk-eyebrow">Discuss your use case</span>
-            <h2 id="ppe-cta-h2">Discuss PPE Safety</h2>
-            <p>Tell us about the site, policy, and review needs you want to assess.</p>
-            <div class="pp-actions">
-              <a class="gk-btn" href="contact.html?sector=manufacturing">
-                Book a Demo
-                <i class="bi bi-arrow-right" aria-hidden="true"></i>
-              </a>
-              <a class="gk-btn gk-btn--ghost" href="roi-ppe-safety.html">
-                PPE Safety ROI calculator
-                <i class="bi bi-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-          <address class="pp-cta-contact">
-            <a class="pp-cta-row" href="tel:+919423149303">
-              <i class="bi bi-telephone" aria-hidden="true"></i>
-              <span data-site="phone">+91 94231 49303</span>
-            </a>
-            <a class="pp-cta-row" href="mailto:official@cvframeiq.com">
-              <i class="bi bi-envelope" aria-hidden="true"></i>
-              <span data-site="email">official@cvframeiq.com</span>
-            </a>
-          </address>
         </div>
       </div>
     </section>

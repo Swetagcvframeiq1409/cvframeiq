@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8" />
   <link rel="icon" href="data:," />
-  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AutoLabel | FrameIQ</title>
   <meta name="description" content="Discuss image annotation and data preparation requirements with FrameIQ. AutoLabel product details are to be confirmed." />
-  <link rel="canonical" href="https://example.invalid/pages/autolabel.html" />
+  <link rel="canonical" href="https://cvframeiq.com/pages/autolabel.html" />
+  <meta property="og:url" content="https://cvframeiq.com/pages/autolabel.html" />
   <link rel="preload" href="../assets/fonts/space-grotesk-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="../assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="../assets/css/tokens.css" />
@@ -19,10 +20,12 @@
   <link rel="stylesheet" href="../assets/css/inner-wow.css" />
   <link rel="stylesheet" href="../assets/css/nav-fix.css" />
   <link rel="stylesheet" href="../assets/css/gk.css" />
-  <link rel="stylesheet" href="../assets/css/fix-round3.css" />
-  <link rel="stylesheet" href="../assets/css/gk-kit.css" />
+<link rel="stylesheet" href="../assets/css/fix-round3.css" />
+    <link rel="stylesheet" href="../assets/css/mobile-fixes.css" />
+    <link rel="stylesheet" href="../assets/css/gk-kit.css" />
   <link rel="stylesheet" href="../assets/css/gk-motion.css" />
   <link rel="stylesheet" href="../assets/css/product-pages.css" />
+  <link rel="stylesheet" href="../assets/css/product-pages-v2.css" />
   <meta name="color-scheme" content="dark" />
   <script src="../assets/data/site-data.js" defer></script>
   <script src="../assets/data/live-carryover.js" defer></script>
@@ -41,7 +44,12 @@
   <script src="../assets/js/gk-kit.js" defer></script>
   <script src="../assets/js/gk-motion.js" defer></script>
   <script src="../assets/js/pages/product-pages.js" defer></script>
-</head>
+<noscript>
+  <style>
+    [data-reveal], .gk-r, .ais-reveal, .pp-tab-panel { opacity: 1 !important; visibility: visible !important; transform: none !important; }
+  </style>
+</noscript>
+  </head>
 <body data-root="../">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div id="site-header"></div>
@@ -50,23 +58,23 @@
 
     <!-- 1. HERO -->
     <section class="gk-prodhero" aria-labelledby="h1">
-      <div class="gk-container gk-prodhero__grid">
+      <div class="gk-wrap gk-prodhero__grid">
         <div class="gk-prodhero__copy">
           <nav class="gk-crumbs" aria-label="Breadcrumb">
-            <a href="../index.html">Home</a> <i class="bi bi-chevron-right" aria-hidden="true"></i>
-            <a href="ai-store.html">Products</a> <i class="bi bi-chevron-right" aria-hidden="true"></i>
+            <a href="../index.html">Home</a> /
+            <a href="ai-store.html">Products</a> /
             AutoLabel
           </nav>
-          <p class="gk-eyebrow"><span class="gk-icontile"><i class="bi bi-tags"></i></span> IMAGE ANNOTATION</p>
-          <h1 id="h1">AutoLabel<br><span class="gk-accent"><span class="gk-draft">Draft - pending content</span></span></h1>
+          <p class="gk-eyebrow">IMAGE ANNOTATION</p>
+          <h1 id="h1">AutoLabel</h1>
           <p class="gk-lead">Discuss image annotation and data preparation requirements with FrameIQ.</p>
           <div class="gk-prodhero__cta">
             <a class="gk-btn" href="contact.html">Book a Demo <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
             <a class="gk-btn gk-btn--ghost" href="ai-store.html">Back to AI Store <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
-        <div class="gk-prodhero__visual">
-          <div class="gk-img-slot"><img src="../assets/img/products/autolabel-hero.webp" alt="AutoLabel" onerror="this.parentElement.innerHTML='<div class=gk-fallback><i class=bi-bi-tags></i></div>'" /></div>
+        <div class="gk-prodhero__media">
+          <img src="../assets/img/products/autolabel-hero.webp" alt="AutoLabel" loading="eager" fetchpriority="high" width="1680" height="944" decoding="async" />
         </div>
       </div>
     </section>
@@ -75,26 +83,26 @@
     <section class="gk-band" aria-label="Key facts">
       <div class="gk-wrap">
         <span class="gk-eyebrow">At a glance</span>
-        <div class="pp-facts">
-          <div class="pp-fact">
+        <div class="pp-glance">
+          <div class="pp-glance-cell">
             <i class="bi bi-tag" aria-hidden="true"></i>
-            <span class="pp-fact-label">Product type</span>
-            <span class="pp-fact-value">Image Annotation</span>
+            <span class="pp-glance-label">Product type</span>
+            <span class="pp-glance-value">Image Annotation</span>
           </div>
-          <div class="pp-fact">
+          <div class="pp-glance-cell">
             <i class="bi bi-file-earmark-image" aria-hidden="true"></i>
-            <span class="pp-fact-label">Formats</span>
-            <span class="pp-fact-value">Image sets and label types vary by project</span>
+            <span class="pp-glance-label">Formats</span>
+            <span class="pp-glance-value">Image sets</span>
           </div>
-          <div class="pp-fact">
+          <div class="pp-glance-cell">
             <i class="bi bi-people" aria-hidden="true"></i>
-            <span class="pp-fact-label">Workflow</span>
-            <span class="pp-fact-value">Task design and review process are project-specific</span>
+            <span class="pp-glance-label">Workflow</span>
+            <span class="pp-glance-value">Task design</span>
           </div>
-          <div class="pp-fact">
+          <div class="pp-glance-cell">
             <i class="bi bi-cloud-upload" aria-hidden="true"></i>
-            <span class="pp-fact-label">Data handling</span>
-            <span class="pp-fact-value">Export, access and handling are confirmed on enquiry</span>
+            <span class="pp-glance-label">Data handling</span>
+            <span class="pp-glance-value">Export, access</span>
           </div>
         </div>
       </div>
@@ -129,38 +137,34 @@
       <div class="gk-wrap">
         <span class="gk-eyebrow">How it could work</span>
         <h2 id="al-workflow-h2">Discussion workflow</h2>
-        <div class="pp-workflow-grid" data-pp-workflow style="margin-top:40px">
-          <div class="pp-step-rail" aria-hidden="true">
-            <div class="pp-step-num is-on">01</div>
-            <div class="pp-step-num">02</div>
-            <div class="pp-step-num">03</div>
-          </div>
-          <div class="pp-step-cards">
-            <div class="pp-step-card is-on">
+        <div class="pp-workflow-wrap" data-pp-workflow>
+          <div class="pp-workflow-list">
+            <div class="pp-step-card is-on" data-step="0">
+              <span class="pp-step-num">01</span>
               <h3>Describe the imagery</h3>
               <p>Describe your imagery, label types, and intended use.</p>
             </div>
-            <div class="pp-step-card">
+            <div class="pp-step-card" data-step="1">
+              <span class="pp-step-num">02</span>
               <h3>Agree annotations</h3>
               <p>Agree how annotations would be created and reviewed.</p>
             </div>
-            <div class="pp-step-card">
+            <div class="pp-step-card" data-step="2">
+              <span class="pp-step-num">03</span>
               <h3>Confirm handling</h3>
               <p>Confirm data access, export format, ownership, and handling before any work begins.</p>
             </div>
           </div>
-          <div class="pp-workflow-img" aria-hidden="true">
-            <picture>
-              <source srcset="../assets/img/products/autolabel-hero.webp" type="image/webp" />
-              <img
-                src="../assets/img/products/autolabel-hero.webp"
-                alt=""
-                width="1500" height="1000"
-                loading="lazy"
-                decoding="async"
-                onerror="this.parentElement.parentElement.innerHTML='<div class=\'pp-media-fallback\'><i class=\'bi bi-diagram-3\' aria-hidden=\'true\'></i></div>'"
-              />
-            </picture>
+          <div class="pp-workflow-media">
+            <div class="pp-workflow-img active" data-step="0">
+              <img src="../assets/img/products/autolabel-hero.webp" alt="AutoLabel step 1" loading="lazy" width="720" height="540" />
+            </div>
+            <div class="pp-workflow-img" data-step="1">
+              <img src="../assets/img/AutoLabel workflow.webp" alt="AutoLabel step 2" loading="lazy" width="720" height="540" />
+            </div>
+            <div class="pp-workflow-img" data-step="2">
+              <img src="../assets/img/AutoLabel hero.webp" alt="AutoLabel step 3" loading="lazy" width="720" height="540" />
+            </div>
           </div>
         </div>
       </div>
@@ -176,10 +180,10 @@
           </div>
         </div>
         <div class="pp-tabs-wrap" data-pp-tabs>
-          <div>
+          <div class="pp-tab-bar-wrapper">
             <div class="pp-tab-bar" role="tablist" aria-label="AutoLabel requirements">
               <button
-                class="pp-tab-btn"
+                class="pp-tab-btn is-on"
                 type="button"
                 role="tab"
                 id="al-tab-0"
@@ -195,7 +199,7 @@
                 aria-controls="al-panel-1"
                 aria-selected="false"
                 tabindex="-1"
-                data-img="../assets/img/products/autolabel-hero.webp"
+                data-img="../assets/img/AutoLabel workflow.webp"
               >Workflow features</button>
               <button
                 class="pp-tab-btn"
@@ -205,34 +209,53 @@
                 aria-controls="al-panel-2"
                 aria-selected="false"
                 tabindex="-1"
-                data-img="../assets/img/manufacturing-defect-inspection.webp"
+                data-img=""
               >Data handling</button>
             </div>
+          </div>
+          <div class="pp-tab-panels">
             <div class="pp-tab-panel is-on" id="al-panel-0" role="tabpanel" aria-labelledby="al-tab-0">
-              <h3>Formats and labels</h3>
-              <p>Annotation programmes typically cover image sets, label taxonomy, and export requirements that differ by project.</p>
+              <div class="pp-tab-panel-grid">
+                <div class="pp-tab-copy">
+                  <h3>Formats and labels</h3>
+                  <p>Annotation programmes typically cover image sets, label taxonomy, and export requirements that differ by project.</p>
+                </div>
+                <div class="pp-tab-media">
+                  <div class="pp-tab-img-wrap">
+                    <img src="../assets/img/products/autolabel-hero.webp" alt="AutoLabel formats and labels" loading="lazy" width="720" height="540" />
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="pp-tab-panel" id="al-panel-1" role="tabpanel" aria-labelledby="al-tab-1">
-              <h3>Workflow features</h3>
-              <p>Project teams often need review, QA, collaboration, and region-based labeling support built into the workflow.</p>
+              <div class="pp-tab-panel-grid">
+                <div class="pp-tab-copy">
+                  <h3>Workflow features</h3>
+                  <p>Project teams often need review, QA, collaboration, and region-based labeling support built into the workflow.</p>
+                </div>
+                <div class="pp-tab-media">
+                  <div class="pp-tab-img-wrap">
+                    <img src="../assets/img/AutoLabel workflow.webp" alt="AutoLabel workflow features" loading="lazy" width="720" height="540" />
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="pp-tab-panel" id="al-panel-2" role="tabpanel" aria-labelledby="al-tab-2">
-              <h3>Data handling</h3>
-              <p>Data retention, access controls, and deployment should be planned early so security and handling requirements are aligned.</p>
+              <div class="pp-tab-panel-grid">
+                <div class="pp-tab-copy">
+                  <h3>Data handling</h3>
+                  <p>Data retention, access controls, and deployment should be planned early so security and handling requirements are aligned.</p>
+                  <div class="pp-chip-group">
+                    <span class="pp-chip">Data retention</span>
+                    <span class="pp-chip">Access controls</span>
+                    <span class="pp-chip">Deployment planning</span>
+                  </div>
+                </div>
+                <div class="pp-tab-media">
+                  <div class="pp-icon-panel"><i class="bi bi-tag" aria-hidden="true"></i></div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="pp-tab-img" aria-hidden="true">
-            <picture>
-              <source srcset="../assets/img/products/autolabel-hero.webp" type="image/webp" />
-              <img
-                src="../assets/img/products/autolabel-hero.webp"
-                alt="AutoLabel specification illustration"
-                width="1600" height="1200"
-                loading="lazy"
-                decoding="async"
-                onerror="this.parentElement.parentElement.innerHTML='<div class=\'pp-media-fallback\'><i class=\'bi bi-tag\' aria-hidden=\'true\'></i></div>'"
-              />
-            </picture>
           </div>
         </div>
       </div>
@@ -241,19 +264,19 @@
     <!-- 6. FAQ -->
     <section class="gk-band" aria-labelledby="al-faq-h2">
       <div class="gk-wrap">
-        <div class="pp-faq-grid">
-          <div class="pp-faq-intro">
+        <div class="pp-faq-wrap">
+          <div class="pp-faq-intro-col">
             <span class="gk-eyebrow">Frequently asked questions</span>
             <h2 id="al-faq-h2">Common questions</h2>
             <p>Answers to questions about the AutoLabel concept.</p>
           </div>
           <div class="pp-acc" data-pp-acc>
             <div class="pp-acc-item">
-              <button class="pp-acc-q" type="button" aria-expanded="false">
+              <button class="pp-acc-q is-on" type="button" aria-expanded="true">
                 Can I upload a dataset now?
                 <i class="bi bi-plus-lg pp-acc-icon" aria-hidden="true"></i>
               </button>
-              <div class="pp-acc-a" role="region">
+              <div class="pp-acc-a is-on" role="region" style="max-height:200px">
                 <div><p>Do not send data until a suitable process and handling terms have been agreed. Those details are to be confirmed.</p></div>
               </div>
             </div>
@@ -305,35 +328,6 @@
             <strong>PPE Safety</strong>
             <span>Explore the existing PPE Compliance Monitor listing.</span>
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. CTA BAND -->
-    <section class="gk-band" aria-labelledby="al-cta-h2">
-      <div class="pp-cta-band">
-        <div class="pp-cta-inner">
-          <div>
-            <span class="gk-eyebrow">Discuss your use case</span>
-            <h2 id="al-cta-h2">Discuss AutoLabel</h2>
-            <p>Share the data-preparation challenge you want to explore.</p>
-            <div class="pp-actions">
-              <a class="gk-btn" href="contact.html">
-                Book a Demo
-                <i class="bi bi-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-          <address class="pp-cta-contact">
-            <a class="pp-cta-row" href="tel:+919423149303">
-              <i class="bi bi-telephone" aria-hidden="true"></i>
-              <span data-site="phone">+91 94231 49303</span>
-            </a>
-            <a class="pp-cta-row" href="mailto:official@cvframeiq.com">
-              <i class="bi bi-envelope" aria-hidden="true"></i>
-              <span data-site="email">official@cvframeiq.com</span>
-            </a>
-          </address>
         </div>
       </div>
     </section>

@@ -33,7 +33,7 @@
       prepareVisible(entry.target);
       io.unobserve(entry.target);
     });
-  }, { threshold: 0.05, rootMargin: '0px 0px -8% 0px' });
+  }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
 
   var allMarked = [];
 

@@ -6,7 +6,6 @@
   document.querySelectorAll('[data-pp-tabs]').forEach(function (wrap) {
     var btns = Array.prototype.slice.call(wrap.querySelectorAll('.pp-tab-btn'));
     var panels = Array.prototype.slice.call(wrap.querySelectorAll('.pp-tab-panel'));
-    var img = wrap.querySelector('.pp-tab-img img');
 
     function isPendingOnlyPanel(panel) {
       if (!panel) return false;
@@ -29,31 +28,46 @@
 
     if (!liveBtns.length) return;
 
-    var sources = [];
-    liveBtns.forEach(function (b) { sources.push(b.getAttribute('data-img') || ''); });
+    var active = 0;
 
-    function show(i) {
+    function updateButtons() {
       liveBtns.forEach(function (b, n) {
-        b.setAttribute('aria-selected', String(n === i));
-        b.setAttribute('tabindex', n === i ? '0' : '-1');
+        var sel = n === active;
+        b.setAttribute('aria-selected', String(sel));
+        b.setAttribute('tabindex', sel ? '0' : '-1');
+        b.classList.toggle('is-on', sel);
       });
-      livePanels.forEach(function (p, n) { p.classList.toggle('is-on', n === i); });
-      if (img && sources[i]) {
-        img.src = sources[i];
-        img.alt = liveBtns[i].textContent.trim();
+    }
+
+    function show(i, animate) {
+      if (i === active) return;
+      var oldPanel = livePanels[active];
+      oldPanel.classList.remove('is-on');
+      oldPanel.setAttribute('hidden', '');
+      active = i;
+      var panel = livePanels[active];
+      updateButtons();
+      panel.removeAttribute('hidden');
+      if (animate) {
+        panel.offsetHeight; // force style recalc (opacity 0, translateY(8px), display grid)
+        requestAnimationFrame(function () { panel.classList.add('is-on'); });
+      } else {
+        panel.classList.add('is-on');
       }
     }
 
+    livePanels.forEach(function (p, n) { if (n !== active) p.setAttribute('hidden', ''); });
+    show(0, false);
+
     liveBtns.forEach(function (b, n) {
-      b.addEventListener('click', function () { show(n); });
+      b.addEventListener('click', function () { show(n, true); });
       b.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowRight') { e.preventDefault(); show((n + 1) % liveBtns.length); liveBtns[(n + 1) % liveBtns.length].focus(); }
-        if (e.key === 'ArrowLeft')  { e.preventDefault(); show((n - 1 + liveBtns.length) % liveBtns.length); liveBtns[(n - 1 + liveBtns.length) % liveBtns.length].focus(); }
-        if (e.key === 'Home') { e.preventDefault(); show(0); liveBtns[0].focus(); }
-        if (e.key === 'End')  { e.preventDefault(); show(liveBtns.length - 1); liveBtns[liveBtns.length - 1].focus(); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); show((n + 1) % liveBtns.length, true); liveBtns[(n + 1) % liveBtns.length].focus(); }
+        if (e.key === 'ArrowLeft')  { e.preventDefault(); show((n - 1 + liveBtns.length) % liveBtns.length, true); liveBtns[(n - 1 + liveBtns.length) % liveBtns.length].focus(); }
+        if (e.key === 'Home') { e.preventDefault(); show(0, true); liveBtns[0].focus(); }
+        if (e.key === 'End')  { e.preventDefault(); show(liveBtns.length - 1, true); liveBtns[liveBtns.length - 1].focus(); }
       });
     });
-    show(0);
   });
 
   document.querySelectorAll('main[data-no-global-cta]').forEach(function (mainEl) {
@@ -95,21 +109,21 @@
     }
   });
 
-  /* ── workflow scroll observer ── */
+  /* ── workflow scroll observer + click ── */
   document.querySelectorAll('[data-pp-workflow]').forEach(function (wrap) {
     var cards = Array.prototype.slice.call(wrap.querySelectorAll('.pp-step-card'));
-    var nums  = Array.prototype.slice.call(wrap.querySelectorAll('.pp-step-num'));
+    var imgs  = Array.prototype.slice.call(wrap.querySelectorAll('.pp-workflow-img'));
     if (!cards.length) return;
 
     if (reduce || !('IntersectionObserver' in window)) {
       cards.forEach(function (c) { c.classList.add('is-on'); });
-      nums.forEach(function (n) { n.classList.add('is-on'); });
+      imgs.forEach(function (im, i) { im.classList.toggle('active', i === 0); });
       return;
     }
 
     function activate(idx) {
       cards.forEach(function (c, i) { c.classList.toggle('is-on', i === idx); });
-      nums.forEach(function (n, i) { n.classList.toggle('is-on', i === idx); });
+      imgs.forEach(function (im, i) { im.classList.toggle('active', i === idx); });
     }
 
     var io = new IntersectionObserver(function (entries) {
@@ -118,9 +132,12 @@
         var idx = cards.indexOf(entry.target);
         if (idx !== -1) activate(idx);
       });
-    }, { rootMargin: '-40% 0px -40% 0px' });
+    }, { rootMargin: '-45% 0px -45% 0px' });
 
-    cards.forEach(function (c) { io.observe(c); });
+    cards.forEach(function (c, i) {
+      io.observe(c);
+      c.addEventListener('click', function () { activate(i); });
+    });
     activate(0);
   });
 })();

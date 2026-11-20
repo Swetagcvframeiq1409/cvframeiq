@@ -43,18 +43,48 @@
   document.querySelectorAll('[data-gk-tabs]').forEach(function (box) {
     var btns = box.querySelectorAll('.gk-tabs__bar button');
     var panels = box.querySelectorAll('.gk-tabs__panel');
+    var indicator = box.querySelector('.gk-tabs__bar::before');
+    
+    function updateIndicator(index) {
+      var activeBtn = btns[index];
+      if (!activeBtn || !activeBtn.parentElement) return;
+      var bar = activeBtn.parentElement;
+      var indicatorEl = bar.querySelector('::before') || bar.style;
+      // We'll use CSS custom properties to position the indicator
+      var rect = activeBtn.getBoundingClientRect();
+      var barRect = bar.getBoundingClientRect();
+      bar.style.setProperty('--gk-pill-left', (rect.left - barRect.left) + 'px');
+      bar.style.setProperty('--gk-pill-width', rect.width + 'px');
+    }
+    
     function show(i) {
       btns.forEach(function (b, n) {
-        b.setAttribute('aria-selected', String(n === i));
-        b.setAttribute('tabindex', n === i ? '0' : '-1');
+        var sel = n === i;
+        b.setAttribute('aria-selected', String(sel));
+        b.setAttribute('tabindex', sel ? '0' : '-1');
       });
-      panels.forEach(function (p, n) { p.classList.toggle('is-on', n === i); });
+      panels.forEach(function (p, n) {
+        if (n === i) {
+          p.removeAttribute('hidden');
+          if (!reduce) {
+            p.offsetHeight; // force style recalc (opacity 0, translateY(8px))
+            requestAnimationFrame(function () { p.classList.add('is-on'); });
+          } else {
+            p.classList.add('is-on');
+          }
+        } else {
+          p.classList.remove('is-on');
+          p.setAttribute('hidden', '');
+        }
+      });
+      updateIndicator(i);
     }
     btns.forEach(function (b, n) {
       b.addEventListener('click', function () { show(n); });
     });
     var prev = box.querySelector('[data-gk-prev]');
     var next = box.querySelector('[data-gk-next]');
+    show(0);
     function cur() {
       for (var i = 0; i < btns.length; i++) {
         if (btns[i].getAttribute('aria-selected') === 'true') return i;
@@ -82,6 +112,9 @@
     }
     window.addEventListener('hashchange', openHashTarget);
     openHashTarget();
+    
+    // Update indicator on resize
+    window.addEventListener('resize', function() { updateIndicator(cur()); });
   });
 
   document.querySelectorAll('[data-gk-acc]').forEach(function (acc) {

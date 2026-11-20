@@ -89,7 +89,7 @@
         entry.target.classList.add('is-visible');
         o.unobserve(entry.target);
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.01 });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
     items.forEach(el => {
       if (!el.classList.contains('is-visible')) {
         obs.observe(el);
@@ -103,7 +103,18 @@
     if (!sectorsGrid || !Array.isArray(window.SECTORS)) return;
     const sectors = window.SECTORS.filter(s => s.status !== 'hidden');
     sectorsGrid.replaceChildren();
-    sectors.forEach(sector => {
+    sectors.forEach(function (sector) {
+      if (!sector || typeof sector !== 'object') {
+        console.warn('AI Store: skipping non-object sector entry');
+        return;
+      }
+      if (!sector.name) {
+        console.warn('AI Store: sector missing "name" field, skipping:', sector.slug || '(no slug)');
+        return;
+      }
+      if (!sector.summary) {
+        console.warn('AI Store: sector missing "summary" field:', sector.name);
+      }
       const iconClass = sectorIconMap[sector.icon] || 'building-gear';
       const a = document.createElement('a');
       a.className = 'ais-sector-card ais-reveal';
@@ -112,7 +123,7 @@
         <span class="ais-sector-icon" aria-hidden="true"><i class="bi bi-${iconClass}"></i></span>
         <span class="ais-sector-copy">
           <strong>${sector.name}</strong>
-          <span>${sector.summary.slice(0, 60).replace(/\.$/, '')}...</span>
+          <span>${(sector.summary || '').slice(0, 60).replace(/\.$/, '')}...</span>
         </span>
         <i class="bi bi-arrow-right ais-sector-arrow" aria-hidden="true"></i>`;
       sectorsGrid.appendChild(a);

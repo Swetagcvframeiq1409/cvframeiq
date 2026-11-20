@@ -1,0 +1,12 @@
+{
+  "name": "frameiq-site",
+  "version": "1.0.0",
+  "description": "FrameIQ static site",
+  "main": "playwright.config.js",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1"
+  }
+}

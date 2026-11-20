@@ -127,7 +127,7 @@
         - Math.abs(b.boundingClientRect.top + b.boundingClientRect.height / 2 - innerHeight / 2));
       updateTimeline(activeSteps[0]);
     }
-  }, { threshold: [0, .01, .12, .25, .5, .75, 1], rootMargin: '-5% 0px' });
+  }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
 
   targets.forEach((item) => {
     if (item.closest('[hidden], [inert], details:not([open])')) {

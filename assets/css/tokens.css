@@ -81,9 +81,11 @@
 
   --font-sans: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --font-display: "Space Grotesk", "Inter", "Segoe UI", sans-serif;
-  --type-display: clamp(3.4rem, 7vw, 7.25rem);
-  --type-h1: clamp(2.75rem, 5vw, 5rem);
-  --type-h2: clamp(2.05rem, 3.5vw, 3.5rem);
+  --type-display: clamp(44px, 6vw, 88px);
+  --type-display-weight: 300;
+  --type-h1: clamp(44px, 6vw, 88px);
+  --type-h2: clamp(36px, 4vw, 76px);
+  --type-h2-weight: 700;
   --type-h3: clamp(1.4rem, 2vw, 2rem);
   --type-h4: clamp(1.15rem, 1.5vw, 1.45rem);
   --type-h5: clamp(1.03rem, 1.15vw, 1.2rem);
@@ -97,6 +99,9 @@
   --type-xl: var(--type-h3);
   --type-2xl: var(--type-h2);
   --type-3xl: var(--type-display);
+  --type-letter-tight: -0.025em;
+  --type-line-tight: 1.02;
+  --type-line-display: 1.06;
 
   --space-1: .25rem;
   --space-2: .5rem;
@@ -110,10 +115,14 @@
   --space-16: 4rem;
   --space-20: 5rem;
   --space-24: 6rem;
-  --section-space: clamp(4rem, 8vw, 7rem);
+  --section-space-lg: 112px;
+  --section-space-md: 80px;
+  --section-space-sm: 56px;
+  --section-space-xs: 0px;
+  --section-space: clamp(80px, 10vw, 112px);
   --container: min(1200px, calc(100% - 2.5rem));
   --content-measure: 65ch;
-  --header-h: 76px;
+  --header-h: 74px;
 
   --radius-xs: .5rem;
   --radius-sm: .75rem;
@@ -122,6 +131,7 @@
   --radius-xl: 1.5rem;
   --radius-2xl: 2rem;
   --radius-pill: 999px;
+  --card-radius: 8px;
 
   --shadow-xs: 0 2px 8px rgba(0, 0, 0, .14);
   --shadow-sm: 0 8px 24px rgba(0, 0, 0, .2);
@@ -140,20 +150,23 @@
   --z-toast: 120;
   --z-dropdown: 130;
 
-  --ease-standard: cubic-bezier(.2, .7, .2, 1);
+  --ease-standard: cubic-bezier(.4, 0, .2, 1);
   --ease-out: cubic-bezier(.22, 1, .36, 1);
   --ease-spring: cubic-bezier(.2, .75, .25, 1);
-  --dur-fast: 180ms;
-  --dur-base: 420ms;
+  --ease-reveal: cubic-bezier(.23, 1, .32, 1);
+  --dur-fast: 200ms;
+  --dur-base: 300ms;
   --dur-slow: 700ms;
-  --dur-reveal: 650ms;
+  --dur-reveal: 700ms;
   --stagger: 80ms;
-  --duration-fast: 140ms;
-  --duration-normal: 240ms;
-  --duration-slow: 420ms;
+  --duration-fast: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 700ms;
   --transition-fast: var(--duration-fast) var(--ease-standard);
   --transition-normal: var(--duration-normal) var(--ease-standard);
   --transition-slow: var(--duration-slow) var(--ease-standard);
+  --marquee-duration: 56s;
+  --marquee-easing: linear;
   --announcement-height: 0px;
 
   /* ── Shared container tokens (header, hero, all bands) ── */
@@ -163,6 +176,8 @@
   /* ── Hero gap: distance from header bottom to breadcrumb ── */
   --hero-gap: clamp(16px, 2.4vw, 40px);
 }
+
+html, body { background: var(--bg); color: var(--text); }
 
 @media (prefers-reduced-motion: reduce) {
   

@@ -1,6 +1,7 @@
 window.SECTORS = [
   {
     slug: 'banking',
+    name: 'Banking & Finance',
     capabilityIndex: 2,
     media: { hero: 'banking-hero', helps: null },
     icon: 'bank',

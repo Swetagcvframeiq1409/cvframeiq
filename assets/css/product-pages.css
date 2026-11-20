@@ -16,10 +16,10 @@
 .pp-page .gk-band,
 .pp-page > section,
 .pp-page .pp-section {
-  padding-block: clamp(64px,8vw,112px);
+  padding-block: clamp(48px, 6vw, 80px);
 }
 .pp-page .gk-hero {
-  padding-block: calc(var(--header-h,74px) + clamp(56px,9vw,120px)) clamp(64px,9vw,120px);
+  padding-block: calc(var(--header-h,74px) + clamp(48px, 7vw, 96px)) clamp(48px, 7vw, 96px);
 }
 .pp-page .gk-hero,
 .pp-page .gk-band {
@@ -227,7 +227,7 @@
   margin-top: var(--space-6);
   align-items: start;
 }
-.pp-page .pp-workflow-section { padding-block: var(--space-12); }
+.pp-page .pp-workflow-section { padding-block: clamp(64px, 8vw, 112px); }
 .pp-step-rail {
   display: grid;
   gap: 12px;
@@ -402,7 +402,7 @@
 .pp-acc-a {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows .45s var(--pp-ease);
+  transition: grid-template-rows 250ms var(--pp-ease);
 }
 .pp-acc-a > div { overflow: hidden; }
 .pp-acc-a p { margin: 0 0 20px; padding-left: 4px; font-size: .95rem; color: var(--text-muted,#a8afc2); }
