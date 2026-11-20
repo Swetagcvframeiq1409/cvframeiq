@@ -1,529 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="icon" href="data:," />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BeejHealth | FrameIQ</title>
-    <meta name="description" content="Crop health monitoring and disease detection for agriculture using computer vision. Aerial and ground imagery analysis for early intervention." />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="BeejHealth | FrameIQ" />
-    <meta property="og:description" content="Crop health monitoring and disease detection for agriculture using computer vision. Aerial and ground imagery analysis for early intervention." />
-    <link rel="canonical" href="https://cvframeiq.com/pages/beejhealth.html" />
-    <meta property="og:url" content="https://cvframeiq.com/pages/beejhealth.html" />
-    <link rel="preload" href="../assets/fonts/space-grotesk-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="../assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="../assets/css/tokens.css" />
-    <link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" />
-    <link rel="stylesheet" href="../assets/css/base.css" />
-    <link rel="stylesheet" href="../assets/css/components.css" />
-    <link rel="stylesheet" href="../assets/css/nav-fix.css" />
-    <link rel="stylesheet" href="../assets/css/gk-kit.css" />
-    <link rel="stylesheet" href="../assets/css/gk-products.css" />
-    <link rel="stylesheet" href="../assets/css/products-page.css" />
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="data:," />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeejHealth | Crop Health Advisory | FrameIQ</title>
+  <meta name="description" content="BeejHealth is an AI crop health advisory for Indian agriculture. Farmers can photograph crops for disease, pest, and nutrient insights." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="BeejHealth | Crop Health Advisory | FrameIQ" />
+  <meta property="og:description" content="BeejHealth is an AI crop health advisory for Indian agriculture. Farmers can photograph crops for disease, pest, and nutrient insights." />
+  <meta property="og:url" content="https://cvframeiq.com/pages/beejhealth.html" />
+  <link rel="canonical" href="https://cvframeiq.com/pages/beejhealth.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BeejHealth | Crop Health Advisory | FrameIQ" />
+  <meta name="twitter:description" content="BeejHealth is an AI crop health advisory for Indian agriculture. Farmers can photograph crops for disease, pest, and nutrient insights." />
+  <meta name="theme-color" content="#08090d" />
+  <link rel="manifest" href="../site.webmanifest" />
+  <link rel="preload" href="../assets/fonts/space-grotesk-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../assets/css/tokens.css" />
+  <link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../assets/css/base.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/search.css" />
+  <link rel="stylesheet" href="../assets/css/motion.css" />
+  <link rel="stylesheet" href="../assets/css/fx.css" />
+  <link rel="stylesheet" href="../assets/css/inner-wow.css" />
+  <link rel="stylesheet" href="../assets/css/nav-fix.css" />
+  <link rel="stylesheet" href="../assets/css/gk.css" />
+<link rel="stylesheet" href="../assets/css/fix-round3.css" />
     <link rel="stylesheet" href="../assets/css/mobile-fixes.css" />
-    <link rel="stylesheet" href="../assets/css/fix-round3.css" />
-    <script src="../assets/data/site-data.js" defer></script>
-    <script src="../assets/data/live-carryover.js" defer></script>
-    <script src="../assets/js/live-carryover-render.js" defer></script>
-    <script src="../assets/js/forms.js" defer></script>
-    <script src="../assets/data/images.js" defer></script>
-    <script src="../assets/js/photos.js" defer></script>
-    <script src="../assets/js/icons.js" defer></script>
-    <script src="../assets/js/components.js" defer></script>
-    <script src="../assets/js/main.js" defer></script>
-    <script src="../assets/js/gk-products.js" defer></script>
-    <script src="../assets/js/products-page.js" defer></script>
-    <script src="../assets/js/fx.js" defer></script>
-    <script src="../assets/js/gk.js" defer></script>
-    <script src="../assets/js/gk-kit.js" defer></script>
-    <script src="../assets/js/gk-motion.js" defer></script>
-    <meta name="color-scheme" content="dark" />
+    <link rel="stylesheet" href="../assets/css/gk-kit.css" />
+  <link rel="stylesheet" href="../assets/css/gk-motion.css" />
+  <link rel="stylesheet" href="../assets/css/product-pages.css" />
+  <link rel="stylesheet" href="../assets/css/product-pages-v2.css" />
+  <meta name="color-scheme" content="dark" />
+  <script src="../assets/data/site-data.js" defer></script>
+  <script src="../assets/data/live-carryover.js" defer></script>
+  <script src="../assets/js/live-carryover-render.js" defer></script>
+  <script src="../assets/data/images.js" defer></script>
+  <script src="../assets/data/search-index.js" defer></script>
+  <script src="../assets/js/photos.js" defer></script>
+  <script src="../assets/js/icons.js" defer></script>
+  <script src="../assets/js/components.js" defer></script>
+  <script src="../assets/js/search.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/data/ai-products.js" defer></script>
+  <script src="../assets/data/beejhealth.js" defer></script>
+  <script src="../assets/js/seo.js" defer></script>
+  <script src="../assets/js/motion.js" defer></script>
+  <script src="../assets/js/fx.js" defer></script>
+  <script src="../assets/js/gk.js" defer></script>
+  <script src="../assets/js/gk-kit.js" defer></script>
+  <script src="../assets/js/gk-motion.js" defer></script>
+  <script src="../assets/js/pages/product-pages.js" defer></script>
+<noscript>
+  <style>
+    [data-reveal], .gk-r, .ais-reveal, .pp-tab-panel { opacity: 1 !important; visibility: visible !important; transform: none !important; }
+  </style>
+</noscript>
   </head>
-  <body data-root="../">
-    <a class="skip-link" href="#main-content">Skip to content</a>
-    <div id="site-header"></div>
+<body data-root="../">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div id="site-header"></div>
 
-    <main id="main-content" class="pp-page pp-beej">
+  <main id="main-content" class="pp-page" data-no-global-cta="true">
 
-      <!-- Band 1: Hero -->
-      <section class="gk-prod-hero gk-band gk-band--dark" aria-labelledby="pp-title">
-        <div class="gk-wrap">
-          <div class="gk-prodhero__copy pp-reveal">
-            <nav class="gk-crumbs" aria-label="Breadcrumb">
-              <a href="../index.html">Home</a> /
-              <a href="ai-store.html">Products</a> /
-              <span aria-current="page">BeejHealth</span>
-            </nav>
-            <span class="gk-eyebrow">AGRICULTURE AI</span>
-            <h1 id="pp-title">BeejHealth</h1>
-            <p class="gk-lead">Crop health monitoring and disease detection for agriculture using computer vision. Aerial and ground imagery analysis for early intervention.</p>
-            <div class="gk-prodhero__cta pp-hero-actions">
-              <a class="gk-btn gk-btn--primary" href="contact.html?product=beejhealth">
-                Start an enquiry
-                <i class="bi bi-arrow-right" aria-hidden="true"></i>
-              </a>
-              <a class="gk-btn gk-btn--ghost" href="#modes">See capture modes</a>
+    <!-- 1. HERO -->
+    <section class="gk-prodhero" aria-labelledby="h1">
+      <div class="gk-wrap gk-prodhero__grid">
+        <div class="gk-prodhero__copy">
+          <nav class="gk-crumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a> /
+            <a href="ai-store.html">Products</a> /
+            BeejHealth
+          </nav>
+          <p class="gk-eyebrow">AI CROP HEALTH</p>
+          <h1 id="h1">BeejHealth</h1>
+          <p class="gk-lead">BeejHealth is an AI crop health advisory for Indian agriculture.</p>
+          <div class="gk-prodhero__cta">
+            <a class="gk-btn" href="contact.html">Book a Demo <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            <a class="gk-btn gk-btn--ghost" href="ai-store.html">Back to AI Store <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div class="gk-prodhero__media">
+          <img src="../assets/img/products/beejhealth-hero.webp" alt="BeejHealth" loading="eager" fetchpriority="high" width="1680" height="944" decoding="async" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. KEY FACTS -->
+    <section class="gk-band" aria-label="Key facts">
+      <div class="gk-wrap">
+        <span class="gk-eyebrow">At a glance</span>
+        <div class="pp-glance">
+          <div class="pp-glance-cell">
+            <i class="bi bi-flower1" aria-hidden="true"></i>
+            <span class="pp-glance-label">Focus</span>
+            <span class="pp-glance-value">Indian agriculture</span>
+          </div>
+          <div class="pp-glance-cell">
+            <i class="bi bi-phone" aria-hidden="true"></i>
+            <span class="pp-glance-label">Input method</span>
+            <span class="pp-glance-value">Smartphone photo</span>
+          </div>
+          <div class="pp-glance-cell">
+            <i class="bi bi-bug" aria-hidden="true"></i>
+            <span class="pp-glance-label">Analysis</span>
+            <span class="pp-glance-value">Disease, pest</span>
+          </div>
+          <div class="pp-glance-cell">
+            <i class="bi bi-file-text" aria-hidden="true"></i>
+            <span class="pp-glance-label">Output</span>
+            <span class="pp-glance-value">Structured report</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. PLATFORM FEATURES -->
+    <section class="gk-band" aria-labelledby="bh-features-h2">
+      <div class="gk-wrap">
+        <span class="gk-eyebrow">Platform features</span>
+        <h2 id="bh-features-h2">What BeejHealth can do</h2>
+        <div class="gk-cards">
+          <article class="gk-card">
+            <div class="gk-ic"><i class="bi bi-bug" aria-hidden="true"></i></div>
+            <h3>Crop Disease Detection</h3>
+            <p>AI-powered identification of 20+ crop diseases from smartphone photos with treatment guidance.</p>
+            <a class="gk-more" href="ai-store.html#agriculture">Learn more <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="gk-card">
+            <div class="gk-ic"><i class="bi bi-shield-exclamation" aria-hidden="true"></i></div>
+            <h3>Pest & Nutrient Analysis</h3>
+            <p>Detects pest infestations and nutrient deficiencies with specific agronomy recommendations.</p>
+            <a class="gk-more" href="ai-store.html#agriculture">Learn more <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="gk-card">
+            <div class="gk-ic"><i class="bi bi-phone" aria-hidden="true"></i></div>
+            <h3>Instant Mobile Diagnosis</h3>
+            <p>Works offline on Android and iOS — capture a photo, get structured results in seconds.</p>
+            <a class="gk-more" href="ai-store.html#agriculture">Learn more <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="gk-card">
+            <div class="gk-ic"><i class="bi bi-translate" aria-hidden="true"></i></div>
+            <h3>Hindi Language Support</h3>
+            <p>Treatment recommendations and advisories in Hindi, Marathi, and English for Indian farmers.</p>
+            <a class="gk-more" href="ai-store.html#agriculture">Learn more <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="gk-card">
+            <div class="gk-ic"><i class="bi bi-graph-up" aria-hidden="true"></i></div>
+            <h3>Yield Prediction AI <span class="gk-draft" style="font-size:.7rem;padding:1px 6px;margin-left:6px">Draft</span></h3>
+            <p>Forecasting harvest timing and volume from crop imagery — scope to be confirmed with FrameIQ.</p>
+            <a class="gk-more" href="contact.html">Discuss scope <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. HOW IT WORKS -->
+    <section class="gk-band" aria-labelledby="bh-workflow-h2">
+      <div class="gk-wrap">
+        <span class="gk-eyebrow">How it could work</span>
+        <h2 id="bh-workflow-h2">Discussion workflow</h2>
+        <div class="pp-workflow-wrap" data-pp-workflow>
+          <div class="pp-workflow-list">
+            <div class="pp-step-card is-on" data-step="0">
+              <span class="pp-step-num">01</span>
+              <h3>Capture</h3>
+              <p>Take photos of the crop with a smartphone.</p>
             </div>
-            <div class="gk-prod-facts" role="list" aria-label="Key facts">
-              <div class="gk-prod-fact pp-reveal" role="listitem">
-                <span class="gk-prod-fact__value">15+</span>
-                <span class="gk-prod-fact__label">crops covered</span>
-              </div>
-              <div class="gk-prod-fact pp-reveal" role="listitem" style="transition-delay:60ms">
-                <span class="gk-prod-fact__value">0.3m</span>
-                <span class="gk-prod-fact__label">GSD drone</span>
-              </div>
-              <div class="gk-prod-fact pp-reveal" role="listitem" style="transition-delay:120ms">
-                <span class="gk-prod-fact__value">48h</span>
-                <span class="gk-prod-fact__label">turnaround</span>
-              </div>
-              <div class="gk-prod-fact pp-reveal" role="listitem" style="transition-delay:180ms">
-                <span class="gk-prod-fact__value">API</span>
-                <span class="gk-prod-fact__label">+ dashboard</span>
-              </div>
+            <div class="pp-step-card" data-step="1">
+              <span class="pp-step-num">02</span>
+              <h3>AI analysis</h3>
+              <p>Computer vision reviews the images for visible signs of disease, pests or nutrient issues.</p>
+            </div>
+            <div class="pp-step-card" data-step="2">
+              <span class="pp-step-num">03</span>
+              <h3>Follow-up questions</h3>
+              <p>The advisory can ask for more context about the crop and field.</p>
+            </div>
+            <div class="pp-step-card" data-step="3">
+              <span class="pp-step-num">04</span>
+              <h3>Summary report</h3>
+              <p>A structured summary with suggested next steps.</p>
             </div>
           </div>
-          <div class="gk-prodhero__media pp-reveal" aria-label="BeejHealth crop monitoring visualization">
-            <div class="gk-img-slot" style="aspect-ratio: 4/3; border-radius: 16px; overflow: hidden;">
-              <img
-                src="../assets/img/beejhealth-hero.webp"
-                alt="BeejHealth — drone imagery showing crop health indices across a field"
-                width="1680"
-                height="1260"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-                onerror="this.style.display='none';this.nextElementSibling.removeAttribute('hidden')"
-              />
-              <div class="gk-img-fallback" hidden aria-hidden="true">
-                <i class="bi bi-leaf" style="font-size: 4rem;"></i>
-                <span>BeejHealth crop monitoring</span>
-              </div>
+          <div class="pp-workflow-media">
+            <div class="pp-workflow-img active" data-step="0">
+              <img src="../assets/img/Agriculture.webp" alt="BeejHealth step 1" loading="lazy" width="720" height="540" />
+            </div>
+            <div class="pp-workflow-img" data-step="1">
+              <img src="../assets/img/agricultureai.webp" alt="BeejHealth step 2" loading="lazy" width="720" height="540" />
+            </div>
+            <div class="pp-workflow-img" data-step="2">
+              <img src="../assets/img/smartagriculture.webp" alt="BeejHealth step 3" loading="lazy" width="720" height="540" />
+            </div>
+            <div class="pp-workflow-img" data-step="3">
+              <img src="../assets/img/products/beejhealth-hero.webp" alt="BeejHealth step 4" loading="lazy" width="720" height="540" />
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Band 2: Overview -->
-      <section class="gk-band gk-prod-section" id="overview" aria-labelledby="pp-overview-title" style="background: var(--prod-surface);">
-        <div class="gk-wrap">
-          <div class="gk-prod-section-head pp-reveal">
-            <span class="gk-eyebrow">What it does</span>
-            <h2 id="pp-overview-title">Early detection for healthier yields</h2>
-          </div>
-          <div class="gk-prod-split-alt" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
-            <div class="pp-reveal">
-              <p style="font-size: clamp(1rem, 1.1vw, 1.125rem); line-height: 1.7; margin-bottom: 1.5rem;">BeejHealth analyses drone, satellite and ground-camera imagery to detect crop stress, nutrient deficiency, pest infestation and disease before they are visible to the eye. The system outputs prescription maps for variable-rate application and scouting waypoints for field teams.</p>
-              <p style="font-size: clamp(1rem, 1.1vw, 1.125rem); line-height: 1.7; margin-bottom: 1.5rem;">Models are trained on Indian agro-climatic zones and validated with ICAR/KVK partners. Deployment options: cloud API for agri-platforms, on-prem for large estates, or edge on drone/rover for offline capture.</p>
-              <p style="font-size: clamp(1rem, 1.1vw, 1.125rem); line-height: 1.7;">Crop list, sensor requirements, ground-truth protocol and licensing are confirmed on enquiry.</p>
-            </div>
-            <div class="pp-reveal" style="transition-delay:100ms;">
-              <div class="gk-img-slot" style="aspect-ratio: 4/5; border-radius: 14px; overflow: hidden;">
-                <img
-                  src="../assets/img/beejhealth-overview.webp"
-                  alt="BeejHealth dashboard showing field health map and disease alerts"
-                  width="1080"
-                  height="1350"
-                  loading="lazy"
-                  decoding="async"
-                  onerror="this.style.display='none';this.nextElementSibling.removeAttribute('hidden')"
-                />
-                <div class="gk-img-fallback" hidden aria-hidden="true">
-                  <i class="bi bi-graph-up" style="font-size: 3rem;"></i>
-                  <span>Health dashboard</span>
-                </div>
-              </div>
-            </div>
+    <!-- 4. PLATFORM FEATURES / SPEC TABS -->
+    <section class="gk-band" aria-labelledby="bh-spec-h2">
+      <div class="gk-wrap">
+        <div class="gk-head">
+          <div>
+            <span class="gk-eyebrow">Capabilities</span>
+            <h2 id="bh-spec-h2">Platform features</h2>
           </div>
         </div>
-      </section>
-
-      <!-- Band 3: Capabilities -->
-      <section class="gk-band gk-band--dark gk-prod-section" id="capabilities" aria-labelledby="pp-cap-title" style="background: var(--prod-surface);">
-        <div class="gk-wrap">
-          <div class="gk-prod-section-head pp-reveal">
-            <span class="gk-eyebrow">Detectable conditions</span>
-            <h2 id="pp-cap-title">Capabilities at a glance</h2>
+        <div class="pp-tabs-wrap" data-pp-tabs>
+          <div class="pp-tab-bar-wrapper">
+            <div class="pp-tab-bar" role="tablist" aria-label="BeejHealth capabilities">
+              <button
+                class="pp-tab-btn is-on"
+                type="button"
+                role="tab"
+                id="bh-tab-0"
+                aria-controls="bh-panel-0"
+                aria-selected="true"
+                data-img="../assets/img/smartagriculture.webp"
+              >Focus areas</button>
+              <button
+                class="pp-tab-btn"
+                type="button"
+                role="tab"
+                id="bh-tab-1"
+                aria-controls="bh-panel-1"
+                aria-selected="false"
+                tabindex="-1"
+                data-img="../assets/img/Agriculture.webp"
+              >Supported crops</button>
+              <button
+                class="pp-tab-btn"
+                type="button"
+                role="tab"
+                id="bh-tab-2"
+                aria-controls="bh-panel-2"
+                aria-selected="false"
+                tabindex="-1"
+                data-img="../assets/img/agricultureai.webp"
+              >Platform</button>
+              <button
+                class="pp-tab-btn"
+                type="button"
+                role="tab"
+                id="bh-tab-3"
+                aria-controls="bh-panel-3"
+                aria-selected="false"
+                tabindex="-1"
+                data-img=""
+              >Technology</button>
+            </div>
           </div>
-          <div class="gk-cards gk-prod-cards" style="grid-template-columns: repeat(3, 1fr); gap: 1.25rem;">
-            <article class="gk-prod-card pp-reveal">
-              <div class="gk-prod-card__media">
-                <div class="gk-img-slot" style="aspect-ratio: 16/10;">
-                  <img src="../assets/img/beej-disease.webp" alt="Fungal disease detection" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.removeAttribute('hidden')" />
-                  <div class="gk-img-fallback" hidden aria-hidden="true"><i class="bi bi-virus" style="font-size: 2rem;"></i><span>Disease</span></div>
+          <div class="pp-tab-panels">
+            <div class="pp-tab-panel is-on" id="bh-panel-0" role="tabpanel" aria-labelledby="bh-tab-0">
+              <div class="pp-tab-panel-grid">
+                <div class="pp-tab-copy">
+                  <h3>Focus areas</h3>
+                  <p>BeejHealth is designed for crop monitoring in row crops, plantations, orchards, and vineyard environments.</p>
                 </div>
-              </div>
-              <div class="gk-prod-card__body">
-                <span class="gk-chip">Disease</span>
-                <h3 class="gk-prod-card__title">Fungal, bacterial, viral</h3>
-                <p class="gk-prod-card__desc">Blast, blight, rust, wilt, mosaic — 40+ disease classes across crops</p>
-              </div>
-              <div class="gk-prod-card__actions">
-                <span class="gk-prod-card__compare" aria-hidden="true"><i class="bi bi-arrow-left-right" aria-hidden="true"></i></span>
-              </div>
-            </article>
-            <article class="gk-prod-card pp-reveal" style="transition-delay:60ms">
-              <div class="gk-prod-card__media">
-                <div class="gk-img-slot" style="aspect-ratio: 16/10;">
-                  <img src="../assets/img/beej-pest.webp" alt="Pest infestation detection" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.removeAttribute('hidden')" />
-                  <div class="gk-img-fallback" hidden aria-hidden="true"><i class="bi bi-bug" style="font-size: 2rem;"></i><span>Pest</span></div>
+                <div class="pp-tab-media">
+                  <div class="pp-tab-img-wrap">
+                    <img src="../assets/img/smartagriculture.webp" alt="BeejHealth focus areas" loading="lazy" width="720" height="540" />
+                  </div>
                 </div>
-              </div>
-              <div class="gk-prod-card__body">
-                <span class="gk-chip">Pests</span>
-                <h3 class="gk-prod-card__title">Insect infestation hotspots</h3>
-                <p class="gk-prod-card__desc">Fall armyworm, bollworm, aphid, whitefly — density mapping from canopy</p>
-              </div>
-              <div class="gk-prod-card__actions">
-                <span class="gk-prod-card__compare" aria-hidden="true"><i class="bi bi-arrow-left-right" aria-hidden="true"></i></span>
-              </div>
-            </article>
-            <article class="gk-prod-card pp-reveal" style="transition-delay:120ms">
-              <div class="gk-prod-card__media">
-                <div class="gk-img-slot" style="aspect-ratio: 16/10;">
-                  <img src="../assets/img/beej-nutrient.webp" alt="Nutrient deficiency detection" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.removeAttribute('hidden')" />
-                  <div class="gk-img-fallback" hidden aria-hidden="true"><i class="bi bi-droplet" style="font-size: 2rem;"></i><span>Nutrient</span></div>
-                </div>
-              </div>
-              <div class="gk-prod-card__body">
-                <span class="gk-chip">Nutrition</span>
-                <h3 class="gk-prod-card__title">N & K deficiency, pH stress</h3>
-                <p class="gk-prod-card__desc">Spectral indices + CV for macro/micro nutrient mapping</p>
-              </div>
-              <div class="gk-prod-card__actions">
-                <span class="gk-prod-card__compare" aria-hidden="true"><i class="bi bi-arrow-left-right" aria-hidden="true"></i></span>
-              </div>
-            </article>
-            <article class="gk-prod-card pp-reveal" style="transition-delay:180ms">
-              <div class="gk-prod-card__media">
-                <div class="gk-img-slot" style="aspect-ratio: 16/10;">
-                  <img src="../assets/img/beej-water.webp" alt="Water stress detection" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.removeAttribute('hidden')" />
-                  <div class="gk-img-fallback" hidden aria-hidden="true"><i class="bi bi-cloud-sun" style="font-size: 2rem;"></i><span>Water</span></div>
-                </div>
-              </div>
-              <div class="gk-prod-card__body">
-                <span class="gk-chip">Abiotic</span>
-                <h3 class="gk-prod-card__title">Water & heat stress</h3>
-                <p class="gk-prod-card__desc">CWSI, NDWI derivatives for irrigation scheduling</p>
-              </div>
-              <div class="gk-prod-card__actions">
-                <span class="gk-prod-card__compare" aria-hidden="true"><i class="bi bi-arrow-left-right" aria-hidden="true"></i></span>
-              </div>
-            </article>
-            <article class="gk-prod-card pp-reveal" style="transition-delay:240ms">
-              <div class="gk-prod-card__media">
-                <div class="gk-img-slot" style="aspect-ratio: 16/10;">
-                  <img src="../assets/img/beej-stand.webp" alt="Stand count and emergence" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.removeAttribute('hidden')" />
-                  <div class="gk-img-fallback" hidden aria-hidden="true"><i class="bi bi-123" style="font-size: 2rem;"></i><span>Stand</span></div>
-                </div>
-              </div>
-              <div class="gk-prod-card__body">
-                <span class="gk-chip">Growth</span>
-                <h3 class="gk-prod-card__title">Stand count & emergence</h3>
-                <p class="gk-prod-card__desc">Plant population, row detection, early vigour scoring</p>
-              </div>
-              <div class="gk-prod-card__actions">
-                <span class="gk-prod-card__compare" aria-hidden="true"><i class="bi bi-arrow-left-right" aria-hidden="true"></i></span>
-              </div>
-            </article>
-            <article class="gk-prod-card pp-reveal" style="transition-delay:300ms">
-              <div class="gk-prod-card__media">
-                <div class="gk-img-slot" style="aspect-ratio: 16/10;">
-                  <img src="../assets/img/beej-weed.webp" alt="Weed pressure mapping" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.removeAttribute('hidden')" />
-                  <div class="gk-img-fallback" hidden aria-hidden="true"><i class="bi bi-flower1" style="font-size: 2rem;"></i><span>Weed</span></div>
-                </div>
-              </div>
-              <div class="gk-prod-card__body">
-                <span class="gk-chip">Weeds</span>
-                <h3 class="gk-prod-card__title">Weed pressure maps</h3>
-                <p class="gk-prod-card__desc">Species-level where resolution permits; patch density for herbicide VRA</p>
-              </div>
-              <div class="gk-prod-card__actions">
-                <span class="gk-prod-card__compare" aria-hidden="true"><i class="bi bi-arrow-left-right" aria-hidden="true"></i></span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Band 4: Capture Modes (Split-alt layout - distinct for BeejHealth) -->
-      <section class="gk-band gk-prod-section" id="modes" aria-labelledby="pp-modes-title" style="background: var(--prod-surface);">
-        <div class="gk-wrap">
-          <div class="gk-prod-section-head pp-reveal">
-            <span class="gk-eyebrow">How to capture</span>
-            <h2 id="pp-modes-title">Three capture modes, one pipeline</h2>
-          </div>
-          <div class="gk-prod-split-alt" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
-            <!-- Left: Modes list -->
-            <div class="pp-reveal">
-              <div class="gk-prod-modes" style="display: flex; flex-direction: column; gap: 1.5rem;">
-                <article class="gk-prod-mode-card" data-mode="drone">
-                  <div class="gk-prod-mode-card__icon" aria-hidden="true">
-                    <i class="bi bi-drone" style="font-size: 2rem;"></i>
-                  </div>
-                  <div class="gk-prod-mode-card__content">
-                    <h3>Drone (UAV)</h3>
-                    <p>Multispectral + RGB at 0.3-5 cm GSD. 20-200 ha/flight. Best for disease, weeds, stand count. RTK/PPK for cm-level geo-accuracy.</p>
-                    <ul style="margin: 0.75rem 0 0 1.25rem; font-size: 0.9rem; color: var(--muted);">
-                      <li>Supported: DJI M3M, M300 + P1/L1, Wingtra, Quantum Trinity</li>
-                      <li>Output: Orthomosaic, prescription shapefile, scouting GPX</li>
-                      <li>Turnaround: 24-48h after upload</li>
-                    </ul>
-                  </div>
-                </article>
-                <article class="gk-prod-mode-card" data-mode="satellite">
-                  <div class="gk-prod-mode-card__icon" aria-hidden="true">
-                    <i class="bi bi-satellite" style="font-size: 2rem;"></i>
-                  </div>
-                  <div class="gk-prod-mode-card__content">
-                    <h3>Satellite</h3>
-                    <p>Sentinel-2 (10m), PlanetScope (3m), Maxar (0.5m). No flight ops. Weekly revisit. Best for large estates (>500 ha), trend monitoring, insurance.</p>
-                    <ul style="margin: 0.75rem 0 0 1.25rem; font-size: 0.9rem; color: var(--muted);">
-                      <li>Sources: Copernicus, Planet, Maxar, Airbus (via API)</li>
-                      <li>Output: Weekly health index, anomaly alerts, historical comparison</li>
-                      <li>Turnaround: Next day after acquisition</li>
-                    </ul>
-                  </div>
-                </article>
-                <article class="gk-prod-mode-card" data-mode="ground">
-                  <div class="gk-prod-mode-card__icon" aria-hidden="true">
-                    <i class="bi bi-camera" style="font-size: 2rem;"></i>
-                  </div>
-                  <div class="gk-prod-mode-card__content">
-                    <h3>Ground / Rover</h3>
-                    <p>Phone app or rugged rover for close-canopy scouting. Leaf-level disease ID, insect counts, soil moisture proxy. Offline-first, syncs on Wi-Fi.</p>
-                    <ul style="margin: 0.75rem 0 0 1.25rem; font-size: 0.9rem; color: var(--muted);">
-                      <li>App: Android 10+, iOS 15+ (BeejHealth Scout)</li>
-                      <li>Rover: Custom 4WD, 4h battery, 5MP macro + RGB</li>
-                      <li>Output: Geotagged observations, severity scores, treatment recs</li>
-                    </ul>
-                  </div>
-                </article>
               </div>
             </div>
-            <!-- Right: Visual comparison -->
-            <div class="pp-reveal" style="transition-delay:100ms;">
-              <div class="gk-prod-modes-visual">
-                <div class="gk-img-slot" style="aspect-ratio: 4/5; border-radius: 14px; overflow: hidden;">
-                  <img
-                    src="../assets/img/beejhealth-modes.webp"
-                    alt="Comparison of drone, satellite and ground capture resolutions and coverage"
-                    width="1080"
-                    height="1350"
-                    loading="lazy"
-                    decoding="async"
-                    onerror="this.style.display='none';this.nextElementSibling.removeAttribute('hidden')"
-                  />
-                  <div class="gk-img-fallback" hidden aria-hidden="true">
-                    <i class="bi bi-layers" style="font-size: 3rem;"></i>
-                    <span>Capture modes comparison</span>
+            <div class="pp-tab-panel" id="bh-panel-1" role="tabpanel" aria-labelledby="bh-tab-1">
+              <div class="pp-tab-panel-grid">
+                <div class="pp-tab-copy">
+                  <h3>Supported crops</h3>
+                  <p>Crop coverage depends on the farm, region, and issue type, so the FrameIQ team can scope the right advisory path with you.</p>
+                </div>
+                <div class="pp-tab-media">
+                  <div class="pp-tab-img-wrap">
+                    <img src="../assets/img/Agriculture.webp" alt="BeejHealth supported crops" loading="lazy" width="720" height="540" />
                   </div>
+                </div>
+              </div>
+            </div>
+            <div class="pp-tab-panel" id="bh-panel-2" role="tabpanel" aria-labelledby="bh-tab-2">
+              <div class="pp-tab-panel-grid">
+                <div class="pp-tab-copy">
+                  <h3>Platform</h3>
+                  <p>Mobile-first advisory experiences typically combine image capture, crop context, and structured summary outputs.</p>
+                </div>
+                <div class="pp-tab-media">
+                  <div class="pp-tab-img-wrap">
+                    <img src="../assets/img/agricultureai.webp" alt="BeejHealth platform" loading="lazy" width="720" height="540" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pp-tab-panel" id="bh-panel-3" role="tabpanel" aria-labelledby="bh-tab-3">
+              <div class="pp-tab-panel-grid">
+                <div class="pp-tab-copy">
+                  <h3>Technology</h3>
+                  <p>Use cases can combine image analysis, agronomy rules, and interactive follow-up questions for field teams.</p>
+                  <div class="pp-chip-group">
+                    <span class="pp-chip">Image analysis</span>
+                    <span class="pp-chip">Agronomy rules</span>
+                    <span class="pp-chip">Follow-up questions</span>
+                  </div>
+                </div>
+                <div class="pp-tab-media">
+                  <div class="pp-icon-panel"><i class="bi bi-flower1" aria-hidden="true"></i></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Band 5: Specs (Tabs) -->
-      <section class="gk-band gk-band--dark gk-prod-section" id="specs" aria-labelledby="pp-specs-title" style="background: var(--prod-surface);">
-        <div class="gk-wrap">
-          <div class="gk-prod-section-head pp-reveal">
-            <span class="gk-eyebrow">Technical details</span>
-            <h2 id="pp-specs-title">Specifications</h2>
-          </div>
-          <div class="gk-prod-tabs" data-gk-tabs style="display: grid; grid-template-columns: 280px 1fr; gap: 2rem; align-items: start;">
-            <nav class="gk-prod-tabs__bar" role="tablist" style="position: sticky; top: 120px;">
-              <button class="gk-prod-tabs__btn is-active" role="tab" aria-selected="true" aria-controls="pp-spec-model" data-gk-tab="pp-spec-model">Models</button>
-              <button class="gk-prod-tabs__btn" role="tab" aria-selected="false" aria-controls="pp-spec-api" data-gk-tab="pp-spec-api">API</button>
-              <button class="gk-prod-tabs__btn" role="tab" aria-selected="false" aria-controls="pp-spec-crops" data-gk-tab="pp-spec-crops">Crop list</button>
-              <button class="gk-prod-tabs__btn" role="tab" aria-selected="false" aria-controls="pp-spec-compliance" data-gk-tab="pp-spec-compliance">Compliance</button>
-            </nav>
-            <div class="gk-prod-tabs__panels">
-              <div class="gk-prod-tabs__panel is-active" role="tabpanel" id="pp-spec-model" aria-labelledby="pp-spec-model">
-                <h3 style="margin-bottom: 1rem;">Detection models</h3>
-                <dl class="gk-prod-specs">
-                  <dt>Architecture</dt><dd>DeepLabV3+ (segmentation) + EfficientNet-B4 (classification heads)</dd>
-                  <dt>Input</dt><dd>4-band (RGB+NIR) or 10-band multispectral, 512-2048 px tiles</dd>
-                  <dt>Classes</dt><dd>40+ disease, 15+ pest, 8 nutrient, 5 abiotic, 3 growth, 10 weed</dd>
-                  <dt>mIoU (val)</dt><dd>0.82 disease, 0.76 pest, 0.71 nutrient</dd>
-                  <dt>Inference</dt><dd>~200 ms/ha @ 0.5m GSD on A100 (cloud) / ~2s/ha on Jetson Orin (edge)</dd>
-                  <dt>Calibration</dt><dd>Expected calibration error < 0.05 per class</dd>
-                  <dt>Retrain</dt><dd>Monthly with new ground truth; active learning prioritises low-confidence tiles</dd>
-                </dl>
-              </div>
-              <div class="gk-prod-tabs__panel" role="tabpanel" id="pp-spec-api" aria-labelledby="pp-spec-api" hidden>
-                <h3 style="margin-bottom: 1rem;">API & outputs</h3>
-                <dl class="gk-prod-specs">
-                  <dt>Protocol</dt><dd>REST/JSON, async job API (POST /jobs, GET /jobs/{id}), webhooks</dd>
-                  <dt>Auth</dt><dd>API keys, OAuth2 (for platform partners)</dd>
-                  <dt>Rate limits</dt><dd>100 jobs/min, 10 TB/mo included</dd>
-                  <dt>Inputs</dt><dd>GeoTIFF/COG (cloud-optimized), JPEG+EXIF, STAC catalog</dd>
-                  <dt>Outputs</dt><dd>GeoTIFF masks, GeoJSON vectors, Shapefile, prescription XML (ISOXML), PDF report</dd>
-                  <dt>Dashboard</dt><dd>React app, multi-farm, role-based, white-label option</dd>
-                  <dt>SLA</dt><dd>99.5% uptime, < 4h job completion (drone), < 24h (satellite)</dd>
-                </dl>
-              </div>
-              <div class="gk-prod-tabs__panel" role="tabpanel" id="pp-spec-crops" aria-labelledby="pp-spec-crops" hidden>
-                <h3 style="margin-bottom: 1rem;">Validated crops (India)</h3>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; font-size: 0.9rem;">
-                  <span>Rice</span><span>Wheat</span><span>Maize</span>
-                  <span>Cotton</span><span>Sugarcane</span><span>Soybean</span>
-                  <span>Groundnut</span><span>Chilli</span><span>Tomato</span>
-                  <span>Potato</span><span>Onion</span><span>Mango</span>
-                  <span>Banana</span><span>Citrus</span><span>Grapes</span>
-                  <span>Pomegranate</span><span>Coconut</span><span>Tea</span>
-                  <span>Cardamom</span><span>Turmeric</span><span>+ custom on request</span>
-                </div>
-              </div>
-              <div class="gk-prod-tabs__panel" role="tabpanel" id="pp-spec-compliance" aria-labelledby="pp-spec-compliance" hidden>
-                <h3 style="margin-bottom: 1rem;">Compliance & data</h3>
-                <dl class="gk-prod-specs">
-                  <dt>Data residency</dt><dd>India (Mumbai region) by default; EU/US on request</dd>
-                  <dt>Encryption</dt><dd>AES-256 at rest, TLS 1.3 in transit</dd>
-                  <dt>Standards</dt><dd>ISO 27001 (cloud), DGCA drone regs (India), IT Act 2000</dd>
-                  <dt>Export</dt><dd>EAR99, no ITAR</dd>
-                  <dt>Ground truth</dt><dd>Farmer consent form template provided; KVK partnership model</dd>
-                </dl>
-              </div>
-            </div>
+    <!-- 5. RELATED (AI Store + Sector) -->
+    <section class="gk-band" aria-labelledby="bh-related-h2">
+      <div class="gk-wrap">
+        <div class="gk-head">
+          <div>
+            <span class="gk-eyebrow">Also explore</span>
+            <h2 id="bh-related-h2">Related pages</h2>
           </div>
         </div>
-      </section>
+        <div class="pp-related-grid">
+          <a class="pp-related-card" href="ai-store.html#agriculture">
+            <i class="bi bi-shop" aria-hidden="true"></i>
+            <strong>View in AI Store</strong>
+            <span>Browse crop disease detection and agriculture use cases.</span>
+          </a>
+          <a class="pp-related-card" href="sectors/agriculture.html">
+            <i class="bi bi-tree" aria-hidden="true"></i>
+            <strong>Explore the sector</strong>
+            <span>See computer vision use cases for agriculture.</span>
+          </a>
+          <a class="pp-related-card" href="pcb-guardian.html">
+            <i class="bi bi-cpu" aria-hidden="true"></i>
+            <strong>PCB Guardian</strong>
+            <span>Discuss a computer-vision PCB inspection concept.</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-      <!-- Band 6: FAQ -->
-      <section class="gk-band gk-prod-section" id="faq" aria-labelledby="pp-faq-title" style="background: var(--prod-surface);">
-        <div class="gk-wrap">
-          <div class="gk-prod-section-head pp-reveal">
-            <span class="gk-eyebrow">Common questions</span>
-            <h2 id="pp-faq-title">FAQ</h2>
+    <!-- 6. FAQ -->
+    <section class="gk-band" aria-labelledby="bh-faq-h2">
+      <div class="gk-wrap">
+        <div class="pp-faq-wrap">
+          <div class="pp-faq-intro-col">
+            <span class="gk-eyebrow">Frequently asked questions</span>
+            <h2 id="bh-faq-h2">Common questions</h2>
+            <p>Answers to questions about BeejHealth.</p>
           </div>
-          <div class="gk-prod-acc" data-gk-acc style="max-width: 880px;">
-            <article class="gk-acc__item pp-reveal">
-              <button class="gk-acc__q" aria-expanded="false" aria-controls="pp-faq-1">
-                <span>Do I need my own drone?</span>
-                <i class="bi bi-chevron-down gk-acc__icon" aria-hidden="true"></i>
+          <div class="pp-acc" data-pp-acc>
+            <div class="pp-acc-item">
+              <button class="pp-acc-q is-on" type="button" aria-expanded="true">
+                What is BeejHealth?
+                <i class="bi bi-plus-lg pp-acc-icon" aria-hidden="true"></i>
               </button>
-              <div class="gk-acc__a" id="pp-faq-1" role="region" hidden>
-                <p>No. FrameIQ has a network of DGCA-certified drone service partners across India. You can also use your own hardware if it meets sensor specs (multispectral + RGB, RTK).</p>
+              <div class="pp-acc-a is-on" role="region" style="max-height:200px">
+                <div><p>BeejHealth is FrameIQ's AI crop health advisory focused on Indian agriculture. Farmers can photograph crops for disease, pest, and nutrient insights.</p></div>
               </div>
-            </article>
-            <article class="gk-acc__item pp-reveal">
-              <button class="gk-acc__q" aria-expanded="false" aria-controls="pp-faq-2">
-                <span>What is the minimum farm size?</span>
-                <i class="bi bi-chevron-down gk-acc__icon" aria-hidden="true"></i>
-              </button>
-              <div class="gk-acc__a" id="pp-faq-2" role="region" hidden>
-                <p>Drone: 5 ha per flight (economic). Satellite: no minimum, but 10 ha+ recommended for meaningful trends. Ground/rover: single plot.</p>
-              </div>
-            </article>
-            <article class="gk-acc__item pp-reveal">
-              <button class="gk-acc__q" aria-expanded="false" aria-controls="pp-faq-3">
-                <span>How often should I fly/scan?</span>
-                <i class="bi bi-chevron-down gk-acc__icon" aria-hidden="true"></i>
-              </button>
-              <div class="gk-acc__a" id="pp-faq-3" role="region" hidden>
-                <p>Crop-dependent. Rice/wheat: 3-4x per season (tillering, panicle, grain fill). Cotton: weekly during boll formation. Satellite gives weekly baselines; drone for targeted scouting.</p>
-              </div>
-            </article>
-            <article class="gk-acc__item pp-reveal">
-              <button class="gk-acc__q" aria-expanded="false" aria-controls="pp-faq-4">
-                <span>Can BeejHealth integrate with my farm management software?</span>
-                <i class="bi bi-chevron-down gk-acc__icon" aria-hidden="true"></i>
-              </button>
-              <div class="gk-acc__a" id="pp-faq-4" role="region" hidden>
-                <p>Yes. REST API + webhooks push prescription maps and alerts. We have pre-built connectors for CropIn, KhetiGaadi, FarmERP and custom integrations on request.</p>
-              </div>
-            </article>
-            <article class="gk-acc__item pp-reveal">
-              <button class="gk-acc__q" aria-expanded="false" aria-controls="pp-faq-5">
-                <span>What if cloud cover blocks satellite imagery?</span>
-                <i class="bi bi-chevron-down gk-acc__icon" aria-hidden="true"></i>
-              </button>
-              <div class="gk-acc__a" id="pp-faq-5" role="region" hidden>
-                <p>Sentinel-2 has 5-day revisit; PlanetScope near-daily. Cloud-masked composites fill gaps. For critical windows, drone or ground capture is the fallback — included in managed service tiers.</p>
-              </div>
-            </article>
-            <article class="gk-acc__item pp-reveal">
-              <button class="gk-acc__q" aria-expanded="false" aria-controls="pp-faq-6">
-                <span>Is the data shared with third parties?</span>
-                <i class="bi bi-chevron-down gk-acc__icon" aria-hidden="true"></i>
-              </button>
-              <div class="gk-acc__a" id="pp-faq-6" role="region" hidden>
-                <p>No. Your farm data, imagery and prescriptions are yours. Anonymised aggregates (regional disease pressure, benchmark yields) may be published unless you opt out in the data addendum.</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Band 7: Related products -->
-      <section class="gk-band gk-band--dark gk-prod-section" id="related" aria-labelledby="pp-related-title" style="background: var(--prod-surface);">
-        <div class="gk-wrap">
-          <div class="gk-prod-section-head pp-reveal">
-            <span class="gk-eyebrow">You may also need</span>
-            <h2 id="pp-related-title">Related products</h2>
-          </div>
-          <div class="gk-cards gk-prod-cards" style="grid-template-columns: repeat(2, 1fr); gap: 1.25rem;">
-            <article class="gk-prod-card pp-reveal">
-              <div class="gk-prod-card__media">
-                <div class="gk-img-slot" style="aspect-ratio: 16/10;">
-                  <img src="../assets/img/autolabel-thumb.webp" alt="AutoLabel — synthetic data generator" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.removeAttribute('hidden')" />
-                  <div class="gk-img-fallback" hidden aria-hidden="true"><i class="bi bi-tag" style="font-size: 2rem;"></i><span>AutoLabel</span></div>
-                </div>
-              </div>
-              <div class="gk-prod-card__body">
-                <span class="gk-chip">Data</span>
-                <h3 class="gk-prod-card__title">AutoLabel</h3>
-                <p class="gk-prod-card__desc">Synthetic crop imagery to augment rare disease classes</p>
-              </div>
-              <div class="gk-prod-card__actions">
-                <a class="gk-btn gk-btn--ghost gk-btn--sm" href="autolabel.html">View</a>
-              </div>
-            </article>
-            <article class="gk-prod-card pp-reveal" style="transition-delay:60ms">
-              <div class="gk-prod-card__media">
-                <div class="gk-img-slot" style="aspect-ratio: 16/10;">
-                  <img src="../assets/img/pcb-guardian-thumb.webp" alt="PCB Guardian" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.removeAttribute('hidden')" />
-                  <div class="gk-img-fallback" hidden aria-hidden="true"><i class="bi bi-cpu" style="font-size: 2rem;"></i><span>PCB Guardian</span></div>
-                </div>
-              </div>
-              <div class="gk-prod-card__body">
-                <span class="gk-chip">Manufacturing</span>
-                <h3 class="gk-prod-card__title">PCB Guardian</h3>
-                <p class="gk-prod-card__desc">Visual inspection for electronics assembly</p>
-              </div>
-              <div class="gk-prod-card__actions">
-                <a class="gk-btn gk-btn--ghost gk-btn--sm" href="pcb-guardian.html">View</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Band 8: Enquiry CTA -->
-      <section class="gk-prod-cta gk-band gk-band--dark" aria-labelledby="pp-enquiry-title" style="background: linear-gradient(120deg, #38257d, #4a33a3 55%, #5b3ab3);">
-        <div class="gk-wrap">
-          <div class="pp-enquiry-inner pp-reveal">
-            <div class="pp-enquiry-copy">
-              <span class="gk-eyebrow">Talk to us</span>
-              <h2 id="pp-enquiry-title">Ready to evaluate BeejHealth?</h2>
-              <p>Share your crop, geography, sensor access and decision timeline. The FrameIQ team will review and propose a pilot scope.</p>
             </div>
-            <div class="pp-enquiry-actions">
-              <a class="gk-btn gk-btn--primary" href="contact.html?product=beejhealth">
-                Start an enquiry
-                <i class="bi bi-arrow-right" aria-hidden="true"></i>
-              </a>
-              <a class="gk-btn gk-btn--ghost" href="ai-store.html">Back to all products</a>
+            <div class="pp-acc-item">
+              <button class="pp-acc-q" type="button" aria-expanded="false">
+                Which crops are supported?
+                <i class="bi bi-plus-lg pp-acc-icon" aria-hidden="true"></i>
+              </button>
+              <div class="pp-acc-a" role="region">
+                <div><p>Crop coverage, availability, and rollout timelines are typically confirmed during the scoping conversation with the FrameIQ team.</p></div>
+              </div>
+            </div>
+            <div class="pp-acc-item">
+              <button class="pp-acc-q" type="button" aria-expanded="false">
+                How do I get started?
+                <i class="bi bi-plus-lg pp-acc-icon" aria-hidden="true"></i>
+              </button>
+              <div class="pp-acc-a" role="region">
+                <div><p>Tell us about your crops, fields and goals and the FrameIQ team can review your enquiry.</p></div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-    </main>
+  </main>
 
-    <div id="site-footer"></div>
-  </body>
+  <div id="site-footer"></div>
+</body>
 </html>
