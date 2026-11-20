@@ -124,9 +124,7 @@ section[class*="ab-"] + section[class*="ab-"]::before {
   color: var(--text-on-dark);
   background: var(--bg-dark);
   min-height: calc(100svh - var(--header-h, 76px));
-  max-height: 90svh;
   padding: clamp(56px, 7vw, 110px) clamp(24px, 5vw, 64px);
-  overflow: hidden;
   margin-bottom: 0;
 }
 

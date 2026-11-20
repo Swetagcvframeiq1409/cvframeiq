@@ -3,7 +3,10 @@
 html {
   overflow-x: clip;
   scroll-padding-top: calc(var(--header-h) + 12px);
+  background: #0b0b12;
+  color-scheme: dark;
 }
+body { background: #0b0b12; }
 
 
 

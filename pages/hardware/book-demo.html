@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book a Hardware Demo | FrameIQ</title>
     <meta name="description" content="Book a free 30-minute hardware demo with FrameIQ. We will review your use case, show you a live demo, and give you an honest timeline and cost estimate.">
-    <link rel="canonical" href="https://cvframeiq.com/hardware/book-demo">
-    <meta property="og:url" content="https://cvframeiq.com/hardware/book-demo">
+    <link rel="canonical" href="https://cvframeiq.com/pages/hardware/book-demo.html">
+    <meta property="og:url" content="https://cvframeiq.com/pages/hardware/book-demo.html">
     <link rel="preload" href="../../assets/fonts/space-grotesk-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../../assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../../assets/css/tokens.css">
@@ -33,7 +33,6 @@
 
     <main id="main-content" class="hw-page hw-demo" data-hardware-demo>
 
-      <!-- ── Hero ── -->
       <section class="hw-band gk-band--dark gk-hero hw-demo__hero" data-tone="dark" aria-labelledby="demo-title">
         <div class="hw-wrap">
           <p class="hw-eyebrow">Hardware</p>
@@ -47,71 +46,105 @@
         </div>
       </section>
 
-      <!-- ── Main content: split layout ── -->
-      <section class="hw-band hw-band--raised" data-tone="raised">
+      <section class="hw-band gk-band--dark" data-tone="dark">
         <div class="hw-wrap hw-demo__layout">
 
-          <!-- Left: wizard card -->
           <div class="hw-demo__card gk-card">
-            <div class="hw-demo__steps" aria-label="Booking steps" aria-live="polite">
-              <button data-step-button data-mobile="1 of 3" aria-current="step"><span>1. </span>Choose a demo focus</button>
-              <button data-step-button data-mobile="2 of 3" aria-current="false"><span>2. </span>Your details</button>
-              <button data-step-button data-mobile="3 of 3" aria-current="false"><span>3. </span>Pick a time</button>
-            </div>
-            <div class="hw-demo__progress"><span data-progress></span></div>
-            <div data-step-live class="hw-demo__note"></div>
+            <nav class="hw-stepper" aria-label="Booking steps">
+              <ol class="hw-stepper__list">
+                <li class="hw-stepper__item" data-step-item="0" aria-current="step">
+                  <span class="hw-stepper__circle" aria-hidden="true">1</span>
+                  <span class="hw-stepper__label">Choose a demo focus</span>
+                </li>
+                <li class="hw-stepper__item" data-step-item="1">
+                  <span class="hw-stepper__circle" aria-hidden="true">2</span>
+                  <span class="hw-stepper__label">Your details</span>
+                </li>
+                <li class="hw-stepper__item" data-step-item="2">
+                  <span class="hw-stepper__circle" aria-hidden="true">3</span>
+                  <span class="hw-stepper__label">Pick a time</span>
+                </li>
+              </ol>
+            </nav>
+            <p class="hw-stepper__mobile" data-step-live>Step 1 of 3: Choose a demo focus</p>
 
             <div data-wizard>
-              <!-- Step 1: Choose focus -->
-              <section class="hw-demo__panel" data-step-panel>
-                <h2>Choose a demo focus</h2>
-                <div class="hw-demo__choices" role="radiogroup" aria-label="Demo focus">
-                  <button class="hw-demo__choice" data-focus="Vision Systems" data-topic="vision-systems" role="radio" aria-checked="false">
-                    <i class="bi bi-camera-video" aria-hidden="true"></i>Vision Systems
-                  </button>
-                  <button class="hw-demo__choice" data-focus="Processing Units" data-topic="processing-units" role="radio" aria-checked="false">
-                    <i class="bi bi-cpu" aria-hidden="true"></i>Processing Units
-                  </button>
-                  <button class="hw-demo__choice" data-focus="Sensor Kits" data-topic="sensor-kits" role="radio" aria-checked="false">
-                    <i class="bi bi-broadcast" aria-hidden="true"></i>Sensor Kits
-                  </button>
-                  <button class="hw-demo__choice" data-focus="Development Boards" data-topic="development-boards" role="radio" aria-checked="false">
-                    <i class="bi bi-motherboard" aria-hidden="true"></i>Development Boards
-                  </button>
-                  <button class="hw-demo__choice" data-focus="Edge Starter Kit" data-topic="edge-starter-kit" role="radio" aria-checked="false">
-                    <i class="bi bi-hdd-network" aria-hidden="true"></i>Edge Starter Kit
-                  </button>
-                  <button class="hw-demo__choice" data-focus="Smart Factory Kit" data-topic="smart-factory-kit" role="radio" aria-checked="false">
-                    <i class="bi bi-gear" aria-hidden="true"></i>Smart Factory Kit
-                  </button>
-                  <button class="hw-demo__choice" data-focus="Not sure yet" data-topic="not-sure-yet" role="radio" aria-checked="false">
-                    <i class="bi bi-question-circle" aria-hidden="true"></i>Not sure yet
-                  </button>
+              <section class="hw-demo__panel" data-step-panel tabindex="-1">
+                <p class="hw-demo__eyebrow">Step 1 of 3</p>
+                <h2 id="step1-h">Choose a demo focus</h2>
+                <p class="hw-demo__helper">Pick the area you want to see. You can change this later.</p>
+                <div class="hw-demo__choices" role="radiogroup" aria-labelledby="step1-h">
+                  <label class="hw-demo__choice">
+                    <input type="radio" name="demo-focus" value="Vision Systems" data-focus="Vision Systems" data-topic="vision-systems">
+                    <span class="hw-demo__choice-icon"><i class="bi bi-camera-video" aria-hidden="true"></i></span>
+                    <span class="hw-demo__choice-title">Vision Systems</span>
+                    <span class="hw-demo__choice-check" aria-hidden="true"><i class="bi bi-check-circle-fill"></i></span>
+                  </label>
+                  <label class="hw-demo__choice">
+                    <input type="radio" name="demo-focus" value="Processing Units" data-focus="Processing Units" data-topic="processing-units">
+                    <span class="hw-demo__choice-icon"><i class="bi bi-cpu" aria-hidden="true"></i></span>
+                    <span class="hw-demo__choice-title">Processing Units</span>
+                    <span class="hw-demo__choice-check" aria-hidden="true"><i class="bi bi-check-circle-fill"></i></span>
+                  </label>
+                  <label class="hw-demo__choice">
+                    <input type="radio" name="demo-focus" value="Sensor Kits" data-focus="Sensor Kits" data-topic="sensor-kits">
+                    <span class="hw-demo__choice-icon"><i class="bi bi-broadcast" aria-hidden="true"></i></span>
+                    <span class="hw-demo__choice-title">Sensor Kits</span>
+                    <span class="hw-demo__choice-check" aria-hidden="true"><i class="bi bi-check-circle-fill"></i></span>
+                  </label>
+                  <label class="hw-demo__choice">
+                    <input type="radio" name="demo-focus" value="Development Boards" data-focus="Development Boards" data-topic="development-boards">
+                    <span class="hw-demo__choice-icon"><i class="bi bi-motherboard" aria-hidden="true"></i></span>
+                    <span class="hw-demo__choice-title">Development Boards</span>
+                    <span class="hw-demo__choice-check" aria-hidden="true"><i class="bi bi-check-circle-fill"></i></span>
+                  </label>
+                  <label class="hw-demo__choice">
+                    <input type="radio" name="demo-focus" value="Edge Starter Kit" data-focus="Edge Starter Kit" data-topic="edge-starter-kit">
+                    <span class="hw-demo__choice-icon"><i class="bi bi-hdd-network" aria-hidden="true"></i></span>
+                    <span class="hw-demo__choice-title">Edge Starter Kit</span>
+                    <span class="hw-demo__choice-check" aria-hidden="true"><i class="bi bi-check-circle-fill"></i></span>
+                  </label>
+                  <label class="hw-demo__choice">
+                    <input type="radio" name="demo-focus" value="Smart Factory Kit" data-focus="Smart Factory Kit" data-topic="smart-factory-kit">
+                    <span class="hw-demo__choice-icon"><i class="bi bi-gear" aria-hidden="true"></i></span>
+                    <span class="hw-demo__choice-title">Smart Factory Kit</span>
+                    <span class="hw-demo__choice-check" aria-hidden="true"><i class="bi bi-check-circle-fill"></i></span>
+                  </label>
+                  <label class="hw-demo__choice hw-demo__choice--wide">
+                    <input type="radio" name="demo-focus" value="Not sure yet" data-focus="Not sure yet" data-topic="not-sure-yet">
+                    <span class="hw-demo__choice-icon"><i class="bi bi-question-circle" aria-hidden="true"></i></span>
+                    <span class="hw-demo__choice-title">Not sure yet</span>
+                    <span class="hw-demo__choice-check" aria-hidden="true"><i class="bi bi-check-circle-fill"></i></span>
+                  </label>
                 </div>
                 <span class="hw-demo__error" data-focus-error></span>
+                <div class="hw-demo__focus-chip" data-focus-chip hidden>
+                  <span>Selected: <strong data-focus-name></strong></span>
+                  <button type="button" class="hw-demo__link" data-change-focus>Change</button>
+                </div>
                 <div class="hw-demo__actions">
-                  <span></span>
-                  <button class="hw-demo__button" data-continue type="button">Continue <i class="bi bi-arrow-right" aria-hidden="true"></i></button>
+                  <span class="hw-demo__status" data-status>Select an option to continue</span>
+                  <button class="hw-demo__button" data-continue type="button" aria-disabled="true" disabled>Continue <i class="bi bi-arrow-right" aria-hidden="true"></i></button>
                 </div>
               </section>
 
-              <!-- Step 2: Your details -->
-              <section class="hw-demo__panel" data-step-panel hidden>
-                <h2>Your details</h2>
+              <section class="hw-demo__panel" data-step-panel hidden tabindex="-1">
+                <p class="hw-demo__eyebrow">Step 2 of 3</p>
+                <h2 id="step2-h">Your details</h2>
                 <form id="demo-form" data-demo-form novalidate>
                   <div data-details>
                     <div class="hw-demo__field">
-                      <label for="demo-first">First Name*</label>
+                      <label for="demo-first">First Name<span aria-hidden="true">*</span></label>
                       <input id="demo-first" name="First Name" required autocomplete="given-name" aria-describedby="demo-first-error">
                       <span class="hw-demo__error" id="demo-first-error" role="alert"></span>
                     </div>
                     <div class="hw-demo__field">
-                      <label for="demo-last">Last Name*</label>
+                      <label for="demo-last">Last Name<span aria-hidden="true">*</span></label>
                       <input id="demo-last" name="Last Name" required autocomplete="family-name" aria-describedby="demo-last-error">
                       <span class="hw-demo__error" id="demo-last-error" role="alert"></span>
                     </div>
                     <div class="hw-demo__field">
-                      <label for="demo-email">Work Email*</label>
+                      <label for="demo-email">Work Email<span aria-hidden="true">*</span></label>
                       <input id="demo-email" name="Work Email" type="email" required autocomplete="email" aria-describedby="demo-email-error">
                       <span class="hw-demo__error" id="demo-email-error" role="alert"></span>
                     </div>
@@ -120,7 +153,7 @@
                       <input id="demo-company" name="Company Name" autocomplete="organization" aria-describedby="demo-company-error">
                       <span class="hw-demo__error" id="demo-company-error" role="alert"></span>
                     </div>
-                    <div class="hw-demo__field">
+                    <div class="hw-demo__field hw-demo__field--select">
                       <label for="demo-industry">Industry</label>
                       <select id="demo-industry" name="Industry">
                         <option value="">Select your industry</option>
@@ -135,37 +168,43 @@
                         <option>Retail</option>
                         <option>Other</option>
                       </select>
+                      <i class="bi bi-chevron-down hw-demo__chevron" aria-hidden="true"></i>
                       <span class="hw-demo__error"></span>
                     </div>
                     <div class="hw-demo__field">
                       <label for="demo-use-case">Tell us about your use case</label>
-                      <textarea id="demo-use-case" name="Use case"></textarea>
+                      <textarea id="demo-use-case" name="Use case" rows="4"></textarea>
                       <span class="hw-demo__error"></span>
                     </div>
-                    <div class="hw-demo__field">
-                      <label>
+                    <div class="hw-demo__field hw-demo__field--consent">
+                      <label class="hw-demo__consent">
                         <input id="demo-consent" name="Consent" type="checkbox" required aria-describedby="demo-consent-error">
-                        I agree to be contacted about this enquiry and acknowledge the <a href="../privacy.html">Privacy Policy</a>.
+                        <span>I agree to be contacted about this enquiry and acknowledge the <a href="../privacy.html">Privacy Policy</a>.</span>
                       </label>
                       <span class="hw-demo__error" id="demo-consent-error" role="alert"></span>
                     </div>
                   </div>
                 </form>
+                <div class="hw-demo__summary-chip" data-focus-chip2>
+                  <span>Demo focus: <strong data-summary-focus>Not selected</strong></span>
+                  <button type="button" class="hw-demo__link" data-change-focus>Change</button>
+                </div>
                 <div class="hw-demo__actions">
                   <button class="hw-demo__button hw-demo__button--ghost" data-back type="button">Back</button>
                   <button class="hw-demo__button" data-continue type="button">Continue <i class="bi bi-arrow-right" aria-hidden="true"></i></button>
                 </div>
               </section>
 
-              <!-- Step 3: Pick a time -->
-              <section class="hw-demo__panel" data-step-panel hidden>
-                <h2>Pick a time</h2>
+              <section class="hw-demo__panel" data-step-panel hidden tabindex="-1">
+                <p class="hw-demo__eyebrow">Step 3 of 3</p>
+                <h2 id="step3-h">Pick a time</h2>
+                <p class="hw-demo__helper">We are available Monday to Saturday, 9 AM to 6 PM IST. Choose a preferred date and time; we will confirm the slot by email.</p>
                 <div class="hw-demo__field">
-                  <label for="demo-date">Date</label>
+                  <label for="demo-date">Preferred date<span aria-hidden="true">*</span></label>
                   <input id="demo-date" data-date name="Date" type="date" aria-describedby="demo-date-error">
                   <span class="hw-demo__error" id="demo-date-error" role="alert"></span>
                 </div>
-                <div class="hw-demo__slots" aria-label="Available time slots">
+                <div class="hw-demo__slots" aria-label="Available time slots" role="radiogroup">
                   <button class="hw-demo__slot" type="button" data-slot="9:00 AM IST" aria-pressed="false">9:00 AM</button>
                   <button class="hw-demo__slot" type="button" data-slot="9:30 AM IST" aria-pressed="false">9:30 AM</button>
                   <button class="hw-demo__slot" type="button" data-slot="10:00 AM IST" aria-pressed="false">10:00 AM</button>
@@ -186,16 +225,14 @@
                   <button class="hw-demo__slot" type="button" data-slot="5:30 PM IST" aria-pressed="false">5:30 PM</button>
                 </div>
                 <span class="hw-demo__error" data-slot-error></span>
-                <span class="hw-demo__note">We will confirm your slot by email.</span>
                 <p class="hw-demo__summary">Focus: <span data-summary-focus>Not selected</span> | Date: <span data-summary-date>Not selected</span> | Time: <span data-summary-slot>Not selected</span></p>
                 <div class="hw-demo__actions">
                   <button class="hw-demo__button hw-demo__button--ghost" data-back type="button">Back</button>
-                  <button class="hw-demo__button" data-submit type="submit" form="demo-form">Request Demo</button>
+                  <button class="hw-demo__button" data-submit type="submit" form="demo-form">Request Demo <i class="bi bi-arrow-right" aria-hidden="true"></i></button>
                 </div>
               </section>
             </div>
 
-            <!-- Success state -->
             <div class="hw-demo__success" data-success role="status" aria-live="polite" hidden>
               <i class="bi bi-envelope-check" aria-hidden="true"></i>
               <h2>Email draft ready</h2>
@@ -208,7 +245,6 @@
             </div>
           </div>
 
-          <!-- Right: sticky info panel -->
           <aside class="hw-demo__expect">
             <h2>What to expect</h2>
             <ol class="hw-demo__timeline">
@@ -229,19 +265,30 @@
               >
             </figure>
 
-            <div class="hw-demo__contact">
-              <a href="tel:+919423149303">+91 94231 49303</a>
-              <a href="mailto:official@cvframeiq.com">official@cvframeiq.com</a>
-              <span>Panvel, Maharashtra, India</span>
-              <span>Mon to Sat, 9 AM to 6 PM IST</span>
+            <div class="hw-contact-block">
+              <div class="hw-contact-row">
+                <i class="bi bi-envelope" aria-hidden="true"></i>
+                <a href="mailto:official@cvframeiq.com">official@cvframeiq.com</a>
+              </div>
+              <div class="hw-contact-row">
+                <i class="bi bi-telephone" aria-hidden="true"></i>
+                <a href="tel:+919423149303">+91 94231 49303</a>
+              </div>
+              <div class="hw-contact-row">
+                <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                <span>Panvel, Maharashtra, India</span>
+              </div>
+              <div class="hw-contact-row">
+                <i class="bi bi-clock" aria-hidden="true"></i>
+                <span>Mon to Sat, 9 AM to 6 PM IST</span>
+              </div>
             </div>
           </aside>
 
         </div>
       </section>
 
-      <!-- ── Alternative CTA ── -->
-      <section class="hw-band hw-band--raised hw-demo__alternative" data-tone="raised">
+      <section class="hw-band gk-band--dark hw-demo__alternative" data-tone="dark">
         <div class="hw-wrap">
           <h2>Need a price first?</h2>
           <a class="hw-demo__button" href="request-quote.html">Request a Hardware Quote <i class="bi bi-arrow-right" aria-hidden="true"></i></a>

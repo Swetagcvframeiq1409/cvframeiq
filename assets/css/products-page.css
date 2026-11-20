@@ -1,0 +1,23 @@
+/* products-page.css - shared by all 5 product pages */
+.pd-cap-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+.pd-cap-card { display: flex; flex-direction: column; gap: .75rem; padding: 1.25rem; border: 1px solid rgba(255,255,255,.08); border-radius: 14px; background: rgba(255,255,255,.04); min-height: 160px; }
+.pd-cap-card__icon { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; background: rgba(101,66,200,.16); color: #b8a8ff; font-size: 1.15rem; }
+.pd-cap-card__cat { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: #b8a8ff; font-weight: 600; }
+.pd-cap-card__title { font-size: 1.05rem; font-weight: 600; color: #fff; margin: 0; }
+.pd-cap-card__desc { font-size: .9rem; color: rgba(255,255,255,.72); margin: 0; line-height: 1.5; }
+@media (max-width: 900px) { .pd-cap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .pd-cap-grid { grid-template-columns: 1fr; } }
+
+.pd-workflow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; position: relative; }
+.pd-workflow::before { content: ""; position: absolute; top: 22px; left: 5%; right: 5%; height: 2px; background: rgba(101,66,200,.3); z-index: 0; }
+.pd-step { position: relative; z-index: 1; padding: 1rem; border: 1px solid rgba(255,255,255,.08); border-radius: 12px; background: rgba(255,255,255,.04); }
+.pd-step__num { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: #6542c8; color: #fff; font-weight: 700; margin-bottom: .75rem; }
+.pd-step__title { font-size: 1rem; font-weight: 600; color: #fff; margin: 0 0 .5rem; }
+.pd-step__desc { font-size: .9rem; color: rgba(255,255,255,.72); margin: 0; line-height: 1.5; }
+@media (max-width: 900px) { .pd-workflow { grid-template-columns: repeat(2, minmax(0, 1fr)); } .pd-workflow::before { display: none; } }
+@media (max-width: 560px) {
+  .pd-workflow { grid-template-columns: 1fr; }
+  .pd-workflow::before { display: block; left: 22px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; }
+  .pd-step { margin-left: 48px; }
+}
+@media (prefers-reduced-motion: reduce) { .pd-step, .pd-cap-card { transition: none; } }
