@@ -1,143 +1,352 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Insights &amp; Updates | FrameIQ</title>
-  <meta name="description" content="Explore FrameIQ insights on AI, computer vision, smart cities, agriculture, and video analytics." />
-  <link rel="canonical" href="https://cvframeiq.com/blog" />
-  <link rel="stylesheet" href="../assets/css/tokens.css" />
-  <link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" />
-  <link rel="stylesheet" href="../assets/css/base.css" />
-  <link rel="stylesheet" href="../assets/css/components.css" />
-  <link rel="stylesheet" href="../assets/css/search.css" />
-  <link rel="stylesheet" href="../assets/css/nav-fix.css" />
-  <link rel="stylesheet" href="../assets/css/gk-kit.css" />
-  <link rel="stylesheet" href="../assets/css/resources.css" />
-  <link rel="stylesheet" href="../assets/css/resources-kit.css" />
-  <script src="../assets/data/site-data.js" defer></script>
-  <script src="../assets/data/live-carryover.js" defer></script>
-  <script src="../assets/js/icons.js" defer></script>
-  <script src="../assets/js/components.js" defer></script>
-  <script src="../assets/js/main.js" defer></script>
-  <script src="../assets/data/blog-posts.js" defer></script>
-  <script src="../assets/js/resources.js" defer></script>
-  <script src="../assets/js/resources-blog.js" defer></script>
-  <meta name="color-scheme" content="dark" />
-</head>
-<body data-root="../">
-  <a class="skip-link" href="#main-content">Skip to content</a>
-  <div id="site-header"></div>
-  <main id="main-content" class="rs-page">
-    <div id="rs-blog">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insights &amp; Updates | FrameIQ</title>
+    <meta
+      name="description"
+      content="Explore FrameIQ insights on AI, computer vision, smart cities, agriculture, and video analytics."
+    />
+    <link rel="canonical" href="https://cvframeiq.com/blog" />
 
-      <!-- HERO -->
-      <section class="rs-band rs-hero res-hero gk-band gk-band--dark" data-tone="dark">
-        <div class="rs-wrap">
-          <div class="rs-hero--split">
-            <div class="rs-hero-text">
-              <nav class="rs-breadcrumb" aria-label="Breadcrumb">
-                <a href="../index.html">Home</a>
-                <span aria-hidden="true">/</span>
-                <span>Blog</span>
-              </nav>
-              <p class="rs-eyebrow">Resources</p>
-              <h1 class="rs-h1">Insights &amp; Updates</h1>
-              <p class="rs-lead">The latest news, guides, and insights from the FrameIQ team</p>
+    <link rel="stylesheet" href="../assets/css/tokens.css" />
+    <link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" />
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/search.css" />
+    <link rel="stylesheet" href="../assets/css/nav-fix.css" />
+    <link rel="stylesheet" href="../assets/css/gk-kit.css" />
+    <link rel="stylesheet" href="../assets/css/resources.css" />
+    <link rel="stylesheet" href="../assets/css/resources-kit.css" />
+    <link rel="stylesheet" href="../assets/css/blog-page.css" />
+
+    <script src="../assets/data/site-data.js" defer></script>
+    <script src="../assets/data/live-carryover.js" defer></script>
+    <script src="../assets/js/icons.js" defer></script>
+    <script src="../assets/js/components.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
+    <script src="../assets/data/blog-posts.js" defer></script>
+    <script src="../assets/js/resources.js" defer></script>
+    <script src="../assets/js/resources-blog.js" defer></script>
+    <script src="../assets/js/blog-interactions.js" defer></script>
+
+    <meta name="color-scheme" content="dark" />
+  </head>
+
+  <body data-root="../">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div id="site-header"></div>
+
+    <main id="main-content" class="rs-page">
+      <div id="rs-blog">
+        <!-- HERO -->
+        <section
+          class="rs-band rs-hero res-hero gk-band gk-band--dark blog-hero"
+          data-tone="dark"
+        >
+          <div class="rs-wrap">
+            <div class="rs-hero--split">
+              <div class="rs-hero-text">
+                <nav class="rs-breadcrumb" aria-label="Breadcrumb">
+                  <a href="../index.html">Home</a>
+                  <span aria-hidden="true">/</span>
+                  <a href="blog.html">Resources</a>
+                  <span aria-hidden="true">/</span>
+                  <span aria-current="page">Blog</span>
+                </nav>
+
+                <p class="rs-eyebrow">Resources</p>
+                <h1 class="rs-h1">Insights that move technology forward.</h1>
+                <p class="rs-lead">
+                  Perspectives on computer vision, AI, and the systems shaping
+                  smarter operations.
+                </p>
+
+                <div class="blog-hero-tags" aria-label="Explore topics">
+                  <a
+                    class="blog-hero-tag"
+                    href="#all-articles"
+                    data-blog-topic="Technology"
+                  >
+                    <i class="bi bi-camera-video" aria-hidden="true"></i>
+                    Computer Vision
+                  </a>
+                  <a
+                    class="blog-hero-tag"
+                    href="#all-articles"
+                    data-blog-topic="Technology"
+                  >
+                    <i class="bi bi-cpu" aria-hidden="true"></i> AI &amp;
+                    Analytics
+                  </a>
+                  <a
+                    class="blog-hero-tag"
+                    href="#all-articles"
+                    data-blog-topic="Smart Cities"
+                  >
+                    <i class="bi bi-buildings" aria-hidden="true"></i> Smart
+                    Infrastructure
+                  </a>
+                </div>
+              </div>
+
+              <figure
+                class="rs-hero-img rs-fig rs-fig--hero"
+                style="aspect-ratio: 16/9"
+                aria-hidden="true"
+              >
+                <img
+                  src="../assets/img/intelligence.webp"
+                  alt=""
+                  width="1600"
+                  height="900"
+                  decoding="async"
+                  fetchpriority="high"
+                  class="rs-fig__img"
+                  onerror="this.dataset.failed = 'true'"
+                />
+              </figure>
             </div>
-            <figure class="rs-hero-img rs-fig rs-fig--hero" style="aspect-ratio:16/9;" aria-hidden="true">
-              <img
-                src="../assets/img/intelligence.webp"
-                alt=""
-                width="1600"
-                height="900"
-                decoding="async"
-                class="rs-fig__img"
-                onerror="this.dataset.failed='true'"
-              />
-            </figure>
-          </div>
-        </div>
-      </section>
 
-      <!-- FEATURED -->
-      <section class="rs-band rs-band--featured gk-band" data-tone="dark" aria-label="Featured post">
-        <div class="rs-wrap">
-          <p class="rs-eyebrow">Featured</p>
-          <div id="rs-featured"></div>
-        </div>
-      </section>
-
-      <!-- ALL ARTICLES -->
-      <section class="rs-band gk-band" data-tone="raised" id="all-articles">
-        <div class="rs-wrap">
-          <header class="rs-section-head">
-            <p class="rs-eyebrow">Latest thinking</p>
-            <h2 class="rs-h2">All articles</h2>
-          </header>
-
-          <!-- TOOLBAR -->
-          <div class="rs-toolbar" role="search">
-            <div class="rs-search-wrap">
-              <i class="bi bi-search" aria-hidden="true"></i>
-              <input
-                id="rs-search"
-                class="rs-search"
-                type="search"
-                placeholder="Search articles"
-                aria-label="Search articles"
-                autocomplete="off"
-              />
-            </div>
-            <div class="rs-chips" role="group" aria-label="Filter by category">
-              <button class="rs-chip is-active" data-cat="All" type="button" aria-pressed="true">All</button>
-              <button class="rs-chip" data-cat="Smart Cities" type="button" aria-pressed="false">Smart Cities</button>
-              <button class="rs-chip" data-cat="Technology" type="button" aria-pressed="false">Technology</button>
-              <button class="rs-chip" data-cat="Agriculture" type="button" aria-pressed="false">Agriculture</button>
-            </div>
-            <span id="rs-count" class="rs-count" role="status" aria-live="polite"></span>
-          </div>
-
-          <!-- GRID -->
-          <div id="rs-grid" class="rs-grid"></div>
-
-          <!-- EMPTY STATE -->
-          <div id="rs-empty" class="rs-empty-state" hidden>
-            <i class="bi bi-search rs-empty-state__icon" aria-hidden="true"></i>
-            <p class="rs-empty-state__msg">No articles match that search</p>
-            <button id="rs-clear" class="rs-clear-btn" type="button">Clear filters</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- EXPLORE (from Prompt 32 pattern) -->
-      <section class="rs-band gk-band" data-tone="dark">
-        <div class="rs-wrap">
-          <div class="rs-explore">
-            <p class="rs-eyebrow">Explore more</p>
-            <h2 class="rs-h2">More from FrameIQ</h2>
-            <div class="rs-explore__links">
-              <a class="rs-explore__link" href="research.html">
-                <span class="rs-explore__link-label">Research</span>
-                <i class="bi bi-arrow-right" aria-hidden="true"></i>
-              </a>
-              <a class="rs-explore__link" href="glossary.html">
-                <span class="rs-explore__link-label">Glossary</span>
-                <i class="bi bi-arrow-right" aria-hidden="true"></i>
-              </a>
-              <a class="rs-explore__link" href="compare.html">
-                <span class="rs-explore__link-label">Compare</span>
-                <i class="bi bi-arrow-right" aria-hidden="true"></i>
-              </a>
+            <!-- Editorial value strip -->
+            <div class="blog-value-strip" aria-label="What you will find">
+              <div class="blog-value-item">
+                <i class="bi bi-layers" aria-hidden="true"></i>
+                <span>Expert perspectives</span>
+              </div>
+              <div class="blog-value-item">
+                <i class="bi bi-book" aria-hidden="true"></i>
+                <span>Practical guides</span>
+              </div>
+              <div class="blog-value-item">
+                <i class="bi bi-bar-chart-line" aria-hidden="true"></i>
+                <span>Industry insights</span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
+        <!-- FEATURED ARTICLE: existing JavaScript renders the content into #rs-featured -->
+        <section
+          class="rs-band rs-band--featured gk-band blog-featured-section"
+          data-tone="dark"
+          aria-label="Editor's pick"
+        >
+          <div class="rs-wrap">
+            <p class="blog-section-kicker">Editor's pick</p>
+            <div id="rs-featured"></div>
+          </div>
+        </section>
 
+        <!-- EXPLORE BY TOPIC -->
+        <section
+          class="rs-band gk-band blog-topic-section"
+          data-tone="raised"
+          aria-labelledby="blog-topics-title"
+        >
+          <div class="rs-wrap">
+            <header class="blog-topic-heading">
+              <p class="blog-section-kicker">Explore by topic</p>
+              <h2 class="rs-h2" id="blog-topics-title">
+                Find the ideas that interest you
+              </h2>
+              <p>
+                Explore insights across the technologies and industries FrameIQ
+                works with.
+              </p>
+            </header>
 
-    </div>
-  </main>
-  <div id="site-footer"></div>
-</body>
+            <div class="blog-topic-grid">
+              <button
+                class="blog-topic-card"
+                type="button"
+                data-topic="Smart Cities"
+              >
+                <i class="bi bi-buildings" aria-hidden="true"></i>
+                <strong>Smart Cities</strong>
+                <span
+                  >Ideas and use cases for safer, more efficient cities.</span
+                >
+                <span class="blog-topic-arrow" aria-hidden="true"
+                  >Explore <i class="bi bi-arrow-right"></i
+                ></span>
+              </button>
+
+              <button
+                class="blog-topic-card"
+                type="button"
+                data-topic="Technology"
+              >
+                <i class="bi bi-camera-video" aria-hidden="true"></i>
+                <strong>Computer Vision</strong>
+                <span
+                  >Practical applications, models, and real-world
+                  learnings.</span
+                >
+                <span class="blog-topic-arrow" aria-hidden="true"
+                  >Explore <i class="bi bi-arrow-right"></i
+                ></span>
+              </button>
+
+              <button
+                class="blog-topic-card"
+                type="button"
+                data-topic="Agriculture"
+              >
+                <i class="bi bi-flower1" aria-hidden="true"></i>
+                <strong>Agriculture</strong>
+                <span
+                  >How vision AI can support monitoring, quality, and
+                  yield.</span
+                >
+                <span class="blog-topic-arrow" aria-hidden="true"
+                  >Explore <i class="bi bi-arrow-right"></i
+                ></span>
+              </button>
+
+              <button
+                class="blog-topic-card"
+                type="button"
+                data-topic="Technology"
+              >
+                <i class="bi bi-play-btn" aria-hidden="true"></i>
+                <strong>Video Analytics</strong>
+                <span
+                  >Turning video data into real-time, actionable insights.</span
+                >
+                <span class="blog-topic-arrow" aria-hidden="true"
+                  >Explore <i class="bi bi-arrow-right"></i
+                ></span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ALL ARTICLES -->
+        <section
+          class="rs-band gk-band blog-articles-section"
+          data-tone="dark"
+          id="all-articles"
+        >
+          <div class="rs-wrap">
+            <div class="blog-articles-head">
+              <header class="rs-section-head">
+                <p class="rs-eyebrow">Latest thinking</p>
+                <h2 class="rs-h2">Latest insights</h2>
+                <p class="blog-articles-intro">
+                  Browse our latest articles, guides, and updates.
+                </p>
+              </header>
+            </div>
+
+            <!-- Existing IDs and data-cat values are retained for resources-blog.js -->
+            <div class="rs-toolbar" role="search">
+              <div class="rs-search-wrap">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input
+                  id="rs-search"
+                  class="rs-search"
+                  type="search"
+                  placeholder="Search articles"
+                  aria-label="Search articles"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div
+                class="rs-chips"
+                role="group"
+                aria-label="Filter by category"
+              >
+                <button
+                  class="rs-chip is-active"
+                  data-cat="All"
+                  type="button"
+                  aria-pressed="true"
+                >
+                  All
+                </button>
+                <button
+                  class="rs-chip"
+                  data-cat="Smart Cities"
+                  type="button"
+                  aria-pressed="false"
+                >
+                  Smart Cities
+                </button>
+                <button
+                  class="rs-chip"
+                  data-cat="Technology"
+                  type="button"
+                  aria-pressed="false"
+                >
+                  Technology
+                </button>
+                <button
+                  class="rs-chip"
+                  data-cat="Agriculture"
+                  type="button"
+                  aria-pressed="false"
+                >
+                  Agriculture
+                </button>
+              </div>
+
+              <span
+                id="rs-count"
+                class="rs-count"
+                role="status"
+                aria-live="polite"
+              ></span>
+            </div>
+
+            <div id="rs-grid" class="rs-grid"></div>
+
+            <div id="rs-empty" class="rs-empty-state" hidden>
+              <i
+                class="bi bi-search rs-empty-state__icon"
+                aria-hidden="true"
+              ></i>
+              <p class="rs-empty-state__msg">No articles match that search</p>
+              <button id="rs-clear" class="rs-clear-btn" type="button">
+                Clear filters
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- EXPLORE MORE -->
+        <section class="rs-band gk-band" data-tone="dark">
+          <div class="rs-wrap">
+            <div class="rs-explore">
+              <p class="rs-eyebrow">Keep exploring</p>
+              <h2 class="rs-h2">More from FrameIQ</h2>
+              <p class="rs-lead">
+                Explore our research, learn key concepts, and compare technology
+                approaches.
+              </p>
+
+              <div class="rs-explore__links">
+                <a class="rs-explore__link" href="research.html">
+                  <span class="rs-explore__link-label">Research</span>
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </a>
+                <a class="rs-explore__link" href="glossary.html">
+                  <span class="rs-explore__link-label">Glossary</span>
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </a>
+                <a class="rs-explore__link" href="compare.html">
+                  <span class="rs-explore__link-label">Compare</span>
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+  </body>
 </html>

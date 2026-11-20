@@ -15,15 +15,27 @@
   position: relative;
   padding-block: clamp(2.75rem, 4vw, 4rem) clamp(2rem, 4vw, 3rem);
   background:
-    radial-gradient(circle at top right, rgba(101, 66, 200, 0.24), transparent 34%),
+    radial-gradient(
+      circle at top right,
+      rgba(101, 66, 200, 0.24),
+      transparent 34%
+    ),
     linear-gradient(180deg, rgba(17, 17, 22, 0.96), rgba(17, 17, 22, 0.92));
 }
 
 .res-hero[data-tone="light"],
 .res-hero[data-tone="raised"] {
   background:
-    radial-gradient(circle at top right, rgba(101, 66, 200, 0.16), transparent 30%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(250, 249, 255, 0.96));
+    radial-gradient(
+      circle at top right,
+      rgba(101, 66, 200, 0.16),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.82),
+      rgba(250, 249, 255, 0.96)
+    );
 }
 
 .res-hero .rs-wrap {
@@ -91,7 +103,9 @@
 }
 
 /* sub-nav removed per Prompt 33 — navigation is via Resources dropdown and Keep Exploring cards */
-.res-subnav { display: none; }
+.res-subnav {
+  display: none;
+}
 
 .res-subnav__link:focus-visible,
 .res-chip:focus-visible,
@@ -146,7 +160,10 @@
   border-radius: var(--radius-lg, 16px);
   background: color-mix(in srgb, var(--surface) 76%, transparent);
   box-shadow: var(--res-card-shadow);
-  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .res-card:hover,
@@ -238,7 +255,9 @@
 .rsr-pillar {
   opacity: 1;
   transform: none;
-  transition: opacity 600ms ease, transform 600ms ease;
+  transition:
+    opacity 600ms ease,
+    transform 600ms ease;
   transition-delay: calc(var(--i, 0) * 60ms);
 }
 
@@ -294,7 +313,10 @@ html.rs-js .rs-reveal:not(.is-in) {
   background: color-mix(in srgb, var(--surface) 88%, transparent);
   text-decoration: none;
   color: inherit;
-  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .res-keep-exploring__card:hover,
