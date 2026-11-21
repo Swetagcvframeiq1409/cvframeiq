@@ -1,502 +1,367 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="data:," />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PCB Guardian | FrameIQ</title>
-    <meta
-      name="description"
-      content="Discuss a computer-vision PCB inspection concept with FrameIQ. Capabilities and deployment details are to be confirmed."
-    />
-    <link
-      rel="canonical"
-      href="https://cvframeiq.com/pages/pcb-guardian.html"
-    />
-    <meta
-      property="og:url"
-      content="https://cvframeiq.com/pages/pcb-guardian.html"
-    />
-    <link
-      rel="preload"
-      href="../assets/fonts/space-grotesk-latin-variable.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="../assets/fonts/inter-latin-variable.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link rel="stylesheet" href="../assets/css/tokens.css" />
-    <link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" />
-    <link rel="stylesheet" href="../assets/css/base.css" />
-    <link rel="stylesheet" href="../assets/css/components.css" />
-    <link rel="stylesheet" href="../assets/css/search.css" />
-    <link rel="stylesheet" href="../assets/css/motion.css" />
-    <link rel="stylesheet" href="../assets/css/fx.css" />
-    <link rel="stylesheet" href="../assets/css/inner-wow.css" />
-    <link rel="stylesheet" href="../assets/css/nav-fix.css" />
-    <link rel="stylesheet" href="../assets/css/gk.css" />
-    <link rel="stylesheet" href="../assets/css/fix-round3.css" />
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="data:," />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PCB Guardian | FrameIQ</title>
+  <meta name="description" content="Discuss a computer-vision PCB inspection concept with FrameIQ. Capabilities and deployment details are to be confirmed." />
+  <link rel="canonical" href="https://cvframeiq.com/pages/pcb-guardian.html" />
+  <meta property="og:url" content="https://cvframeiq.com/pages/pcb-guardian.html" />
+  <link rel="preload" href="../assets/fonts/space-grotesk-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../assets/css/tokens.css" />
+  <link rel="stylesheet" href="../assets/fonts/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../assets/css/base.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/search.css" />
+  <link rel="stylesheet" href="../assets/css/motion.css" />
+  <link rel="stylesheet" href="../assets/css/fx.css" />
+  <link rel="stylesheet" href="../assets/css/inner-wow.css" />
+  <link rel="stylesheet" href="../assets/css/nav-fix.css" />
+  <link rel="stylesheet" href="../assets/css/gk.css" />
+<link rel="stylesheet" href="../assets/css/fix-round3.css" />
     <link rel="stylesheet" href="../assets/css/mobile-fixes.css" />
     <link rel="stylesheet" href="../assets/css/gk-kit.css" />
-    <link rel="stylesheet" href="../assets/css/gk-motion.css" />
-    <link rel="stylesheet" href="../assets/css/product-pages-v2.css" />
-    <link rel="stylesheet" href="../assets/css/pp-requirements.css" />
-    <link rel="stylesheet" href="../assets/css/product-page.css" />
-    <link rel="stylesheet" href="../assets/css/products-page.css" />
-    <link rel="stylesheet" href="../assets/css/pcb-guardian-polish.css" />
-    <meta name="color-scheme" content="dark" />
-    <script src="../assets/data/site-data.js" defer></script>
-    <script src="../assets/data/live-carryover.js" defer></script>
-    <script src="../assets/js/live-carryover-render.js" defer></script>
-    <script src="../assets/data/images.js" defer></script>
-    <script src="../assets/data/search-index.js" defer></script>
-    <script src="../assets/js/photos.js" defer></script>
-    <script src="../assets/js/icons.js" defer></script>
-    <script src="../assets/js/components.js" defer></script>
-    <script src="../assets/js/pages/pcb-guardian-faq.js" defer></script>
-    <script src="../assets/js/search.js" defer></script>
-    <script src="../assets/js/main.js" defer></script>
-    <script src="../assets/js/seo.js" defer></script>
-    <script src="../assets/js/motion.js" defer></script>
-    <script src="../assets/js/fx.js" defer></script>
-    <script src="../assets/js/gk.js" defer></script>
-    <script src="../assets/js/gk-kit.js" defer></script>
-    <script src="../assets/js/gk-motion.js" defer></script>
-    <script src="../assets/js/pages/product-pages.js" defer></script>
-    <noscript>
-      <style>
-        [data-reveal],
-        .gk-r,
-        .ais-reveal,
-        .pp-tab-panel {
-          opacity: 1 !important;
-          visibility: visible !important;
-          transform: none !important;
-        }
-      </style>
-    </noscript>
+  <link rel="stylesheet" href="../assets/css/gk-motion.css" />
+  <link rel="stylesheet" href="../assets/css/product-pages-v2.css" />
+  <link rel="stylesheet" href="../assets/css/pp-requirements.css" />
+  <link rel="stylesheet" href="../assets/css/pcb-guardian-polish.css" />
+  <link rel="stylesheet" href="../assets/css/pp-final.css" />
+  <meta name="color-scheme" content="dark" />
+  <script src="../assets/data/site-data.js" defer></script>
+  <script src="../assets/data/live-carryover.js" defer></script>
+  <script src="../assets/js/live-carryover-render.js" defer></script>
+  <script src="../assets/data/images.js" defer></script>
+  <script src="../assets/data/search-index.js" defer></script>
+  <script src="../assets/js/photos.js" defer></script>
+  <script src="../assets/js/icons.js" defer></script>
+  <script src="../assets/js/components.js" defer></script>
+  <script src="../assets/js/pages/product-sections.js" defer></script>
+  <script src="../assets/js/search.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/seo.js" defer></script>
+  <script src="../assets/js/motion.js" defer></script>
+  <script src="../assets/js/fx.js" defer></script>
+  <script src="../assets/js/gk.js" defer></script>
+  <script src="../assets/js/gk-kit.js" defer></script>
+  <script src="../assets/js/gk-motion.js" defer></script>
+  <script src="../assets/js/pages/product-pages.js" defer></script>
+<noscript>
+  <style>
+    [data-reveal], .gk-r, .ais-reveal, .pp-tab-panel { opacity: 1 !important; visibility: visible !important; transform: none !important; }
+  </style>
+</noscript>
   </head>
-  <body data-root="../" class="pdp-page" data-cta="page">
-    <a class="skip-link" href="#main-content">Skip to content</a>
-    <div id="site-header"></div>
+<body data-root="../" class="pdp-page" data-cta="page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div id="site-header"></div>
 
-    <main id="main-content" class="pp-page" data-no-global-cta="true">
-      <!-- 1. HERO -->
-      <section class="gk-prodhero" aria-labelledby="pcb-h1">
-        <div class="gk-wrap gk-prodhero__grid">
-          <div class="gk-prodhero__copy">
-            <nav class="gk-crumbs" aria-label="Breadcrumb">
-              <a href="../index.html">Home</a> /
-              <a href="ai-store.html">Products</a> / PCB Guardian
-            </nav>
-            <p class="gk-eyebrow">PCB INSPECTION</p>
-            <h1 id="pcb-h1">PCB Guardian</h1>
-            <p class="gk-lead">
-              A proposed visual-inspection product concept for printed circuit
-              boards. Scope, supported components, and operating requirements
-              are to be confirmed.
-            </p>
-            <span class="pp-draft-chip">
-              <i class="bi bi-info-circle" aria-hidden="true"></i>
-              Concept stage. Availability to be confirmed.
-            </span>
-            <div class="gk-prodhero__cta">
-              <a class="gk-btn" href="contact.html"
-                >Book a Demo <i class="bi bi-arrow-right" aria-hidden="true"></i
-              ></a>
-              <a class="gk-btn gk-btn--ghost" href="playground.html"
-                >Try Live Demo
-                <i class="bi bi-arrow-right" aria-hidden="true"></i
-              ></a>
-              <a class="gk-btn gk-btn--ghost" href="roi-pcb-guardian.html"
-                >PCB ROI calculator
-                <i class="bi bi-arrow-right" aria-hidden="true"></i
-              ></a>
-            </div>
-          </div>
-          <div class="gk-prodhero__media">
-            <img
-              src="../assets/img/products/pcb-guardian-hero.webp"
-              alt="PCB Guardian computer vision inspection concept"
-              width="1680"
-              height="944"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-            />
+  <main id="main-content" class="pp-page pp88-page" data-no-global-cta="true">
+
+    <!-- 1. HERO -->
+    <section class="gk-prodhero" aria-labelledby="pcb-h1">
+      <div class="gk-wrap gk-prodhero__grid">
+        <div class="gk-prodhero__copy">
+          <nav class="gk-crumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a> /
+            <a href="ai-store.html">Products</a> /
+            PCB Guardian
+          </nav>
+          <p class="gk-eyebrow">PCB INSPECTION</p>
+          <h1 id="pcb-h1">PCB Guardian</h1>
+          <p class="gk-lead">A proposed visual-inspection product concept for printed circuit boards. Scope, supported components, and operating requirements are to be confirmed.</p>
+          <span class="pp-draft-chip">
+            <i class="bi bi-info-circle" aria-hidden="true"></i>
+            Concept stage. Availability to be confirmed.
+          </span>
+          <div class="gk-prodhero__cta">
+            <a class="gk-btn" href="contact.html">Book a Demo <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            <a class="gk-btn gk-btn--ghost" href="playground.html">Try Live Demo <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            <a class="gk-btn gk-btn--ghost" href="roi-pcb-guardian.html">PCB ROI calculator <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
-      </section>
+        <div class="gk-prodhero__media">
+          <img src="../assets/img/products/pcb-guardian-hero.webp" alt="PCB Guardian computer vision inspection concept" width="1680" height="944" loading="eager" fetchpriority="high" decoding="async" />
+        </div>
+      </div>
+    </section>
 
-      <!-- 2. KEY FACTS -->
-      <section class="gk-band" aria-label="Key facts">
-        <div class="gk-wrap">
-          <span class="gk-eyebrow">At a glance</span>
-          <div class="pp-glance">
-            <div class="pp-glance-cell">
-              <i class="bi bi-cpu" aria-hidden="true"></i>
-              <span class="pp-glance-label">Product type</span>
-              <span class="pp-glance-value">PCB Visual Inspection</span>
-            </div>
-            <div class="pp-glance-cell">
-              <i class="bi bi-layers" aria-hidden="true"></i>
-              <span class="pp-glance-label">Deployment</span>
-              <span class="pp-glance-value">Production line</span>
-            </div>
-            <div class="pp-glance-cell">
-              <i class="bi bi-camera" aria-hidden="true"></i>
-              <span class="pp-glance-label">Camera input</span>
-              <span class="pp-glance-value">Board images</span>
-            </div>
-            <div class="pp-glance-cell">
-              <i class="bi bi-gear" aria-hidden="true"></i>
-              <span class="pp-glance-label">Integration</span>
-              <span class="pp-glance-value">Client review</span>
-            </div>
+    <!-- 2. KEY FACTS -->
+    <section class="gk-band pp89-sec" aria-label="Key facts">
+      <div class="gk-wrap">
+        <span class="gk-eyebrow pp89-eyebrow">At a glance</span>
+        <div class="pp-glance pp89-glance pg91-glance">
+          <div class="pp-glance-cell pp89-glance-cell pg91-glance-cell">
+            <i class="bi bi-cpu pp89-glance-icon pg91-glance-icon" aria-hidden="true"></i>
+            <span class="pp-glance-label pp89-glance-label pg91-glance-label">Product type</span>
+            <span class="pp-glance-value pp89-glance-value pg91-glance-value">PCB Visual Inspection</span>
+          </div>
+          <div class="pp-glance-cell pp89-glance-cell pg91-glance-cell">
+            <i class="bi bi-layers pp89-glance-icon pg91-glance-icon" aria-hidden="true"></i>
+            <span class="pp-glance-label pp89-glance-label pg91-glance-label">Deployment</span>
+            <span class="pp-glance-value pp89-glance-value pg91-glance-value">Production line</span>
+          </div>
+          <div class="pp-glance-cell pp89-glance-cell pg91-glance-cell">
+            <i class="bi bi-camera pp89-glance-icon pg91-glance-icon" aria-hidden="true"></i>
+            <span class="pp-glance-label pp89-glance-label pg91-glance-label">Camera input</span>
+            <span class="pp-glance-value pp89-glance-value pg91-glance-value">Board images</span>
+          </div>
+          <div class="pp-glance-cell pp89-glance-cell pg91-glance-cell">
+            <i class="bi bi-gear pp89-glance-icon pg91-glance-icon" aria-hidden="true"></i>
+            <span class="pp-glance-label pp89-glance-label pg91-glance-label">Integration</span>
+            <span class="pp-glance-value pp89-glance-value pg91-glance-value">Client review</span>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 3. PROBLEM TO EXPLORE -->
-      <section class="gk-band pg82-problem" aria-labelledby="pcb-problem-h2">
-        <div class="gk-wrap">
-          <div class="gk-head">
-            <div>
-              <span class="gk-eyebrow">Product concept</span>
-              <h2 id="pcb-problem-h2">Problem to explore</h2>
-            </div>
-          </div>
-          <div class="pp-problem-grid" data-count="2">
-            <article class="pp-problem-card">
-              <i class="bi bi-search" aria-hidden="true"></i>
-              <h3>Review against defined criteria</h3>
-              <p>
-                Teams may want to review board images against criteria they
-                define.
-              </p>
-            </article>
-            <article class="pp-problem-card">
-              <i class="bi bi-question-circle" aria-hidden="true"></i>
-              <h3>Confirm the scope</h3>
-              <p>
-                Whether PCB Guardian supports a particular board, defect class,
-                camera, or production line must be confirmed with FrameIQ.
-              </p>
-            </article>
+    <!-- 3. PROBLEM TO EXPLORE -->
+    <section class="gk-band pp89-sec pp93-sec pg86-problem" aria-labelledby="pcb-problem-h2">
+      <div class="gk-wrap">
+        <div class="gk-head">
+          <div>
+            <span class="gk-eyebrow pp89-eyebrow">Product concept</span>
+            <h2 id="pcb-problem-h2" class="pp89-h2">Problem to explore</h2>
           </div>
         </div>
-      </section>
-
-      <!-- 4. HOW IT COULD WORK -->
-      <section class="gk-band" aria-labelledby="pcb-workflow-h2">
-        <div class="gk-wrap">
-          <span class="gk-eyebrow">How it could work</span>
-          <h2 id="pcb-workflow-h2">Discussion workflow</h2>
-          <div class="pp-workflow-wrap" data-pp-workflow>
-            <div class="pp-workflow-list">
-              <div class="pp-step-card is-on" data-step="0">
-                <span class="pp-step-num">01</span>
-                <h3>Agree the criteria</h3>
-                <p>
-                  Agree the inspection criteria and representative image set.
-                </p>
-              </div>
-              <div class="pp-step-card" data-step="1">
-                <span class="pp-step-num">02</span>
-                <h3>Review the workflow</h3>
-                <p>Review a proposed vision workflow against those criteria.</p>
-              </div>
-              <div class="pp-step-card" data-step="2">
-                <span class="pp-step-num">03</span>
-                <h3>Discuss routing</h3>
-                <p>
-                  Discuss how any result would be reviewed and routed in the
-                  customer's environment.
-                </p>
-              </div>
+        <div class="pg86-problem-grid pp89-problem-grid pp93-problem-grid">
+          <article class="pg86-card pp89-card pg91-problem-card pp93-problem-card">
+            <span class="pg86-num pp89-num pg91-problem-num pp93-problem-num" aria-hidden="true">01</span>
+            <div class="pg86-icon-tile pp89-icon-tile pg91-icon-tile pp93-icon-tile">
+              <i class="bi bi-search pg86-icon" aria-hidden="true"></i>
             </div>
-            <div class="pp-workflow-media">
-              <div class="pp-workflow-img active" data-step="0">
-                <img
-                  src="../assets/img/products/pcb-guardian-hero.webp"
-                  alt="PCB Guardian step 1"
-                  loading="lazy"
-                  width="720"
-                  height="540"
-                />
-              </div>
-              <div class="pp-workflow-img" data-step="1">
-                <img
-                  src="../assets/img/PCB Guardian hero.webp"
-                  alt="PCB Guardian step 2"
-                  loading="lazy"
-                  width="720"
-                  height="540"
-                />
-              </div>
-              <div class="pp-workflow-img" data-step="2">
-                <img
-                  src="../assets/img/menu-pcb.webp"
-                  alt="PCB Guardian step 3"
-                  loading="lazy"
-                  width="720"
-                  height="540"
-                />
-              </div>
+            <div class="pp93-problem-body">
+              <h3 class="pp89-problem-title pg91-problem-title pp93-problem-title">Review against defined criteria</h3>
+              <p class="pp89-problem-desc pg91-problem-desc pp93-problem-desc">Teams may want to review board images against criteria they define.</p>
+            </div>
+          </article>
+          <article class="pg86-card pp89-card pg91-problem-card pp93-problem-card">
+            <span class="pg86-num pp89-num pg91-problem-num pp93-problem-num" aria-hidden="true">02</span>
+            <div class="pg86-icon-tile pp89-icon-tile pg91-icon-tile pp93-icon-tile">
+              <i class="bi bi-question-circle pg86-icon" aria-hidden="true"></i>
+            </div>
+            <div class="pp93-problem-body">
+              <h3 class="pp89-problem-title pg91-problem-title pp93-problem-title">Confirm the scope</h3>
+              <p class="pp89-problem-desc pg91-problem-desc pp93-problem-desc">Whether PCB Guardian supports a particular board, defect class, camera, or production line must be confirmed with FrameIQ.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. HOW IT COULD WORK -->
+    <section class="gk-band" aria-labelledby="pcb-workflow-h2">
+      <div class="gk-wrap">
+        <span class="gk-eyebrow">How it could work</span>
+        <h2 id="pcb-workflow-h2">Discussion workflow</h2>
+        <div class="pp-workflow-wrap" data-pp-workflow>
+          <div class="pp-workflow-list">
+            <div class="pp-step-card is-on" data-step="0">
+              <span class="pp-step-num">01</span>
+              <h3>Agree the criteria</h3>
+              <p>Agree the inspection criteria and representative image set.</p>
+            </div>
+            <div class="pp-step-card" data-step="1">
+              <span class="pp-step-num">02</span>
+              <h3>Review the workflow</h3>
+              <p>Review a proposed vision workflow against those criteria.</p>
+            </div>
+            <div class="pp-step-card" data-step="2">
+              <span class="pp-step-num">03</span>
+              <h3>Discuss routing</h3>
+              <p>Discuss how any result would be reviewed and routed in the customer's environment.</p>
+            </div>
+          </div>
+          <div class="pp-workflow-media">
+            <div class="pp-workflow-img active" data-step="0">
+              <img src="../assets/img/products/pcb-guardian-hero.webp" alt="PCB Guardian step 1" loading="lazy" width="720" height="540" />
+            </div>
+            <div class="pp-workflow-img" data-step="1">
+              <img src="../assets/img/PCB Guardian hero.webp" alt="PCB Guardian step 2" loading="lazy" width="720" height="540" />
+            </div>
+            <div class="pp-workflow-img" data-step="2">
+              <img src="../assets/img/menu-pcb.webp" alt="PCB Guardian step 3" loading="lazy" width="720" height="540" />
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 5. SPEC TABS -->
-      <section class="gk-band" aria-labelledby="pcb-spec-h2">
-        <div class="gk-wrap">
-          <div class="gk-head">
-            <div>
-              <span class="gk-eyebrow">Specifications</span>
-              <h2 id="pcb-spec-h2">Discuss the requirements</h2>
+    <!-- 5. SPEC TABS -->
+    <section class="gk-band pp89-sec pp93-sec" aria-labelledby="pcb-spec-h2">
+      <div class="gk-wrap">
+        <div class="gk-head">
+          <div>
+            <span class="gk-eyebrow pp89-eyebrow">Specifications</span>
+            <h2 id="pcb-spec-h2" class="pp89-h2">Discuss the requirements</h2>
+          </div>
+        </div>
+        <div class="pp-tabs-wrap" data-pp-tabs>
+          <div class="pp-tab-bar-wrapper">
+            <div class="pp-tab-bar pp93-tab-bar" role="tablist" aria-label="PCB Guardian requirements">
+              <button
+                class="pp-tab-btn pp93-tab-btn is-on"
+                type="button"
+                role="tab"
+                id="pcb-tab-0"
+                aria-controls="pcb-panel-0"
+                aria-selected="true"
+                data-img="../assets/img/products/pcb-guardian-hero.webp"
+              >Boards and defects</button>
+              <button
+                class="pp-tab-btn pp93-tab-btn"
+                type="button"
+                role="tab"
+                id="pcb-tab-1"
+                aria-controls="pcb-panel-1"
+                aria-selected="false"
+                tabindex="-1"
+                data-img=""
+              >Image requirements</button>
+              <button
+                class="pp-tab-btn pp93-tab-btn"
+                type="button"
+                role="tab"
+                id="pcb-tab-2"
+                aria-controls="pcb-panel-2"
+                aria-selected="false"
+                tabindex="-1"
+                data-img=""
+              >Integrations</button>
             </div>
           </div>
-          <div class="pp-tabs-wrap" data-pp-tabs>
-            <div class="pp-tab-bar-wrapper">
-              <div
-                class="pp-tab-bar"
-                role="tablist"
-                aria-label="PCB Guardian requirements"
-              >
-                <button
-                  class="pp-tab-btn is-on"
-                  type="button"
-                  role="tab"
-                  id="pcb-tab-0"
-                  aria-controls="pcb-panel-0"
-                  aria-selected="true"
-                  data-img="../assets/img/products/pcb-guardian-hero.webp"
-                >
-                  Boards and defects
-                </button>
-                <button
-                  class="pp-tab-btn"
-                  type="button"
-                  role="tab"
-                  id="pcb-tab-1"
-                  aria-controls="pcb-panel-1"
-                  aria-selected="false"
-                  tabindex="-1"
-                  data-img=""
-                >
-                  Image requirements
-                </button>
-                <button
-                  class="pp-tab-btn"
-                  type="button"
-                  role="tab"
-                  id="pcb-tab-2"
-                  aria-controls="pcb-panel-2"
-                  aria-selected="false"
-                  tabindex="-1"
-                  data-img=""
-                >
-                  Integrations
-                </button>
-              </div>
-            </div>
-            <div class="pp-tab-panels">
-              <div
-                class="pp-tab-panel is-on"
-                id="pcb-panel-0"
-                role="tabpanel"
-                aria-labelledby="pcb-tab-0"
-              >
-                <div class="pp-tab-panel-grid">
-                  <div class="pp-tab-copy">
-                    <h3>Boards and defects</h3>
-                    <p>
-                      Typical reviews cover solder, trace, placement, and
-                      board-condition issues on representative assemblies.
-                    </p>
-                  </div>
-                  <div class="pp-tab-media">
-                    <div class="pp-tab-img-wrap">
-                      <img
-                        src="../assets/img/products/pcb-guardian-hero.webp"
-                        alt="PCB Guardian boards and defects"
-                        loading="lazy"
-                        width="720"
-                        height="540"
-                      />
-                    </div>
+          <div class="pp-tab-panels pp93-tab-panels">
+            <div class="pp-tab-panel is-on pp89-tab-panel pg91-tab-panel pp93-tab-panel" id="pcb-panel-0" role="tabpanel" aria-labelledby="pcb-tab-0">
+              <div class="pp-tab-panel-grid pp93-tab-panel-grid">
+                <div class="pp-tab-copy pp93-tab-copy">
+                  <h3 class="pp89-tab-title pg91-tab-title pp93-tab-title">Boards and defects</h3>
+                  <p class="pp89-tab-desc pg91-tab-desc pp93-tab-desc">Typical reviews cover solder, trace, placement, and board-condition issues on representative assemblies.</p>
+                </div>
+                <div class="pp-tab-media pp93-tab-media">
+                  <div class="pp-tab-img-wrap pp89-tab-media-box pg91-tab-media-box pp93-tab-media-box">
+                    <img class="pp93-tab-img" src="../assets/img/products/pcb-guardian-hero.webp" alt="PCB Guardian boards and defects" loading="lazy" width="720" height="540" />
                   </div>
                 </div>
               </div>
-              <div
-                class="pp-tab-panel"
-                id="pcb-panel-1"
-                role="tabpanel"
-                aria-labelledby="pcb-tab-1"
-              >
-                <div class="pp-tab-panel-grid">
-                  <div class="pp-tab-copy">
-                    <h3>Image requirements</h3>
-                    <p>
-                      High-resolution board imagery, stable lighting, and a
-                      defined review workflow are central to practical
-                      inspection use cases.
-                    </p>
-                    <div class="pp-chip-group">
-                      <span class="pp-chip">Solder joints</span>
-                      <span class="pp-chip">Trace width</span>
-                      <span class="pp-chip">Placement accuracy</span>
-                    </div>
-                  </div>
-                  <div class="pp-tab-media">
-                    <div class="pp-icon-panel">
-                      <i class="bi bi-search" aria-hidden="true"></i>
-                    </div>
+            </div>
+            <div class="pp-tab-panel pp89-tab-panel pg91-tab-panel pp93-tab-panel" id="pcb-panel-1" role="tabpanel" aria-labelledby="pcb-tab-1">
+              <div class="pp-tab-panel-grid pp93-tab-panel-grid">
+                <div class="pp-tab-copy pp93-tab-copy">
+                  <h3 class="pp89-tab-title pg91-tab-title pp93-tab-title">Image requirements</h3>
+                  <p class="pp89-tab-desc pg91-tab-desc pp93-tab-desc">High-resolution board imagery, stable lighting, and a defined review workflow are central to practical inspection use cases.</p>
+                  <div class="pp-chip-group pp89-chip-group">
+                    <span class="pp-chip pp89-chip pg91-chip">Solder joints</span>
+                    <span class="pp-chip pp89-chip pg91-chip">Trace width</span>
+                    <span class="pp-chip pp89-chip pg91-chip">Placement accuracy</span>
                   </div>
                 </div>
+                <div class="pp-tab-media pp93-tab-media">
+                  <div class="pp-icon-panel pp89-tab-media-box pp89-tab-media-icon pg91-tab-media-icon pg91-tab-media-box pp93-tab-media-box"><i class="bi bi-search" aria-hidden="true"></i></div>
+                </div>
               </div>
-              <div
-                class="pp-tab-panel"
-                id="pcb-panel-2"
-                role="tabpanel"
-                aria-labelledby="pcb-tab-2"
-              >
-                <div class="pp-tab-panel-grid">
-                  <div class="pp-tab-copy">
-                    <h3>Integrations</h3>
-                    <p>
-                      Ops teams often want a workflow that routes exceptions to
-                      review, QA, or downstream manufacturing steps.
-                    </p>
-                    <div class="pp-chip-group">
-                      <span class="pp-chip">Review routing</span>
-                      <span class="pp-chip">QA escalation</span>
-                      <span class="pp-chip">Downstream MES</span>
-                    </div>
+            </div>
+            <div class="pp-tab-panel pp89-tab-panel pg91-tab-panel pp93-tab-panel" id="pcb-panel-2" role="tabpanel" aria-labelledby="pcb-tab-2">
+              <div class="pp-tab-panel-grid pp93-tab-panel-grid">
+                <div class="pp-tab-copy pp93-tab-copy">
+                  <h3 class="pp89-tab-title pg91-tab-title pp93-tab-title">Integrations</h3>
+                  <p class="pp89-tab-desc pg91-tab-desc pp93-tab-desc">Ops teams often want a workflow that routes exceptions to review, QA, or downstream manufacturing steps.</p>
+                  <div class="pp-chip-group pp89-chip-group">
+                    <span class="pp-chip pp89-chip pg91-chip">Review routing</span>
+                    <span class="pp-chip pp89-chip pg91-chip">QA escalation</span>
+                    <span class="pp-chip pp89-chip pg91-chip">Downstream MES</span>
                   </div>
-                  <div class="pp-tab-media">
-                    <div class="pp-icon-panel">
-                      <i class="bi bi-cpu" aria-hidden="true"></i>
-                    </div>
-                  </div>
+                </div>
+                <div class="pp-tab-media pp93-tab-media">
+                  <div class="pp-icon-panel pp89-tab-media-box pp89-tab-media-icon pg91-tab-media-icon pg91-tab-media-box pp93-tab-media-box"><i class="bi bi-cpu" aria-hidden="true"></i></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 6. FAQ -->
-      <section class="gk-band pg82-faq" aria-labelledby="pcb-faq-h2">
-        <div class="gk-wrap">
-          <div class="pp-faq-wrap">
-            <div class="pp-faq-intro-col">
-              <span class="gk-eyebrow">Frequently asked questions</span>
-              <h2 id="pcb-faq-h2">Common questions</h2>
-              <p>Answers to questions about the PCB Guardian concept.</p>
+    <!-- 6. FAQ -->
+    <section class="gk-band pp89-sec pg86-faq" aria-labelledby="pcb-faq-h2">
+      <div class="gk-wrap">
+        <div class="pp-faq-wrap">
+          <div class="pp-faq-intro-col">
+            <span class="gk-eyebrow pp89-eyebrow">Frequently asked questions</span>
+            <h2 id="pcb-faq-h2" class="pp89-h2">Common questions</h2>
+            <p class="pp89-lede">Answers to questions about the PCB Guardian concept.</p>
+            <a href="contact.html" class="pg90-contact-btn">Contact Us <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          </div>
+          <div class="pp-acc" data-pp-acc>
+            <div class="pp-acc-item">
+              <button class="pp-acc-q is-on pg91-acc-q" type="button" aria-expanded="true" aria-controls="pp90-pcb-a-1" id="pp90-pcb-a-1-btn">
+                <span class="pp-acc-num pg91-acc-num" aria-hidden="true">01</span>
+                <span class="pp-acc-qtext pg91-acc-qtext">Which defects can PCB Guardian detect?</span>
+                <i class="bi bi-plus-lg pp-acc-icon pg91-acc-icon" aria-hidden="true"></i>
+              </button>
+              <div class="pp-acc-a pg91-acc-a" role="region" id="pp90-pcb-a-1" aria-labelledby="pp90-pcb-a-1-btn" aria-hidden="false">
+                <div class="pp-acc-inner pg91-acc-inner"><p>Supported defect classes are to be confirmed during product scoping.</p></div>
+              </div>
             </div>
-            <div class="pp-acc" data-pp-acc>
-              <div class="pp-acc-item">
-                <button
-                  class="pp-acc-q is-on"
-                  type="button"
-                  aria-expanded="true"
-                  aria-controls="pg82-faq-a-1"
-                >
-                  Which defects can PCB Guardian detect?
-                  <i class="bi bi-plus-lg pp-acc-icon" aria-hidden="true"></i>
-                </button>
-                <div class="pp-acc-a" role="region" id="pg82-faq-a-1">
-                  <div>
-                    <p>
-                      Supported defect classes are to be confirmed during
-                      product scoping.
-                    </p>
-                  </div>
-                </div>
+            <div class="pp-acc-item">
+              <button class="pp-acc-q pg91-acc-q" type="button" aria-expanded="false" aria-controls="pp90-pcb-a-2" id="pp90-pcb-a-2-btn">
+                <span class="pp-acc-num pg91-acc-num" aria-hidden="true">02</span>
+                <span class="pp-acc-qtext pg91-acc-qtext">Does it work with my production line?</span>
+                <i class="bi bi-plus-lg pp-acc-icon pg91-acc-icon" aria-hidden="true"></i>
+              </button>
+              <div class="pp-acc-a pg91-acc-a" role="region" id="pp90-pcb-a-2" aria-labelledby="pp90-pcb-a-2-btn" aria-hidden="true">
+                <div class="pp-acc-inner pg91-acc-inner"><p>Compatibility and integration options are to be confirmed for your line.</p></div>
               </div>
-              <div class="pp-acc-item">
-                <button
-                  class="pp-acc-q"
-                  type="button"
-                  aria-expanded="false"
-                  aria-controls="pg82-faq-a-2"
-                >
-                  Does it work with my production line?
-                  <i class="bi bi-plus-lg pp-acc-icon" aria-hidden="true"></i>
-                </button>
-                <div class="pp-acc-a" role="region" id="pg82-faq-a-2">
-                  <div>
-                    <p>
-                      Compatibility and integration options are to be confirmed
-                      for your line.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="pp-acc-item">
-                <button
-                  class="pp-acc-q"
-                  type="button"
-                  aria-expanded="false"
-                  aria-controls="pg82-faq-a-3"
-                >
-                  What does it cost?
-                  <i class="bi bi-plus-lg pp-acc-icon" aria-hidden="true"></i>
-                </button>
-                <div class="pp-acc-a" role="region" id="pg82-faq-a-3">
-                  <div><p>Pricing is on enquiry.</p></div>
-                </div>
+            </div>
+            <div class="pp-acc-item">
+              <button class="pp-acc-q pg91-acc-q" type="button" aria-expanded="false" aria-controls="pp90-pcb-a-3" id="pp90-pcb-a-3-btn">
+                <span class="pp-acc-num pg91-acc-num" aria-hidden="true">03</span>
+                <span class="pp-acc-qtext pg91-acc-qtext">What does it cost?</span>
+                <i class="bi bi-plus-lg pp-acc-icon pg91-acc-icon" aria-hidden="true"></i>
+              </button>
+              <div class="pp-acc-a pg91-acc-a" role="region" id="pp90-pcb-a-3" aria-labelledby="pp90-pcb-a-3-btn" aria-hidden="true">
+                <div class="pp-acc-inner pg91-acc-inner"><p>Pricing is on enquiry.</p></div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 7. RELATED PRODUCTS -->
-      <section
-        class="gk-band pg82-related"
-        aria-labelledby="pcb-related-h2"
-        data-pdp="related"
-      >
-        <div class="gk-wrap">
-          <div class="gk-head">
-            <div>
-              <span class="gk-eyebrow">Also explore</span>
-              <h2 id="pcb-related-h2">Related products</h2>
-            </div>
-          </div>
-          <div class="pp-related-grid">
-            <a class="pp-related-card" href="beejhealth.html">
-              <i class="bi bi-flower1" aria-hidden="true"></i>
-              <strong>BeejHealth</strong>
-              <span>AI crop health advisory for Indian agriculture.</span>
-            </a>
-            <a class="pp-related-card" href="autolabel.html">
-              <i class="bi bi-tag" aria-hidden="true"></i>
-              <strong>AutoLabel</strong>
-              <span
-                >Discuss image annotation and data preparation
-                requirements.</span
-              >
-            </a>
-            <a class="pp-related-card" href="ppe-safety.html">
-              <i class="bi bi-shield-check" aria-hidden="true"></i>
-              <strong>PPE Safety</strong>
-              <span>Explore the existing PPE Compliance Monitor listing.</span>
-            </a>
+    <!-- 7. RELATED PRODUCTS -->
+    <section class="gk-band pp89-sec pp89-sec--last pp93-sec" aria-labelledby="pcb-related-h2" data-pdp="related">
+      <div class="gk-wrap">
+        <div class="gk-head">
+          <div>
+            <span class="gk-eyebrow pp89-eyebrow">Also explore</span>
+            <h2 id="pcb-related-h2" class="pp89-h2">Related products</h2>
           </div>
         </div>
-      </section>
-    </main>
+        <div class="pp-related-grid pp93-related-grid">
+          <a class="pp-related-card pp89-related-card pg91-related-card pp93-related-card" href="beejhealth.html">
+            <i class="bi bi-flower1 pp93-related-icon" aria-hidden="true"></i>
+            <strong>BeejHealth</strong>
+            <span>AI crop health advisory for Indian agriculture.</span>
+            <i class="bi bi-arrow-right pp93-related-arrow" aria-hidden="true"></i>
+          </a>
+          <a class="pp-related-card pp89-related-card pg91-related-card pp93-related-card" href="autolabel.html">
+            <i class="bi bi-tag pp93-related-icon" aria-hidden="true"></i>
+            <strong>AutoLabel</strong>
+            <span>Discuss image annotation and data preparation requirements.</span>
+            <i class="bi bi-arrow-right pp93-related-arrow" aria-hidden="true"></i>
+          </a>
+          <a class="pp-related-card pp89-related-card pg91-related-card pp93-related-card" href="ppe-safety.html">
+            <i class="bi bi-shield-check pp93-related-icon" aria-hidden="true"></i>
+            <strong>PPE Safety</strong>
+            <span>Explore the existing PPE Compliance Monitor listing.</span>
+            <i class="bi bi-arrow-right pp93-related-arrow" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
 
-    <div id="site-footer"></div>
-  </body>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
 </html>
