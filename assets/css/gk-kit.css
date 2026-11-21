@@ -110,7 +110,7 @@ body .gk-band:not(.gk-band--dark){--b-bg:var(--surface);--b-ink:var(--text);--b-
 
 
 
-.gk-wrap{width:min(1240px,100% - 48px);margin-inline:auto}
+.gk-wrap{width:min(1200px,100% - 40px);margin-inline:auto}
 
 
 

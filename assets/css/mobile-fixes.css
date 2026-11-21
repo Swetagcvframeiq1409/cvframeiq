@@ -11,21 +11,6 @@
 /* The tab panel uses a two-column grid; on narrow screens the
    label column gets squeezed to near-zero, forcing one char/line. */
 @media (max-width: 640px) {
-  /* Stack the tab-panel two-column grid */
-  .pp-tab-panel.is-on {
-    grid-template-columns: minmax(0, 1fr);
-    min-height: 0;
-  }
-
-  /* Ensure the text column never collapses */
-  .pp-tab-panel > * {
-    min-width: 0;
-    word-break: normal;
-    overflow-wrap: break-word;
-    white-space: normal;
-    writing-mode: horizontal-tb;
-  }
-
   /* Workflow grid: hide the rail on very small screens */
   .pp-workflow-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -45,23 +30,12 @@
     min-width: 0;
   }
   .pp-workflow-img img,
-  .pp-tab-img img,
   .pp-hero-media img {
     max-width: 100%;
     width: 100%;
     height: auto;
     aspect-ratio: 16 / 9;
     object-fit: cover;
-  }
-
-  /* Tab image: constrain */
-  .pp-tab-img {
-    max-width: 100%;
-    width: 100%;
-    min-width: 0;
-    min-height: 0;
-    aspect-ratio: 16 / 9;
-    height: auto;
   }
 
   /* Facts strip: already 1-col at 620px in product-pages.css,

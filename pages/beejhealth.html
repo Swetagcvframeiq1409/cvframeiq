@@ -35,6 +35,8 @@
   <link rel="stylesheet" href="../assets/css/product-pages-v2.css" />
   <link rel="stylesheet" href="../assets/css/pp-requirements.css" />
   <link rel="stylesheet" href="../assets/css/products-page.css" />
+  <link rel="stylesheet" href="../assets/css/product-sections-polish.css" />
+  <link rel="stylesheet" href="../assets/css/pp-final.css" />
   <meta name="color-scheme" content="dark" />
   <script src="../assets/data/site-data.js" defer></script>
   <script src="../assets/data/live-carryover.js" defer></script>
@@ -44,6 +46,7 @@
   <script src="../assets/js/photos.js" defer></script>
   <script src="../assets/js/icons.js" defer></script>
   <script src="../assets/js/components.js" defer></script>
+  <script src="../assets/js/pages/product-sections.js" defer></script>
   <script src="../assets/js/search.js" defer></script>
   <script src="../assets/js/main.js" defer></script>
   <script src="../assets/data/ai-products.js" defer></script>
@@ -65,95 +68,102 @@
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div id="site-header"></div>
 
-  <main id="main-content" class="pp-page" data-no-global-cta="true">
+  <main id="main-content" class="pp-page pp88-page" data-no-global-cta="true">
 
     <!-- 1. HERO -->
-    <section class="gk-prodhero" aria-labelledby="h1">
-      <div class="gk-wrap gk-prodhero__grid">
-        <div class="gk-prodhero__copy">
-          <nav class="gk-crumbs" aria-label="Breadcrumb">
-            <a href="../index.html">Home</a> /
-            <a href="ai-store.html">Products</a> /
-            BeejHealth
+    <section class="gk-prodhero pp88-hero" aria-labelledby="h1">
+      <div class="gk-wrap gk-prodhero__grid pp88-hero-grid">
+        <div class="gk-prodhero__copy pp88-hero-copy">
+          <nav class="gk-crumbs pp88-hero-crumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="pp88-crumb-sep" aria-hidden="true"><i class="bi bi-chevron-right" aria-hidden="true"></i></span>
+            <a href="ai-store.html">Products</a>
+            <span class="pp88-crumb-sep" aria-hidden="true"><i class="bi bi-chevron-right" aria-hidden="true"></i></span>
+            <span class="pp88-crumb-last">BeejHealth</span>
           </nav>
-          <p class="gk-eyebrow">AI CROP HEALTH</p>
-          <h1 id="h1">BeejHealth</h1>
-          <p class="gk-lead">BeejHealth is an AI crop health advisory for Indian agriculture.</p>
-          <div class="gk-prodhero__cta">
-            <a class="gk-btn" href="contact.html">Book a Demo <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
-            <a class="gk-btn gk-btn--ghost" href="ai-store.html">Back to AI Store <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          <p class="gk-eyebrow pp88-hero-eyebrow">AI CROP HEALTH</p>
+          <h1 id="h1" class="pp88-hero-h1">BeejHealth</h1>
+          <p class="gk-lead pp88-hero-lead">BeejHealth is an AI crop health advisory for Indian agriculture.</p>
+          <div class="gk-prodhero__cta pp88-hero-cta">
+            <a class="gk-btn pp88-hero-btn-primary" href="contact.html">Book a Demo <i class="bi bi-arrow-right pp88-arrow-icon" aria-hidden="true"></i></a>
+            <a class="gk-btn gk-btn--ghost pp88-hero-btn-secondary" href="ai-store.html">Back to AI Store <i class="bi bi-arrow-right pp88-arrow-icon" aria-hidden="true"></i></a>
           </div>
         </div>
-        <div class="gk-prodhero__media">
-          <img src="../assets/img/products/beejhealth-hero.webp" alt="BeejHealth" loading="eager" fetchpriority="high" width="1680" height="944" decoding="async" />
+        <div class="gk-prodhero__media pp88-hero-media">
+          <img class="pp88-hero-img" src="../assets/img/products/beejhealth-hero.webp" alt="BeejHealth" loading="eager" fetchpriority="high" width="1680" height="944" decoding="async" />
         </div>
       </div>
     </section>
 
     <!-- 2. KEY FACTS -->
-    <section class="gk-band" aria-label="Key facts">
+    <section class="gk-band pp89-sec" aria-label="Key facts">
       <div class="gk-wrap">
-        <span class="gk-eyebrow">At a glance</span>
-        <div class="pp-glance">
-          <div class="pp-glance-cell">
-            <i class="bi bi-flower1" aria-hidden="true"></i>
-            <span class="pp-glance-label">Focus</span>
-            <span class="pp-glance-value">Indian agriculture</span>
+        <span class="gk-eyebrow pp89-eyebrow">At a glance</span>
+        <div class="pp-glance pp88-glance pp89-glance">
+          <div class="pp-glance-cell pp88-glance-cell pp89-glance-cell">
+            <i class="bi bi-flower1 pp88-glance-icon pp89-glance-icon" aria-hidden="true"></i>
+            <span class="pp-glance-label pp88-glance-label pp89-glance-label">Focus</span>
+            <span class="pp-glance-value pp88-glance-value pp89-glance-value">Indian agriculture</span>
           </div>
-          <div class="pp-glance-cell">
-            <i class="bi bi-phone" aria-hidden="true"></i>
-            <span class="pp-glance-label">Input method</span>
-            <span class="pp-glance-value">Smartphone photo</span>
+          <div class="pp-glance-cell pp88-glance-cell pp89-glance-cell">
+            <i class="bi bi-phone pp88-glance-icon pp89-glance-icon" aria-hidden="true"></i>
+            <span class="pp-glance-label pp88-glance-label pp89-glance-label">Input method</span>
+            <span class="pp-glance-value pp88-glance-value pp89-glance-value">Smartphone photo</span>
           </div>
-          <div class="pp-glance-cell">
-            <i class="bi bi-bug" aria-hidden="true"></i>
-            <span class="pp-glance-label">Analysis</span>
-            <span class="pp-glance-value">Disease, pest</span>
+          <div class="pp-glance-cell pp88-glance-cell pp89-glance-cell">
+            <i class="bi bi-bug pp88-glance-icon pp89-glance-icon" aria-hidden="true"></i>
+            <span class="pp-glance-label pp88-glance-label pp89-glance-label">Analysis</span>
+            <span class="pp-glance-value pp88-glance-value pp89-glance-value">Disease, pest</span>
           </div>
-          <div class="pp-glance-cell">
-            <i class="bi bi-file-text" aria-hidden="true"></i>
-            <span class="pp-glance-label">Output</span>
-            <span class="pp-glance-value">Structured report</span>
+          <div class="pp-glance-cell pp88-glance-cell pp89-glance-cell">
+            <i class="bi bi-file-text pp88-glance-icon pp89-glance-icon" aria-hidden="true"></i>
+            <span class="pp-glance-label pp88-glance-label pp89-glance-label">Output</span>
+            <span class="pp-glance-value pp88-glance-value pp89-glance-value">Structured report</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- 3. PLATFORM FEATURES -->
-    <section class="gk-band" aria-labelledby="bh-features-h2">
+    <section class="gk-band pp89-sec pp88-features-section" aria-labelledby="bh-features-h2">
       <div class="gk-wrap">
-        <span class="gk-eyebrow">Platform features</span>
-        <h2 id="bh-features-h2">What BeejHealth can do</h2>
-        <div class="gk-cards">
-          <article class="gk-card">
-            <div class="gk-ic"><i class="bi bi-bug" aria-hidden="true"></i></div>
-            <h3>Crop Disease Detection</h3>
-            <p>AI-powered identification of 20+ crop diseases from smartphone photos with treatment guidance.</p>
-            <a class="gk-more" href="ai-store.html#agriculture">Learn more <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+        <span class="gk-eyebrow pp89-eyebrow">Platform features</span>
+        <h2 id="bh-features-h2" class="pp88-features-h2 pp89-h2">What BeejHealth can do</h2>
+        <div class="gk-cards pp88-features-grid">
+          <article class="gk-card pp88-feature-card pp89-card pp91-feature-card" tabindex="0">
+            <span class="pp88-feature-num pp89-num pp91-feature-num" aria-hidden="true">01</span>
+            <div class="gk-ic pp88-feature-icon pp89-icon-tile pp91-feature-icon"><i class="bi bi-bug" aria-hidden="true"></i></div>
+            <h3 class="pp88-feature-title pp89-feature-title pp91-feature-title">Crop Disease Detection</h3>
+            <p class="pp88-feature-desc pp89-feature-desc pp91-feature-desc">AI-powered identification of 20+ crop diseases from smartphone photos with treatment guidance.</p>
+            <a class="gk-more pp88-feature-link pp89-feature-link pp91-feature-link" href="ai-store.html#agriculture">Learn more <i class="bi bi-arrow-right pp88-arrow-icon" aria-hidden="true"></i></a>
           </article>
-          <article class="gk-card">
-            <div class="gk-ic"><i class="bi bi-shield-exclamation" aria-hidden="true"></i></div>
-            <h3>Pest & Nutrient Analysis</h3>
-            <p>Detects pest infestations and nutrient deficiencies with specific agronomy recommendations.</p>
-            <a class="gk-more" href="ai-store.html#agriculture">Learn more <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          <article class="gk-card pp88-feature-card pp89-card pp91-feature-card" tabindex="0">
+            <span class="pp88-feature-num pp89-num pp91-feature-num" aria-hidden="true">02</span>
+            <div class="gk-ic pp88-feature-icon pp89-icon-tile pp91-feature-icon"><i class="bi bi-shield-exclamation" aria-hidden="true"></i></div>
+            <h3 class="pp88-feature-title pp89-feature-title pp91-feature-title">Pest & Nutrient Analysis</h3>
+            <p class="pp88-feature-desc pp89-feature-desc pp91-feature-desc">Detects pest infestations and nutrient deficiencies with specific agronomy recommendations.</p>
+            <a class="gk-more pp88-feature-link pp89-feature-link pp91-feature-link" href="ai-store.html#agriculture">Learn more <i class="bi bi-arrow-right pp88-arrow-icon" aria-hidden="true"></i></a>
           </article>
-          <article class="gk-card">
-            <div class="gk-ic"><i class="bi bi-phone" aria-hidden="true"></i></div>
-            <h3>Instant Mobile Diagnosis</h3>
-            <p>Works offline on Android and iOS — capture a photo, get structured results in seconds.</p>
-            <a class="gk-more" href="ai-store.html#agriculture">Learn more <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          <article class="gk-card pp88-feature-card pp89-card pp91-feature-card" tabindex="0">
+            <span class="pp88-feature-num pp89-num pp91-feature-num" aria-hidden="true">03</span>
+            <div class="gk-ic pp88-feature-icon pp89-icon-tile pp91-feature-icon"><i class="bi bi-phone" aria-hidden="true"></i></div>
+            <h3 class="pp88-feature-title pp89-feature-title pp91-feature-title">Instant Mobile Diagnosis</h3>
+            <p class="pp88-feature-desc pp89-feature-desc pp91-feature-desc">Works offline on Android and iOS — capture a photo, get structured results in seconds.</p>
+            <a class="gk-more pp88-feature-link pp89-feature-link pp91-feature-link" href="ai-store.html#agriculture">Learn more <i class="bi bi-arrow-right pp88-arrow-icon" aria-hidden="true"></i></a>
           </article>
-          <article class="gk-card">
-            <div class="gk-ic"><i class="bi bi-translate" aria-hidden="true"></i></div>
-            <h3>Hindi Language Support</h3>
-            <p>Treatment recommendations and advisories in Hindi, Marathi, and English for Indian farmers.</p>
-            <a class="gk-more" href="ai-store.html#agriculture">Learn more <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          <article class="gk-card pp88-feature-card pp89-card pp91-feature-card" tabindex="0">
+            <span class="pp88-feature-num pp89-num pp91-feature-num" aria-hidden="true">04</span>
+            <div class="gk-ic pp88-feature-icon pp89-icon-tile pp91-feature-icon"><i class="bi bi-translate" aria-hidden="true"></i></div>
+            <h3 class="pp88-feature-title pp89-feature-title pp91-feature-title">Hindi Language Support</h3>
+            <p class="pp88-feature-desc pp89-feature-desc pp91-feature-desc">Treatment recommendations and advisories in Hindi, Marathi, and English for Indian farmers.</p>
+            <a class="gk-more pp88-feature-link pp89-feature-link pp91-feature-link" href="ai-store.html#agriculture">Learn more <i class="bi bi-arrow-right pp88-arrow-icon" aria-hidden="true"></i></a>
           </article>
-          <article class="gk-card">
-            <div class="gk-ic"><i class="bi bi-graph-up" aria-hidden="true"></i></div>
-            <h3>Yield Prediction AI <span class="gk-draft" style="font-size:.7rem;padding:1px 6px;margin-left:6px">Draft</span></h3>
-            <p>Forecasting harvest timing and volume from crop imagery — scope to be confirmed with FrameIQ.</p>
-            <a class="gk-more" href="contact.html">Discuss scope <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          <article class="gk-card pp88-feature-card pp89-card pp91-feature-card" tabindex="0">
+            <span class="pp88-feature-num pp89-num pp91-feature-num" aria-hidden="true">05</span>
+            <div class="gk-ic pp88-feature-icon pp89-icon-tile pp91-feature-icon"><i class="bi bi-graph-up" aria-hidden="true"></i></div>
+            <h3 class="pp88-feature-title pp89-feature-title pp91-feature-title">Yield Prediction AI <span class="pp88-draft-chip" aria-hidden="true">Draft</span></h3>
+            <p class="pp88-feature-desc pp89-feature-desc pp91-feature-desc">Forecasting harvest timing and volume from crop imagery — scope to be confirmed with FrameIQ.</p>
+            <a class="gk-more pp88-feature-link pp89-feature-link pp91-feature-link" href="contact.html">Discuss scope <i class="bi bi-arrow-right pp88-arrow-icon" aria-hidden="true"></i></a>
           </article>
         </div>
       </div>
@@ -206,19 +216,19 @@
     </section>
 
     <!-- 4. PLATFORM FEATURES / SPEC TABS -->
-    <section class="gk-band" aria-labelledby="bh-spec-h2">
+    <section class="gk-band pp89-sec pp93-sec" aria-labelledby="bh-spec-h2">
       <div class="gk-wrap">
         <div class="gk-head">
           <div>
-            <span class="gk-eyebrow">Capabilities</span>
-            <h2 id="bh-spec-h2">Platform features</h2>
+            <span class="gk-eyebrow pp89-eyebrow">Capabilities</span>
+            <h2 id="bh-spec-h2" class="pp89-h2">Platform features</h2>
           </div>
         </div>
         <div class="pp-tabs-wrap" data-pp-tabs>
           <div class="pp-tab-bar-wrapper">
-            <div class="pp-tab-bar" role="tablist" aria-label="BeejHealth capabilities">
+            <div class="pp-tab-bar pp93-tab-bar" role="tablist" aria-label="BeejHealth capabilities">
               <button
-                class="pp-tab-btn is-on"
+                class="pp-tab-btn pp93-tab-btn is-on"
                 type="button"
                 role="tab"
                 id="bh-tab-0"
@@ -227,7 +237,7 @@
                 data-img="../assets/img/smartagriculture.webp"
               >Focus areas</button>
               <button
-                class="pp-tab-btn"
+                class="pp-tab-btn pp93-tab-btn"
                 type="button"
                 role="tab"
                 id="bh-tab-1"
@@ -237,7 +247,7 @@
                 data-img="../assets/img/Agriculture.webp"
               >Supported crops</button>
               <button
-                class="pp-tab-btn"
+                class="pp-tab-btn pp93-tab-btn"
                 type="button"
                 role="tab"
                 id="bh-tab-2"
@@ -247,7 +257,7 @@
                 data-img="../assets/img/agricultureai.webp"
               >Platform</button>
               <button
-                class="pp-tab-btn"
+                class="pp-tab-btn pp93-tab-btn"
                 type="button"
                 role="tab"
                 id="bh-tab-3"
@@ -258,59 +268,59 @@
               >Technology</button>
             </div>
           </div>
-          <div class="pp-tab-panels">
-            <div class="pp-tab-panel is-on" id="bh-panel-0" role="tabpanel" aria-labelledby="bh-tab-0">
-              <div class="pp-tab-panel-grid">
-                <div class="pp-tab-copy">
-                  <h3>Focus areas</h3>
-                  <p>BeejHealth is designed for crop monitoring in row crops, plantations, orchards, and vineyard environments.</p>
+          <div class="pp-tab-panels pp93-tab-panels">
+            <div class="pp-tab-panel is-on pp89-tab-panel pp91-tab-panel pp93-tab-panel" id="bh-panel-0" role="tabpanel" aria-labelledby="bh-tab-0">
+              <div class="pp-tab-panel-grid pp93-tab-panel-grid">
+                <div class="pp-tab-copy pp93-tab-copy">
+                  <h3 class="pp89-tab-title pp91-tab-title pp93-tab-title">Focus areas</h3>
+                  <p class="pp89-tab-desc pp91-tab-desc pp93-tab-desc">BeejHealth is designed for crop monitoring in row crops, plantations, orchards, and vineyard environments.</p>
                 </div>
-                <div class="pp-tab-media">
-                  <div class="pp-tab-img-wrap">
-                    <img src="../assets/img/smartagriculture.webp" alt="BeejHealth focus areas" loading="lazy" width="720" height="540" />
+                <div class="pp-tab-media pp93-tab-media">
+                  <div class="pp-tab-img-wrap pp89-tab-media-box pp91-tab-media-box pp93-tab-media-box">
+                    <img class="pp93-tab-img" src="../assets/img/smartagriculture.webp" alt="BeejHealth focus areas" loading="lazy" width="720" height="540" />
                   </div>
                 </div>
               </div>
             </div>
-            <div class="pp-tab-panel" id="bh-panel-1" role="tabpanel" aria-labelledby="bh-tab-1">
-              <div class="pp-tab-panel-grid">
-                <div class="pp-tab-copy">
-                  <h3>Supported crops</h3>
-                  <p>Crop coverage depends on the farm, region, and issue type, so the FrameIQ team can scope the right advisory path with you.</p>
+            <div class="pp-tab-panel pp89-tab-panel pp91-tab-panel pp93-tab-panel" id="bh-panel-1" role="tabpanel" aria-labelledby="bh-tab-1">
+              <div class="pp-tab-panel-grid pp93-tab-panel-grid">
+                <div class="pp-tab-copy pp93-tab-copy">
+                  <h3 class="pp89-tab-title pp91-tab-title pp93-tab-title">Supported crops</h3>
+                  <p class="pp89-tab-desc pp91-tab-desc pp93-tab-desc">Crop coverage depends on the farm, region, and issue type, so the FrameIQ team can scope the right advisory path with you.</p>
                 </div>
-                <div class="pp-tab-media">
-                  <div class="pp-tab-img-wrap">
-                    <img src="../assets/img/Agriculture.webp" alt="BeejHealth supported crops" loading="lazy" width="720" height="540" />
+                <div class="pp-tab-media pp93-tab-media">
+                  <div class="pp-tab-img-wrap pp89-tab-media-box pp91-tab-media-box pp93-tab-media-box">
+                    <img class="pp93-tab-img" src="../assets/img/Agriculture.webp" alt="BeejHealth supported crops" loading="lazy" width="720" height="540" />
                   </div>
                 </div>
               </div>
             </div>
-            <div class="pp-tab-panel" id="bh-panel-2" role="tabpanel" aria-labelledby="bh-tab-2">
-              <div class="pp-tab-panel-grid">
-                <div class="pp-tab-copy">
-                  <h3>Platform</h3>
-                  <p>Mobile-first advisory experiences typically combine image capture, crop context, and structured summary outputs.</p>
+            <div class="pp-tab-panel pp89-tab-panel pp91-tab-panel pp93-tab-panel" id="bh-panel-2" role="tabpanel" aria-labelledby="bh-tab-2">
+              <div class="pp-tab-panel-grid pp93-tab-panel-grid">
+                <div class="pp-tab-copy pp93-tab-copy">
+                  <h3 class="pp89-tab-title pp91-tab-title pp93-tab-title">Platform</h3>
+                  <p class="pp89-tab-desc pp91-tab-desc pp93-tab-desc">Mobile-first advisory experiences typically combine image capture, crop context, and structured summary outputs.</p>
                 </div>
-                <div class="pp-tab-media">
-                  <div class="pp-tab-img-wrap">
-                    <img src="../assets/img/agricultureai.webp" alt="BeejHealth platform" loading="lazy" width="720" height="540" />
+                <div class="pp-tab-media pp93-tab-media">
+                  <div class="pp-tab-img-wrap pp89-tab-media-box pp91-tab-media-box pp93-tab-media-box">
+                    <img class="pp93-tab-img" src="../assets/img/agricultureai.webp" alt="BeejHealth platform" loading="lazy" width="720" height="540" />
                   </div>
                 </div>
               </div>
             </div>
-            <div class="pp-tab-panel" id="bh-panel-3" role="tabpanel" aria-labelledby="bh-tab-3">
-              <div class="pp-tab-panel-grid">
-                <div class="pp-tab-copy">
-                  <h3>Technology</h3>
-                  <p>Use cases can combine image analysis, agronomy rules, and interactive follow-up questions for field teams.</p>
-                  <div class="pp-chip-group">
-                    <span class="pp-chip">Image analysis</span>
-                    <span class="pp-chip">Agronomy rules</span>
-                    <span class="pp-chip">Follow-up questions</span>
+            <div class="pp-tab-panel pp89-tab-panel pp91-tab-panel pp93-tab-panel" id="bh-panel-3" role="tabpanel" aria-labelledby="bh-tab-3">
+              <div class="pp-tab-panel-grid pp93-tab-panel-grid">
+                <div class="pp-tab-copy pp93-tab-copy">
+                  <h3 class="pp89-tab-title pp91-tab-title pp93-tab-title">Technology</h3>
+                  <p class="pp89-tab-desc pp91-tab-desc pp93-tab-desc">Use cases can combine image analysis, agronomy rules, and interactive follow-up questions for field teams.</p>
+                  <div class="pp-chip-group pp89-chip-group">
+                    <span class="pp-chip pp89-chip pp91-chip">Image analysis</span>
+                    <span class="pp-chip pp89-chip pp91-chip">Agronomy rules</span>
+                    <span class="pp-chip pp89-chip pp91-chip">Follow-up questions</span>
                   </div>
                 </div>
-                <div class="pp-tab-media">
-                  <div class="pp-icon-panel"><i class="bi bi-flower1" aria-hidden="true"></i></div>
+                <div class="pp-tab-media pp93-tab-media">
+                  <div class="pp-icon-panel pp89-tab-media-box pp89-tab-media-icon pp91-tab-media-icon pp91-tab-media-box pp93-tab-media-box"><i class="bi bi-flower1" aria-hidden="true"></i></div>
                 </div>
               </div>
             </div>
@@ -320,69 +330,76 @@
     </section>
 
     <!-- 5. RELATED (AI Store + Sector) -->
-    <section class="gk-band" aria-labelledby="bh-related-h2">
+    <section class="gk-band pp89-sec pp93-sec" aria-labelledby="bh-related-h2">
       <div class="gk-wrap">
         <div class="gk-head">
           <div>
-            <span class="gk-eyebrow">Also explore</span>
-            <h2 id="bh-related-h2">Related pages</h2>
+            <span class="gk-eyebrow pp89-eyebrow">Also explore</span>
+            <h2 id="bh-related-h2" class="pp89-h2">Related pages</h2>
           </div>
         </div>
-        <div class="pp-related-grid">
-          <a class="pp-related-card" href="ai-store.html#agriculture">
-            <i class="bi bi-shop" aria-hidden="true"></i>
+        <div class="pp-related-grid pp93-related-grid">
+          <a class="pp-related-card pp89-related-card pp91-related-card pp93-related-card" href="ai-store.html#agriculture">
+            <i class="bi bi-shop pp93-related-icon" aria-hidden="true"></i>
             <strong>View in AI Store</strong>
             <span>Browse crop disease detection and agriculture use cases.</span>
+            <i class="bi bi-arrow-right pp93-related-arrow" aria-hidden="true"></i>
           </a>
-          <a class="pp-related-card" href="sectors/agriculture.html">
-            <i class="bi bi-tree" aria-hidden="true"></i>
+          <a class="pp-related-card pp89-related-card pp91-related-card pp93-related-card" href="sectors/agriculture.html">
+            <i class="bi bi-tree pp93-related-icon" aria-hidden="true"></i>
             <strong>Explore the sector</strong>
             <span>See computer vision use cases for agriculture.</span>
+            <i class="bi bi-arrow-right pp93-related-arrow" aria-hidden="true"></i>
           </a>
-          <a class="pp-related-card" href="pcb-guardian.html">
-            <i class="bi bi-cpu" aria-hidden="true"></i>
+          <a class="pp-related-card pp89-related-card pp91-related-card pp93-related-card" href="pcb-guardian.html">
+            <i class="bi bi-cpu pp93-related-icon" aria-hidden="true"></i>
             <strong>PCB Guardian</strong>
             <span>Discuss a computer-vision PCB inspection concept.</span>
+            <i class="bi bi-arrow-right pp93-related-arrow" aria-hidden="true"></i>
           </a>
         </div>
       </div>
     </section>
 
     <!-- 6. FAQ -->
-    <section class="gk-band" aria-labelledby="bh-faq-h2">
+    <section class="gk-band pp89-sec pp89-sec--last" aria-labelledby="bh-faq-h2">
       <div class="gk-wrap">
         <div class="pp-faq-wrap">
           <div class="pp-faq-intro-col">
-            <span class="gk-eyebrow">Frequently asked questions</span>
-            <h2 id="bh-faq-h2">Common questions</h2>
-            <p>Answers to questions about BeejHealth.</p>
+            <span class="gk-eyebrow pp89-eyebrow">Frequently asked questions</span>
+            <h2 id="bh-faq-h2" class="pp89-h2">Common questions</h2>
+            <p class="pp89-lede">Answers to questions about BeejHealth.</p>
+            <a href="contact.html" class="pp90-contact-btn">Contact Us <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
           </div>
           <div class="pp-acc" data-pp-acc>
             <div class="pp-acc-item">
-              <button class="pp-acc-q is-on" type="button" aria-expanded="true">
-                What is BeejHealth?
-                <i class="bi bi-plus-lg pp-acc-icon" aria-hidden="true"></i>
+              <button class="pp-acc-q is-on pp89-acc-q pp91-acc-q" type="button" aria-expanded="true" aria-controls="pp89-bh-a-1" id="pp89-bh-a-1-btn">
+                <span class="pp89-acc-num pp91-acc-num" aria-hidden="true">01</span>
+                <span class="pp89-acc-qtext pp91-acc-qtext">What is BeejHealth?</span>
+                <i class="bi bi-plus-lg pp-acc-icon pp89-acc-icon pp91-acc-icon" aria-hidden="true"></i>
               </button>
-              <div class="pp-acc-a" role="region">
-                <div><p>BeejHealth is FrameIQ's AI crop health advisory focused on Indian agriculture. Farmers can photograph crops for disease, pest, and nutrient insights.</p></div>
+              <div class="pp-acc-a pp89-acc-a pp91-acc-a" role="region" id="pp89-bh-a-1" aria-labelledby="pp89-bh-a-1-btn" aria-hidden="false">
+                <div class="pp89-acc-inner pp91-acc-inner"><p class="pp89-acc-ans pp91-acc-ans">BeejHealth is FrameIQ's AI crop health advisory focused on Indian agriculture. Farmers can photograph crops for disease, pest, and nutrient insights.</p></div>
               </div>
             </div>
             <div class="pp-acc-item">
-              <button class="pp-acc-q" type="button" aria-expanded="false">
-                Which crops are supported?
-                <i class="bi bi-plus-lg pp-acc-icon" aria-hidden="true"></i>
+              <button class="pp-acc-q pp89-acc-q pp91-acc-q" type="button" aria-expanded="false" aria-controls="pp89-bh-a-2" id="pp89-bh-a-2-btn">
+                <span class="pp89-acc-num pp91-acc-num" aria-hidden="true">02</span>
+                <span class="pp89-acc-qtext pp91-acc-qtext">Which crops are supported?</span>
+                <i class="bi bi-plus-lg pp-acc-icon pp89-acc-icon pp91-acc-icon" aria-hidden="true"></i>
               </button>
-              <div class="pp-acc-a" role="region">
-                <div><p>Crop coverage, availability, and rollout timelines are typically confirmed during the scoping conversation with the FrameIQ team.</p></div>
+              <div class="pp-acc-a pp89-acc-a pp91-acc-a" role="region" id="pp89-bh-a-2" aria-labelledby="pp89-bh-a-2-btn" aria-hidden="true">
+                <div class="pp89-acc-inner pp91-acc-inner"><p class="pp89-acc-ans pp91-acc-ans">Crop coverage, availability, and rollout timelines are typically confirmed during the scoping conversation with the FrameIQ team.</p></div>
               </div>
             </div>
             <div class="pp-acc-item">
-              <button class="pp-acc-q" type="button" aria-expanded="false">
-                How do I get started?
-                <i class="bi bi-plus-lg pp-acc-icon" aria-hidden="true"></i>
+              <button class="pp-acc-q pp89-acc-q pp91-acc-q" type="button" aria-expanded="false" aria-controls="pp89-bh-a-3" id="pp89-bh-a-3-btn">
+                <span class="pp89-acc-num pp91-acc-num" aria-hidden="true">03</span>
+                <span class="pp89-acc-qtext pp91-acc-qtext">How do I get started?</span>
+                <i class="bi bi-plus-lg pp-acc-icon pp89-acc-icon pp91-acc-icon" aria-hidden="true"></i>
               </button>
-              <div class="pp-acc-a" role="region">
-                <div><p>Tell us about your crops, fields and goals and the FrameIQ team can review your enquiry.</p></div>
+              <div class="pp-acc-a pp89-acc-a pp91-acc-a" role="region" id="pp89-bh-a-3" aria-labelledby="pp89-bh-a-3-btn" aria-hidden="true">
+                <div class="pp89-acc-inner pp91-acc-inner"><p class="pp89-acc-ans pp91-acc-ans">Tell us about your crops, fields and goals and the FrameIQ team can review your enquiry.</p></div>
               </div>
             </div>
           </div>

@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/Swetagcvframeiq1409/cvframeiq/issues"
   },
-  "homepage": "https://github.com/Swetagcvframeiq1409/cvframeiq#readme"
+  "homepage": "https://github.com/Swetagcvframeiq1409/cvframeiq#readme",
+  "dependencies": {
+    "playwright": "^1.65.1"
+  }
 }

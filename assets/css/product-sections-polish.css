@@ -1,0 +1,711 @@
+/* ============================================================
+   P91 — Product page section fixes (beejhealth, autolabel, ppe-safety)
+   Desktop: @media (min-width: 1025px)
+   Mobile:  @media (max-width: 767px)
+   All selectors use .pp91- prefix, scoped under #main-content.pp-page
+   Loaded AFTER product-pages-v2.css, pp-requirements.css, products-page.css
+   Replaces product-sections-mobile.css (deleted) — each element styled in ONE place
+   ============================================================ */
+
+/* ═══════════════════════════════════════════════════════════════
+   DESKTOP (min-width: 1025px)
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (min-width: 1025px) {
+
+  /* ── A2. Tabbed panels ── */
+  #main-content.pp-page .pp91-tab-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+    padding-inline: 0;
+  }
+  #main-content.pp-page .pp91-tab-btn {
+    height: 48px;
+    padding: 0 24px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.18);
+    background: transparent;
+    color: var(--text, #f5f6fb);
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  #main-content.pp-page .pp91-tab-btn.is-on {
+    background: #6542c8;
+    border-color: #6542c8;
+    color: #fff;
+  }
+  #main-content.pp-page .pp91-tab-btn:focus-visible {
+    outline: 2px solid #8b6df0;
+    outline-offset: 2px;
+  }
+  #main-content.pp-page .pp91-tab-btn:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+  }
+
+  #main-content.pp-page .pp91-tab-panel {
+    padding: 48px;
+    border-radius: var(--card-radius, 8px);
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.03);
+    min-height: 0;
+    display: grid;
+  }
+  #main-content.pp-page .pp91-tab-panel-grid {
+    display: grid;
+    grid-template-columns: minmax(0,5fr) minmax(0,7fr);
+    gap: 56px;
+    align-items: center;
+    width: 100%;
+  }
+  #main-content.pp-page .pp91-tab-panel-grid > * {
+    min-width: 0;
+  }
+  #main-content.pp-page .pp91-tab-title {
+    font-size: 32px;
+    font-weight: 500;
+    margin: 0 0 16px;
+    color: var(--text, #f5f6fb);
+    line-height: 1.2;
+  }
+  #main-content.pp-page .pp91-tab-desc {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--text-muted, #a8afc2);
+    margin: 0;
+    max-width: 46ch;
+  }
+  #main-content.pp-page .pp91-chip-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+    justify-content: flex-start;
+  }
+  #main-content.pp-page .pp91-chip {
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(101,66,200,.2);
+    background: rgba(101,66,200,.14);
+    color: #c4c4d0;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+  }
+  #main-content.pp-page .pp91-tab-media-box {
+    width: 100%;
+    aspect-ratio: 16/10;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,.08);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+  }
+  #main-content.pp-page .pp91-tab-media-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  #main-content.pp-page .pp91-tab-media-box > .bi,
+  #main-content.pp-page .pp91-tab-media-box > i {
+    font-size: 72px;
+    color: #8b6df0;
+  }
+  #main-content.pp-page .pp91-tab-media-box.pp91-tab-media-icon {
+    background: radial-gradient(ellipse at 50% 50%, rgba(139,109,240,.16), transparent 70%);
+  }
+
+  /* ── A3. Feature cards — BeejHealth "What BeejHealth can do" ── */
+  #main-content.pp-page .pp91-feature-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 36px;
+    border-radius: var(--card-radius, 8px);
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.03);
+    min-height: 0;
+  }
+  #main-content.pp-page .pp91-feature-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, #6542c8, transparent);
+    pointer-events: none;
+    z-index: 2;
+  }
+  #main-content.pp-page .pp91-feature-num {
+    position: absolute;
+    top: 28px; right: 32px;
+    font-size: 64px;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    color: #8b6df0;
+    opacity: 0.18;
+    line-height: 1;
+    pointer-events: none;
+  }
+  #main-content.pp-page .pp91-feature-icon {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    background: rgba(101,66,200,.16);
+    display: grid;
+    place-items: center;
+    margin-bottom: 28px;
+    flex-shrink: 0;
+  }
+  #main-content.pp-page .pp91-feature-icon .bi {
+    font-size: 26px;
+    color: #8b6df0;
+  }
+  #main-content.pp-page .pp91-feature-title {
+    font-size: 22px;
+    font-weight: 500;
+    margin: 0 0 12px;
+    color: var(--text, #f5f6fb);
+    letter-spacing: -0.01em;
+  }
+  #main-content.pp-page .pp91-feature-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-muted, #a8afc2);
+    margin: 0;
+  }
+  #main-content.pp-page .pp91-feature-link {
+    position: static;
+    z-index: 2;
+    margin-top: auto;
+    padding-top: 24px;
+    text-decoration: none;
+    color: #8b6df0;
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  #main-content.pp-page .pp91-feature-link .bi {
+    font-size: 16px;
+  }
+  #main-content.pp-page .pp91-feature-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    cursor: pointer;
+  }
+  #main-content.pp-page .pp91-feature-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(101,66,200,.45);
+  }
+  #main-content.pp-page .pp91-feature-card:focus-visible {
+    outline: 2px solid #8b6df0;
+    outline-offset: 2px;
+  }
+
+  /* ── A5. FAQ ── */
+  #main-content.pp-page .pp91-acc-q {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 28px 32px;
+    min-height: 84px;
+    text-align: left;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text, #f5f6fb);
+    justify-content: flex-start;
+  }
+  #main-content.pp-page .pp91-acc-num {
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+    color: #8b6df0;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  #main-content.pp-page .pp91-acc-qtext {
+    flex: 1;
+    min-width: 0;
+  }
+  #main-content.pp-page .pp91-acc-icon {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid #8b6df0;
+    color: #8b6df0;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  #main-content.pp-page .pp91-acc-icon .bi {
+    width: 20px; height: 20px;
+  }
+  #main-content.pp-page .pp91-acc-q[aria-expanded="true"] .pp91-acc-icon .bi {
+    transform: rotate(45deg);
+  }
+  #main-content.pp-page .pp91-acc-q:focus-visible {
+    outline: 2px solid #8b6df0;
+    outline-offset: 2px;
+  }
+  #main-content.pp-page .pp91-acc-q:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+  }
+
+  #main-content.pp-page .pp91-acc-a {
+    display: grid;
+    grid-template-rows: minmax(0, 0fr);
+    min-height: 0;
+    overflow: hidden;
+  }
+  #main-content.pp-page .pp-acc-item.is-open .pp91-acc-a {
+    grid-template-rows: minmax(0, 1fr);
+  }
+  #main-content.pp-page .pp91-acc-a > div {
+    min-height: 0;
+    padding: 4px 32px 28px 76px;
+  }
+  #main-content.pp-page .pp91-acc-ans {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--text-muted, #a8afc2);
+  }
+
+  /* Contact Us button */
+  #main-content.pp-page .pp90-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 6px;
+    background: #6542c8;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  #main-content.pp-page .pp90-contact-btn .bi {
+    width: 16px; height: 16px;
+  }
+
+  /* Eyebrow dot gap — ensure eyebrow ::before dot has 10px gap to text */
+  #main-content.pp-page .pp91-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE (max-width: 767px)
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 767px) {
+
+  /* ── Shared mobile foundation ── */
+  #main-content.pp-page .pp91-sec {
+    padding-block: clamp(56px, 6vw, 72px);
+  }
+  #main-content.pp-page .pp91-sec--last {
+    padding-bottom: 104px;
+  }
+  #main-content.pp-page .pp91-sec > .gk-wrap {
+    width: calc(100% - 40px);
+    margin-inline: auto;
+  }
+
+  #main-content.pp-page .pp91-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  #main-content.pp-page .pp91-h2 {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: clamp(30px, 8.4vw, 38px);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+    position: relative;
+  }
+  #main-content.pp-page .pp91-h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: calc(100% + 20px);
+    width: 48px;
+    height: 3px;
+    background: #6542c8;
+  }
+
+  #main-content.pp-page .pp91-card {
+    position: relative;
+    border-radius: var(--card-radius, 8px);
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.03);
+    overflow: hidden;
+  }
+  #main-content.pp-page .pp91-card::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 2px;
+    background: linear-gradient(to right, #6542c8, transparent);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  #main-content.pp-page .pp91-icon-tile {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: rgba(101,66,200,.16);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  #main-content.pp-page .pp91-icon-tile .bi {
+    font-size: 22px;
+    color: #8b6df0;
+  }
+
+  /* ── B1. Related products / Related pages mobile ── */
+  #main-content.pp-page .pp91-related-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    min-height: 96px;
+    border-radius: var(--card-radius, 8px);
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.03);
+    text-decoration: none;
+    color: inherit;
+  }
+  #main-content.pp-page .pp91-related-card > i:first-child {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: rgba(101,66,200,.16);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    font-size: 22px;
+    color: #8b6df0;
+  }
+  #main-content.pp-page .pp91-related-card > strong {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 2px;
+    color: var(--text, #f5f6fb);
+    min-width: 0;
+  }
+  #main-content.pp-page .pp91-related-card > span {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--text-muted, #a8afc2);
+    margin: 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    flex: 1;
+  }
+  #main-content.pp-page .pp91-related-card .pp91-related-arrow {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid #6542c8;
+    color: #6542c8;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    font-size: 16px;
+    margin-left: auto;
+  }
+  #main-content.pp-page .pp91-related-card:active {
+    transform: scale(0.985);
+    border-color: rgba(101,66,200,.45);
+  }
+  #main-content.pp-page .pp91-related-card:focus-visible {
+    outline: 2px solid #8b6df0;
+    outline-offset: 2px;
+  }
+
+  /* ── B2. Feature cards mobile — BeejHealth ── */
+  #main-content.pp-page .pp91-feature-card {
+    padding: 24px;
+  }
+  #main-content.pp-page .pp91-feature-num {
+    top: 20px; right: 22px;
+    font-size: 40px;
+  }
+  #main-content.pp-page .pp91-feature-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  #main-content.pp-page .pp91-feature-icon .bi {
+    font-size: 22px;
+  }
+  #main-content.pp-page .pp91-feature-title {
+    font-size: 20px;
+    margin: 0 0 8px;
+  }
+  #main-content.pp-page .pp91-feature-desc {
+    font-size: 15.5px;
+    line-height: 1.6;
+    margin: 0 0 16px;
+  }
+  #main-content.pp-page .pp91-feature-link {
+    position: relative;
+    z-index: 2;
+    padding-top: 16px;
+    margin-top: auto;
+  }
+
+  /* ── B3. Tabbed panels mobile ── */
+  #main-content.pp-page .pp91-tab-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 20px;
+    padding: 0 20px 6px;
+    scrollbar-width: none;
+    position: relative;
+    margin-bottom: 24px;
+    -webkit-overflow-scrolling: touch;
+  }
+  #main-content.pp-page .pp91-tab-bar::-webkit-scrollbar { display: none; }
+  #main-content.pp-page .pp91-tab-btn {
+    flex: 0 0 auto;
+    height: 44px;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.18);
+    background: transparent;
+    color: var(--text-muted, #a8afc2);
+    font-size: 15px;
+    font-weight: 500;
+    white-space: nowrap;
+    scroll-snap-align: start;
+    cursor: pointer;
+  }
+  #main-content.pp-page .pp91-tab-btn.is-on {
+    background: #6542c8;
+    border-color: #6542c8;
+    color: #fff;
+  }
+  #main-content.pp-page .pp91-tab-btn:focus-visible {
+    outline: 2px solid #8b6df0;
+    outline-offset: 2px;
+  }
+  #main-content.pp-page .pp91-tab-btn:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+  }
+  #main-content.pp-page .pp91-tab-bar.is-start::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 20px;
+    background: linear-gradient(to right, #08090d, transparent);
+    pointer-events: none;
+    z-index: 6;
+  }
+  #main-content.pp-page .pp91-tab-bar.is-end::after {
+    content: "";
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 20px;
+    background: linear-gradient(to left, #08090d, transparent);
+    pointer-events: none;
+    z-index: 6;
+  }
+
+  #main-content.pp-page .pp91-tab-panel {
+    padding: 24px;
+    border-radius: var(--card-radius, 8px);
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.03);
+    min-height: 0;
+  }
+  #main-content.pp-page .pp91-tab-panel-grid {
+    gap: 16px;
+  }
+  #main-content.pp-page .pp91-tab-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0 0 12px;
+    color: var(--text, #f5f6fb);
+  }
+  #main-content.pp-page .pp91-tab-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-muted, #a8afc2);
+    margin: 0;
+  }
+  #main-content.pp-page .pp91-chip-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+  #main-content.pp-page .pp91-chip {
+    height: 32px;
+    padding: 0 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(101,66,200,.2);
+    background: rgba(101,66,200,.14);
+    color: #c4c4d0;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+  }
+  #main-content.pp-page .pp91-tab-media-box {
+    width: 100%;
+    aspect-ratio: 16/10;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,.08);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    flex-shrink: 0;
+  }
+  #main-content.pp-page .pp91-tab-media-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  #main-content.pp-page .pp91-tab-media-box > .bi,
+  #main-content.pp-page .pp91-tab-media-box > i {
+    font-size: 56px;
+    color: #8b6df0;
+  }
+  #main-content.pp-page .pp91-tab-media-box.pp91-tab-media-icon {
+    background: radial-gradient(ellipse at 50% 50%, rgba(139,109,240,.16), transparent 70%);
+  }
+
+  /* ── B4. Problem to explore mobile — AutoLabel + PPE Safety ── */
+  #main-content.pp-page .pp91-problem-card {
+    padding: 24px;
+    min-height: 0;
+  }
+  #main-content.pp-page .pp91-problem-num {
+    position: absolute;
+    top: 20px; right: 22px;
+    font-size: 40px;
+    font-weight: 500;
+    color: rgba(139,109,240,.18);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    pointer-events: none;
+  }
+  #main-content.pp-page .pp91-problem-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 0 8px;
+    color: var(--text, #f5f6fb);
+  }
+  #main-content.pp-page .pp91-problem-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-muted, #a8afc2);
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  /* ── B5. FAQ mobile ── */
+  #main-content.pp-page .pp91-acc-q {
+    min-height: 64px;
+    padding: 18px 20px;
+  }
+  #main-content.pp-page .pp91-acc-num {
+    font-size: 13px;
+    flex-shrink: 0;
+    width: 28px;
+    white-space: nowrap;
+  }
+  #main-content.pp-page .pp91-acc-qtext {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.35;
+    flex: 1;
+    min-width: 0;
+  }
+  #main-content.pp-page .pp91-acc-icon {
+    width: 32px; height: 32px;
+  }
+  #main-content.pp-page .pp91-acc-icon .bi {
+    width: 20px; height: 20px;
+  }
+  #main-content.pp-page .pp91-acc-a > div {
+    padding: 4px 20px 20px 52px;
+  }
+  #main-content.pp-page .pp91-acc-ans {
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: var(--text-muted, #a8afc2);
+    margin: 0;
+  }
+
+  /* ── Light theme ── */
+  body[data-theme="light"] #main-content.pp-page .pp91-sec { background: #f4f4f4; }
+  body[data-theme="light"] #main-content.pp-page .pp91-h2 { color: #07060d; }
+  body[data-theme="light"] #main-content.pp-page .pp91-tab-btn { color: #5a5a66; }
+  body[data-theme="light"] #main-content.pp-page .pp91-tab-btn.is-on { color: #fff; }
+  body[data-theme="light"] #main-content.pp-page .pp91-tab-panel { background: #ffffff; border-color: rgba(7,6,13,.08); box-shadow: 0 8px 24px rgba(7,6,13,.06); }
+  body[data-theme="light"] #main-content.pp-page .pp91-tab-title { color: #07060d; }
+  body[data-theme="light"] #main-content.pp-page .pp91-tab-desc { color: #4a4a55; }
+  body[data-theme="light"] #main-content.pp-page .pp91-chip { color: #4a4a55; border-color: rgba(7,6,13,.08); background: rgba(7,6,13,.04); }
+  body[data-theme="light"] #main-content.pp-page .pp91-tab-media-box { border-color: rgba(7,6,13,.08); }
+  body[data-theme="light"] #main-content.pp-page .pp91-tab-bar.is-start::before { background: linear-gradient(to right, #ffffff, transparent); }
+  body[data-theme="light"] #main-content.pp-page .pp91-tab-bar.is-end::after { background: linear-gradient(to left, #ffffff, transparent); }
+  body[data-theme="light"] #main-content.pp-page .pp91-card { background: #ffffff; border-color: rgba(7,6,13,.08); box-shadow: 0 8px 24px rgba(7,6,13,.06); color: #07060d; }
+  body[data-theme="light"] #main-content.pp-page .pp91-related-card { background: #ffffff; border-color: rgba(7,6,13,.08); box-shadow: 0 8px 24px rgba(7,6,13,.06); color: #07060d; }
+  body[data-theme="light"] #main-content.pp-page .pp91-related-card > strong { color: #07060d; }
+  body[data-theme="light"] #main-content.pp-page .pp91-related-card > span { color: #4a4a55; }
+  body[data-theme="light"] #main-content.pp-page .pp91-related-card .pp91-related-arrow { border-color: #6542c8; color: #6542c8; }
+  body[data-theme="light"] #main-content.pp-page .pp91-acc-q { color: #07060d; }
+  body[data-theme="light"] #main-content.pp-page .pp91-acc-num { color: #6542c8; }
+  body[data-theme="light"] #main-content.pp-page .pp91-acc-icon { border-color: #6542c8; color: #6542c8; background: #ffffff; }
+  body[data-theme="light"] #main-content.pp-page .pp91-acc-ans { color: #4a4a55; }
+  body[data-theme="light"] #main-content.pp-page .pp90-contact-btn { background: #07060d; color: #fff; }
+  body[data-theme="light"] #main-content.pp-page .pp91-feature-card { background: #ffffff; border-color: rgba(7,6,13,.08); box-shadow: 0 8px 24px rgba(7,6,13,.06); color: #07060d; }
+  body[data-theme="light"] #main-content.pp-page .pp91-feature-title { color: #07060d; }
+  body[data-theme="light"] #main-content.pp-page .pp91-feature-desc { color: #4a4a55; }
+  body[data-theme="light"] #main-content.pp-page .pp91-feature-link { color: #6542c8; }
+
+  /* ── Reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    #main-content.pp-page .pp91-tab-panel,
+    #main-content.pp-page .pp91-acc-a,
+    #main-content.pp-page .pp91-acc-q .bi,
+    #main-content.pp-page .pp91-related-card,
+    #main-content.pp-page .pp91-feature-card,
+    #main-content.pp-page .pp91-tab-btn {
+      transition: none !important;
+      animation: none !important;
+    }
+    #main-content.pp-page .pp91-acc-q[aria-expanded="true"] .pp91-acc-icon .bi {
+      transform: rotate(45deg) !important;
+    }
+    #main-content.pp-page .pp91-related-card:active { transform: none !important; }
+    #main-content.pp-page .pp91-feature-card:hover { transform: none !important; border-color: rgba(255,255,255,.08) !important; }
+  }
+}

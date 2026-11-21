@@ -1,0 +1,634 @@
+/* ============================================================
+   P93 + P94 — Product pages consolidation (Problem, Related, Tabs, rhythm)
+   Linked LAST on pcb-guardian, beejhealth, autolabel, ppe-safety.
+   All selectors use the pp93- / pp94- prefix. Zero !important added here.
+   ============================================================ */
+
+/* tokens */
+:root {
+  --pp93-card-bg: rgba(255, 255, 255, 0.03);
+  --pp93-card-border: rgba(255, 255, 255, 0.08);
+  --pp93-accent: #6542c8;
+  --pp93-numeral: #8b6df0;
+  --pp93-radius: 12px;
+  --pp93-ease: cubic-bezier(.23,1,.32,1);
+  /* P94 tokens */
+  --pp94-lilac: #8b6df0;
+  --pp94-lilac-60: rgba(139, 109, 240, 0.6);
+  --pp94-accent: #6542c8;
+  --pp94-accent-60: rgba(101, 66, 200, 0.6);
+}
+body[data-theme="light"] {
+  --pp93-card-bg: #ffffff;
+  --pp93-card-border: rgba(7, 6, 13, 0.08);
+}
+
+/* ============================================================
+   P94 — SECTION RHYTHM FIXES (F1, F7)
+   Maximum specificity to override other CSS
+   ============================================================ */
+
+/* Base section rhythm: 96px desktop, 64px mobile */
+#main-content.pp-page.pp88-page section.pp93-sec,
+#main-content.pp-page.pp88-page section.pp94-sec,
+#main-content.pp-page.pp88-page section.pp89-sec,
+#main-content.pp-page.pp88-page section.gk-band.pp89-sec {
+  padding-block: 96px;
+}
+@media (max-width: 991px) {
+  #main-content.pp-page.pp88-page section.pp93-sec,
+  #main-content.pp-page.pp88-page section.pp94-sec,
+  #main-content.pp-page.pp88-page section.pp89-sec,
+  #main-content.pp-page.pp88-page section.gk-band.pp89-sec {
+    padding-block: 64px;
+  }
+}
+
+/* F1: Remove excess bottom padding on last section (pp89-sec--last) to prevent blank screens */
+#main-content.pp-page.pp88-page section.pp93-sec.pp89-sec--last,
+#main-content.pp-page.pp88-page section.pp94-sec.pp89-sec--last,
+#main-content.pp-page.pp88-page section.gk-band.pp89-sec.pp89-sec--last {
+  padding-bottom: 96px;
+}
+@media (max-width: 991px) {
+  #main-content.pp-page.pp88-page section.pp93-sec.pp89-sec--last,
+  #main-content.pp-page.pp88-page section.pp94-sec.pp89-sec--last,
+  #main-content.pp-page.pp88-page section.gk-band.pp89-sec.pp89-sec--last {
+    padding-bottom: 64px;
+  }
+}
+
+/* F7: Add 88px padding-bottom to last content block to prevent chat button overlap */
+#main-content.pp-page.pp88-page section.pp93-sec.pp89-sec--last > .gk-wrap,
+#main-content.pp-page.pp88-page section.pp94-sec.pp89-sec--last > .gk-wrap,
+#main-content.pp-page.pp88-page section.gk-band.pp89-sec.pp89-sec--last > .gk-wrap,
+#main-content.pp-page.pp88-page section.pp93-sec.pp89-sec--last > .pp-related-grid,
+#main-content.pp-page.pp88-page section.pp94-sec.pp89-sec--last > .pp-related-grid,
+#main-content.pp-page.pp88-page section.gk-band.pp89-sec.pp89-sec--last > .pp-related-grid {
+  padding-bottom: 88px;
+}
+@media (max-width: 991px) {
+  #main-content.pp-page.pp88-page section.pp93-sec.pp89-sec--last > .gk-wrap,
+  #main-content.pp-page.pp88-page section.pp94-sec.pp89-sec--last > .gk-wrap,
+  #main-content.pp-page.pp88-page section.gk-band.pp89-sec.pp89-sec--last > .gk-wrap,
+  #main-content.pp-page.pp88-page section.pp93-sec.pp89-sec--last > .pp-related-grid,
+  #main-content.pp-page.pp88-page section.pp94-sec.pp89-sec--last > .pp-related-grid,
+  #main-content.pp-page.pp88-page section.gk-band.pp89-sec.pp89-sec--last > .pp-related-grid {
+    padding-bottom: 88px;
+  }
+}
+
+/* ============================================================
+   PART A — Problem to explore (PCB, AutoLabel, PPE)
+   ============================================================ */
+#main-content.pp-page .pp93-problem-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+@media (max-width: 991px) {
+  #main-content.pp-page .pp93-problem-grid {
+    grid-template-columns: 1fr;
+  }
+}
+#main-content.pp-page .pp93-problem-card {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 40px;
+  border-radius: var(--pp93-radius);
+  border: 1px solid var(--pp93-card-border);
+  background: var(--pp93-card-bg);
+  min-width: 0;
+}
+@media (max-width: 991px) {
+  #main-content.pp-page .pp93-problem-card {
+    padding: 24px;
+  }
+}
+#main-content.pp-page .pp93-problem-num {
+  position: absolute;
+  top: 18%;
+  right: 24px;
+  font-size: 28px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: var(--pp93-numeral);
+  white-space: nowrap;
+  pointer-events: none;
+}
+#main-content.pp-page .pp93-icon-tile {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  background: rgba(101, 66, 200, 0.16);
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-size: 26px;
+  color: var(--pp93-accent);
+}
+@media (max-width: 991px) {
+  #main-content.pp-page .pp93-icon-tile {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+}
+#main-content.pp-page .pp93-problem-body {
+  flex: 1;
+  min-width: 0;
+}
+#main-content.pp-page .pp93-problem-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin: 0 0 8px;
+  color: var(--text, #f5f6fb);
+  line-height: 1.2;
+}
+#main-content.pp-page .pp93-problem-desc {
+  font-size: 0.92rem;
+  margin: 0;
+  color: var(--text-muted, #a8afc2);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   PART B — Related products / Related pages (all 4 pages)
+   ============================================================ */
+#main-content.pp-page .pp93-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+@media (max-width: 991px) {
+  #main-content.pp-page .pp93-related-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+#main-content.pp-page .pp93-related-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 36px;
+  min-height: 240px;
+  border-radius: var(--pp93-radius);
+  border: 1px solid var(--pp93-card-border);
+  background: var(--pp93-card-bg);
+  text-decoration: none;
+  color: inherit;
+  gap: 12px;
+  overflow: hidden;
+  transition: transform 0.3s var(--pp93-ease);
+}
+@media (max-width: 991px) {
+  #main-content.pp-page .pp93-related-card {
+    padding: 24px;
+  }
+}
+#main-content.pp-page .pp93-related-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  background: rgba(101, 66, 200, 0.16);
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-size: 26px;
+  color: var(--pp93-accent);
+}
+@media (max-width: 991px) {
+  #main-content.pp-page .pp93-related-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+}
+#main-content.pp-page .pp93-related-card strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0 0 6px;
+  color: var(--text, #f5f6fb);
+  line-height: 1.2;
+}
+#main-content.pp-page .pp93-related-card > span {
+  font-size: 15px;
+  color: var(--text-muted, #a8afc2);
+  line-height: 1.5;
+  margin: 0;
+  min-width: 0;
+}
+
+/* F3: Related arrow circle — 40px, 1px border lilac at 60%, arrow lilac 100%, hover fill accent */
+#main-content.pp-page .pp93-related-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--pp94-lilac-60);
+  color: var(--pp94-lilac);
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-size: 16px;
+  margin-top: auto;
+  align-self: flex-start;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+@media (max-width: 991px) {
+  #main-content.pp-page .pp93-related-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+}
+#main-content.pp-page .pp93-related-card:hover {
+  transform: translateY(-4px);
+}
+#main-content.pp-page .pp93-related-card:hover .pp93-related-arrow {
+  background: var(--pp94-accent);
+  color: #ffffff;
+  border-color: var(--pp94-accent);
+}
+
+/* Light theme: border accent at 60% */
+body[data-theme="light"] #main-content.pp-page .pp93-related-arrow {
+  border-color: var(--pp94-accent-60);
+  color: var(--pp94-accent);
+}
+body[data-theme="light"] #main-content.pp-page .pp93-related-card:hover .pp93-related-arrow {
+  background: var(--pp94-accent);
+  color: #ffffff;
+  border-color: var(--pp94-accent);
+}
+
+/* ============================================================
+   PART C — Tabbed panels
+   ============================================================ */
+#main-content.pp-page .pp93-tab-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 0 16px 6px;
+  margin-bottom: 24px;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+#main-content.pp-page .pp93-tab-bar::-webkit-scrollbar { display: none; }
+#main-content.pp-page .pp93-tab-bar.is-end::after {
+  content: "";
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 24px;
+  background: linear-gradient(to left, #08090d, transparent);
+  pointer-events: none;
+  z-index: 6;
+}
+body[data-theme="light"] #main-content.pp-page .pp93-tab-bar.is-end::after {
+  background: linear-gradient(to left, #ffffff, transparent);
+}
+#main-content.pp-page .pp93-tab-btn {
+  flex: 0 0 auto;
+  height: 44px;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  color: #c4c4d0;
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  scroll-snap-align: start;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+#main-content.pp-page .pp93-tab-btn.is-on {
+  background: #6542c8;
+  border-color: #6542c8;
+  color: #fff;
+}
+#main-content.pp-page .pp93-tab-btn:not(.is-on):hover {
+  border-color: #8b6df0;
+  color: #f5f6fb;
+}
+#main-content.pp-page .pp93-tab-btn:focus-visible {
+  outline: 2px solid #8b6df0;
+  outline-offset: 3px;
+}
+body[data-theme="light"] #main-content.pp-page .pp93-tab-btn { color: #5a5a66; }
+body[data-theme="light"] #main-content.pp-page .pp93-tab-btn.is-on { color: #fff; }
+
+#main-content.pp-page .pp93-tab-panels { display: flex; flex-direction: column; width: 100%; }
+#main-content.pp-page .pp93-tab-panel { display: none; }
+#main-content.pp-page .pp93-tab-panel.is-on {
+  display: grid;
+  padding: 48px;
+  border-radius: var(--pp93-radius);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  min-width: 0;
+  min-height: 420px;
+}
+@media (max-width: 991px) {
+  #main-content.pp-page .pp93-tab-panel.is-on {
+    padding: 24px;
+    min-height: 0;
+  }
+}
+body[data-theme="light"] #main-content.pp-page .pp93-tab-panel.is-on {
+  background: #ffffff;
+  border-color: rgba(7, 6, 13, 0.08);
+}
+
+#main-content.pp-page .pp93-tab-panel-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 48px;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+@media (max-width: 991px) {
+  #main-content.pp-page .pp93-tab-panel-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+#main-content.pp-page .pp93-tab-panel-grid > * { min-width: 0; }
+#main-content.pp-page .pp93-tab-copy { min-width: 0; width: 100%; overflow-wrap: break-word; }
+#main-content.pp-page .pp93-tab-copy h3,
+#main-content.pp-page .pp93-tab-title {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0 0 12px;
+  color: #f5f6fb;
+  letter-spacing: -0.01em;
+}
+#main-content.pp-page .pp93-tab-copy p,
+#main-content.pp-page .pp93-tab-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0 0 14px;
+  color: #c4c4d0;
+  max-width: 52ch;
+  overflow-wrap: break-word;
+}
+#main-content.pp-page .pp93-tab-media { min-width: 0; width: 100%; }
+#main-content.pp-page .pp93-tab-media-box {
+  width: 100%;
+  aspect-ratio: 16/10;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  background: #13111f;
+}
+#main-content.pp-page .pp93-tab-media-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#main-content.pp-page .pp93-tab-media-box > .bi,
+#main-content.pp-page .pp93-tab-media-box > i {
+  font-size: 56px;
+  color: #8b6df0;
+}
+body[data-theme="light"] #main-content.pp-page .pp93-tab-copy h3,
+body[data-theme="light"] #main-content.pp-page .pp93-tab-title { color: #111113; }
+body[data-theme="light"] #main-content.pp-page .pp93-tab-copy p,
+body[data-theme="light"] #main-content.pp-page .pp93-tab-desc { color: #4d5366; }
+body[data-theme="light"] #main-content.pp-page .pp93-tab-media-box {
+  border-color: rgba(101, 66, 200, 0.18);
+  background: #f4f4f4;
+}
+
+/* ============================================================
+   P94 — BEEJHEALTH CAPABILITY CARDS (F2)
+   Targets: .gk-cards.pp88-features-grid, .pp88-features-grid
+   Desktop: 6-column grid with 24px gap
+   Row 1: 3 cards × 2 cols each
+   Row 2: 2 cards × 3 cols each
+   Mobile: 1-col, 16px gap
+   ============================================================ */
+
+/* Desktop: 6-column grid for fine control */
+@media (min-width: 992px) {
+  #main-content.pp-page.pp88-page .gk-cards.pp88-features-grid,
+  #main-content.pp-page.pp88-page .pp88-features-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+  }
+  /* Row 1: 3 cards, each spans 2 columns */
+  #main-content.pp-page.pp88-page .gk-cards.pp88-features-grid > article:nth-child(1),
+  #main-content.pp-page.pp88-page .pp88-features-grid > article:nth-child(1) { grid-column: 1 / span 2; grid-row: 1; }
+  #main-content.pp-page.pp88-page .gk-cards.pp88-features-grid > article:nth-child(2),
+  #main-content.pp-page.pp88-page .pp88-features-grid > article:nth-child(2) { grid-column: 3 / span 2; grid-row: 1; }
+  #main-content.pp-page.pp88-page .gk-cards.pp88-features-grid > article:nth-child(3),
+  #main-content.pp-page.pp88-page .pp88-features-grid > article:nth-child(3) { grid-column: 5 / span 2; grid-row: 1; }
+  /* Row 2: 2 cards, each spans 3 columns (half of 6) */
+  #main-content.pp-page.pp88-page .gk-cards.pp88-features-grid > article:nth-child(4),
+  #main-content.pp-page.pp88-page .pp88-features-grid > article:nth-child(4) { grid-column: 1 / span 3; grid-row: 2; }
+  #main-content.pp-page.pp88-page .gk-cards.pp88-features-grid > article:nth-child(5),
+  #main-content.pp-page.pp88-page .pp88-features-grid > article:nth-child(5) { grid-column: 4 / span 3; grid-row: 2; }
+}
+
+/* Mobile: 1 column, 16px gap */
+@media (max-width: 991px) {
+  #main-content.pp-page.pp88-page .gk-cards.pp88-features-grid,
+  #main-content.pp-page.pp88-page .pp88-features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  #main-content.pp-page.pp88-page .gk-cards.pp88-features-grid > article,
+  #main-content.pp-page.pp88-page .pp88-features-grid > article {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+/* ============================================================
+   P94 — AT A GLANCE FIXES (F4)
+   Targets: .pp-glance-value, .pp89-glance-value, .pp88-glance-value, .pg91-glance-value
+   Maximum specificity
+   ============================================================ */
+
+#main-content.pp-page.pp88-page .pp-glance .pp-glance-value,
+#main-content.pp-page.pp88-page .pp-glance .pp89-glance-value,
+#main-content.pp-page.pp88-page .pp-glance .pp88-glance-value,
+#main-content.pp-page.pp88-page .pp89-glance .pp-glance-value,
+#main-content.pp-page.pp88-page .pp89-glance .pp89-glance-value,
+#main-content.pp-page.pp88-page .pp89-glance .pp88-glance-value,
+#main-content.pp-page.pp88-page .pp88-glance .pp-glance-value,
+#main-content.pp-page.pp88-page .pp88-glance .pp89-glance-value,
+#main-content.pp-page.pp88-page .pp88-glance .pp88-glance-value,
+#main-content.pp-page.pp88-page .pg91-glance .pg91-glance-value {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  font-size: clamp(18px, 5vw, 22px);
+  line-height: 1.2;
+}
+
+/* Also target the value directly with higher specificity */
+#main-content.pp-page.pp88-page .pp-glance-cell .pp-glance-value,
+#main-content.pp-page.pp88-page .pp-glance-cell .pp89-glance-value,
+#main-content.pp-page.pp88-page .pp-glance-cell .pp88-glance-value,
+#main-content.pp-page.pp88-page .pp89-glance-cell .pp-glance-value,
+#main-content.pp-page.pp88-page .pp89-glance-cell .pp89-glance-value,
+#main-content.pp-page.pp88-page .pp89-glance-cell .pp88-glance-value,
+#main-content.pp-page.pp88-page .pp88-glance-cell .pp-glance-value,
+#main-content.pp-page.pp88-page .pp88-glance-cell .pp89-glance-value,
+#main-content.pp-page.pp88-page .pp88-glance-cell .pp88-glance-value {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  font-size: clamp(18px, 5vw, 22px);
+  line-height: 1.2;
+}
+
+/* Mobile: at widths under 400px, switch glance grid to 1 column if needed */
+@media (max-width: 400px) {
+  #main-content.pp-page.pp88-page .pp-glance,
+  #main-content.pp-page.pp88-page .pp89-glance,
+  #main-content.pp-page.pp88-page .pp88-glance {
+    grid-template-columns: 1fr;
+  }
+  #main-content.pp-page.pp88-page .pp-glance-cell,
+  #main-content.pp-page.pp88-page .pp89-glance-cell,
+  #main-content.pp-page.pp88-page .pp88-glance-cell {
+    border-right: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  #main-content.pp-page.pp88-page .pp-glance-cell:first-child,
+  #main-content.pp-page.pp88-page .pp89-glance-cell:first-child,
+  #main-content.pp-page.pp88-page .pp88-glance-cell:first-child {
+    border-top: none;
+  }
+}
+
+/* ============================================================
+   P94 — RELATED CARDS MOBILE ALIGNMENT (F5)
+   Targets: .pp93-related-card, .pp89-related-card, .pp91-related-card, .pp-related-card
+   Maximum specificity
+   ============================================================ */
+
+@media (max-width: 991px) {
+  #main-content.pp-page.pp88-page .pp-related-grid .pp93-related-card,
+  #main-content.pp-page.pp88-page .pp-related-grid .pp89-related-card,
+  #main-content.pp-page.pp88-page .pp-related-grid .pp91-related-card,
+  #main-content.pp-page.pp88-page .pp-related-grid .pp-related-card {
+    text-align: left;
+    align-items: flex-start;
+    padding: 24px;
+  }
+  #main-content.pp-page.pp88-page .pp-related-grid .pp93-related-card > i:first-child,
+  #main-content.pp-page.pp88-page .pp-related-grid .pp89-related-card > i:first-child,
+  #main-content.pp-page.pp88-page .pp-related-grid .pp91-related-card > i:first-child,
+  #main-content.pp-page.pp88-page .pp-related-grid .pp-related-card > i:first-child,
+  #main-content.pp-page.pp88-page .pp-related-grid .pp93-related-icon,
+  #main-content.pp-page.pp88-page .pp-related-grid .pp89-related-icon,
+  #main-content.pp-page.pp88-page .pp-related-grid .pp91-related-icon {
+    align-self: flex-start;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  #main-content.pp-page.pp88-page .pp-related-grid .pp93-related-card strong,
+  #main-content.pp-page.pp88-page .pp-related-grid .pp89-related-card strong,
+  #main-content.pp-page.pp88-page .pp-related-grid .pp91-related-card strong,
+  #main-content.pp-page.pp88-page .pp-related-grid .pp-related-card strong {
+    text-align: left;
+  }
+  #main-content.pp-page.pp88-page .pp-related-grid .pp93-related-card > span,
+  #main-content.pp-page.pp88-page .pp-related-grid .pp89-related-card > span,
+  #main-content.pp-page.pp88-page .pp-related-grid .pp91-related-card > span,
+  #main-content.pp-page.pp88-page .pp-related-grid .pp-related-card > span {
+    text-align: left;
+  }
+  #main-content.pp-page.pp88-page .pp-related-grid .pp93-related-arrow,
+  #main-content.pp-page.pp88-page .pp-related-grid .pp89-related-arrow,
+  #main-content.pp-page.pp88-page .pp-related-grid .pp91-related-arrow,
+  #main-content.pp-page.pp88-page .pp-related-grid .pp-related-arrow {
+    align-self: flex-start;
+    margin-top: auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* ============================================================
+   P94 — FAQ CONTACT US BUTTON (F6)
+   Targets: .pp90-contact-btn, .pg90-contact-btn, .pp89-contact-btn, .contact-btn
+   Maximum specificity to override ALL other rules at ALL viewports
+   Inline-flex, 44px height, 10px radius, #6542c8 bg, bi-arrow-right
+   ============================================================ */
+
+/* Desktop and all viewports - force visible with correct styling */
+#main-content.pp-page.pp88-page .pp-faq-wrap .pp-faq-intro-col .pp90-contact-btn,
+#main-content.pp-page.pp88-page .pp-faq-wrap .pp-faq-intro-col .pg90-contact-btn,
+#main-content.pp-page.pp88-page .pp-faq-wrap .pp-faq-intro-col .pp89-contact-btn,
+#main-content.pp-page.pp88-page .pp-faq-wrap .pp-faq-intro-col .contact-btn,
+#main-content.pp-page.pp88-page .pp-faq-intro-col .pp90-contact-btn,
+#main-content.pp-page.pp88-page .pp-faq-intro-col .pg90-contact-btn,
+#main-content.pp-page.pp88-page .pp-faq-intro-col .pp89-contact-btn,
+#main-content.pp-page.pp88-page .pp-faq-intro-col .contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 10px;
+  background: var(--pp94-accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  visibility: visible;
+  opacity: 1;
+}
+#main-content.pp-page.pp88-page .pp-faq-wrap .pp-faq-intro-col .pp90-contact-btn .bi,
+#main-content.pp-page.pp88-page .pp-faq-wrap .pp-faq-intro-col .pg90-contact-btn .bi,
+#main-content.pp-page.pp88-page .pp-faq-wrap .pp-faq-intro-col .pp89-contact-btn .bi,
+#main-content.pp-page.pp88-page .pp-faq-wrap .pp-faq-intro-col .contact-btn .bi,
+#main-content.pp-page.pp88-page .pp-faq-intro-col .pp90-contact-btn .bi,
+#main-content.pp-page.pp88-page .pp-faq-intro-col .pg90-contact-btn .bi,
+#main-content.pp-page.pp88-page .pp-faq-intro-col .pp89-contact-btn .bi,
+#main-content.pp-page.pp88-page .pp-faq-intro-col .contact-btn .bi {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  display: inline-block;
+}
+
+/* ============================================================
+   Reduced motion: static and visible
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  #main-content.pp-page .pp93-problem-card,
+  #main-content.pp-page .pp93-related-card,
+  #main-content.pp-page .pp93-tab-panel,
+  #main-content.pp-page .pp93-tab-btn,
+  #main-content.pp-page .gk-cards.pp88-features-grid > article {
+    transition: none;
+    animation: none;
+  }
+  #main-content.pp-page .pp93-related-card:hover { transform: none; }
+  #main-content.pp-page .gk-cards.pp88-features-grid > article:hover { transform: none; }
+}

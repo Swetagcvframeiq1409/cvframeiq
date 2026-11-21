@@ -214,8 +214,6 @@ html[data-theme="light"] #main-content.pp-page .pp-draft-chip {
 }
 
 /* ── Keep reveal-animated cards visible ── */
-#main-content.pp-page .pp-related-card,
-#main-content.pp-page .pp-problem-card,
 #main-content.pp-page .pp-step-card {
   opacity: 1;
   transform: none;
@@ -368,194 +366,7 @@ html[data-theme="light"] #main-content.pp-page .pp-draft-chip {
   display: block;
 }
 
-/* ── Tabs: pill row on top, full-width panel below ── */
-#main-content.pp-page .pp-tabs-wrap {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-#main-content.pp-page .pp-tab-bar-wrapper {
-  width: 100%;
-  margin-bottom: 0;
-}
-#main-content.pp-page .pp-tab-bar {
-  display: flex;
-  gap: 8px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  margin-bottom: 24px;
-  padding: 0 0 6px;
-  -webkit-overflow-scrolling: touch;
-}
-#main-content.pp-page .pp-tab-bar::-webkit-scrollbar { display: none; }
-#main-content.pp-page .pp-tab-btn {
-  flex: 0 0 auto;
-  height: 44px;
-  min-height: 44px;
-  padding: 0 20px;
-  border-radius: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: transparent;
-  color: #c4c4d0;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  white-space: nowrap;
-  scroll-snap-align: start;
-  transition: border-color 200ms var(--ease-out), color 200ms var(--ease-out), background 200ms var(--ease-out);
-}
-#main-content.pp-page .pp-tab-btn.is-on {
-  background: #6542c8;
-  border-color: #6542c8;
-  color: #fff;
-}
-#main-content.pp-page .pp-tab-btn:not(.is-on):hover {
-  border-color: #8b6df0;
-  color: #f5f6fb;
-}
-#main-content.pp-page .pp-tab-btn:focus-visible {
-  outline: 2px solid #8b6df0;
-  outline-offset: 3px;
-}
-#main-content.pp-page .pp-tab-panels {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-#main-content.pp-page .pp-tab-panel {
-  display: grid;
-  width: 100%;
-  min-width: 0;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 250ms var(--ease-out), transform 250ms var(--ease-out);
-}
-#main-content.pp-page .pp-tab-panel[hidden] { display: none !important; }
-#main-content.pp-page .pp-tab-panel.is-on {
-  opacity: 1; transform: none; animation: none;
-  display: grid;
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 16px;
-  background: #14141d;
-  padding: clamp(24px,3vw,40px);
-  min-height: clamp(280px, 32vw, 360px);
-  box-sizing: border-box;
-  gap: 40px;
-}
-#main-content.pp-page .pp-tab-panel-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 1fr);
-  gap: 40px;
-  align-items: center;
-  width: 100%;
-}
-#main-content.pp-page .pp-tab-copy { min-width: 0; width: 100%; overflow-wrap: break-word; }
-#main-content.pp-page .pp-tab-copy h3 {
-  font-size: 28px;
-  font-weight: 500;
-  line-height: 1.2;
-  margin: 0 0 12px 0;
-  color: #f5f6fb;
-  letter-spacing: -0.01em;
-}
-#main-content.pp-page .pp-tab-copy p {
-  font-size: 18px;
-  line-height: 1.6;
-  margin: 0 0 14px;
-  color: #c4c4d0;
-  max-width: 56ch;
-  overflow-wrap: break-word;
-}
-#main-content.pp-page .pp-chip-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
-}
-#main-content.pp-page .pp-tab-media { min-width: 0; width: 100%; }
-#main-content.pp-page .pp-tab-img-wrap {
-  width: 100%;
-  aspect-ratio: 16/10;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,.08);
-  overflow: hidden;
-  background: #13111f;
-  min-height: 280px;
-}
-#main-content.pp-page .pp-tab-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-@media (max-width: 767px) {
-  #main-content.pp-page .pp-tab-panel.is-on {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 24px;
-    min-height: 0;
-  }
-  #main-content.pp-page .pp-tab-panel > * {
-    min-width: 0;
-    word-break: normal;
-    overflow-wrap: break-word;
-    white-space: normal;
-    writing-mode: horizontal-tb;
-  }
-  #main-content.pp-page .pp-tab-panel-grid { grid-template-columns: 1fr; gap: 24px; }
-  #main-content.pp-page .pp-tab-panel-grid .pp-tab-media { order: -1; }
-  #main-content.pp-page .pp-tab-panel-grid .pp-tab-copy { order: 1; }
-  #main-content.pp-page .pp-tab-panel-grid .pp-tab-img-wrap,
-  #main-content.pp-page .pp-tab-panel-grid .pp-icon-panel { aspect-ratio: 16/9; min-height: 200px; }
-  #main-content.pp-page .pp-icon-panel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    padding: 24px;
-  }
-  #main-content.pp-page .pp-icon-panel i { font-size: 56px; }
-  #main-content.pp-page .pp-chip-group { justify-content: center; }
-}
-@media (prefers-reduced-motion: reduce) {
-  #main-content.pp-page .pp-tab-panel { transition: none; transform: none; opacity: 1; }
-}
-
-/* ── Icon panel ── */
-#main-content.pp-page .pp-icon-panel {
-  width: 100%;
-  aspect-ratio: 16/10;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,.08);
-  background: #13111f;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 0;
-  text-align: center;
-}
-#main-content.pp-page .pp-icon-panel i {
-  font-size: 64px;
-  color: #8b6df0;
-}
-#main-content.pp-page .pp-icon-panel i {
-  font-size: 72px;
-  color: #8b6df0;
-}
-#main-content.pp-page .pp-chip {
-  font-size: 13px;
-  color: #c4c4d0;
-  background: rgba(101,66,200,.14);
-  border: 1px solid rgba(101, 66, 200, 0.2);
-  border-radius: 999px;
-  padding: 4px 12px;
-  display: inline-block;
-  margin: 2px;
-}
+/* ── FAQ ── */
 
 /* ── FAQ ── */
 #main-content.pp-page .pp-faq-wrap {
@@ -661,23 +472,15 @@ html[data-theme="light"] #main-content.pp-page .pp-draft-chip {
   color: #111113;
 }
 [data-theme="light"] #main-content.pp-page .pp-step-card h3,
-[data-theme="light"] #main-content.pp-page .pp-tab-copy h3,
 [data-theme="light"] #main-content.pp-page .pp-faq-intro-col h2,
 [data-theme="light"] #main-content.pp-page .pp-acc-q span {
   color: #111113;
 }
 [data-theme="light"] #main-content.pp-page .pp-step-card p,
-[data-theme="light"] #main-content.pp-page .pp-tab-copy p,
 [data-theme="light"] #main-content.pp-page .pp-faq-intro-col p,
-[data-theme="light"] #main-content.pp-page .pp-acc-a p,
-[data-theme="light"] #main-content.pp-page .pp-chip {
+[data-theme="light"] #main-content.pp-page .pp-acc-a p {
   color: #4d5366;
 }
-[data-theme="light"] #main-content.pp-page .pp-icon-panel {
-  background: #f4f4f4;
-  border-color: rgba(0, 0, 0, 0.08);
-}
-[data-theme="light"] #main-content.pp-page .pp-tab-img-wrap,
 [data-theme="light"] #main-content.pp-page .pp-workflow-img {
   border-color: rgba(101, 66, 200, 0.18);
 }
@@ -695,7 +498,6 @@ html[data-theme="light"] #main-content.pp-page .pp-draft-chip {
 /* ── Reduce motion ── */
 @media (prefers-reduced-motion: reduce) {
   #main-content.pp-page .pp-workflow-img { transition: none; }
-  #main-content.pp-page .pp-tab-panel { transition: none; transform: none; opacity: 1; }
   #main-content.pp-page .pp-acc-q .bi { transition: none; }
   #main-content.pp-page .pp-acc-a { transition: none; }
 }
@@ -711,15 +513,6 @@ html[data-theme="light"] #main-content.pp-page .pp-draft-chip {
     top: auto;
     order: 2;
   }
-  #main-content.pp-page .pp-tab-panel-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  #main-content.pp-page .pp-tab-panel-grid .pp-tab-media {
-    order: 2;
-  }
-  #main-content.pp-page .pp-tab-img-wrap,
-  #main-content.pp-page .pp-icon-panel { aspect-ratio: 16/10; min-height: 240px; }
   #main-content.pp-page .pp-faq-wrap {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -736,13 +529,4 @@ html[data-theme="light"] #main-content.pp-page .pp-draft-chip {
 /* -- spec tabs desktop polish (>=901px) -- */
 @media (min-width: 901px) {
   #main-content.pp-page .gk-head { margin-bottom: 32px; }
-  #main-content.pp-page .pp-tabs-wrap { margin-top: 0; }
-  #main-content.pp-page .pp-tab-bar-wrapper { margin-bottom: 24px; }
-  #main-content.pp-page .pp-tab-panel-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 40px; align-items: center; padding: 32px; }
-  #main-content.pp-page .pp-tab-copy h3 { max-width: none; }
-  #main-content.pp-page .pp-tab-copy p { max-width: 52ch; font-size: 17px; line-height: 1.65; }
-  #main-content.pp-page .pp-chip-group { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 8px; }
-  #main-content.pp-page .pp-tab-img-wrap, #main-content.pp-page .pp-icon-panel { width: 100%; aspect-ratio: 4/3; }
-  #main-content.pp-page .pp-tab-img-wrap img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; }
-  #main-content.pp-page .pp-icon-panel { display: flex; align-items: center; justify-content: center; }
 }

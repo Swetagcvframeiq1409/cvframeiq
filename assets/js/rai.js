@@ -31,6 +31,10 @@
       return document.getElementById(id);
     }).filter(Boolean);
 
+    // Also include the final CTA section in scroll spy
+    const finalCta = document.querySelector('.rai-final-cta');
+    if (finalCta) sections.push(finalCta);
+
     if (!sections.length) return;
 
     const headerH = 74;
@@ -56,7 +60,7 @@
       if (!activeSection) activeSection = sections[0];
 
       // Update active link
-      const activeId = activeSection.id;
+      const activeId = activeSection.id || 'final-cta';
       links.forEach(link => {
         const isActive = link.getAttribute('data-rai-anchor') === activeId;
         link.setAttribute('aria-current', isActive ? 'true' : 'false');

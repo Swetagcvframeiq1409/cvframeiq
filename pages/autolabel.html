@@ -27,6 +27,8 @@
   <link rel="stylesheet" href="../assets/css/product-pages-v2.css" />
   <link rel="stylesheet" href="../assets/css/pp-requirements.css" />
   <link rel="stylesheet" href="../assets/css/products-page.css" />
+  <link rel="stylesheet" href="../assets/css/product-sections-polish.css" />
+  <link rel="stylesheet" href="../assets/css/pp-final.css" />
   <meta name="color-scheme" content="dark" />
   <script src="../assets/data/site-data.js" defer></script>
   <script src="../assets/data/live-carryover.js" defer></script>
@@ -36,6 +38,7 @@
   <script src="../assets/js/photos.js" defer></script>
   <script src="../assets/js/icons.js" defer></script>
   <script src="../assets/js/components.js" defer></script>
+  <script src="../assets/js/pages/product-sections.js" defer></script>
   <script src="../assets/js/search.js" defer></script>
   <script src="../assets/js/main.js" defer></script>
   <script src="../assets/js/seo.js" defer></script>
@@ -55,79 +58,87 @@
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div id="site-header"></div>
 
-  <main id="main-content" class="pp-page" data-no-global-cta="true">
+  <main id="main-content" class="pp-page pp88-page" data-no-global-cta="true">
 
     <!-- 1. HERO -->
-    <section class="gk-prodhero" aria-labelledby="h1">
-      <div class="gk-wrap gk-prodhero__grid">
-        <div class="gk-prodhero__copy">
-          <nav class="gk-crumbs" aria-label="Breadcrumb">
-            <a href="../index.html">Home</a> /
-            <a href="ai-store.html">Products</a> /
-            AutoLabel
+    <section class="gk-prodhero pp88-hero" aria-labelledby="h1">
+      <div class="gk-wrap gk-prodhero__grid pp88-hero-grid">
+        <div class="gk-prodhero__copy pp88-hero-copy">
+          <nav class="gk-crumbs pp88-hero-crumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="pp88-crumb-sep" aria-hidden="true"><i class="bi bi-chevron-right" aria-hidden="true"></i></span>
+            <a href="ai-store.html">Products</a>
+            <span class="pp88-crumb-sep" aria-hidden="true"><i class="bi bi-chevron-right" aria-hidden="true"></i></span>
+            <span class="pp88-crumb-last">AutoLabel</span>
           </nav>
-          <p class="gk-eyebrow">IMAGE ANNOTATION</p>
-          <h1 id="h1">AutoLabel</h1>
-          <p class="gk-lead">Discuss image annotation and data preparation requirements with FrameIQ.</p>
-          <div class="gk-prodhero__cta">
-            <a class="gk-btn" href="contact.html">Book a Demo <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
-            <a class="gk-btn gk-btn--ghost" href="ai-store.html">Back to AI Store <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          <p class="gk-eyebrow pp88-hero-eyebrow">IMAGE ANNOTATION</p>
+          <h1 id="h1" class="pp88-hero-h1">AutoLabel</h1>
+          <p class="gk-lead pp88-hero-lead">Discuss image annotation and data preparation requirements with FrameIQ.</p>
+          <div class="gk-prodhero__cta pp88-hero-cta">
+            <a class="gk-btn pp88-hero-btn-primary" href="contact.html">Book a Demo <i class="bi bi-arrow-right pp88-arrow-icon" aria-hidden="true"></i></a>
+            <a class="gk-btn gk-btn--ghost pp88-hero-btn-secondary" href="ai-store.html">Back to AI Store <i class="bi bi-arrow-right pp88-arrow-icon" aria-hidden="true"></i></a>
           </div>
         </div>
-        <div class="gk-prodhero__media">
-          <img src="../assets/img/products/autolabel-hero.webp" alt="AutoLabel" loading="eager" fetchpriority="high" width="1680" height="944" decoding="async" />
+        <div class="gk-prodhero__media pp88-hero-media">
+          <img class="pp88-hero-img" src="../assets/img/products/autolabel-hero.webp" alt="AutoLabel" loading="eager" fetchpriority="high" width="1680" height="944" decoding="async" />
         </div>
       </div>
     </section>
 
     <!-- 2. KEY FACTS -->
-    <section class="gk-band" aria-label="Key facts">
+    <section class="gk-band pp89-sec" aria-label="Key facts">
       <div class="gk-wrap">
-        <span class="gk-eyebrow">At a glance</span>
-        <div class="pp-glance">
-          <div class="pp-glance-cell">
-            <i class="bi bi-tag" aria-hidden="true"></i>
-            <span class="pp-glance-label">Product type</span>
-            <span class="pp-glance-value">Image Annotation</span>
+        <span class="gk-eyebrow pp89-eyebrow">At a glance</span>
+        <div class="pp-glance pp88-glance pp89-glance">
+          <div class="pp-glance-cell pp88-glance-cell pp89-glance-cell">
+            <i class="bi bi-tag pp88-glance-icon pp89-glance-icon" aria-hidden="true"></i>
+            <span class="pp-glance-label pp88-glance-label pp89-glance-label">Product type</span>
+            <span class="pp-glance-value pp88-glance-value pp89-glance-value">Image Annotation</span>
           </div>
-          <div class="pp-glance-cell">
-            <i class="bi bi-file-earmark-image" aria-hidden="true"></i>
-            <span class="pp-glance-label">Formats</span>
-            <span class="pp-glance-value">Image sets</span>
+          <div class="pp-glance-cell pp88-glance-cell pp89-glance-cell">
+            <i class="bi bi-file-earmark-image pp88-glance-icon pp89-glance-icon" aria-hidden="true"></i>
+            <span class="pp-glance-label pp88-glance-label pp89-glance-label">Formats</span>
+            <span class="pp-glance-value pp88-glance-value pp89-glance-value">Image sets</span>
           </div>
-          <div class="pp-glance-cell">
-            <i class="bi bi-people" aria-hidden="true"></i>
-            <span class="pp-glance-label">Workflow</span>
-            <span class="pp-glance-value">Task design</span>
+          <div class="pp-glance-cell pp88-glance-cell pp89-glance-cell">
+            <i class="bi bi-people pp88-glance-icon pp89-glance-icon" aria-hidden="true"></i>
+            <span class="pp-glance-label pp88-glance-label pp89-glance-label">Workflow</span>
+            <span class="pp-glance-value pp88-glance-value pp89-glance-value">Task design</span>
           </div>
-          <div class="pp-glance-cell">
-            <i class="bi bi-cloud-upload" aria-hidden="true"></i>
-            <span class="pp-glance-label">Data handling</span>
-            <span class="pp-glance-value">Export, access</span>
+          <div class="pp-glance-cell pp88-glance-cell pp89-glance-cell">
+            <i class="bi bi-cloud-upload pp88-glance-icon pp89-glance-icon" aria-hidden="true"></i>
+            <span class="pp-glance-label pp88-glance-label pp89-glance-label">Data handling</span>
+            <span class="pp-glance-value pp88-glance-value pp89-glance-value">Export, access</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- 3. PROBLEM TO EXPLORE -->
-    <section class="gk-band" aria-labelledby="al-problem-h2">
+    <section class="gk-band pp89-sec pp88-problem-section pp93-sec" aria-labelledby="al-problem-h2">
       <div class="gk-wrap">
         <div class="gk-head">
           <div>
-            <span class="gk-eyebrow">Product concept</span>
-            <h2 id="al-problem-h2">Problem to explore</h2>
+            <span class="gk-eyebrow pp89-eyebrow">Product concept</span>
+            <h2 id="al-problem-h2" class="pp88-problem-h2 pp89-h2">Problem to explore</h2>
           </div>
         </div>
-        <div class="pp-problem-grid" data-count="2">
-          <article class="pp-problem-card">
-            <i class="bi bi-collection" aria-hidden="true"></i>
-            <h3>Dataset preparation</h3>
-            <p>Computer-vision projects may require image annotation and dataset preparation.</p>
+        <div class="pp-problem-grid pp88-problem-grid pp89-problem-grid pp93-problem-grid" data-count="2">
+          <article class="pp-problem-card pp88-problem-card pp89-card pp89-problem-card pp91-problem-card pp93-problem-card" tabindex="0">
+            <span class="pp88-problem-num pp89-num pp91-problem-num pp93-problem-num" aria-hidden="true">01</span>
+            <i class="bi bi-collection pp88-problem-icon pp89-icon-tile pp91-problem-icon pp93-icon-tile" aria-hidden="true"></i>
+            <div class="pp93-problem-body">
+              <h3 class="pp88-problem-title pp89-problem-title pp91-problem-title pp93-problem-title">Dataset preparation</h3>
+              <p class="pp88-problem-desc pp89-problem-desc pp91-problem-desc pp93-problem-desc">Computer-vision projects may require image annotation and dataset preparation.</p>
+            </div>
           </article>
-          <article class="pp-problem-card">
-            <i class="bi bi-sliders" aria-hidden="true"></i>
-            <h3>Project-specific needs</h3>
-            <p>The data, label taxonomy, workflow, and quality controls needed vary by project.</p>
+          <article class="pp-problem-card pp88-problem-card pp89-card pp89-problem-card pp91-problem-card pp93-problem-card" tabindex="0">
+            <span class="pp88-problem-num pp89-num pp91-problem-num pp93-problem-num" aria-hidden="true">02</span>
+            <i class="bi bi-sliders pp88-problem-icon pp89-icon-tile pp91-problem-icon pp93-icon-tile" aria-hidden="true"></i>
+            <div class="pp93-problem-body">
+              <h3 class="pp88-problem-title pp89-problem-title pp91-problem-title pp93-problem-title">Project-specific needs</h3>
+              <p class="pp88-problem-desc pp89-problem-desc pp91-problem-desc pp93-problem-desc">The data, label taxonomy, workflow, and quality controls needed vary by project.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -172,19 +183,19 @@
     </section>
 
     <!-- 5. SPEC TABS -->
-    <section class="gk-band" aria-labelledby="al-spec-h2">
+    <section class="gk-band pp89-sec pp93-sec" aria-labelledby="al-spec-h2">
       <div class="gk-wrap">
         <div class="gk-head">
           <div>
-            <span class="gk-eyebrow">Specifications</span>
-            <h2 id="al-spec-h2">Requirements to confirm</h2>
+            <span class="gk-eyebrow pp89-eyebrow">Specifications</span>
+            <h2 id="al-spec-h2" class="pp89-h2">Requirements to confirm</h2>
           </div>
         </div>
         <div class="pp-tabs-wrap" data-pp-tabs>
           <div class="pp-tab-bar-wrapper">
-            <div class="pp-tab-bar" role="tablist" aria-label="AutoLabel requirements">
+            <div class="pp-tab-bar pp93-tab-bar" role="tablist" aria-label="AutoLabel requirements">
               <button
-                class="pp-tab-btn is-on"
+                class="pp-tab-btn pp93-tab-btn is-on"
                 type="button"
                 role="tab"
                 id="al-tab-0"
@@ -193,7 +204,7 @@
                 data-img="../assets/img/products/autolabel-hero.webp"
               >Formats and labels</button>
               <button
-                class="pp-tab-btn"
+                class="pp-tab-btn pp93-tab-btn"
                 type="button"
                 role="tab"
                 id="al-tab-1"
@@ -203,7 +214,7 @@
                 data-img="../assets/img/AutoLabel workflow.webp"
               >Workflow features</button>
               <button
-                class="pp-tab-btn"
+                class="pp-tab-btn pp93-tab-btn"
                 type="button"
                 role="tab"
                 id="al-tab-2"
@@ -214,46 +225,46 @@
               >Data handling</button>
             </div>
           </div>
-          <div class="pp-tab-panels">
-            <div class="pp-tab-panel is-on" id="al-panel-0" role="tabpanel" aria-labelledby="al-tab-0">
-              <div class="pp-tab-panel-grid">
-                <div class="pp-tab-copy">
-                  <h3>Formats and labels</h3>
-                  <p>Annotation programmes typically cover image sets, label taxonomy, and export requirements that differ by project.</p>
+          <div class="pp-tab-panels pp93-tab-panels">
+            <div class="pp-tab-panel is-on pp89-tab-panel pp91-tab-panel pp93-tab-panel" id="al-panel-0" role="tabpanel" aria-labelledby="al-tab-0">
+              <div class="pp-tab-panel-grid pp93-tab-panel-grid">
+                <div class="pp-tab-copy pp93-tab-copy">
+                  <h3 class="pp89-tab-title pp91-tab-title pp93-tab-title">Formats and labels</h3>
+                  <p class="pp89-tab-desc pp91-tab-desc pp93-tab-desc">Annotation programmes typically cover image sets, label taxonomy, and export requirements that differ by project.</p>
                 </div>
-                <div class="pp-tab-media">
-                  <div class="pp-tab-img-wrap">
-                    <img src="../assets/img/products/autolabel-hero.webp" alt="AutoLabel formats and labels" loading="lazy" width="720" height="540" />
+                <div class="pp-tab-media pp93-tab-media">
+                  <div class="pp-tab-img-wrap pp89-tab-media-box pp91-tab-media-box pp93-tab-media-box">
+                    <img class="pp93-tab-img" src="../assets/img/products/autolabel-hero.webp" alt="AutoLabel formats and labels" loading="lazy" width="720" height="540" />
                   </div>
                 </div>
               </div>
             </div>
-            <div class="pp-tab-panel" id="al-panel-1" role="tabpanel" aria-labelledby="al-tab-1">
-              <div class="pp-tab-panel-grid">
-                <div class="pp-tab-copy">
-                  <h3>Workflow features</h3>
-                  <p>Project teams often need review, QA, collaboration, and region-based labeling support built into the workflow.</p>
+            <div class="pp-tab-panel pp89-tab-panel pp91-tab-panel pp93-tab-panel" id="al-panel-1" role="tabpanel" aria-labelledby="al-tab-1">
+              <div class="pp-tab-panel-grid pp93-tab-panel-grid">
+                <div class="pp-tab-copy pp93-tab-copy">
+                  <h3 class="pp89-tab-title pp91-tab-title pp93-tab-title">Workflow features</h3>
+                  <p class="pp89-tab-desc pp91-tab-desc pp93-tab-desc">Project teams often need review, QA, collaboration, and region-based labeling support built into the workflow.</p>
                 </div>
-                <div class="pp-tab-media">
-                  <div class="pp-tab-img-wrap">
-                    <img src="../assets/img/AutoLabel workflow.webp" alt="AutoLabel workflow features" loading="lazy" width="720" height="540" />
+                <div class="pp-tab-media pp93-tab-media">
+                  <div class="pp-tab-img-wrap pp89-tab-media-box pp91-tab-media-box pp93-tab-media-box">
+                    <img class="pp93-tab-img" src="../assets/img/AutoLabel workflow.webp" alt="AutoLabel workflow features" loading="lazy" width="720" height="540" />
                   </div>
                 </div>
               </div>
             </div>
-            <div class="pp-tab-panel" id="al-panel-2" role="tabpanel" aria-labelledby="al-tab-2">
-              <div class="pp-tab-panel-grid">
-                <div class="pp-tab-copy">
-                  <h3>Data handling</h3>
-                  <p>Data retention, access controls, and deployment should be planned early so security and handling requirements are aligned.</p>
-                  <div class="pp-chip-group">
-                    <span class="pp-chip">Data retention</span>
-                    <span class="pp-chip">Access controls</span>
-                    <span class="pp-chip">Deployment planning</span>
+            <div class="pp-tab-panel pp89-tab-panel pp91-tab-panel pp93-tab-panel" id="al-panel-2" role="tabpanel" aria-labelledby="al-tab-2">
+              <div class="pp-tab-panel-grid pp93-tab-panel-grid">
+                <div class="pp-tab-copy pp93-tab-copy">
+                  <h3 class="pp89-tab-title pp91-tab-title pp93-tab-title">Data handling</h3>
+                  <p class="pp89-tab-desc pp91-tab-desc pp93-tab-desc">Data retention, access controls, and deployment should be planned early so security and handling requirements are aligned.</p>
+                  <div class="pp-chip-group pp89-chip-group">
+                    <span class="pp-chip pp89-chip pp91-chip">Data retention</span>
+                    <span class="pp-chip pp89-chip pp91-chip">Access controls</span>
+                    <span class="pp-chip pp89-chip pp91-chip">Deployment planning</span>
                   </div>
                 </div>
-                <div class="pp-tab-media">
-                  <div class="pp-icon-panel"><i class="bi bi-tag" aria-hidden="true"></i></div>
+                <div class="pp-tab-media pp93-tab-media">
+                  <div class="pp-icon-panel pp89-tab-media-box pp89-tab-media-icon pp91-tab-media-icon pp91-tab-media-box pp93-tab-media-box"><i class="bi bi-tag" aria-hidden="true"></i></div>
                 </div>
               </div>
             </div>
@@ -263,40 +274,44 @@
     </section>
 
     <!-- 6. FAQ -->
-    <section class="gk-band" aria-labelledby="al-faq-h2">
+    <section class="gk-band pp89-sec" aria-labelledby="al-faq-h2">
       <div class="gk-wrap">
         <div class="pp-faq-wrap">
           <div class="pp-faq-intro-col">
-            <span class="gk-eyebrow">Frequently asked questions</span>
-            <h2 id="al-faq-h2">Common questions</h2>
-            <p>Answers to questions about the AutoLabel concept.</p>
+            <span class="gk-eyebrow pp89-eyebrow">Frequently asked questions</span>
+            <h2 id="al-faq-h2" class="pp89-h2">Common questions</h2>
+            <p class="pp89-lede">Answers to questions about the AutoLabel concept.</p>
+            <a href="contact.html" class="pp90-contact-btn">Contact Us <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
           </div>
           <div class="pp-acc" data-pp-acc>
             <div class="pp-acc-item">
-              <button class="pp-acc-q is-on" type="button" aria-expanded="true">
-                Can I upload a dataset now?
-                <i class="bi bi-plus-lg pp-acc-icon" aria-hidden="true"></i>
+              <button class="pp-acc-q is-on pp89-acc-q pp91-acc-q" type="button" aria-expanded="true" aria-controls="pp89-al-a-1" id="pp89-al-a-1-btn">
+                <span class="pp89-acc-num pp91-acc-num" aria-hidden="true">01</span>
+                <span class="pp89-acc-qtext pp91-acc-qtext">Can I upload a dataset now?</span>
+                <i class="bi bi-plus-lg pp-acc-icon pp89-acc-icon pp91-acc-icon" aria-hidden="true"></i>
               </button>
-              <div class="pp-acc-a" role="region">
-                <div><p>Do not send data until a suitable process and handling terms have been agreed. Those details are to be confirmed.</p></div>
+              <div class="pp-acc-a pp89-acc-a pp91-acc-a" role="region" id="pp89-al-a-1" aria-labelledby="pp89-al-a-1-btn" aria-hidden="false">
+                <div class="pp89-acc-inner pp91-acc-inner"><p class="pp89-acc-ans pp91-acc-ans">Do not send data until a suitable process and handling terms have been agreed. Those details are to be confirmed.</p></div>
               </div>
             </div>
             <div class="pp-acc-item">
-              <button class="pp-acc-q" type="button" aria-expanded="false">
-                Which annotation formats are supported?
-                <i class="bi bi-plus-lg pp-acc-icon" aria-hidden="true"></i>
+              <button class="pp-acc-q pp89-acc-q pp91-acc-q" type="button" aria-expanded="false" aria-controls="pp89-al-a-2" id="pp89-al-a-2-btn">
+                <span class="pp89-acc-num pp91-acc-num" aria-hidden="true">02</span>
+                <span class="pp89-acc-qtext pp91-acc-qtext">Which annotation formats are supported?</span>
+                <i class="bi bi-plus-lg pp-acc-icon pp89-acc-icon pp91-acc-icon" aria-hidden="true"></i>
               </button>
-              <div class="pp-acc-a" role="region">
-                <div><p>Supported formats are to be confirmed.</p></div>
+              <div class="pp-acc-a pp89-acc-a pp91-acc-a" role="region" id="pp89-al-a-2" aria-labelledby="pp89-al-a-2-btn" aria-hidden="true">
+                <div class="pp89-acc-inner pp91-acc-inner"><p class="pp89-acc-ans pp91-acc-ans">Supported formats are to be confirmed.</p></div>
               </div>
             </div>
             <div class="pp-acc-item">
-              <button class="pp-acc-q" type="button" aria-expanded="false">
-                What does it cost?
-                <i class="bi bi-plus-lg pp-acc-icon" aria-hidden="true"></i>
+              <button class="pp-acc-q pp89-acc-q pp91-acc-q" type="button" aria-expanded="false" aria-controls="pp89-al-a-3" id="pp89-al-a-3-btn">
+                <span class="pp89-acc-num pp91-acc-num" aria-hidden="true">03</span>
+                <span class="pp89-acc-qtext pp91-acc-qtext">What does it cost?</span>
+                <i class="bi bi-plus-lg pp-acc-icon pp89-acc-icon pp91-acc-icon" aria-hidden="true"></i>
               </button>
-              <div class="pp-acc-a" role="region">
-                <div><p>Pricing is on enquiry.</p></div>
+              <div class="pp-acc-a pp89-acc-a pp91-acc-a" role="region" id="pp89-al-a-3" aria-labelledby="pp89-al-a-3-btn" aria-hidden="true">
+                <div class="pp89-acc-inner pp91-acc-inner"><p class="pp89-acc-ans pp91-acc-ans">Pricing is on enquiry.</p></div>
               </div>
             </div>
           </div>
@@ -305,29 +320,32 @@
     </section>
 
     <!-- 7. RELATED PRODUCTS -->
-    <section class="gk-band" aria-labelledby="al-related-h2">
+    <section class="gk-band pp89-sec pp89-sec--last pp93-sec" aria-labelledby="al-related-h2">
       <div class="gk-wrap">
         <div class="gk-head">
           <div>
-            <span class="gk-eyebrow">Also explore</span>
-            <h2 id="al-related-h2">Related products</h2>
+            <span class="gk-eyebrow pp89-eyebrow">Also explore</span>
+            <h2 id="al-related-h2" class="pp89-h2">Related products</h2>
           </div>
         </div>
-        <div class="pp-related-grid">
-          <a class="pp-related-card" href="pcb-guardian.html">
-            <i class="bi bi-cpu" aria-hidden="true"></i>
+        <div class="pp-related-grid pp93-related-grid">
+          <a class="pp-related-card pp89-related-card pp91-related-card pp93-related-card" href="pcb-guardian.html">
+            <i class="bi bi-cpu pp93-related-icon" aria-hidden="true"></i>
             <strong>PCB Guardian</strong>
             <span>Discuss a computer-vision PCB inspection concept.</span>
+            <i class="bi bi-arrow-right pp93-related-arrow" aria-hidden="true"></i>
           </a>
-          <a class="pp-related-card" href="beejhealth.html">
-            <i class="bi bi-flower1" aria-hidden="true"></i>
+          <a class="pp-related-card pp89-related-card pp91-related-card pp93-related-card" href="beejhealth.html">
+            <i class="bi bi-flower1 pp93-related-icon" aria-hidden="true"></i>
             <strong>BeejHealth</strong>
             <span>AI crop health advisory for Indian agriculture.</span>
+            <i class="bi bi-arrow-right pp93-related-arrow" aria-hidden="true"></i>
           </a>
-          <a class="pp-related-card" href="ppe-safety.html">
-            <i class="bi bi-shield-check" aria-hidden="true"></i>
+          <a class="pp-related-card pp89-related-card pp91-related-card pp93-related-card" href="ppe-safety.html">
+            <i class="bi bi-shield-check pp93-related-icon" aria-hidden="true"></i>
             <strong>PPE Safety</strong>
             <span>Explore the existing PPE Compliance Monitor listing.</span>
+            <i class="bi bi-arrow-right pp93-related-arrow" aria-hidden="true"></i>
           </a>
         </div>
       </div>

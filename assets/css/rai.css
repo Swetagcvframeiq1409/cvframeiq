@@ -1,24 +1,41 @@
-/* rai.css - Responsible AI page (GeekyAnts-style inner page) */
+/* rai.css - Responsible AI page (GeekyAnts-inspired 10/10 rebuild) */
 .rai-page {
   --rai-acc: #6542c8;
   --rai-acc-2: #8b6ee0;
-  --rai-ease: cubic-bezier(.23,1,.32,1);
+  --rai-acc-soft: rgba(101, 66, 200, 0.14);
+  --rai-ease: cubic-bezier(.23, 1, .32, 1);
   --rai-wrap: min(1200px, calc(100% - 48px));
-  --header-h: 74px;
 }
 
-/* ── Hero (dark band) ── */
+/* ============================================================
+   HERO (dark band)
+   ============================================================ */
 #main-content.rai-page > .rai-hero {
   background: var(--bg);
   color: var(--text);
-  padding-top: clamp(48px, 7vw, 88px);
-  padding-bottom: clamp(32px, 5vw, 64px);
+  padding-top: clamp(40px, 5.5vw, 72px);
+  padding-bottom: clamp(12px, 1.5vw, 20px);
   position: relative;
+  overflow: hidden;
+}
+
+#main-content.rai-page > .rai-hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 100vw; height: 100%;
+  max-width: 1400px;
+  background: radial-gradient(ellipse at center top, rgba(101, 66, 200, 0.18), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .rai-hero .rai-wrap {
   width: var(--rai-wrap);
   margin-inline: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .rai-hero .rai-crumb {
@@ -77,7 +94,7 @@
 .rai-hero .rai-lede {
   font-size: clamp(1.02rem, 1.3vw, 1.2rem);
   color: #a3a6b5;
-  max-width: 640px;
+  max-width: 680px;
   line-height: 1.65;
   margin: 0 0 28px;
 }
@@ -86,13 +103,14 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 16px;
+  padding: 12px 20px;
   border: 1px solid rgba(101, 66, 200, 0.35);
   border-radius: 999px;
   background: rgba(101, 66, 200, 0.08);
   font: 500 13px/1 'Inter', sans-serif;
   letter-spacing: .04em;
   color: #a98bff;
+  text-transform: uppercase;
 }
 
 .rai-hero .rai-disclaimer .bi {
@@ -100,23 +118,27 @@
   flex-shrink: 0;
 }
 
-/* ── Sticky in-page nav ── */
+/* ============================================================
+   STICKY IN-PAGE NAV (tab bar)
+   ============================================================ */
 .rai-subnav {
   position: sticky;
   top: var(--header-h);
   z-index: 30;
-  background: rgba(11, 12, 16, 0.92);
+  background: rgba(11, 12, 16, 0.95);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid #23252f;
-  padding: 12px 0;
+  padding: 4px 0;
 }
 
 .rai-subnav .rai-wrap {
+  width: var(--rai-wrap);
+  margin-inline: auto;
   display: flex;
-  gap: 8px;
+  gap: 4px;
   overflow-x: auto;
   scrollbar-width: none;
-  padding-bottom: 4px;
+  padding-bottom: 2px;
 }
 
 .rai-subnav .rai-wrap::-webkit-scrollbar {
@@ -125,51 +147,45 @@
 
 .rai-subnav a {
   flex: none;
-  padding: 10px 16px;
-  font-size: 0.84rem;
-  font-weight: 500;
+  padding: 8px 16px;
+  font-size: 0.8125rem;
+  font-weight: 600;
   color: #a3a6b5;
   text-decoration: none;
-  border-bottom: 2px solid transparent;
   border-radius: 999px;
   background: rgba(255,255,255,.03);
-  transition: color 0.3s, border-color 0.4s var(--rai-ease), background 0.3s;
+  transition: color 0.25s, background 0.25s var(--rai-ease), box-shadow 0.25s var(--rai-ease);
   white-space: nowrap;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .rai-subnav a:hover {
   color: #fff;
-  background: rgba(101, 66, 200, 0.15);
+  background: rgba(101, 66, 200, 0.18);
+  box-shadow: 0 4px 20px -4px rgba(101, 66, 200, 0.3);
 }
 
 .rai-subnav a[aria-current="true"],
 .rai-subnav a.is-active {
   color: #fff;
-  border-bottom-color: var(--rai-acc-2);
-  background: rgba(101, 66, 200, 0.18);
+  background: #6542c8;
+  box-shadow: 0 4px 20px -4px color-mix(in srgb, var(--rai-acc, #6542c8) 55%, transparent);
 }
 
+/* Removed progress bar - using filled pill for active state instead */
 .rai-subnav__progress {
-  height: 2px;
-  background: rgba(255,255,255,.08);
-  border-radius: 999px;
-  overflow: hidden;
-  margin-top: 8px;
+  display: none;
 }
 
-.rai-subnav__progress-bar {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #6542c8, #8b6ee0);
-  border-radius: 999px;
-  transition: width 0.1s linear;
-}
-
-/* ── Principles band (light) ── */
+/* ============================================================
+   PRINCIPLES BAND (light)
+   ============================================================ */
 .rai-principles {
   background: var(--surface);
   color: var(--text);
-  padding-block: clamp(56px, 7vw, 104px);
+  padding-block: clamp(48px, 6vw, 96px);
 }
 
 .rai-principles .rai-wrap {
@@ -183,7 +199,7 @@
 }
 
 .rai-principles__header .gk-eyebrow {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .rai-principles__header h2 {
@@ -199,65 +215,72 @@
 .rai-cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
+  gap: 20px;
 }
 
 .rai-card {
   position: relative;
-  background: var(--surface-raised);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background:
+    radial-gradient(70% 70% at 0% 0%, color-mix(in srgb, var(--rai-acc, #6542c8) 18%, transparent), transparent 72%),
+    var(--surface-raised);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: clamp(24px, 3vw, 32px);
-  display: grid;
-  grid-template-rows: auto auto 1fr auto;
-  gap: 16px;
-  transition: transform 0.5s var(--rai-ease), border-color 0.4s var(--rai-ease), box-shadow 0.4s var(--rai-ease);
+  border-radius: 20px;
+  padding: clamp(24px, 2.5vw, 32px);
+  min-height: 380px;
+  transition: transform 400ms var(--rai-ease), border-color 400ms var(--rai-ease), box-shadow 400ms var(--rai-ease);
+}
+
+.rai-card p {
+  flex: 1;
+}
+
+.rai-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, var(--rai-acc, #6542c8), var(--rai-acc-2, #8b6ee0));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 500ms var(--rai-ease);
 }
 
 .rai-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(101, 66, 200, 0.4);
-  box-shadow: 0 20px 40px -24px rgba(101, 66, 200, 0.4);
+  transform: translateY(-8px);
+  border-color: var(--rai-acc-2, #8b6ee0);
+  box-shadow: 0 28px 64px color-mix(in srgb, var(--rai-acc, #6542c8) 30%, transparent);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .rai-card:hover {
-    transform: none;
-    box-shadow: none;
-  }
-}
-
-.rai-card__num {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: 1.125rem;
-  color: var(--rai-acc);
-  letter-spacing: -0.01em;
-}
+.rai-card:hover::before { transform: scaleX(1); }
 
 .rai-card__icon {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 12px;
   display: grid;
   place-items: center;
-  background: rgba(101, 66, 200, 0.12);
-  color: var(--rai-acc-2);
+  background: linear-gradient(135deg, var(--rai-acc, #6542c8), var(--rai-acc-2, #8b6ee0));
+  color: #fff;
   font-size: 1.25rem;
   flex-shrink: 0;
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--rai-acc, #6542c8) 40%, transparent);
 }
 
 .rai-card h3 {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 500;
-  font-size: clamp(1.5rem, 1.8vw, 1.75rem);
+  font-size: clamp(1.375rem, 1.6vw, 1.75rem);
   line-height: 1.25;
   margin: 0;
   color: var(--text);
 }
 
 .rai-card p {
-  font-size: 1rem;
+  font-size: 0.9375rem;
   line-height: 1.65;
   color: var(--text-muted);
   margin: 0;
@@ -267,33 +290,37 @@
 @media (max-width: 960px) {
   .rai-cards {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
 
-/* ── Questions band (dark) ── */
+/* ============================================================
+   QUESTIONS BAND (dark) - sticky sidebar + numbered list
+   ============================================================ */
 .rai-questions {
   background: var(--bg);
   color: var(--text);
-  padding-block: clamp(56px, 7vw, 104px);
+  padding-block: clamp(48px, 6vw, 96px);
 }
 
 .rai-questions .rai-wrap {
   width: var(--rai-wrap);
   margin-inline: auto;
   display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
-  gap: clamp(28px, 6vw, 90px);
+  grid-template-columns: minmax(300px, 35%) minmax(0, 720px);
+  gap: clamp(24px, 3.5vw, 40px);
   align-items: start;
+  justify-content: center;
 }
 
 .rai-questions__sidebar {
   position: sticky;
-  top: calc(var(--header-h) + 90px);
+  top: calc(var(--header-h) + 56px + 16px);
   align-self: start;
 }
 
 .rai-questions__header .gk-eyebrow {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .rai-questions__header h2 {
@@ -302,13 +329,13 @@
   font-size: clamp(36px, 4vw, 76px);
   line-height: 1.02;
   letter-spacing: -0.025em;
-  margin: 0 0 16px;
+  margin: 0 0 14px;
   color: var(--text);
 }
 
 .rai-questions__intro {
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.9375rem;
+  line-height: 1.65;
   color: var(--text-muted);
   margin: 0;
 }
@@ -329,7 +356,7 @@
 
 .rai-question__row {
   display: grid;
-  grid-template-columns: 40px minmax(0, 1fr);
+  grid-template-columns: 44px minmax(0, 1fr);
   gap: 16px;
   align-items: start;
 }
@@ -337,9 +364,9 @@
 .rai-question__num {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 300;
-  font-size: clamp(2rem, 3vw, 3rem);
+  font-size: clamp(1.875rem, 2.5vw, 2.5rem);
   line-height: 1;
-  color: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.05);
   align-self: start;
 }
 
@@ -349,20 +376,21 @@
 }
 
 .rai-question__text {
-  font-size: 1.125rem;
-  line-height: 1.4;
+  font-size: 1.0625rem;
+  line-height: 1.45;
   color: var(--text);
   margin: 0;
   font-weight: 500;
 }
 
 .rai-questions__disclaimer {
-  margin-top: 24px;
-  padding: 16px;
+  grid-column: 2;
+  margin-top: 28px;
+  padding: 18px 22px;
   border: 1px solid rgba(101, 66, 200, 0.25);
   border-radius: 12px;
   background: rgba(101, 66, 200, 0.06);
-  font-size: 0.9375rem;
+  font-size: 0.9rem;
   line-height: 1.6;
   color: var(--text-muted);
 }
@@ -370,7 +398,10 @@
 @media (max-width: 960px) {
   .rai-questions .rai-wrap {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 28px;
+  }
+  .rai-questions__disclaimer {
+    grid-column: 1 / -1;
   }
   .rai-questions__sidebar {
     position: static;
@@ -380,22 +411,29 @@
   }
 }
 
-/* ── Discuss a project band (light CTA) ── */
+/* ============================================================
+   DISCUSS A PROJECT BAND (light CTA)
+   ============================================================ */
 .rai-cta {
   background: var(--surface);
   color: var(--text);
-  padding-block: clamp(56px, 7vw, 104px);
+  padding-block: clamp(48px, 6vw, 96px);
 }
 
 .rai-cta .rai-wrap {
   width: var(--rai-wrap);
   margin-inline: auto;
-  max-width: 800px;
+  max-width: 880px;
   text-align: center;
 }
 
+.rai-cta__header {
+  max-width: 720px;
+  margin: 0 auto 40px;
+}
+
 .rai-cta__header .gk-eyebrow {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   justify-content: center;
 }
 
@@ -405,35 +443,41 @@
   font-size: clamp(36px, 4vw, 76px);
   line-height: 1.02;
   letter-spacing: -0.025em;
-  margin: 0 0 16px;
+  margin: 0 0 14px;
   color: var(--text);
 }
 
 .rai-cta__copy {
-  font-size: 1.125rem;
-  line-height: 1.7;
+  font-size: 1.0625rem;
+  line-height: 1.65;
   color: var(--text-muted);
-  margin: 0 0 32px;
-  max-width: 640px;
+  margin: 0 0 28px;
+  max-width: 680px;
   margin-inline: auto;
 }
 
 .rai-cta__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 14px;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .rai-cta__actions .btn {
-  min-height: 48px;
-  padding: 0 24px;
-  font-size: 0.9375rem;
+  min-height: 50px;
+  padding: 0 26px;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .rai-cta__contact {
-  font-size: 0.9375rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
   color: var(--text-soft);
 }
 
@@ -449,13 +493,121 @@
   border-bottom-color: var(--rai-acc-2);
 }
 
-/* ── Reveal animations ── */
+.rai-cta__contact .rai-contact-sep {
+  color: var(--border);
+}
+
+/* ============================================================
+   FINAL CTA BAND (dark, premium)
+   ============================================================ */
+.rai-final-cta {
+  background: var(--bg);
+  color: var(--text);
+  padding-block: clamp(48px, 6vw, 96px);
+  position: relative;
+  overflow: hidden;
+}
+
+.rai-final-cta::before {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw; height: 100%;
+  max-width: 800px;
+  background: radial-gradient(ellipse at center, rgba(101, 66, 200, 0.18), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.rai-final-cta .rai-wrap {
+  width: var(--rai-wrap);
+  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 900px;
+}
+
+.rai-final-cta .gk-eyebrow {
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.rai-final-cta h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(36px, 4vw, 76px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin: 0 0 14px;
+  color: var(--text);
+}
+
+.rai-final-cta .rai-final-cta__copy {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0 0 28px;
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+.rai-final-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.rai-final-cta__actions .btn {
+  min-height: 50px;
+  padding: 0 26px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.rai-final-cta__details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  border-top: 1px solid var(--border);
+  padding-top: 28px;
+}
+
+.rai-final-cta__details a {
+  color: var(--rai-acc-2);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.rai-final-cta__details a:hover {
+  color: #fff;
+  border-bottom-color: var(--rai-acc-2);
+}
+
+.rai-final-cta__details .rai-contact-sep {
+  color: var(--border);
+}
+
+/* ============================================================
+   REVEAL ANIMATIONS
+   ============================================================ */
 .rai-reveal,
 .rai-card,
 .rai-question,
 .rai-cta__header,
 .rai-cta__actions,
-.rai-cta__contact {
+.rai-cta__contact,
+.rai-final-cta__header,
+.rai-final-cta__actions,
+.rai-final-cta__details {
   opacity: 1;
   transform: none;
   transition: opacity 700ms var(--rai-ease), transform 700ms var(--rai-ease);
@@ -467,7 +619,10 @@ html.js .rai-card:not(.is-in),
 html.js .rai-question:not(.is-in),
 html.js .rai-cta__header:not(.is-in),
 html.js .rai-cta__actions:not(.is-in),
-html.js .rai-cta__contact:not(.is-in) {
+html.js .rai-cta__contact:not(.is-in),
+html.js .rai-final-cta__header:not(.is-in),
+html.js .rai-final-cta__actions:not(.is-in),
+html.js .rai-final-cta__details:not(.is-in) {
   opacity: 0;
   transform: translateY(24px);
 }
@@ -479,19 +634,27 @@ html.js .rai-cta__contact:not(.is-in) {
   .rai-cta__header,
   .rai-cta__actions,
   .rai-cta__contact,
+  .rai-final-cta__header,
+  .rai-final-cta__actions,
+  .rai-final-cta__details,
   html.js .rai-reveal:not(.is-in),
   html.js .rai-card:not(.is-in),
   html.js .rai-question:not(.is-in),
   html.js .rai-cta__header:not(.is-in),
   html.js .rai-cta__actions:not(.is-in),
-  html.js .rai-cta__contact:not(.is-in) {
+  html.js .rai-cta__contact:not(.is-in),
+  html.js .rai-final-cta__header:not(.is-in),
+  html.js .rai-final-cta__actions:not(.is-in),
+  html.js .rai-final-cta__details:not(.is-in) {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
   }
 }
 
-/* ── Focus ring ── */
+/* ============================================================
+   FOCUS RING
+   ============================================================ */
 .rai-page a:focus-visible,
 .rai-page button:focus-visible,
 .rai-page [tabindex]:focus-visible {
@@ -500,57 +663,218 @@ html.js .rai-cta__contact:not(.is-in) {
   border-radius: 8px;
 }
 
-/* ── Phone adjustments ── */
+/* ============================================================
+   PHONE ADJUSTMENTS (≤767px)
+   ============================================================ */
 @media (max-width: 767px) {
-  .rai-hero {
-    padding-top: clamp(32px, 6vw, 56px);
-    padding-bottom: clamp(24px, 5vw, 40px);
+  #main-content.rai-page > .rai-hero {
+    padding-top: clamp(32px, 5vw, 52px);
+    padding-bottom: clamp(24px, 6vw, 28px);
   }
 
   .rai-hero h1 {
-    font-size: clamp(2rem, 9vw, 2.75rem);
+    font-size: clamp(2rem, 8.5vw, 2.5rem);
     line-height: 1.1;
     letter-spacing: -0.04em;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
 
   .rai-hero .rai-lede {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+
+  .rai-hero .rai-disclaimer {
+    padding: 7px 12px;
+    font-size: 10px;
   }
 
   .rai-subnav {
-    padding: 8px 0;
+    padding: 3px 0;
+  }
+
+  .rai-subnav .rai-wrap {
+    width: 100%;
+    gap: 3px;
+    padding-bottom: 1px;
+    justify-content: center;
   }
 
   .rai-subnav a {
-    padding: 8px 14px;
-    font-size: 0.78rem;
+    padding: 6px 12px;
+    font-size: 0.72rem;
+    min-height: 36px;
   }
 
   .rai-principles,
   .rai-questions,
-  .rai-cta {
-    padding-block: clamp(40px, 8vw, 72px);
+  .rai-cta,
+  .rai-final-cta {
+    padding-block: clamp(40px, 7vw, 72px);
   }
 
   .rai-principles__header h2,
   .rai-questions__header h2,
-  .rai-cta__header h2 {
-    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  .rai-cta__header h2,
+  .rai-final-cta h2 {
+    font-size: clamp(1.625rem, 5.5vw, 2.25rem);
+  }
+
+  .rai-principles__header {
+    margin-bottom: 36px;
   }
 
   .rai-card {
     padding: 20px;
+    min-height: auto;
+    gap: 14px;
+  }
+
+  .rai-card__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    font-size: 1.125rem;
   }
 
   .rai-card h3 {
-    font-size: 1.375rem;
+    font-size: 1.25rem;
   }
 
   .rai-card p {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  .rai-question {
+    padding: 16px 0;
+  }
+
+  .rai-question__text {
     font-size: 0.9375rem;
+    line-height: 1.4;
+  }
+
+  .rai-question__num {
+    font-size: clamp(1.375rem, 3.5vw, 1.75rem);
+  }
+
+  .rai-question__row {
+    gap: 12px;
+  }
+
+  .rai-cta__copy,
+  .rai-final-cta__copy {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .rai-cta__header {
+    margin-bottom: 32px;
+  }
+
+  .rai-cta__actions,
+  .rai-final-cta__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .rai-cta__actions .btn,
+  .rai-final-cta__actions .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 24px;
+    font-size: 0.875rem;
+  }
+
+  .rai-cta__contact,
+  .rai-final-cta__details {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .rai-cta__contact .rai-contact-sep,
+  .rai-final-cta__details .rai-contact-sep {
+    display: none;
+  }
+
+  .rai-final-cta__details {
+    padding-top: 24px;
+  }
+
+  .rai-cta__contact,
+  .rai-final-cta__details {
+    font-size: 0.875rem;
+  }
+}
+
+/* ============================================================
+   TABLET ADJUSTMENTS (768px - 1024px)
+   ============================================================ */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .rai-hero {
+    padding-top: clamp(44px, 5.5vw, 68px);
+    padding-bottom: clamp(16px, 2.5vw, 24px);
+  }
+
+  .rai-hero h1 {
+    font-size: clamp(2.75rem, 5.5vw, 3.75rem);
+    margin-bottom: 18px;
+  }
+
+  .rai-hero .rai-lede {
+    font-size: clamp(1rem, 1.1vw, 1.125rem);
+    margin-bottom: 20px;
+  }
+
+  .rai-subnav {
+    padding: 6px 0;
+  }
+
+  .rai-subnav a {
+    padding: 9px 16px;
+    font-size: 0.8rem;
+    min-height: 40px;
+  }
+
+  .rai-principles,
+  .rai-questions,
+  .rai-cta,
+  .rai-final-cta {
+    padding-block: clamp(48px, 5.5vw, 88px);
+  }
+
+  .rai-cards {
+    gap: 18px;
+  }
+
+  .rai-card {
+    padding: clamp(22px, 2.5vw, 28px);
+    min-height: 360px;
+    gap: 16px;
+  }
+
+  .rai-card__icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 11px;
+    font-size: 1.1875rem;
+  }
+
+  .rai-card h3 {
+    font-size: clamp(1.3125rem, 1.7vw, 1.625rem);
+  }
+
+  .rai-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .rai-question {
+    padding: 18px 0;
   }
 
   .rai-question__text {
@@ -558,25 +882,13 @@ html.js .rai-cta__contact:not(.is-in) {
   }
 
   .rai-question__num {
-    font-size: clamp(1.5rem, 4vw, 2rem);
-  }
-
-  .rai-cta__copy {
-    font-size: 1rem;
-  }
-
-  .rai-cta__actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .rai-cta__actions .btn {
-    width: 100%;
-    justify-content: center;
+    font-size: clamp(1.625rem, 2.2vw, 2rem);
   }
 }
 
-/* ── Horizontal overflow prevention ── */
+/* ============================================================
+   HORIZONTAL OVERFLOW PREVENTION
+   ============================================================ */
 html, body {
   max-width: 100%;
   overflow-x: clip;
@@ -588,6 +900,165 @@ html, body {
 .rai-principles,
 .rai-questions,
 .rai-cta,
+.rai-final-cta,
 main {
   min-width: 0;
+}
+
+/* ============================================================
+   LIGHT THEME OVERRIDES (body[data-theme="light"])
+   ============================================================ */
+body[data-theme="light"] .rai-page {
+  --bg: #ffffff;
+  --surface: #f4f4f4;
+  --surface-raised: #ffffff;
+  --border: rgba(7, 6, 13, 0.08);
+  --border-raised: rgba(7, 6, 13, 0.08);
+  --text: #07060d;
+  --text-muted: #4a4a55;
+  --text-soft: #6a6a75;
+}
+
+body[data-theme="light"] .rai-hero {
+  background: var(--bg);
+}
+
+body[data-theme="light"] .rai-hero::before {
+  background: radial-gradient(ellipse at center top, rgba(101, 66, 200, 0.10), transparent 60%);
+}
+
+body[data-theme="light"] .rai-hero .rai-crumb {
+  color: rgba(7, 6, 13, 0.5);
+}
+
+body[data-theme="light"] .rai-hero .rai-crumb .rai-sep {
+  color: rgba(7, 6, 13, 0.25);
+}
+
+body[data-theme="light"] .rai-hero .rai-crumb a:hover,
+body[data-theme="light"] .rai-hero .rai-crumb [aria-current="page"] {
+  color: var(--rai-acc);
+}
+
+body[data-theme="light"] .rai-hero .rai-lede {
+  color: #4a4a55;
+}
+
+body[data-theme="light"] .rai-hero .rai-disclaimer {
+  border-color: rgba(101, 66, 200, 0.3);
+  background: rgba(101, 66, 200, 0.06);
+  color: #6542c8;
+}
+
+body[data-theme="light"] .rai-subnav {
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom-color: rgba(7, 6, 13, 0.08);
+}
+
+body[data-theme="light"] .rai-subnav a {
+  color: #4a4a55;
+  background: rgba(7, 6, 13, 0.04);
+}
+
+body[data-theme="light"] .rai-subnav a:hover {
+  color: #07060d;
+  background: rgba(101, 66, 200, 0.1);
+  box-shadow: 0 4px 20px -4px rgba(101, 66, 200, 0.2);
+}
+
+body[data-theme="light"] .rai-subnav a[aria-current="true"],
+body[data-theme="light"] .rai-subnav a.is-active {
+  color: #07060d;
+  background: linear-gradient(180deg, rgba(101, 66, 200, 0.15), rgba(101, 66, 200, 0.06));
+  box-shadow: 0 4px 20px -4px rgba(101, 66, 200, 0.25);
+}
+
+body[data-theme="light"] .rai-principles {
+  background: var(--surface);
+}
+
+body[data-theme="light"] .rai-card {
+  background: var(--surface-raised);
+  border-color: var(--border);
+  box-shadow: 0 8px 24px rgba(7, 6, 13, 0.06);
+}
+
+body[data-theme="light"] .rai-card:hover {
+  border-color: rgba(101, 66, 200, 0.45);
+  box-shadow: 0 20px 40px -16px rgba(101, 66, 200, 0.25);
+}
+
+body[data-theme="light"] .rai-card h3 {
+  color: var(--text);
+}
+
+body[data-theme="light"] .rai-card p {
+  color: var(--text-muted);
+}
+
+body[data-theme="light"] .rai-card__icon {
+  background: rgba(101, 66, 200, 0.10);
+  color: var(--rai-acc);
+}
+
+body[data-theme="light"] .rai-questions {
+  background: var(--bg);
+}
+
+body[data-theme="light"] .rai-question {
+  border-top-color: var(--border);
+}
+
+body[data-theme="light"] .rai-question__num {
+  color: rgba(7, 6, 13, 0.05);
+}
+
+body[data-theme="light"] .rai-question__text {
+  color: var(--text);
+}
+
+body[data-theme="light"] .rai-questions__disclaimer {
+  border-color: rgba(101, 66, 200, 0.2);
+  background: rgba(101, 66, 200, 0.04);
+  color: var(--text-muted);
+}
+
+body[data-theme="light"] .rai-cta,
+body[data-theme="light"] .rai-final-cta {
+  background: var(--surface);
+}
+
+body[data-theme="light"] .rai-final-cta::before {
+  background: radial-gradient(ellipse at center, rgba(101, 66, 200, 0.10), transparent 70%);
+}
+
+body[data-theme="light"] .rai-cta__header h2,
+body[data-theme="light"] .rai-final-cta h2 {
+  color: var(--text);
+}
+
+body[data-theme="light"] .rai-cta__copy,
+body[data-theme="light"] .rai-final-cta .rai-final-cta__copy {
+  color: var(--text-muted);
+}
+
+body[data-theme="light"] .rai-cta__contact,
+body[data-theme="light"] .rai-final-cta__details {
+  border-top-color: var(--border);
+}
+
+body[data-theme="light"] .rai-cta__contact a,
+body[data-theme="light"] .rai-final-cta__details a {
+  color: var(--rai-acc);
+}
+
+body[data-theme="light"] .rai-cta__contact a:hover,
+body[data-theme="light"] .rai-final-cta__details a:hover {
+  color: #07060d;
+  border-bottom-color: var(--rai-acc);
+}
+
+body[data-theme="light"] .rai-cta__contact .rai-contact-sep,
+body[data-theme="light"] .rai-final-cta__details .rai-contact-sep {
+  color: var(--border);
 }

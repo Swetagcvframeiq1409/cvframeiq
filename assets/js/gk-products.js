@@ -96,63 +96,6 @@
   }
 
   /* ============================================================
-     4. TABS — arrow key navigation, aria-selected sync
-     ============================================================ */
-  function initProdTabs() {
-    document.querySelectorAll('[data-gk-tabs], [data-pp-tabs]').forEach(function (wrap) {
-      var btns = Array.prototype.slice.call(wrap.querySelectorAll('[role="tab"], .pp-tab-btn, .gk-tabs__bar button'));
-      var panels = Array.prototype.slice.call(wrap.querySelectorAll('[role="tabpanel"], .pp-tab-panel, .gk-tabs__panel'));
-
-      if (!btns.length || btns.length !== panels.length) return;
-
-      btns.forEach(function (btn, idx) {
-        btn.addEventListener('keydown', function (e) {
-          var len = btns.length;
-          var nextIdx = idx;
-          if (e.key === 'ArrowRight') { e.preventDefault(); nextIdx = (idx + 1) % len; }
-          else if (e.key === 'ArrowLeft') { e.preventDefault(); nextIdx = (idx - 1 + len) % len; }
-          else if (e.key === 'Home') { e.preventDefault(); nextIdx = 0; }
-          else if (e.key === 'End') { e.preventDefault(); nextIdx = len - 1; }
-          else { return; }
-          btns[nextIdx].click();
-          btns[nextIdx].focus();
-        });
-      });
-    });
-  }
-
-  /* ============================================================
-     5. FAQ ACCORDION — smooth height, +/− icon
-     ============================================================ */
-  function initProdAccordion() {
-    document.querySelectorAll('[data-gk-acc], [data-pp-acc]').forEach(function (acc) {
-      var items = Array.prototype.slice.call(acc.querySelectorAll('.gk-acc__item, .pp-acc-item'));
-      items.forEach(function (item) {
-        var q = item.querySelector('.gk-acc__q, .pp-acc-q');
-        if (!q) return;
-        q.setAttribute('aria-expanded', 'false');
-        q.addEventListener('click', function () {
-          var open = item.classList.contains('is-open');
-          items.forEach(function (o) {
-            o.classList.remove('is-open');
-            var oq = o.querySelector('.gk-acc__q, .pp-acc-q');
-            if (oq) oq.setAttribute('aria-expanded', 'false');
-          });
-          if (!open) {
-            item.classList.add('is-open');
-            q.setAttribute('aria-expanded', 'true');
-          }
-        });
-      });
-      if (items[0]) {
-        items[0].classList.add('is-open');
-        var fq = items[0].querySelector('.gk-acc__q, .pp-acc-q');
-        if (fq) fq.setAttribute('aria-expanded', 'true');
-      }
-    });
-  }
-
-  /* ============================================================
      6. JOURNEY / TIMELINE — scroll observer for pinned media
      ============================================================ */
   function initJourneyObserver() {
@@ -255,8 +198,6 @@
   function init() {
     initRevealFallback();
     initCompareTray();
-    initProdTabs();
-    initProdAccordion();
     initJourneyObserver();
     initImageFallbacks();
     initMarquee();
