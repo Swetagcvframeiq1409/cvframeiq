@@ -84,7 +84,9 @@
       homeFaqList.querySelectorAll('.home-faq__trigger').forEach(function (trigger) {
         var open = trigger === selected && shouldOpen;
         var panel = document.getElementById(trigger.getAttribute('aria-controls'));
+        var icon = trigger.querySelector('i');
         trigger.setAttribute('aria-expanded', String(open));
+        if (icon) icon.className = open ? 'bi bi-x-lg' : 'bi bi-plus-lg';
         if (panel) {
           panel.setAttribute('aria-hidden', String(!open));
           panel.inert = !open;
@@ -1465,7 +1467,7 @@
       var question = document.createElement('span');
       question.textContent = itemData && itemData.question ? itemData.question : pendingCopy;
       var icon = document.createElement('i');
-      icon.className = 'bi bi-plus-lg';
+      icon.className = index === 0 ? 'bi bi-x-lg' : 'bi bi-plus-lg';
       icon.setAttribute('aria-hidden', 'true');
       button.append(question, icon);
       var panel = document.createElement('div');
@@ -1484,21 +1486,34 @@
       }
       button.addEventListener('click', function () {
         var open = item.classList.contains('is-open');
-        if (open) return;
+        if (open) {
+          item.classList.remove('is-open');
+          button.setAttribute('aria-expanded', 'false');
+          panel.setAttribute('aria-hidden', 'true');
+          panel.inert = true;
+          panel.style.maxHeight = '0px';
+          var openIcon = button.querySelector('i');
+          if (openIcon) openIcon.className = 'bi bi-plus-lg';
+          return;
+        }
         faqHost.querySelectorAll('.home-faq-item').forEach(function (other) {
           var otherButton = other.querySelector('.home-faq-question');
           var otherPanel = other.querySelector('.home-faq-answer');
+          var otherIcon = otherButton && otherButton.querySelector('i');
           other.classList.remove('is-open');
           otherButton.setAttribute('aria-expanded', 'false');
           otherPanel.setAttribute('aria-hidden', 'true');
           otherPanel.inert = true;
           otherPanel.style.maxHeight = '0px';
+          if (otherIcon) otherIcon.className = 'bi bi-plus-lg';
         });
         item.classList.add('is-open');
         button.setAttribute('aria-expanded', 'true');
         panel.setAttribute('aria-hidden', 'false');
         panel.inert = false;
         panel.style.maxHeight = answer.scrollHeight + 20 + 'px';
+        var selectedIcon = button.querySelector('i');
+        if (selectedIcon) selectedIcon.className = 'bi bi-x-lg';
       });
       item.append(button, panel);
       faqHost.appendChild(item);
