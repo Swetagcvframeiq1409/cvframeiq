@@ -24,7 +24,6 @@ window.SITE_PAGES = [
   'pages/responsible-ai.html',
   'pages/glossary.html',
   'pages/partners.html',
-  'pages/press-kit.html',
   'pages/compare.html',
   'pages/cookies.html',
   'pages/features.html',
@@ -151,7 +150,6 @@ window.NAV_DATA = {
       { label: 'Careers', href: 'pages/careers.html' },
       { label: 'Responsible AI', href: 'pages/responsible-ai.html' },
       { label: 'Partners', href: 'pages/partners.html' },
-      { label: 'Press kit', href: 'pages/press-kit.html' },
       { label: 'Contact', href: 'pages/contact.html' }
     ],
     legal: [

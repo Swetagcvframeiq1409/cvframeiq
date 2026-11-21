@@ -83,7 +83,7 @@
     if (!continueBtn) return;
     continueBtn.disabled = !enabled;
     continueBtn.setAttribute('aria-disabled', String(!enabled));
-    if (statusEl) statusEl.textContent = enabled ? `Selected: ${state.focus}` : 'Select an option to continue';
+    if (statusEl) statusEl.textContent = enabled ? '' : 'Select an option to continue';
   };
   setContinueEnabled(false);
 
@@ -115,7 +115,14 @@
   }));
 
   dateInput?.addEventListener('change', (event) => {
-    root.querySelectorAll('[data-summary-date]').forEach((el) => { el.textContent = event.target.value || 'Not selected'; });
+    const val = event.target.value;
+    if (val) {
+      const d = new Date(`${val}T00:00:00`);
+      const formatted = d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+      root.querySelectorAll('[data-summary-date]').forEach((el) => { el.textContent = formatted; });
+    } else {
+      root.querySelectorAll('[data-summary-date]').forEach((el) => { el.textContent = 'Not selected'; });
+    }
   });
 
   stepItems.forEach((item, index) => item.addEventListener('click', () => {
@@ -145,7 +152,11 @@
     const body = encodeURIComponent([...data.entries()].map(([key, value]) => `${key}: ${value}`).join('\n'));
     const mailto = `mailto:official@cvframeiq.com?subject=${encodeURIComponent('Hardware demo request')}&body=${body}`;
     const succ = root.querySelector('[data-success-summary]');
-    if (succ) succ.textContent = `Focus: ${state.focus} | Date: ${data.get('Date')} | Time: ${state.slot}`;
+    if (succ) {
+      const d = new Date(data.get('Date') + 'T00:00:00');
+      const formatted = d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+      succ.textContent = `Focus: ${state.focus} Date: ${formatted} Time: ${state.slot}`;
+    }
     root.querySelector('[data-wizard]').hidden = true;
     root.querySelector('[data-success]').hidden = false;
     root.querySelector('[data-success]').dataset.mailto = mailto;

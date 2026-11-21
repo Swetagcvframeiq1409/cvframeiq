@@ -71,7 +71,6 @@ const FILE_MAP = {
   'pages/cookies.html': 'pages/cookies.html',
   'pages/features.html': 'pages/features.html',
   'pages/partners.html': 'pages/partners.html',
-  'pages/press-kit.html': 'pages/press-kit.html',
   'pages/responsible-ai.html': 'pages/responsible-ai.html',
   'pages/docs.html': 'pages/docs.html'
 };
@@ -117,10 +116,9 @@ function ensureRouteData() {
       '/hardware/smart-factory-kit': 'pages/hardware/smart-factory-kit.html',
       '/how-we-work': 'pages/how-we-work.html',
       '/login': 'pages/login.html',
-      '/partners': 'pages/partners.html',
-      '/playground': 'pages/playground.html',
-      '/press-kit': 'pages/press-kit.html',
-      '/privacy': 'pages/privacy.html',
+  '/partners': 'pages/partners.html',
+  '/playground': 'pages/playground.html',
+  '/privacy': 'pages/privacy.html',
       '/research': 'pages/research.html',
       '/responsible-ai': 'pages/responsible-ai.html',
       '/sectors': 'pages/sectors.html',

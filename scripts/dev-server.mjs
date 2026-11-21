@@ -31,7 +31,6 @@ const routeMap = {
   '/login': 'pages/login.html',
   '/partners': 'pages/partners.html',
   '/playground': 'pages/playground.html',
-  '/press-kit': 'pages/press-kit.html',
   '/privacy': 'pages/privacy.html',
   '/research': 'pages/research.html',
   '/responsible-ai': 'pages/responsible-ai.html',

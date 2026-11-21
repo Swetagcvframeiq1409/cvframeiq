@@ -396,9 +396,9 @@
   flex-shrink: 0;
   font-size: 1.2rem;
   color: var(--pp-accent2);
-  transition: transform .4s var(--pp-ease);
+  transition: transform .2s ease;
 }
-.pp-acc-item.is-open .pp-acc-q .pp-acc-icon { transform: rotate(45deg); }
+.pp-acc-q[aria-expanded="true"] .pp-acc-icon { transform: rotate(45deg); }
 .pp-acc-a {
   display: grid;
   grid-template-rows: 0fr;
@@ -626,4 +626,17 @@ body[data-theme="light"] .pp-cta-band {
   .pp-tab-panel.is-on { animation: none; }
   .pp-problem-card:hover { transform: none; }
   .pp-related-card:hover { transform: none; }
+}
+/* -- FAQ desktop polish (>=901px) -- */
+@media (min-width: 901px) {
+  .pp-faq-wrap { padding-top: clamp(48px, 7vw, 88px); padding-bottom: clamp(48px, 7vw, 88px); }
+  #main-content.pp-page .pp-acc-a p { font-size: 16px; line-height: 1.65; color: var(--text-muted,#a8afc2); padding: 0 24px 20px; max-width: 60ch; }
+  #main-content.pp-page .pp-acc-q { min-height: 64px; }
+  #main-content.pp-page .pp-acc-q:focus-visible { outline: 2px solid #b8a8ff; outline-offset: -2px; }
+  #main-content.pp-page .pp-acc-q .pp-acc-icon { transition: transform .25s ease; }
+  @media (prefers-reduced-motion: reduce) {
+    #main-content.pp-page .pp-acc-q .pp-acc-icon { transition: none; }
+    #main-content.pp-page .pp-acc-a { transition: none; }
+  }
+  .pp-faq-intro-col { align-self: start; }
 }

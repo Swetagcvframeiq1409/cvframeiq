@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="../../assets/css/hw-common.css">
     <link rel="stylesheet" href="../../assets/css/hw-demo.css">
     <link rel="stylesheet" href="../../assets/css/hw-img.css">
+    <link rel="stylesheet" href="../../assets/css/book-demo-v2.css">
     <script src="../../assets/data/site-data.js" defer></script>
     <script src="../../assets/data/hardware-data.js" defer></script>
     <script src="../../assets/js/icons.js" defer></script>
@@ -118,7 +119,7 @@
                   </label>
                 </div>
                 <span class="hw-demo__error" data-focus-error></span>
-                <div class="hw-demo__focus-chip" data-focus-chip hidden>
+                <div class="hw-demo__focus-chip" data-focus-chip aria-live="polite" hidden>
                   <span>Selected: <strong data-focus-name></strong></span>
                   <button type="button" class="hw-demo__link" data-change-focus>Change</button>
                 </div>
@@ -225,7 +226,11 @@
                   <button class="hw-demo__slot" type="button" data-slot="5:30 PM IST" aria-pressed="false">5:30 PM</button>
                 </div>
                 <span class="hw-demo__error" data-slot-error></span>
-                <p class="hw-demo__summary">Focus: <span data-summary-focus>Not selected</span> | Date: <span data-summary-date>Not selected</span> | Time: <span data-summary-slot>Not selected</span></p>
+                <div class="hw-demo__summary" style="margin-top:24px; padding:16px; border:1px solid rgba(255,255,255,.12); border-radius:12px; background:rgba(255,255,255,.02); display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px;">
+                  <div><span style="font-size:12px; color:#a8afc2; text-transform:uppercase; letter-spacing:.08em;">Focus</span><br><strong data-summary-focus style="font-size:16px; color:#f5f6fb; font-weight:500;">Not selected</strong></div>
+                  <div><span style="font-size:12px; color:#a8afc2; text-transform:uppercase; letter-spacing:.08em;">Date</span><br><strong data-summary-date style="font-size:16px; color:#f5f6fb; font-weight:500;">Not selected</strong></div>
+                  <div><span style="font-size:12px; color:#a8afc2; text-transform:uppercase; letter-spacing:.08em;">Time</span><br><strong data-summary-slot style="font-size:16px; color:#f5f6fb; font-weight:500;">Not selected</strong></div>
+                </div>
                 <div class="hw-demo__actions">
                   <button class="hw-demo__button hw-demo__button--ghost" data-back type="button">Back</button>
                   <button class="hw-demo__button" data-submit type="submit" form="demo-form">Request Demo <i class="bi bi-arrow-right" aria-hidden="true"></i></button>
@@ -247,12 +252,12 @@
 
           <aside class="hw-demo__expect">
             <h2>What to expect</h2>
-            <ol class="hw-demo__timeline">
-              <li>We&rsquo;ll review your use case</li>
-              <li>Show you a live demo</li>
-              <li>Give you an honest timeline and cost estimate</li>
-            </ol>
-            <p>No commitment, no sales pitch &mdash; just your use case and our honest assessment.</p>
+            <ul class="hw-demo__timeline">
+              <li><i class="bi bi-check-circle" aria-hidden="true"></i>We&rsquo;ll review your use case</li>
+              <li><i class="bi bi-check-circle" aria-hidden="true"></i>Show you a live demo</li>
+              <li><i class="bi bi-check-circle" aria-hidden="true"></i>Give you an honest timeline and cost estimate</li>
+            </ul>
+            <p>No commitment, no sales pitch. Just your use case and our honest assessment.</p>
 
             <figure class="hw-consult-img" aria-hidden="true" style="margin-top:24px">
               <img
@@ -285,13 +290,6 @@
             </div>
           </aside>
 
-        </div>
-      </section>
-
-      <section class="hw-band gk-band--dark hw-demo__alternative" data-tone="dark">
-        <div class="hw-wrap">
-          <h2>Need a price first?</h2>
-          <a class="hw-demo__button" href="request-quote.html">Request a Hardware Quote <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
         </div>
       </section>
 

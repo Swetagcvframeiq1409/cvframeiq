@@ -549,7 +549,7 @@ html[data-theme="light"] #main-content.pp-page .pp-draft-chip {
 #main-content.pp-page .pp-chip {
   font-size: 13px;
   color: #c4c4d0;
-  background: rgba(101, 66, 200, 0.1);
+  background: rgba(101,66,200,.14);
   border: 1px solid rgba(101, 66, 200, 0.2);
   border-radius: 999px;
   padding: 4px 12px;
@@ -608,11 +608,11 @@ html[data-theme="light"] #main-content.pp-page .pp-draft-chip {
   cursor: pointer;
   transition: background 200ms var(--ease-out);
 }
-#main-content.pp-page .pp-acc-q:not(.is-on):hover {
-  background: rgba(255, 255, 255, 0.03);
+ #main-content.pp-page .pp-acc-q:not([aria-expanded="true"]):hover {
+  background: rgba(255,255,255,.04);
 }
-#main-content.pp-page .pp-acc-q.is-on {
-  background: rgba(101, 66, 200, 0.1);
+#main-content.pp-page .pp-acc-q[aria-expanded="true"] {
+  background: rgba(101,66,200,.14);
 }
 #main-content.pp-page .pp-acc-q span,
 #main-content.pp-page .pp-acc-q .bi {
@@ -624,9 +624,9 @@ html[data-theme="light"] #main-content.pp-page .pp-draft-chip {
 #main-content.pp-page .pp-acc-q .bi {
   font-size: 20px;
   color: #8b6df0;
-  transition: transform 250ms var(--ease-out);
+  transition: transform .2s ease;
 }
-#main-content.pp-page .pp-acc-q.is-on .bi {
+#main-content.pp-page .pp-acc-q[aria-expanded="true"] .bi {
   transform: rotate(45deg);
 }
 #main-content.pp-page .pp-acc-a {
@@ -685,11 +685,11 @@ html[data-theme="light"] #main-content.pp-page .pp-draft-chip {
   background: #ffffff;
   border-color: rgba(0, 0, 0, 0.12);
 }
-[data-theme="light"] #main-content.pp-page .pp-acc-q:not(.is-on):hover {
+[data-theme="light"]  #main-content.pp-page .pp-acc-q:not([aria-expanded="true"]):hover {
   background: rgba(0, 0, 0, 0.03);
 }
-[data-theme="light"] #main-content.pp-page .pp-acc-q.is-on {
-  background: rgba(101, 66, 200, 0.1);
+[data-theme="light"] #main-content.pp-page .pp-acc-q[aria-expanded="true"] {
+  background: rgba(101,66,200,.14);
 }
 
 /* ── Reduce motion ── */
@@ -732,4 +732,17 @@ html[data-theme="light"] #main-content.pp-page .pp-draft-chip {
   #main-content.pp-page .pp-glance {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+/* -- spec tabs desktop polish (>=901px) -- */
+@media (min-width: 901px) {
+  #main-content.pp-page .gk-head { margin-bottom: 32px; }
+  #main-content.pp-page .pp-tabs-wrap { margin-top: 0; }
+  #main-content.pp-page .pp-tab-bar-wrapper { margin-bottom: 24px; }
+  #main-content.pp-page .pp-tab-panel-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 40px; align-items: center; padding: 32px; }
+  #main-content.pp-page .pp-tab-copy h3 { max-width: none; }
+  #main-content.pp-page .pp-tab-copy p { max-width: 52ch; font-size: 17px; line-height: 1.65; }
+  #main-content.pp-page .pp-chip-group { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 8px; }
+  #main-content.pp-page .pp-tab-img-wrap, #main-content.pp-page .pp-icon-panel { width: 100%; aspect-ratio: 4/3; }
+  #main-content.pp-page .pp-tab-img-wrap img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; }
+  #main-content.pp-page .pp-icon-panel { display: flex; align-items: center; justify-content: center; }
 }

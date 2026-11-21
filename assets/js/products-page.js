@@ -25,6 +25,19 @@
 
   // fail-safe timeout 1.5s
   setTimeout(revealAll, 1500);
+
+  // AI Store: scroll tapped chip into view on phone
+  var chipsHost = document.getElementById('ais-filter-chips');
+  if (chipsHost) {
+    chipsHost.addEventListener('click', function (e) {
+      var chip = e.target.closest('.ais-chip');
+      if (chip) {
+        chip.scrollIntoView({
+          inline: 'center',
+          block: 'nearest',
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+        });
+      }
+    });
+  }
 })();
-" filePath">
-D:\CVFrameIQ\Frontend-UI\FrameIQ-Frontend\frameiq-site\assets\js\products-page.js

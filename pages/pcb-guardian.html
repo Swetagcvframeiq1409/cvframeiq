@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -24,9 +24,11 @@
     <link rel="stylesheet" href="../assets/css/mobile-fixes.css" />
     <link rel="stylesheet" href="../assets/css/gk-kit.css" />
   <link rel="stylesheet" href="../assets/css/gk-motion.css" />
-  <link rel="stylesheet" href="../assets/css/product-pages.css" />
   <link rel="stylesheet" href="../assets/css/product-pages-v2.css" />
+  <link rel="stylesheet" href="../assets/css/pp-requirements.css" />
   <link rel="stylesheet" href="../assets/css/product-page.css" />
+  <link rel="stylesheet" href="../assets/css/products-page.css" />
+  <link rel="stylesheet" href="../assets/css/pcb-guardian-polish.css" />
   <meta name="color-scheme" content="dark" />
   <script src="../assets/data/site-data.js" defer></script>
   <script src="../assets/data/live-carryover.js" defer></script>
@@ -36,6 +38,7 @@
   <script src="../assets/js/photos.js" defer></script>
   <script src="../assets/js/icons.js" defer></script>
   <script src="../assets/js/components.js" defer></script>
+  <script src="../assets/js/pages/pcb-guardian-faq.js" defer></script>
   <script src="../assets/js/search.js" defer></script>
   <script src="../assets/js/main.js" defer></script>
   <script src="../assets/js/seo.js" defer></script>
@@ -115,7 +118,7 @@
     </section>
 
     <!-- 3. PROBLEM TO EXPLORE -->
-    <section class="gk-band" aria-labelledby="pcb-problem-h2">
+    <section class="gk-band pg82-problem" aria-labelledby="pcb-problem-h2">
       <div class="gk-wrap">
         <div class="gk-head">
           <div>
@@ -271,7 +274,7 @@
     </section>
 
     <!-- 6. FAQ -->
-    <section class="gk-band" aria-labelledby="pcb-faq-h2">
+    <section class="gk-band pg82-faq" aria-labelledby="pcb-faq-h2">
       <div class="gk-wrap">
         <div class="pp-faq-wrap">
           <div class="pp-faq-intro-col">
@@ -281,29 +284,29 @@
           </div>
           <div class="pp-acc" data-pp-acc>
             <div class="pp-acc-item">
-              <button class="pp-acc-q is-on" type="button" aria-expanded="true">
+              <button class="pp-acc-q is-on" type="button" aria-expanded="true" aria-controls="pg82-faq-a-1">
                 Which defects can PCB Guardian detect?
                 <i class="bi bi-plus-lg pp-acc-icon" aria-hidden="true"></i>
               </button>
-              <div class="pp-acc-a is-on" role="region" style="max-height:200px">
+              <div class="pp-acc-a" role="region" id="pg82-faq-a-1">
                 <div><p>Supported defect classes are to be confirmed during product scoping.</p></div>
               </div>
             </div>
             <div class="pp-acc-item">
-              <button class="pp-acc-q" type="button" aria-expanded="false">
+              <button class="pp-acc-q" type="button" aria-expanded="false" aria-controls="pg82-faq-a-2">
                 Does it work with my production line?
                 <i class="bi bi-plus-lg pp-acc-icon" aria-hidden="true"></i>
               </button>
-              <div class="pp-acc-a" role="region">
+              <div class="pp-acc-a" role="region" id="pg82-faq-a-2">
                 <div><p>Compatibility and integration options are to be confirmed for your line.</p></div>
               </div>
             </div>
             <div class="pp-acc-item">
-              <button class="pp-acc-q" type="button" aria-expanded="false">
+              <button class="pp-acc-q" type="button" aria-expanded="false" aria-controls="pg82-faq-a-3">
                 What does it cost?
                 <i class="bi bi-plus-lg pp-acc-icon" aria-hidden="true"></i>
               </button>
-              <div class="pp-acc-a" role="region">
+              <div class="pp-acc-a" role="region" id="pg82-faq-a-3">
                 <div><p>Pricing is on enquiry.</p></div>
               </div>
             </div>
@@ -313,7 +316,7 @@
     </section>
 
     <!-- 7. RELATED PRODUCTS -->
-    <section class="gk-band" aria-labelledby="pcb-related-h2" data-pdp="related">
+    <section class="gk-band pg82-related" aria-labelledby="pcb-related-h2" data-pdp="related">
       <div class="gk-wrap">
         <div class="gk-head">
           <div>

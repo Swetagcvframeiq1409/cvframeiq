@@ -31,7 +31,6 @@ window.SEARCH_INDEX = [
   { title: 'Responsible AI', url: 'pages/responsible-ai.html', group: 'Company', keywords: 'fairness privacy data handling discussion points' },
   { title: 'Glossary', url: 'pages/glossary.html', group: 'Resources', keywords: 'YOLO edge cloud bounding box computer vision terms' },
   { title: 'Partners', url: 'pages/partners.html', group: 'Company', keywords: 'reseller partner enquiry' },
-  { title: 'Press kit', url: 'pages/press-kit.html', group: 'Company', keywords: 'company boilerplate brand colours media' },
   { title: 'Compare approaches', url: 'pages/compare.html', group: 'Resources', keywords: 'generic CCTV analytics edge cloud neutral comparison' },
   { title: 'Sectors', url: 'pages/sectors.html', group: 'Pages', keywords: 'industries computer vision use cases manufacturing agriculture healthcare banking aviation retail smart city security surveillance events entertainment venues' },
   { title: 'Privacy Policy', url: 'pages/privacy.html', group: 'Resources', keywords: 'privacy information rights legal' },

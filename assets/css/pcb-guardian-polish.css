@@ -1,0 +1,11 @@
+.pg82-problem .pp-problem-card { border: 1px solid var(--pp-line); border-radius: 14px; }
+.pg82-problem .pp-problem-card .bi { color: var(--pp-accent2); }
+.pg82-problem .pp-problem-card h3 { color: var(--text, #f5f6fb); }
+.pg82-problem .pp-problem-card p { color: var(--text-muted, #a8afc2); }
+
+.pg82-faq .pp-acc-a p { color: var(--text-muted, #a8afc2); }
+
+.pg82-related .pp-related-card { border: 1px solid var(--pp-line); border-radius: 14px; }
+.pg82-related .pp-related-card .bi { color: var(--pp-accent2); }
+.pg82-related .pp-related-card strong { color: var(--text, #f5f6fb); }
+.pg82-related .pp-related-card span { color: var(--text-muted, #a8afc2); }
